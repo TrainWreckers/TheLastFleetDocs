@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FleetSim | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FleetSim | The Last Fleet ">
+      
+      <meta name="description" content="The fleet&#39;s simulation between missions (design doc, &amp;quot;The Fleet: home base&amp;quot; and &amp;quot;The Scourge at the strategic layer&amp;quot;).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Fleet_FleetSim.md&amp;value=---%0Auid%3A%20LastFleet.AI.Fleet.FleetSim%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Fleet.FleetSim">
+
+
+
+  <h1 id="LastFleet_AI_Fleet_FleetSim" data-uid="LastFleet.AI.Fleet.FleetSim" class="text-break">
+Class FleetSim  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Fleet.html">Fleet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The fleet's simulation between missions (design doc, &quot;The Fleet: home base&quot; and &quot;The Scourge at the strategic
+layer&quot;).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class FleetSim</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FleetSim</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Fleet_FleetSim_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+When a mission launches (<a class="xref" href="LastFleet.AI.Fleet.FleetSim.html#LastFleet_AI_Fleet_FleetSim_Launch_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Fleet_PointOfInterest_">Launch(FleetState, PointOfInterest)</a>), the fleet jumps to the system chosen on the star map if it has the
+fuel, which widens the gap on the Scourge. If the Scourge has caught it, that's an emergency jump at double cost.
+Every ship and person also uses up supplies according to the supply rules (<a class="xref" href="LastFleet.Simulation.Supplies.FleetSupplies.html">FleetSupplies</a>,
+supplies.json), and shortages cost people, morale and ships.
+</p>
+<p>
+After the mission (<a class="xref" href="LastFleet.AI.Fleet.FleetSim.html#LastFleet_AI_Fleet_FleetSim_AfterMission_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Director_Difficulty_System_Boolean_LastFleet_Simulation_Components_Cargo_FleetHaul__System_Single_">AfterMission(FleetState, Difficulty, bool, in FleetHaul, float)</a>), won or lost, whatever the squad brought back goes into the stores
+and the Scourge closes in based on the time spent. A mission at the sector's gate takes the fleet through into the
+next sector. The Scourge's distance paces the missions: the Choir only shows up once it's close, and is aboard from
+the start once it has caught the fleet. Deterministic from the run's seed and mission count.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_LogLines" data-uid="LastFleet.AI.Fleet.FleetSim.LogLines">
+  LogLines
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most lines the fleet's log keeps: a long stay in one system shows only the latest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LogLines = 30</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_AfterMission_" data-uid="LastFleet.AI.Fleet.FleetSim.AfterMission*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_AfterMission_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Director_Difficulty_System_Boolean_LastFleet_Simulation_Components_Cargo_FleetHaul__System_Single_" data-uid="LastFleet.AI.Fleet.FleetSim.AfterMission(LastFleet.AI.Fleet.FleetState,LastFleet.AI.Director.Difficulty,System.Boolean,LastFleet.Simulation.Components.Cargo.FleetHaul@,System.Single)">
+  AfterMission(FleetState, Difficulty, bool, in FleetHaul, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a mission ends. Updates the stores, closes the Scourge's distance for the time the mission took,
+applies its boarders if it has caught the fleet, and leaves a point won picked over.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; AfterMission(FleetState fleet, Difficulty difficulty, bool won, in FleetHaul haul, float warDamage = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd><p>The fleet.</p>
+</dd>
+    <dt><code>difficulty</code> <a class="xref" href="LastFleet.AI.Director.Difficulty.html">Difficulty</a></dt>
+    <dd><p>The run's difficulty.</p>
+</dd>
+    <dt><code>won</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the mission succeeded.</p>
+</dd>
+    <dt><code>haul</code> <a class="xref" href="LastFleet.Simulation.Components.Cargo.FleetHaul.html">FleetHaul</a></dt>
+    <dd><p>What reached the fleet. On a loss this is only what the cargo pod drones carried off.</p>
+</dd>
+    <dt><code>warDamage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>What a boarding action's warship did to the fleet with its guns before they were silenced, 0 to 100: it wears
+the fleet's ships down.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>What happened. Also appended to <a class="xref" href="LastFleet.AI.Fleet.FleetState.html#LastFleet_AI_Fleet_FleetState_Log">Log</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_CanJump_" data-uid="LastFleet.AI.Fleet.FleetSim.CanJump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_CanJump_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.CanJump(LastFleet.AI.Fleet.FleetState)">
+  CanJump(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the fleet has the fuel to jump now: twice the usual in an emergency (the Scourge is on it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanJump(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Deliver_" data-uid="LastFleet.AI.Fleet.FleetSim.Deliver*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Deliver_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Components_Cargo_FleetHaul__" data-uid="LastFleet.AI.Fleet.FleetSim.Deliver(LastFleet.AI.Fleet.FleetState,LastFleet.Simulation.Components.Cargo.FleetHaul@)">
+  Deliver(FleetState, in FleetHaul)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds what the squad brought back to the stores: supplies, plus raw materials for the refinery.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Deliver(FleetState fleet, in FleetHaul haul)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>haul</code> <a class="xref" href="LastFleet.Simulation.Components.Cargo.FleetHaul.html">FleetHaul</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Jump_" data-uid="LastFleet.AI.Fleet.FleetSim.Jump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Jump_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.Jump(LastFleet.AI.Fleet.FleetState)">
+  Jump(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The squad's jump: the fleet jumps along the course that's set (to a system one jump away, or through the gate
+into the next sector), if it has the fuel. A jump puts distance between the fleet and the Scourge; the time
+spent in a system, a mission at a time, is what lets it close in (<a class="xref" href="LastFleet.AI.Fleet.FleetSim.html#LastFleet_AI_Fleet_FleetSim_AfterMission_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Director_Difficulty_System_Boolean_LastFleet_Simulation_Components_Cargo_FleetHaul__System_Single_">AfterMission(FleetState, Difficulty, bool, in FleetHaul, float)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; Jump(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>What happened, also added to <a class="xref" href="LastFleet.AI.Fleet.FleetState.html#LastFleet_AI_Fleet_FleetState_Log">Log</a>; empty if no jump was made.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_JumpCost_" data-uid="LastFleet.AI.Fleet.FleetSim.JumpCost*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_JumpCost_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.JumpCost(LastFleet.AI.Fleet.FleetState)">
+  JumpCost(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What a jump costs now, of each supply that fuels jumps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;(string Item, int Cost)&gt; JumpCost(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.item">Item</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.cost">Cost</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Launch_" data-uid="LastFleet.AI.Fleet.FleetSim.Launch*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Launch_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Fleet_PointOfInterest_" data-uid="LastFleet.AI.Fleet.FleetSim.Launch(LastFleet.AI.Fleet.FleetState,LastFleet.AI.Fleet.PointOfInterest)">
+  Launch(FleetState, PointOfInterest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a mission launches, at the point of interest <code class="paramref">point</code> in the fleet's system. A
+mission's worth of the fleet's supplies is used up while the squad is out (fuel only goes on jumps).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; Launch(FleetState fleet, PointOfInterest point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>point</code> <a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>What happened. Also stored in <a class="xref" href="LastFleet.AI.Fleet.FleetState.html#LastFleet_AI_Fleet_FleetState_Log">Log</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Needs_" data-uid="LastFleet.AI.Fleet.FleetSim.Needs*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Needs_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.Needs(LastFleet.AI.Fleet.FleetState)">
+  Needs(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the needs board: supplies sorted by how soon they run out, with how many jumps each lasts and a line of
+text. Shows everything under six jumps, and at least three lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;FleetNeed&gt; Needs(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.AI.Fleet.FleetNeed.html">FleetNeed</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_NewFleet_" data-uid="LastFleet.AI.Fleet.FleetSim.NewFleet*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_NewFleet_System_UInt64_" data-uid="LastFleet.AI.Fleet.FleetSim.NewFleet(System.UInt64)">
+  NewFleet(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a fleet for a new run: seven ships, four thousand people, and supplies for about eight jumps (each
+supply's <a class="xref" href="LastFleet.Simulation.Supplies.SupplyDefinition.html#LastFleet_Simulation_Supplies_SupplyDefinition_StartJumps">StartJumps</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FleetState NewFleet(ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Pacing_" data-uid="LastFleet.AI.Fleet.FleetSim.Pacing*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Pacing_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Director_Difficulty_" data-uid="LastFleet.AI.Fleet.FleetSim.Pacing(LastFleet.AI.Fleet.FleetState,LastFleet.AI.Director.Difficulty)">
+  Pacing(FleetState, Difficulty)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the pacing for the next mission, based on how close the Scourge is. No Choir while it's far behind.
+Once it's near, the Choir comes only after the hack starts, then one deck earlier for each step closer, and it's
+aboard from the start once the Scourge has caught the fleet. The soldiers' Director still gets quicker as the
+run goes on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RunPacing Pacing(FleetState fleet, Difficulty difficulty)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>difficulty</code> <a class="xref" href="LastFleet.AI.Director.Difficulty.html">Difficulty</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Director.RunPacing.html">RunPacing</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_PerJump_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_PerJump_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Components_Gear_ItemKind_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump(LastFleet.AI.Fleet.FleetState,LastFleet.Simulation.Components.Gear.ItemKind)">
+  PerJump(FleetState, ItemKind)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how much of <code class="paramref">supply</code> (an item in play) one jump uses up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int PerJump(FleetState fleet, ItemKind supply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>supply</code> <a class="xref" href="LastFleet.Simulation.Components.Gear.ItemKind.html">ItemKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_PerJump_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_PerJump_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Supplies_SupplyDefinition_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump(LastFleet.AI.Fleet.FleetState,LastFleet.Simulation.Supplies.SupplyDefinition)">
+  PerJump(FleetState, SupplyDefinition)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how much of <code class="paramref">supply</code> one jump uses up: the sum of its usage parts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int PerJump(FleetState fleet, SupplyDefinition supply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>supply</code> <a class="xref" href="LastFleet.Simulation.Supplies.SupplyDefinition.html">SupplyDefinition</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_PerJump_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_PerJump_LastFleet_AI_Fleet_FleetState_System_String_" data-uid="LastFleet.AI.Fleet.FleetSim.PerJump(LastFleet.AI.Fleet.FleetState,System.String)">
+  PerJump(FleetState, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how much of the supply with item id <code class="paramref">supply</code> one jump uses up. 0 for a supply with no
+rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int PerJump(FleetState fleet, string supply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>supply</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_Requisition_" data-uid="LastFleet.AI.Fleet.FleetSim.Requisition*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_Requisition_LastFleet_AI_Fleet_FleetState_System_Single_System_Int32_" data-uid="LastFleet.AI.Fleet.FleetSim.Requisition(LastFleet.AI.Fleet.FleetState,System.Single,System.Int32)">
+  Requisition(FleetState, float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns what the fleet needs from a mission (its requisition, which decides whether leaving early counts as a
+success). For each supply with less than <code class="paramref">reserveJumps</code> jumps of reserve, it asks for enough to
+bring it up to that, capped at <code class="paramref">mostPerSupply</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FleetHaul Requisition(FleetState fleet, float reserveJumps, int mostPerSupply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>reserveJumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>mostPerSupply</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Cargo.FleetHaul.html">FleetHaul</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_ScourgeKnown_" data-uid="LastFleet.AI.Fleet.FleetSim.ScourgeKnown*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_ScourgeKnown_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.ScourgeKnown(LastFleet.AI.Fleet.FleetState)">
+  ScourgeKnown(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how close the fleet thinks the Scourge is, for the needs board's colors. That's the real distance while
+sensors have it (or it's aboard), otherwise the fleet's estimate (<a class="xref" href="LastFleet.AI.Fleet.FleetState.html#LastFleet_AI_Fleet_FleetState_ScourgeGuess">ScourgeGuess</a>). The
+estimate is never under one jump, since the fleet would know if it had caught up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ScourgeKnown(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_FleetSim_ScourgeText_" data-uid="LastFleet.AI.Fleet.FleetSim.ScourgeText*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_FleetSim_ScourgeText_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.FleetSim.ScourgeText(LastFleet.AI.Fleet.FleetState)">
+  ScourgeText(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/FleetSim.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a line of text about the Scourge, based on what the fleet knows. It's exact while sensors have it.
+Otherwise it gives where it was last sighted and how long ago, plus the long-range estimate of how far behind it
+is (less precise the longer since the last sighting).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ScourgeText(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

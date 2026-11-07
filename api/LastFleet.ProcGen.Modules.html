@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Modules | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Modules | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Modules">
+
+  <h1 id="LastFleet_ProcGen_Modules" data-uid="LastFleet.ProcGen.Modules" class="text-break">Namespace LastFleet.ProcGen.Modules</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.AngledHall.html">AngledHall</a></dt>
+      <dd><p>Builds a stretch of ring hall smooth (docs/plans/structure-first.md, Phase 7): its cells are still the grid's, but its
+walls follow its band (<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a>: round a ring's bend, or straight on a slant) as straight sides, each a box turned to its side, so the hall reads as a
+curve instead of steps. The rooms either side keep their walls on the grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.GltfNodes.html">GltfNodes</a></dt>
+      <dd><p>Reads the node tree of a .gltf or .glb file: names, transforms and custom properties, but not geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallArc.html">HallArc</a></dt>
+      <dd><p>A hall bent round a center: a ring hall's corridor (<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a>), the band either side of a circle
+<a class="xref" href="LastFleet.ProcGen.Modules.HallArc.html#LastFleet_ProcGen_Modules_HallArc_Radius">Radius</a> out from <a class="xref" href="LastFleet.ProcGen.Modules.HallArc.html#LastFleet_ProcGen_Modules_HallArc_Center">Center</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+      <dd><p>The floor plan of a hall built smooth rather than stepped on the grid (docs/plans/structure-first.md, Phase 7): a band
+<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html#LastFleet_ProcGen_Modules_HallBand_HalfWidth">HalfWidth</a> either side of a middle line, on the ground (X and Z, in meters). A ring hall's middle line is a
+circle (<a class="xref" href="LastFleet.ProcGen.Modules.HallArc.html">HallArc</a>), a bridge's on a slant a straight line (<a class="xref" href="LastFleet.ProcGen.Modules.HallLine.html">HallLine</a>). Its walls are the band's
+edges cut into straight sides no longer than <a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html#LastFleet_ProcGen_Modules_HallBand_MostSide">MostSide</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallLine.html">HallLine</a></dt>
+      <dd><p>A straight hall on a slant: a bridge running out from a ring station's core at any angle (<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a>), the
+band either side of the line from <a class="xref" href="LastFleet.ProcGen.Modules.HallLine.html#LastFleet_ProcGen_Modules_HallLine_From">From</a> to <a class="xref" href="LastFleet.ProcGen.Modules.HallLine.html#LastFleet_ProcGen_Modules_HallLine_To">To</a>, open at both ends.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallTheme.html">HallTheme</a></dt>
+      <dd><p>A deck theme and how its halls are laid out (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a>): width and length, how often they're two
+stories tall, how open they are, and the surface style that sets how they look. A mission template lists its themes
+(<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_HallThemes">HallThemes</a>, &quot;hallThemes&quot; in its file). If it doesn't, <a class="xref" href="LastFleet.ProcGen.Modules.HallTheme.html#LastFleet_ProcGen_Modules_HallTheme_Defaults">Defaults</a>
+is used.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.KitRooms.html">KitRooms</a></dt>
+      <dd><p>A biome's kit of rooms (<a class="xref" href="LastFleet.ProcGen.Rooms.RoomArchetype.html#LastFleet_ProcGen_Rooms_RoomArchetype_Kit">Kit</a>): the archetypes offered to every level in the biome. Each
+one is built once, seeded from its own id, so the kit is identical in every level and on every machine, just like
+the hand-made modules it replaced. Each becomes a module with its archetype's id and fills that archetype's roles:
+the insertion bay, the corridors and stairwell, the spawn closet, the keycard room, the objective and extraction
+rooms, and the rooms in between.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ModuleLibrary.html">ModuleLibrary</a></dt>
+      <dd><p>A biome's room modules (its kit, <a class="xref" href="LastFleet.ProcGen.Modules.KitRooms.html">KitRooms</a>, plus the level's own), sorted by id so the order is stable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ModuleReader.html">ModuleReader</a></dt>
+      <dd><p>Turns a room's scene, as written by a built room or hall (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>, <a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a>),
+into a <a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html">RoomModule</a>. It also checks the scene against the kit's rules, so a mistake is reported by name
+when the room is built instead of showing up as a broken level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a></dt>
+      <dd><p>Procedurally built halls for a deck's theme (<a class="xref" href="LastFleet.ProcGen.Modules.HallTheme.html">HallTheme</a>) in its surface style
+(<a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a>). The theme sets the size and openness: one to three cells wide, two to four long, one or
+two stories, and open across a wide end so two halls placed end to end read as one. The style sets the look
+(<a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_Hall">Hall</a>): ribs, arches, columns or pillars along the hall; a floor of plain plate, a grated
+channel lit from below, or light strips along the walls and down the middle; and lighting along the bottom or top of
+the walls or on whatever stands along the hall (the lighting is in ParametricHall.Lights.cs).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a></dt>
+      <dd><p>Procedurally built rooms, as opposed to hand-made ones: a footprint of any size and shape (a rectangle, or an L, a
+U, or a cross from a shape recipe), doorways on every side, and furniture laid out in one of a few styles (offices,
+a warehouse, a lab, a plaza), all from a seed. Each one is built the same way a hand-made module would be, from boxes
+and markers, and read by <a class="xref" href="LastFleet.ProcGen.Modules.ModuleReader.html">ModuleReader</a>. That way it follows the kit's rules (whole cells, clear
+doorways) and gets spawn spots found from its geometry the same way.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.RoomFinish.html">RoomFinish</a></dt>
+      <dd><p>The finishing details of a built room (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) beyond its footprint: its surface style, its
+furnishing, how much its corners are cut, and whether pillars hold up its ceiling.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html">RoomModule</a></dt>
+      <dd><p>A room that levels are laid out from. It's either built from an archetype (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) or a hall,
+and checked against the kit's rules by <a class="xref" href="LastFleet.ProcGen.Modules.ModuleReader.html">ModuleReader</a>. It holds the geometry, the footprint in grid
+cells, the connectors, the roles it can fill (tags), and markers in module coordinates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.SceneNode.html">SceneNode</a></dt>
+      <dd><p>A node in a glTF scene: its name, world transform, whether it has a mesh, and its custom properties.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ShipBay.html">ShipBay</a></dt>
+      <dd><p>A hangar's ship entrance (docs/plans/structure-first.md, hangars): its wall on the hull left open the room's full
+height, but for a post at each end, behind a field that keeps the air in and people from walking out (shots and the
+view go through it). A dropship comes in through it to its pad, so the lane from it in is kept clear of anything
+placed (<a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_KeepClear">KeepClear</a>). In the room's own frame.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a></dt>
+      <dd><p>A doorway on a module's footprint, at the middle of cell <a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html#LastFleet_ProcGen_Modules_ModuleConnector_Cell">Cell</a> along <a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html#LastFleet_ProcGen_Modules_ModuleConnector_Side">Side</a>, on story
+<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html#LastFleet_ProcGen_Modules_ModuleConnector_Level">Level</a> of the module (0 for the ground floor, 1 for one story up). The opening is <a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html#LastFleet_ProcGen_Modules_ModuleConnector_Width">Width</a>
+wide and centered <a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html#LastFleet_ProcGen_Modules_ModuleConnector_Shift">Shift</a> along the side from the cell's middle. That covers both a standard 2 m kit
+doorway and a wide hall's fully open end. Where two openings of different widths meet, the level walls up whatever
+part doesn't face the other opening (LevelAssembler).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Modules.ModuleLight.html">ModuleLight</a></dt>
+      <dd><p>An extra light that comes with a module, on top of the ceiling panels (for example a glow under a floor grate or
+along a trim strip), in module coordinates. Like the panel lights, it only lights its own room. If it has half axes
+it's a rect light: the glowing surface itself, shining toward the side the cross product of its axes points to
+(<code>PointLight.Rect</code>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AudioEngine | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AudioEngine | The Last Fleet ">
+      
+      <meta name="description" content="Plays sounds through OpenAL Soft.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Audio_AudioEngine.md&amp;value=---%0Auid%3A%20LastFleet.Audio.AudioEngine%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Audio.AudioEngine">
+
+
+
+  <h1 id="LastFleet_Audio_AudioEngine" data-uid="LastFleet.Audio.AudioEngine" class="text-break">
+Class AudioEngine  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Audio.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Plays sounds through OpenAL Soft.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AudioEngine : ISoundOutput, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AudioEngine</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Audio.ISoundOutput.html">ISoundOutput</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Audio_AudioEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+There's a fixed set of voices (<a class="xref" href="LastFleet.Audio.VoicePool.html">VoicePool</a>). Each voice is a source with a low-pass filter for sounds
+heard through walls. Spatial voices send to one shared reverb, set by the kind of space the listener is in. Sounds
+placed in the world fade with distance and get dulled by the air. Effects, interface and ambience each have a
+volume, under a master volume.
+</p>
+<p>
+With no sound device (a server, or a machine with no output) it plays nothing and costs nothing. In offline mode
+(<a class="xref" href="LastFleet.Audio.AudioEngine.html#LastFleet_Audio_AudioEngine_OpenOffline_LastFleet_Audio_SoundLibrary_">OpenOffline(SoundLibrary)</a>) it mixes into memory instead of a device, which the smoke run and the tests use.
+Everything runs on the calling thread, and OpenAL Soft does its mixing on its own thread. Doesn't allocate after
+it opens.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Audio_AudioEngine_OfflineRate" data-uid="LastFleet.Audio.AudioEngine.OfflineRate">
+  OfflineRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sample rate of the offline mix, in samples per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int OfflineRate = 48000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Audio_AudioEngine_Voices" data-uid="LastFleet.Audio.AudioEngine.Voices">
+  Voices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of voices, which is how many sounds can play at once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int Voices = 48</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Audio_AudioEngine_AmbienceVolume_" data-uid="LastFleet.Audio.AudioEngine.AmbienceVolume*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_AmbienceVolume" data-uid="LastFleet.Audio.AudioEngine.AmbienceVolume">
+  AmbienceVolume
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Volume for room tone and hums, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AmbienceVolume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_DeviceName_" data-uid="LastFleet.Audio.AudioEngine.DeviceName*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_DeviceName" data-uid="LastFleet.Audio.AudioEngine.DeviceName">
+  DeviceName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The device it plays through. Shown in the log and the developer overlay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DeviceName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_EffectsVolume_" data-uid="LastFleet.Audio.AudioEngine.EffectsVolume*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_EffectsVolume" data-uid="LastFleet.Audio.AudioEngine.EffectsVolume">
+  EffectsVolume
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Volume for guns, footsteps, impacts and explosions, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EffectsVolume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_InterfaceVolume_" data-uid="LastFleet.Audio.AudioEngine.InterfaceVolume*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_InterfaceVolume" data-uid="LastFleet.Audio.AudioEngine.InterfaceVolume">
+  InterfaceVolume
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Volume for hit markers, pickups and mission cues, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InterfaceVolume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_IsOpen_" data-uid="LastFleet.Audio.AudioEngine.IsOpen*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_IsOpen" data-uid="LastFleet.Audio.AudioEngine.IsOpen">
+  IsOpen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when sound reaches a device (or the offline mix). False when nothing can be heard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOpen { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_LastMix_" data-uid="LastFleet.Audio.AudioEngine.LastMix*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_LastMix" data-uid="LastFleet.Audio.AudioEngine.LastMix">
+  LastMix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last offline mix, with left and right interleaved. Used by tests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlyMemory&lt;float&gt; LastMix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_MasterVolume_" data-uid="LastFleet.Audio.AudioEngine.MasterVolume*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_MasterVolume" data-uid="LastFleet.Audio.AudioEngine.MasterVolume">
+  MasterVolume
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Master volume for everything, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MasterVolume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_OfflinePeak_" data-uid="LastFleet.Audio.AudioEngine.OfflinePeak*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_OfflinePeak" data-uid="LastFleet.Audio.AudioEngine.OfflinePeak">
+  OfflinePeak
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The loudest sample of the last offline mix, roughly 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OfflinePeak { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Playing_" data-uid="LastFleet.Audio.AudioEngine.Playing*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Playing" data-uid="LastFleet.Audio.AudioEngine.Playing">
+  Playing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of voices playing right now.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Playing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Started_" data-uid="LastFleet.Audio.AudioEngine.Started*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Started" data-uid="LastFleet.Audio.AudioEngine.Started">
+  Started
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of sounds started since it opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Started { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Audio_AudioEngine_Dispose_" data-uid="LastFleet.Audio.AudioEngine.Dispose*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Dispose" data-uid="LastFleet.Audio.AudioEngine.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Open_" data-uid="LastFleet.Audio.AudioEngine.Open*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Open_LastFleet_Audio_SoundLibrary_System_Boolean_" data-uid="LastFleet.Audio.AudioEngine.Open(LastFleet.Audio.SoundLibrary,System.Boolean)">
+  Open(SoundLibrary, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the default sound device, with head-related filtering (for headphones) if <code class="paramref">headphones</code> is
+true. If there's no device, returns an engine that plays nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AudioEngine Open(SoundLibrary library, bool headphones = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>library</code> <a class="xref" href="LastFleet.Audio.SoundLibrary.html">SoundLibrary</a></dt>
+    <dd></dd>
+    <dt><code>headphones</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Audio.AudioEngine.html">AudioEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_OpenOffline_" data-uid="LastFleet.Audio.AudioEngine.OpenOffline*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_OpenOffline_LastFleet_Audio_SoundLibrary_" data-uid="LastFleet.Audio.AudioEngine.OpenOffline(LastFleet.Audio.SoundLibrary)">
+  OpenOffline(SoundLibrary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an engine that mixes into memory instead of to a device, as fast as it's updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AudioEngine OpenOffline(SoundLibrary library)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>library</code> <a class="xref" href="LastFleet.Audio.SoundLibrary.html">SoundLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Audio.AudioEngine.html">AudioEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Play_" data-uid="LastFleet.Audio.AudioEngine.Play*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Play_System_Int32_System_Numerics_Vector3_System_Single_System_Single_System_Single_" data-uid="LastFleet.Audio.AudioEngine.Play(System.Int32,System.Numerics.Vector3,System.Single,System.Single,System.Single)">
+  Play(int, Vector3, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays cue <code class="paramref">cue</code> at <code class="paramref">position</code>. A cue that isn't placed in the world plays as an
+interface sound instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Play(int cue, Vector3 position, float gain = 1, float muffle = 0, float delay = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The cue's id in the library.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Where the sound happens.</p>
+</dd>
+    <dt><code>gain</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Loudness, applied on top of the cue's own.</p>
+</dd>
+    <dt><code>muffle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>0 is clear, 1 is heard through walls (quieter and dull).</p>
+</dd>
+    <dt><code>delay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Seconds before it starts, since sound takes time to arrive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_PlayHere_" data-uid="LastFleet.Audio.AudioEngine.PlayHere*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_PlayHere_System_Int32_System_Single_" data-uid="LastFleet.Audio.AudioEngine.PlayHere(System.Int32,System.Single)">
+  PlayHere(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays cue <code class="paramref">cue</code> as if from inside the player's own head, for example their gun or hit markers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayHere(int cue, float gain = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>gain</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_SetAcoustics_" data-uid="LastFleet.Audio.AudioEngine.SetAcoustics*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_SetAcoustics_LastFleet_Audio_RoomAcoustics_" data-uid="LastFleet.Audio.AudioEngine.SetAcoustics(LastFleet.Audio.RoomAcoustics)">
+  SetAcoustics(RoomAcoustics)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the kind of space the listener is in, for the reverb.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAcoustics(RoomAcoustics acoustics)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>acoustics</code> <a class="xref" href="LastFleet.Audio.RoomAcoustics.html">RoomAcoustics</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_SetHeadphones_" data-uid="LastFleet.Audio.AudioEngine.SetHeadphones*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_SetHeadphones_System_Boolean_" data-uid="LastFleet.Audio.AudioEngine.SetHeadphones(System.Boolean)">
+  SetHeadphones(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L404"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Turns head-related filtering (for headphones) on or off on the device, without stopping anything that's playing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetHeadphones(bool headphones)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>headphones</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_SetListener_" data-uid="LastFleet.Audio.AudioEngine.SetListener*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_SetListener_System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.Audio.AudioEngine.SetListener(System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3)">
+  SetListener(Vector3, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets where the listener is and which way they're facing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetListener(Vector3 position, Vector3 forward, Vector3 up)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>up</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_SetLoop_" data-uid="LastFleet.Audio.AudioEngine.SetLoop*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_SetLoop_System_Int32_System_Numerics_Vector3_System_Single_System_Single_" data-uid="LastFleet.Audio.AudioEngine.SetLoop(System.Int32,System.Numerics.Vector3,System.Single,System.Single)">
+  SetLoop(int, Vector3, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a loop and changes its loudness. A gain of 0 is silent but keeps it running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLoop(int handle, Vector3 position, float gain, float muffle = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>gain</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>muffle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Silent_" data-uid="LastFleet.Audio.AudioEngine.Silent*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Silent_LastFleet_Audio_SoundLibrary_" data-uid="LastFleet.Audio.AudioEngine.Silent(LastFleet.Audio.SoundLibrary)">
+  Silent(SoundLibrary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an engine that plays nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AudioEngine Silent(SoundLibrary library)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>library</code> <a class="xref" href="LastFleet.Audio.SoundLibrary.html">SoundLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Audio.AudioEngine.html">AudioEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_StartLoop_" data-uid="LastFleet.Audio.AudioEngine.StartLoop*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_StartLoop_System_Int32_System_Numerics_Vector3_System_Single_" data-uid="LastFleet.Audio.AudioEngine.StartLoop(System.Int32,System.Numerics.Vector3,System.Single)">
+  StartLoop(int, Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts cue <code class="paramref">cue</code> looping. Returns a handle for <a class="xref" href="LastFleet.Audio.ISoundOutput.html#LastFleet_Audio_ISoundOutput_SetLoop_System_Int32_System_Numerics_Vector3_System_Single_System_Single_">SetLoop(int, Vector3, float, float)</a> and
+<a class="xref" href="LastFleet.Audio.ISoundOutput.html#LastFleet_Audio_ISoundOutput_StopLoop_System_Int32_">StopLoop(int)</a>, or -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StartLoop(int cue, Vector3 position, float gain = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>gain</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_StopLoop_" data-uid="LastFleet.Audio.AudioEngine.StopLoop*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_StopLoop_System_Int32_" data-uid="LastFleet.Audio.AudioEngine.StopLoop(System.Int32)">
+  StopLoop(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the loop with this handle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopLoop(int handle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Audio_AudioEngine_Update_" data-uid="LastFleet.Audio.AudioEngine.Update*"></a>
+
+  <h3 id="LastFleet_Audio_AudioEngine_Update_System_Single_" data-uid="LastFleet.Audio.AudioEngine.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Audio/AudioEngine.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Advances time by <code class="paramref">seconds</code>. Starts delayed sounds that are due, frees voices whose sound has
+ended, and in offline mode mixes that much sound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(float seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

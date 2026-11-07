@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Rendering.Rays | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Rendering.Rays | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Rendering.Rays">
+
+  <h1 id="LastFleet_Rendering_Rays" data-uid="LastFleet.Rendering.Rays" class="text-break">Namespace LastFleet.Rendering.Rays</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Rendering.Rays.RayGeometry.html">RayGeometry</a></dt>
+      <dd><p>The level mesh as the rays see it: only the drawn parts (collision-only parts are left out), split into the
+geometries of the level's bottom-level acceleration structure. Parts that never disappear are merged into as few
+geometries as the mesh order allows, and are opaque, so a ray stops at them right away. Each part that can
+disappear (a prop that breaks, a door that opens, <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Gone">Gone</a>) gets its own geometry and isn't
+opaque, so the shader can check every frame whether it's still there.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Rendering.Rays.RayGeometry.Run.html">RayGeometry.Run</a></dt>
+      <dd><p>One geometry: a range of the mesh's indices, and the part it belongs to if that part can disappear (-1 if it's
+always there).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Rendering.Rays.RayQualitySettings.html">RayQualitySettings</a></dt>
+      <dd><p>The settings a <a class="xref" href="LastFleet.Rendering.Rays.RayTracingQuality.html">RayTracingQuality</a> level controls.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Rendering.Rays.RayTracingSupport.html">RayTracingSupport</a></dt>
+      <dd><p>Whether a GPU supports ray tracing the way the renderer uses it (ray queries from compute shaders against
+acceleration structures). Checks the required extensions and features, and if any are missing, lists them for the
+log. NVIDIA RTX 20 series and later, AMD RX 6000 and later, and Intel Arc support it, and so does Mesa's software
+driver from version 25.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Rendering.Rays.RayTracingQuality.html">RayTracingQuality</a></dt>
+      <dd><p>How much ray tracing work is done each frame when rays are enabled (<span class="xref">LastFleet.Rendering.Rays.RayLighting</span>;
+docs/plans/ray-tracing.md phase 11). Each level sets the expensive settings together
+(<a class="xref" href="LastFleet.Rendering.Rays.RayQualitySettings.html#LastFleet_Rendering_Rays_RayQualitySettings_For_LastFleet_Rendering_Rays_RayTracingQuality_">For(RayTracingQuality)</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

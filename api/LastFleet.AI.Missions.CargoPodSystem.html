@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CargoPodSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CargoPodSystem | The Last Fleet ">
+      
+      <meta name="description" content="Runs cargo pod defenses (). Once the drone is called, it takes longer to arrive the deeper into the station the squad is (), and the station comes for the pod.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Missions_CargoPodSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Missions.CargoPodSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Missions.CargoPodSystem">
+
+
+
+  <h1 id="LastFleet_AI_Missions_CargoPodSystem" data-uid="LastFleet.AI.Missions.CargoPodSystem" class="text-break">
+Class CargoPodSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Runs cargo pod defenses (<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>). Once the drone is called, it takes longer to arrive the deeper
+into the station the squad is (<a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html#LastFleet_AI_Missions_CargoPodSystem_DefenseSeconds_LastFleet_Simulation_Components_Missions_MissionState__">DefenseSeconds(in MissionState)</a>), and the station comes for the pod.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CargoPodSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CargoPodSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Missions_CargoPodSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The Director sends a patrol of soldiers out of the nearest closet, plus a horde if the mission's hordes are active
+(so nothing the level wouldn't have yet anyway). If the pod is held (a standing player within
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html#LastFleet_Simulation_Components_Cargo_CargoPod_GuardRadius">GuardRadius</a>) until the drone lands, the drone takes it and its contents belong to the fleet
+(<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Delivered">Delivered</a>), even if the mission fails afterward. If it's left to the enemy for
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html#LastFleet_Simulation_Components_Cargo_CargoPod_OverrunSeconds">OverrunSeconds</a>, it's overrun and the contents are lost.
+</p>
+<p>
+This is one of the command systems and runs after the mission system (it reads and adds to the mission state).
+Placing and loading the pods is done by the simulation (the inventory, cargo and pickup systems). Doesn't allocate.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_CargoPodSystem__ctor_" data-uid="LastFleet.AI.Missions.CargoPodSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem__ctor_LastFleet_AI_Missions_MissionSystem_LastFleet_AI_Horde_HordeSystem_" data-uid="LastFleet.AI.Missions.CargoPodSystem.#ctor(LastFleet.AI.Missions.MissionSystem,LastFleet.AI.Horde.HordeSystem)">
+  CargoPodSystem(MissionSystem, HordeSystem?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs cargo pod defenses (<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>). Once the drone is called, it takes longer to arrive the deeper
+into the station the squad is (<a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html#LastFleet_AI_Missions_CargoPodSystem_DefenseSeconds_LastFleet_Simulation_Components_Missions_MissionState__">DefenseSeconds(in MissionState)</a>), and the station comes for the pod.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CargoPodSystem(MissionSystem mission, HordeSystem? horde = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mission</code> <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html">MissionSystem</a></dt>
+    <dd></dd>
+    <dt><code>horde</code> <a class="xref" href="LastFleet.AI.Horde.HordeSystem.html">HordeSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Missions_CargoPodSystem__ctor_LastFleet_AI_Missions_MissionSystem_LastFleet_AI_Horde_HordeSystem__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The Director sends a patrol of soldiers out of the nearest closet, plus a horde if the mission's hordes are active
+(so nothing the level wouldn't have yet anyway). If the pod is held (a standing player within
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html#LastFleet_Simulation_Components_Cargo_CargoPod_GuardRadius">GuardRadius</a>) until the drone lands, the drone takes it and its contents belong to the fleet
+(<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Delivered">Delivered</a>), even if the mission fails afterward. If it's left to the enemy for
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html#LastFleet_Simulation_Components_Cargo_CargoPod_OverrunSeconds">OverrunSeconds</a>, it's overrun and the contents are lost.
+</p>
+<p>
+This is one of the command systems and runs after the mission system (it reads and adds to the mission state).
+Placing and loading the pods is done by the simulation (the inventory, cargo and pickup systems). Doesn't allocate.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_BaseSeconds" data-uid="LastFleet.AI.Missions.CargoPodSystem.BaseSeconds">
+  BaseSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the drone takes to arrive when the squad hasn't opened any deck yet, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float BaseSeconds = 30</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_EnemyRadius" data-uid="LastFleet.AI.Missions.CargoPodSystem.EnemyRadius">
+  EnemyRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close an enemy has to be to threaten the pod, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float EnemyRadius = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_PerDeckSeconds" data-uid="LastFleet.AI.Missions.CargoPodSystem.PerDeckSeconds">
+  PerDeckSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extra time for each deck deeper, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float PerDeckSeconds = 12</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_SquadOffset" data-uid="LastFleet.AI.Missions.CargoPodSystem.SquadOffset">
+  SquadOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Squad numbers for patrols sent at pods start here, offset from <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_PatrolSquadBase">PatrolSquadBase</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int SquadOffset = 3000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_CargoPodSystem_DefenseSeconds_" data-uid="LastFleet.AI.Missions.CargoPodSystem.DefenseSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_DefenseSeconds_LastFleet_Simulation_Components_Missions_MissionState__" data-uid="LastFleet.AI.Missions.CargoPodSystem.DefenseSeconds(LastFleet.Simulation.Components.Missions.MissionState@)">
+  DefenseSeconds(in MissionState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how long the drone takes to arrive, in seconds: <a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html#LastFleet_AI_Missions_CargoPodSystem_BaseSeconds">BaseSeconds</a> plus
+<a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html#LastFleet_AI_Missions_CargoPodSystem_PerDeckSeconds">PerDeckSeconds</a> for each deck the squad has opened (from the hack on, all of them plus one).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DefenseSeconds(in MissionState state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_CargoPodSystem_Depth_" data-uid="LastFleet.AI.Missions.CargoPodSystem.Depth*"></a>
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_Depth_LastFleet_Simulation_Components_Missions_MissionState__" data-uid="LastFleet.AI.Missions.CargoPodSystem.Depth(LastFleet.Simulation.Components.Missions.MissionState@)">
+  Depth(in MissionState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how many decks deep the squad is: the number of gates it has opened (not counting the airlock). From the
+hack on, that's all of them plus one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Depth(in MissionState state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_CargoPodSystem_Initialize_" data-uid="LastFleet.AI.Missions.CargoPodSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Missions.CargoPodSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_CargoPodSystem_Update_" data-uid="LastFleet.AI.Missions.CargoPodSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Missions_CargoPodSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Missions.CargoPodSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/CargoPodSystem.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sound | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sound | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sound">Sound</h1>
+
+<p>Everything the game plays is a <strong>cue</strong>. A cue is just a name (<code>gun_shotgun</code>, <code>step</code>, <code>break_glass</code>), some settings for
+how it plays (in <code>content/defs/sounds.json</code>), and the recordings behind it (<code>content/sounds/&lt;name&gt;.wav</code>).</p>
+<p>We didn't want audio blocking us while the game was still grey boxes, so any cue without a recording falls back to a
+<em>placeholder</em> that's generated in code (<code>PlaceholderSounds</code> in <code>src/LastFleet.Audio</code>). These are synthesized noise
+bursts, thumps, rings and chimes. They're good enough to play with, but they're meant to be replaced... just like the
+grey-box rooms!</p>
+<h2 id="replacing-a-placeholder">Replacing a placeholder</h2>
+<p>So you've got a sound you want in the game? Here's the flow:</p>
+<ol>
+<li>Run <code>LastFleet --export-sounds exported</code>. This writes every placeholder out as a <code>.wav</code> file (<code>gun_shotgun.wav</code>,
+<code>gun_shotgun_2.wav</code>, and so on). Give them a listen so you know what each cue is for and how long it lasts.</li>
+<li>Record or design your replacement as a <strong>mono</strong>, 16-bit PCM WAV at 44.1 or 48 kHz. Stereo works, but it gets mixed
+down to mono anyway. The game positions every sound in the world itself, and it needs a single channel to do that.
+Interface sounds are mono too.</li>
+<li>Name it after the cue: <code>gun_shotgun.wav</code>. Want more variety? Add more takes: <code>gun_shotgun_2.wav</code>,
+<code>gun_shotgun_3.wav</code>. Every time the cue plays it picks one at random, so repeats don't sound robotic. Numbering from 1
+(<code>gun_shotgun_1.wav</code>) works too.</li>
+<li>Drop it in <code>content/sounds/</code> and start the game. That's it! The cue now plays your recording, and the log tells you
+how many cues have recordings. If the game can't read a file, the log names it and skips it.</li>
+<li>Commit it. <code>.wav</code> files go through Git LFS, so run <code>git lfs install</code> once per machine.</li>
+</ol>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>Trim the silence at the start.</strong> The game plays a sound the moment it happens, so any dead air up front makes it
+feel late.</li>
+<li><strong>Loops have to loop cleanly.</strong> Cues marked <code>&quot;loop&quot;: true</code> need to run back into their own start without a click.</li>
+</ul>
+<h2 id="tuning-a-cue">Tuning a cue</h2>
+<p><code>content/defs/sounds.json</code> has one line per cue, and the comment at the top of the file explains every field. These are
+the ones you'll touch the most:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gain</code></td>
+<td>Loudness, where 1 is as recorded. Balance cues against each other here instead of re-recording them.</td>
+</tr>
+<tr>
+<td><code>reach</code></td>
+<td>Full volume within this many meters. At twice the distance it's half as loud. Big sounds (gunshots, explosions) should reach far.</td>
+</tr>
+<tr>
+<td><code>maxDistance</code></td>
+<td>Past this distance it stops getting quieter. At twice this distance it doesn't play at all, which frees up a voice.</td>
+</tr>
+<tr>
+<td><code>pitchSpread</code></td>
+<td>How much each play's pitch wobbles either side of 1. For example, 0.05 means ±5%.</td>
+</tr>
+<tr>
+<td><code>priority</code>, <code>maxVoices</code></td>
+<td>We only play 48 sounds at once. When they're all in use, a higher priority sound steals a voice from a lower one, so a gunshot never loses to a footstep! If a cue already has <code>maxVoices</code> playing, it cuts off its own oldest one.</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td><code>effects</code>, <code>interface</code> or <code>ambience</code>. This picks which volume slider in the menu's Audio tab controls it.</td>
+</tr>
+<tr>
+<td><code>spatial</code></td>
+<td><code>false</code> for sounds that play &quot;inside your head&quot;: your own gun handling, hit markers, pickups.</td>
+</tr>
+</tbody>
+</table>
+<p>A brand new cue needs a line here and a recording (a cue with neither makes no sound), and then code has to actually
+play it.</p>
+<h2 id="what-plays-when">What plays when</h2>
+<p><code>GameAudio</code> (in <code>src/LastFleet.Client/Audio</code>) listens to what the client already sees and turns it into sound. It only
+listens, though. Nothing it does feeds back into the simulation.</p>
+<table>
+<thead>
+<tr>
+<th>Cue</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gun_&lt;frame&gt;</code></td>
+<td>A shot. Yours plays &quot;inside your head&quot; the moment you fire, while teammates' play at their gun. It's one per tick, no matter how many pellets.</td>
+</tr>
+<tr>
+<td><code>gun_soldier</code></td>
+<td>A soldier's rifle shot (the auto and pulse rifles' <code>soldier.sound</code> in <code>archetypes.json</code>). A soldier carrying something else (an SMG, a shotgun, a marksman rifle, a machine gun) sounds like that gun: <code>gun_&lt;model&gt;</code>, or the frame's <code>sound</code>.</td>
+</tr>
+<tr>
+<td><code>reload_out</code>, <code>reload_in</code>, <code>reload_bolt</code>, <code>weapon_swap</code></td>
+<td>Your reload starts, the magazine goes in, the reload finishes, or you switch weapons.</td>
+</tr>
+<tr>
+<td><code>impact_concrete</code>, <code>impact_metal</code>, <code>impact_flesh</code></td>
+<td>A round hits the level (metal for racks, rails, ducts, pipes, doors and barrels) or hits someone. We cap it at three per shooter per tick.</td>
+</tr>
+<tr>
+<td><code>whiz</code></td>
+<td>Someone else's round passes within 1.6 m of your head.</td>
+</tr>
+<tr>
+<td><code>hit_marker</code>, <code>hit_precision</code>, <code>kill_confirm</code></td>
+<td>Your hit markers, as they show up.</td>
+</tr>
+<tr>
+<td><code>player_hurt</code>, <code>heartbeat</code></td>
+<td>You take damage. Drop below 35% health and you'll hear a heartbeat, which gets louder the lower you go.</td>
+</tr>
+<tr>
+<td><code>step</code>, <code>land</code>, <code>slide</code></td>
+<td>Everyone's feet. A step plays as each foot lands in the body's animation (the strides' footstep events, more on those below). A body drawn from boxes doesn't have those, so it plays every stride instead (0.8 m walking, 1.15 m sprinting, 0.6 m crouched and quieter). A landing plays after a third of a second in the air, and a slide plays when one starts.</td>
+</tr>
+<tr>
+<td><code>grenade_throw</code>, <code>grenade_bounce</code>, <code>grenade_beep</code>, <code>explosion</code></td>
+<td>A grenade being thrown, bouncing, blinking (in time with its light), and going off.</td>
+</tr>
+<tr>
+<td><code>break_glass</code>, <code>break_wood</code>, <code>break_metal</code>, <code>light_shatter</code></td>
+<td>A prop breaking, or a light panel getting shot out.</td>
+</tr>
+<tr>
+<td><code>light_buzz</code></td>
+<td>The three nearest failing lights hum while they're on.</td>
+</tr>
+<tr>
+<td><code>ambience_station</code>, <code>ambience_outdoor</code></td>
+<td>The room tone. This is always playing.</td>
+</tr>
+<tr>
+<td><code>pickup_ammo</code>, <code>pickup_weapon</code>, <code>pickup_keycard</code>, <code>door_unlock</code>, <code>objective</code>, <code>hack_beep</code>, <code>alarm_wave</code>, <code>pa_chime</code>, <code>mission_success</code>, <code>mission_failed</code></td>
+<td>Pickups and the mission: grabbing ammo or a weapon, finding a keycard, opening a lock, the mission moving to its next step, the hack ticking while the room is held, a reinforcement wave (and a breach venting, sealing or being lost), the station's PA as the alert goes up or a breach gets shuttered, and the ending.</td>
+</tr>
+<tr>
+<td><code>flashlight_click</code></td>
+<td>You toggle your flashlight.</td>
+</tr>
+<tr>
+<td><code>door_slide</code>, <code>door_seal</code>, <code>shutter_close</code>, <code>breach_vent</code></td>
+<td>A ship's doors and breaches: a room's door sliding open or shut, a door sealing off a breach (a clunk, bolts, then the hiss of the seal), a window's shutter grinding down, and the air roaring out through a breach (a loop at the breach while it vents).</td>
+</tr>
+<tr>
+<td><code>swarm_screech</code>, <code>swarm_bite</code>, <code>swarm_death</code>, <code>swarm_skitter</code></td>
+<td>The horde (<a href="horde.html">horde.md</a>). The shriek of a swarmling winding up its lunge (it has to carry, because it's your warning!), its bite, its death, and the chitter of the crowd running at you (a loop that gets louder the more of them there are).</td>
+</tr>
+<tr>
+<td><code>choir_roar</code>, <code>spit_throw</code>, <code>choir_smash</code>, <code>acid_sizzle</code></td>
+<td>The Choir's bigger bodies. A Stripper's roar and a Spitter's gurgle as each winds up its attack (warnings, just like the shriek), a Stripper's blow landing, and a Spitter's acid hitting the deck.</td>
+</tr>
+<tr>
+<td><code>dry_fire</code></td>
+<td>You pull the trigger on an empty gun and there's no ammo left to reload it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sounds-from-animation">Sounds from animation</h3>
+<p>A body's animation can play sounds on its own. Think footsteps landing, or the click of letting go of a grenade.</p>
+<p>You put an <em>event</em> on one of the graph's clips or actions, give it a <code>sound</code> cue and a <code>gain</code>, and when the body passes
+that event the sound plays right where it happens (at the feet, or at one of the rig's sockets). How loud it is depends
+on how much of the current pose that clip makes up (<a href="animation-graphs.html#nodes">animation-graphs.md</a>). If strides are
+blended together, like walking forward and to the side at once, you only hear it once.</p>
+<p>You place these events in Studio on the clip timeline under the Bodies preview, and pick the sound from this file's
+cues. The humanoid's strides already play <code>step</code> this way (a run at 1.2 that also kicks up <code>dust</code>, and a crouched step
+at 0.45), which is why soldiers' and teammates' footsteps line up with their feet. A body drawn from boxes, or yours
+with the floating gun, still steps by distance.</p>
+<h3 id="how-it-sounds-in-the-world">How it sounds in the world</h3>
+<ul>
+<li><strong>Positioned and faded.</strong> A sound out in the world plays where it happens. It falls off with OpenAL's inverse
+distance model based on its <code>reach</code>, and it gets duller the farther away it is, as the air absorbs it.</li>
+<li><strong>Delayed by distance.</strong> Sound travels at the speed of sound (who knew?), so an explosion 34 m away is heard a tenth
+of a second after you see it.</li>
+<li><strong>Muffled through walls.</strong> A sound in a room you can't see (<code>RoomVisibility</code>, the same rooms the renderer culls) is
+quieter and duller, like it's coming through the wall.</li>
+<li><strong>Reverb by room size.</strong> Reverb uses OpenAL's space-station presets, picked by the room you're standing in: a closet,
+a corridor, a room, a big room, or a hall (two stories, or 16 cells or more). Outdoors there's barely any.</li>
+<li><strong>Headphones.</strong> The Headphones setting in the Audio tab turns on OpenAL Soft's head-related filtering, so you can tell
+what's above, below or behind you.</li>
+</ul>
+<h2 id="the-engine">The engine</h2>
+<p><code>LastFleet.Audio</code> plays through <a href="https://openal-soft.org">OpenAL Soft</a> (by way of Brutal.OpenAl). It has 48 voices,
+each with a low-pass filter for muffling, one shared reverb they all send to, and four volumes (master, effects,
+interface, ambience).</p>
+<p>If there's no sound device it plays nothing and the game keeps running. A smoke run mixes into memory instead, so it
+behaves the same on every machine, and its report counts the sounds that started. The game asks for sounds through
+<code>ISoundOutput</code>, so we can swap a different engine in behind it later.</p>
+<h3 id="why-not-fmod">Why not FMOD?</h3>
+<p>The design doc planned on FMOD, so why didn't we start there?</p>
+<p><strong>OpenAL Soft</strong></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Ships inside its NuGet package. No account, no license, every clone builds and plays sound</li>
+<li>Good enough for positioned sound, muffling and reverb, which is everything we need right now</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Sound designers can't author anything in a tool. It's all cues and settings in our own files</li>
+</ul>
+<p><strong>FMOD Studio</strong></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Sound designers get events, parameters and music layers, authored in FMOD's own tool</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>The libraries have to be downloaded from fmod.com, and they need a license for a commercial release</li>
+<li>Someone has to write an FMOD version of <code>ISoundOutput</code>, with the cues as events</li>
+</ul>
+<p>So OpenAL Soft came first. If we want what FMOD gives sound designers, the swap is just a new <code>ISoundOutput</code>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TagRegistry | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TagRegistry | The Last Fleet ">
+      
+      <meta name="description" content="Every tag a level&#39;s rules can use, each with its own id. Tags are dotted names that nest: room contains room.storage, which contains room.storage.cold, and a rule asking for room.storage also matches its children (, ).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Tags_TagRegistry.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Tags.TagRegistry%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Tags.TagRegistry">
+
+
+
+  <h1 id="LastFleet_ProcGen_Tags_TagRegistry" data-uid="LastFleet.ProcGen.Tags.TagRegistry" class="text-break">
+Class TagRegistry  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Tags.html">Tags</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Every tag a level's rules can use, each with its own id. Tags are dotted names that nest: <code>room</code> contains
+<code>room.storage</code>, which contains <code>room.storage.cold</code>, and a rule asking for <code>room.storage</code> also matches
+its children (<a class="xref" href="LastFleet.ProcGen.Tags.TagSet.html">TagSet</a>, <a class="xref" href="LastFleet.ProcGen.Tags.TagQuery.html">TagQuery</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TagRegistry</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TagRegistry</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Tags_TagRegistry_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The registry holds the built-in tags (<a class="xref" href="LastFleet.ProcGen.Tags.BuiltInTags.html">BuiltInTags</a>) and the content's own tags
+(<code>content/defs/procgen/tags.json</code>), plus every parent those tags imply. Ids follow the ordinal order of the
+names, so the same tags always get the same ids no matter what order they were listed in. An id means nothing
+outside its registry.
+</p>
+<p>Immutable, so one registry can be shared by every level generated from the same content.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_MaxNameLength" data-uid="LastFleet.ProcGen.Tags.TagRegistry.MaxNameLength">
+  MaxNameLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum length of a tag name, in characters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxNameLength = 64</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Separator" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Separator">
+  Separator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The separator between a tag's segments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const char Separator = &#39;.&#39;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_BuiltIn_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.BuiltIn*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_BuiltIn" data-uid="LastFleet.ProcGen.Tags.TagRegistry.BuiltIn">
+  BuiltIn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A registry with only the built-in tags, for code that doesn't need any content tags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TagRegistry BuiltIn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagRegistry.html">TagRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Count_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Count*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Count" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of tags, including implied parents. Ids run from 0 to <code>Count - 1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Item_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Item*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Item_System_String_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Item(System.String)">
+  this[string]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the id of the tag named <code class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int this[string name] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>There's no tag with that name.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Create_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Create*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Create_System_Collections_Generic_IEnumerable_LastFleet_ProcGen_Tags_TagDefinition__" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Create(System.Collections.Generic.IEnumerable{LastFleet.ProcGen.Tags.TagDefinition})">
+  Create(IEnumerable&lt;TagDefinition&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a registry of the built-in tags and <code class="paramref">definitions</code>, plus every parent they imply.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TagRegistry Create(IEnumerable&lt;TagDefinition&gt; definitions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>definitions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Tags.TagDefinition.html">TagDefinition</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagRegistry.html">TagRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A name isn't valid, is given twice, or is already a built-in tag. The message lists every problem.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Description_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Description*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Description_System_Int32_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Description(System.Int32)">
+  Description(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the description of tag <code class="paramref">id</code>. Empty for an implied parent nobody described.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description(int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_IsBuiltIn_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsBuiltIn*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_IsBuiltIn_System_Int32_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsBuiltIn(System.Int32)">
+  IsBuiltIn(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if tag <code class="paramref">id</code> is built in (set by the generator) rather than defined by content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBuiltIn(int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_IsValidName_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsValidName*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_IsValidName_System_String_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsValidName(System.String)">
+  IsValidName(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if <code class="paramref">name</code> is a valid tag name: one or more segments of lowercase letters, digits
+and underscores, each starting with a letter, separated by <a class="xref" href="LastFleet.ProcGen.Tags.TagRegistry.html#LastFleet_ProcGen_Tags_TagRegistry_Separator">Separator</a>, and at most
+<a class="xref" href="LastFleet.ProcGen.Tags.TagRegistry.html#LastFleet_ProcGen_Tags_TagRegistry_MaxNameLength">MaxNameLength</a> characters long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsValidName(string? name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_IsWithin_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsWithin*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_IsWithin_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.IsWithin(System.Int32,System.Int32)">
+  IsWithin(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if tag <code class="paramref">id</code> is <code class="paramref">ancestor</code> or nested anywhere under it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWithin(int id, int ancestor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ancestor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Name_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Name*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Name_System_Int32_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Name(System.Int32)">
+  Name(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of tag <code class="paramref">id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name(int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Parent_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Parent*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Parent_System_Int32_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Parent(System.Int32)">
+  Parent(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the tag one segment up from <code class="paramref">id</code> (<code>room</code> for <code>room.storage</code>), or -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Parent(int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Query_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Query*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Query_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Query(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+  Query(IEnumerable&lt;string&gt;?, IEnumerable&lt;string&gt;?, IEnumerable&lt;string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a query over this registry's tags, by name (<a class="xref" href="LastFleet.ProcGen.Tags.TagQuery.html">TagQuery</a>). A null list adds no condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TagQuery Query(IEnumerable&lt;string&gt;? any = null, IEnumerable&lt;string&gt;? all = null, IEnumerable&lt;string&gt;? none = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>any</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>all</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>none</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagQuery.html">TagQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>A name isn't a tag.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Set_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Set*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Set_System_Collections_Generic_IEnumerable_System_String__" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Set(System.Collections.Generic.IEnumerable{System.String})">
+  Set(IEnumerable&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the set of the tags named <code class="paramref">names</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TagSet Set(IEnumerable&lt;string&gt; names)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>names</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagSet.html">TagSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>A name isn't a tag.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_Set_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Set*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_Set_System_String___" data-uid="LastFleet.ProcGen.Tags.TagRegistry.Set(System.String[])">
+  Set(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the set of the tags named <code class="paramref">names</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TagSet Set(params string[] names)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>names</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagSet.html">TagSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>A name isn't a tag.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Tags_TagRegistry_TryGetId_" data-uid="LastFleet.ProcGen.Tags.TagRegistry.TryGetId*"></a>
+
+  <h3 id="LastFleet_ProcGen_Tags_TagRegistry_TryGetId_System_String_System_Int32__" data-uid="LastFleet.ProcGen.Tags.TagRegistry.TryGetId(System.String,System.Int32@)">
+  TryGetId(string, out int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Tags/TagRegistry.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the id of the tag named <code class="paramref">name</code>. Returns false if there isn't one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetId(string name, out int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

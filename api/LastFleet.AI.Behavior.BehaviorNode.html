@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct BehaviorNode | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct BehaviorNode | The Last Fleet ">
+      
+      <meta name="description" content="One node of a compiled behavior tree.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Behavior_BehaviorNode.md&amp;value=---%0Auid%3A%20LastFleet.AI.Behavior.BehaviorNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Behavior.BehaviorNode">
+
+
+
+  <h1 id="LastFleet_AI_Behavior_BehaviorNode" data-uid="LastFleet.AI.Behavior.BehaviorNode" class="text-break">
+Struct BehaviorNode  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Behavior.html">Behavior</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>One node of a compiled behavior tree.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly record struct BehaviorNode : IEquatable&lt;BehaviorNode&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.AI.Behavior.BehaviorNode.html">BehaviorNode</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode__ctor_" data-uid="LastFleet.AI.Behavior.BehaviorNode.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode__ctor_System_String_LastFleet_AI_Behavior_BehaviorNodeKind_System_Int32_System_Int32_LastFleet_AI_Behavior_BehaviorAction_LastFleet_AI_Utility_UtilityCompare_System_Single_LastFleet_AI_Utility_UtilityInput_" data-uid="LastFleet.AI.Behavior.BehaviorNode.#ctor(System.String,LastFleet.AI.Behavior.BehaviorNodeKind,System.Int32,System.Int32,LastFleet.AI.Behavior.BehaviorAction,LastFleet.AI.Utility.UtilityCompare,System.Single,LastFleet.AI.Utility.UtilityInput)">
+  BehaviorNode(string, BehaviorNodeKind, int, int, BehaviorAction, UtilityCompare, float, UtilityInput)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>One node of a compiled behavior tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BehaviorNode(string Id, BehaviorNodeKind Kind, int FirstChild, int ChildCount, BehaviorAction Action = BehaviorAction.Roam, UtilityCompare Compare = UtilityCompare.Equal, float Value = 0, UtilityInput Input = UtilityInput.OwnHealth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Its id in the file, used by the debugger and Studio.</p>
+</dd>
+    <dt><code>Kind</code> <a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html">BehaviorNodeKind</a></dt>
+    <dd><p>The node type.</p>
+</dd>
+    <dt><code>FirstChild</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index where its children start in <a class="xref" href="LastFleet.AI.Behavior.BehaviorTree.html#LastFleet_AI_Behavior_BehaviorTree_Children">Children</a>.</p>
+</dd>
+    <dt><code>ChildCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many children it has.</p>
+</dd>
+    <dt><code>Action</code> <a class="xref" href="LastFleet.AI.Behavior.BehaviorAction.html">BehaviorAction</a></dt>
+    <dd><p>The action to run, for an <a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html#LastFleet_AI_Behavior_BehaviorNodeKind_Action">Action</a> node.</p>
+</dd>
+    <dt><code>Compare</code> <a class="xref" href="LastFleet.AI.Utility.UtilityCompare.html">UtilityCompare</a></dt>
+    <dd><p>The comparison, for a check, squad or distance condition.</p>
+</dd>
+    <dt><code>Value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>For a condition, the value it compares against or the thing it names: an awareness, intent, input or role, stored
+as its enum number. For an action, its setting (for example how many rooms out Search looks for the enemy). 0 if
+there's none.</p>
+</dd>
+    <dt><code>Input</code> <a class="xref" href="LastFleet.AI.Utility.UtilityInput.html">UtilityInput</a></dt>
+    <dd><p>The input a <a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html#LastFleet_AI_Behavior_BehaviorNodeKind_Check">Check</a> reads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Action_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Action*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Action" data-uid="LastFleet.AI.Behavior.BehaviorNode.Action">
+  Action
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The action to run, for an <a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html#LastFleet_AI_Behavior_BehaviorNodeKind_Action">Action</a> node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BehaviorAction Action { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Behavior.BehaviorAction.html">BehaviorAction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_ChildCount_" data-uid="LastFleet.AI.Behavior.BehaviorNode.ChildCount*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_ChildCount" data-uid="LastFleet.AI.Behavior.BehaviorNode.ChildCount">
+  ChildCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many children it has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ChildCount { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Compare_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Compare*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Compare" data-uid="LastFleet.AI.Behavior.BehaviorNode.Compare">
+  Compare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The comparison, for a check, squad or distance condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UtilityCompare Compare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Utility.UtilityCompare.html">UtilityCompare</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_FirstChild_" data-uid="LastFleet.AI.Behavior.BehaviorNode.FirstChild*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_FirstChild" data-uid="LastFleet.AI.Behavior.BehaviorNode.FirstChild">
+  FirstChild
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Index where its children start in <a class="xref" href="LastFleet.AI.Behavior.BehaviorTree.html#LastFleet_AI_Behavior_BehaviorTree_Children">Children</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FirstChild { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Id_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Id*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Id" data-uid="LastFleet.AI.Behavior.BehaviorNode.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its id in the file, used by the debugger and Studio.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Input_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Input*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Input" data-uid="LastFleet.AI.Behavior.BehaviorNode.Input">
+  Input
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The input a <a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html#LastFleet_AI_Behavior_BehaviorNodeKind_Check">Check</a> reads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UtilityInput Input { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Utility.UtilityInput.html">UtilityInput</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Kind_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Kind*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Kind" data-uid="LastFleet.AI.Behavior.BehaviorNode.Kind">
+  Kind
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The node type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BehaviorNodeKind Kind { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Behavior.BehaviorNodeKind.html">BehaviorNodeKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Behavior_BehaviorNode_Value_" data-uid="LastFleet.AI.Behavior.BehaviorNode.Value*"></a>
+
+  <h3 id="LastFleet_AI_Behavior_BehaviorNode_Value" data-uid="LastFleet.AI.Behavior.BehaviorNode.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Behavior/BehaviorNode.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For a condition, the value it compares against or the thing it names: an awareness, intent, input or role, stored
+as its enum number. For an action, its setting (for example how many rooms out Search looks for the enemy). 0 if
+there's none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Value { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CharacterView | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CharacterView | The Last Fleet ">
+      
+      <meta name="description" content="What one client is told about where each character is, kept on the host.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Networking_Replication_CharacterView.md&amp;value=---%0Auid%3A%20LastFleet.Networking.Replication.CharacterView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Networking.Replication.CharacterView">
+
+
+
+  <h1 id="LastFleet_Networking_Replication_CharacterView" data-uid="LastFleet.Networking.Replication.CharacterView" class="text-break">
+Class CharacterView  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Networking.html">Networking</a>.<a class="xref" href="LastFleet.Networking.Replication.html">Replication</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Networking.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>What one client is told about where each character is, kept on the host.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CharacterView</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CharacterView</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Networking_Replication_CharacterView_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A character's entry holds where it was, how fast it was moving, and when that was recorded. The client
+extrapolates from there (<a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_Predict_System_ReadOnlySpan_System_Byte__System_UInt32_">Predict(ReadOnlySpan&lt;byte&gt;, uint)</a>). So the host leaves the entry unchanged until the client's guess is
+off by more than matters at that distance (10 cm at the client's feet, more farther away, and three times that for
+a character the client can't see), or the character has turned more than a few degrees, or changed speed. A soldier
+walking down a corridor or a Stripper running at you only needs an update when it turns, not twenty times a
+second. In between, the entry repeats what it said last time, which costs nothing after the delta against the
+client's last copy. Everything else about a character (health, stance, weapon, death) is always sent fresh.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_CoastSeconds" data-uid="LastFleet.Networking.Replication.CharacterView.CoastSeconds">
+  CoastSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The longest a client keeps moving a character along its velocity, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float CoastSeconds = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_MotionLength" data-uid="LastFleet.Networking.Replication.CharacterView.MotionLength">
+  MotionLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MotionLength = 14</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_MotionStart" data-uid="LastFleet.Networking.Replication.CharacterView.MotionStart">
+  MotionStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The offset of the motion block in a character's snapshot entry (see <a class="xref" href="LastFleet.Networking.Replication.SnapshotWriter.html">SnapshotWriter</a>), which holds
+its position and view direction together. <a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_MotionLength">MotionLength</a> is its size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MotionStart = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="LastFleet_Networking_Replication_CharacterView_MotionStart_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Layout: x, z, yaw, pitch, y (16 bits each, in 3 cm steps and 182nds of a degree), speed (one byte, in tenths of
+a meter per second), horizontal velocity (two signed bytes, in eighths of a meter per second), and which
+snapshot it was recorded in (one byte: the tick divided by <a class="xref" href="LastFleet.Networking.Protocol.NetProtocol.html#LastFleet_Networking_Protocol_NetProtocol_SnapshotInterval">SnapshotInterval</a>, wrapping
+every 12 s). Players' entries are always fresh, so they don't include a velocity.</p>
+</div>
+
+
+
+
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_VelocityStep" data-uid="LastFleet.Networking.Replication.CharacterView.VelocityStep">
+  VelocityStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Velocities are sent in steps of this many meters per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float VelocityStep = 0.125</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Age_" data-uid="LastFleet.Networking.Replication.CharacterView.Age*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Age_System_UInt32_System_Byte_" data-uid="LastFleet.Networking.Replication.CharacterView.Age(System.UInt32,System.Byte)">
+  Age(uint, byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the seconds since a motion block was taken (see <a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_Taken_System_UInt32_">Taken(uint)</a>), as of <code class="paramref">tick</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Age(uint tick, byte taken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>taken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Begin_" data-uid="LastFleet.Networking.Replication.CharacterView.Begin*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Begin_System_UInt32_" data-uid="LastFleet.Networking.Replication.CharacterView.Begin(System.UInt32)">
+  Begin(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts the snapshot for <code class="paramref">tick</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(uint tick)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_End_" data-uid="LastFleet.Networking.Replication.CharacterView.End*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_End" data-uid="LastFleet.Networking.Replication.CharacterView.End">
+  End()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ends a snapshot and forgets any characters that weren't in it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void End()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Predict_" data-uid="LastFleet.Networking.Replication.CharacterView.Predict*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Predict_System_ReadOnlySpan_System_Byte__System_UInt32_" data-uid="LastFleet.Networking.Replication.CharacterView.Predict(System.ReadOnlySpan{System.Byte},System.UInt32)">
+  Predict(ReadOnlySpan&lt;byte&gt;, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns where a motion block (<a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_MotionLength">MotionLength</a> bytes) places a character at <code class="paramref">tick</code>:
+its recorded position moved along its velocity for at most <a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_CoastSeconds">CoastSeconds</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 Predict(ReadOnlySpan&lt;byte&gt; motion, uint tick)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>motion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Settle_" data-uid="LastFleet.Networking.Replication.CharacterView.Settle*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Settle_System_Int32_System_UInt32_System_Numerics_Vector3_System_Numerics_Vector3_System_Func_System_Numerics_Vector3_System_Numerics_Vector3_System_Boolean__System_Span_System_Byte__" data-uid="LastFleet.Networking.Replication.CharacterView.Settle(System.Int32,System.UInt32,System.Numerics.Vector3,System.Numerics.Vector3,System.Func{System.Numerics.Vector3,System.Numerics.Vector3,System.Boolean},System.Span{System.Byte})">
+  Settle(int, uint, Vector3, Vector3, Func&lt;Vector3, Vector3, bool&gt;?, Span&lt;byte&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finalizes one character's entry, which has just been written fresh. For each part of its motion, keeps the
+fresh value if the client's guess from the last one sent is off by enough to matter. Otherwise it puts back
+what was sent last time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Settle(int id, uint tick, Vector3 eye, Vector3 feet, Func&lt;Vector3, Vector3, bool&gt;? sight, Span&lt;byte&gt; entry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>sight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>entry</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_Networking_Replication_CharacterView_Settle_System_Int32_System_UInt32_System_Numerics_Vector3_System_Numerics_Vector3_System_Func_System_Numerics_Vector3_System_Numerics_Vector3_System_Boolean__System_Span_System_Byte___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Beyond 25 m, the tolerance also depends on whether the client can see the character. That's checked with
+<code class="paramref">sight</code> (a clear line from the client's eye to the character's chest), twice a second.</p>
+</div>
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Taken_" data-uid="LastFleet.Networking.Replication.CharacterView.Taken*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Taken_System_UInt32_" data-uid="LastFleet.Networking.Replication.CharacterView.Taken(System.UInt32)">
+  Taken(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the byte that records which snapshot a motion block was taken in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte Taken(uint tick)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_TryShown_" data-uid="LastFleet.Networking.Replication.CharacterView.TryShown*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_TryShown_System_Int32_System_Double_System_Numerics_Vector3__" data-uid="LastFleet.Networking.Replication.CharacterView.TryShown(System.Int32,System.Double,System.Numerics.Vector3@)">
+  TryShown(int, double, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets where the client was drawing character <code class="paramref">id</code> at <code class="paramref">tick</code>, by interpolating
+between the two snapshots around it the same way the client does. If only the earlier one exists, uses that.
+Returns false if there's no earlier snapshot for it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryShown(int id, double tick, out Vector3 feet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Replication_CharacterView_Velocity_" data-uid="LastFleet.Networking.Replication.CharacterView.Velocity*"></a>
+
+  <h3 id="LastFleet_Networking_Replication_CharacterView_Velocity_System_Numerics_Vector3_" data-uid="LastFleet.Networking.Replication.CharacterView.Velocity(System.Numerics.Vector3)">
+  Velocity(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Replication/CharacterView.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a horizontal velocity as two signed bytes, in <a class="xref" href="LastFleet.Networking.Replication.CharacterView.html#LastFleet_Networking_Replication_CharacterView_VelocityStep">VelocityStep</a> units.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (byte X, byte Z) Velocity(Vector3 velocity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte,system.byte-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte,system.byte-.z">Z</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

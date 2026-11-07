@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnimAction | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnimAction | The Last Fleet ">
+      
+      <meta name="description" content="A one-shot animation a body plays on top of whatever else it&#39;s doing (like Unreal&#39;s montage played into a slot), for example a reload, a throw or a shot&#39;s kick.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Content_Skeletal_Graph_AnimAction.md&amp;value=---%0Auid%3A%20LastFleet.Content.Skeletal.Graph.AnimAction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Content.Skeletal.Graph.AnimAction">
+
+
+
+  <h1 id="LastFleet_Content_Skeletal_Graph_AnimAction" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction" class="text-break">
+Class AnimAction  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Content.html">Content</a>.<a class="xref" href="LastFleet.Content.Skeletal.html">Skeletal</a>.<a class="xref" href="LastFleet.Content.Skeletal.Graph.html">Graph</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Content.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A one-shot animation a body plays on top of whatever else it's doing (like Unreal's montage played into a slot),
+for example a reload, a throw or a shot's kick.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record AnimAction : IEquatable&lt;AnimAction&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AnimAction</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimAction.html">AnimAction</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Content_Skeletal_Graph_AnimAction_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A body type's graph lists its actions. Each one has the clip it plays, the part of the body it covers, and how it
+fades in and out. The graph's <code>slot</code> node plays whichever action the body is doing
+(<a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html#LastFleet_Content_Skeletal_Graph_AnimInstance_Play_System_Int32_System_Single_">Play(int, float)</a>). The clip runs from start to end as the action goes from 0 to 1, so
+it lasts as long as the action does (a reload gets stretched to the gun's reload time).
+</p>
+<p>
+The game uses the same action names as the simulation (<code>reload</code>, <code>throw</code>, <code>fire</code>, <code>use</code>). If a
+body has no action with that name, nothing plays.
+</p>
+<p>
+Events (for example a grenade being released) are placed at a fraction of the action from 0 to 1. That way they
+stay in the right place no matter how long the action runs or which clip a grip swaps in. The slot fires each event
+as the action passes it.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction__ctor_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.#ctor*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction__ctor_System_String_System_String_System_String_System_Single_System_Single_System_String_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.#ctor(System.String,System.String,System.String,System.Single,System.Single,System.String)">
+  AnimAction(string, string, string?, float, float, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A one-shot animation a body plays on top of whatever else it's doing (like Unreal's montage played into a slot),
+for example a reload, a throw or a shot's kick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimAction(string Name, string Clip, string? Mask, float FadeIn, float FadeOut, string About)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The action name the game asks for.</p>
+</dd>
+    <dt><code>Clip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The rig clip it plays. A grip or variant can swap it, the same as any clip the graph names.</p>
+</dd>
+    <dt><code>Mask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The rig mask it covers, or null for the whole body.</p>
+</dd>
+    <dt><code>FadeIn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Seconds to fully fade in.</p>
+</dd>
+    <dt><code>FadeOut</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Seconds to fade out once it's done, or when another action replaces it.</p>
+</dd>
+    <dt><code>About</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A description for designers.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_Content_Skeletal_Graph_AnimAction__ctor_System_String_System_String_System_String_System_Single_System_Single_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A body type's graph lists its actions. Each one has the clip it plays, the part of the body it covers, and how it
+fades in and out. The graph's <code>slot</code> node plays whichever action the body is doing
+(<a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html#LastFleet_Content_Skeletal_Graph_AnimInstance_Play_System_Int32_System_Single_">Play(int, float)</a>). The clip runs from start to end as the action goes from 0 to 1, so
+it lasts as long as the action does (a reload gets stretched to the gun's reload time).
+</p>
+<p>
+The game uses the same action names as the simulation (<code>reload</code>, <code>throw</code>, <code>fire</code>, <code>use</code>). If a
+body has no action with that name, nothing plays.
+</p>
+<p>
+Events (for example a grenade being released) are placed at a fraction of the action from 0 to 1. That way they
+stay in the right place no matter how long the action runs or which clip a grip swaps in. The slot fires each event
+as the action passes it.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_About_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.About*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_About" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.About">
+  About
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A description for designers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string About { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_Clip_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Clip*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_Clip" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Clip">
+  Clip
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rig clip it plays. A grip or variant can swap it, the same as any clip the graph names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Clip { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_Events_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Events*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_Events" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Events">
+  Events
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The action's events, each placed at a fraction of the action (0 to 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ClipEvent&gt; Events { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Skeletal.Graph.ClipEvent.html">ClipEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_FadeIn_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.FadeIn*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_FadeIn" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.FadeIn">
+  FadeIn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds to fully fade in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FadeIn { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_FadeOut_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.FadeOut*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_FadeOut" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.FadeOut">
+  FadeOut
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds to fade out once it's done, or when another action replaces it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FadeOut { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_Mask_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Mask*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_Mask" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Mask">
+  Mask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rig mask it covers, or null for the whole body.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Mask { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Skeletal_Graph_AnimAction_Name_" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Name*"></a>
+
+  <h3 id="LastFleet_Content_Skeletal_Graph_AnimAction_Name" data-uid="LastFleet.Content.Skeletal.Graph.AnimAction.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Skeletal/Graph/AnimAction.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The action name the game asks for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

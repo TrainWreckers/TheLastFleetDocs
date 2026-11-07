@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ArmPart | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ArmPart | The Last Fleet ">
+      
+      <meta name="description" content="A straight run of cells out from a point: a station&#39;s arm, a ring station&#39;s bridge, a docking boom. It grows from its  in its direction for a length picked from its range, as wide as its width either side of its line, so it stays on its line however long it&#39;s drawn.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Plans_ArmPart.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Plans.ArmPart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans.ArmPart">
+
+
+
+  <h1 id="LastFleet_ProcGen_Plans_ArmPart" data-uid="LastFleet.ProcGen.Plans.ArmPart" class="text-break">
+Class ArmPart  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Plans.html">Plans</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A straight run of cells out from a point: a station's arm, a ring station's bridge, a docking boom. It grows from its
+<a class="xref" href="LastFleet.ProcGen.Plans.ArmPart.html#LastFleet_ProcGen_Plans_ArmPart_At">At</a> in its direction for a length picked from its range, as wide as its width either side of its line,
+so it stays on its line however long it's drawn.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record ArmPart : PlanPart, IEquatable&lt;PlanPart&gt;, IEquatable&lt;ArmPart&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html">PlanPart</a></div>
+      <div><span class="xref">ArmPart</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html">PlanPart</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.ArmPart.html">ArmPart</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html#LastFleet_ProcGen_Plans_PlanPart_Mode">PlanPart.Mode</a>
+    </div>
+    <div>
+      <a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html#LastFleet_ProcGen_Plans_PlanPart_Chance">PlanPart.Chance</a>
+    </div>
+    <div>
+      <a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html#LastFleet_ProcGen_Plans_PlanPart_Decks">PlanPart.Decks</a>
+    </div>
+    <div>
+      <a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html#LastFleet_ProcGen_Plans_PlanPart_OnDeck_System_Int32_">PlanPart.OnDeck(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart__ctor_" data-uid="LastFleet.ProcGen.Plans.ArmPart.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart__ctor_LastFleet_ProcGen_Plans_PartMode_System_Single_System_ValueTuple_System_Int32_System_Int32__LastFleet_ProcGen_Layouts_Side_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Boolean_" data-uid="LastFleet.ProcGen.Plans.ArmPart.#ctor(LastFleet.ProcGen.Plans.PartMode,System.Single,System.ValueTuple{System.Int32,System.Int32},LastFleet.ProcGen.Layouts.Side,System.ValueTuple{System.Int32,System.Int32},System.ValueTuple{System.Int32,System.Int32},System.Boolean)">
+  ArmPart(PartMode, float, (int X, int Z), Side, (int Min, int Max), (int Min, int Max), bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A straight run of cells out from a point: a station's arm, a ring station's bridge, a docking boom. It grows from its
+<a class="xref" href="LastFleet.ProcGen.Plans.ArmPart.html#LastFleet_ProcGen_Plans_ArmPart_At">At</a> in its direction for a length picked from its range, as wide as its width either side of its line,
+so it stays on its line however long it's drawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArmPart(PartMode Mode, float Chance, (int X, int Z) At, Side Direction, (int Min, int Max) Length, (int Min, int Max) Width, bool Mirror)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Mode</code> <a class="xref" href="LastFleet.ProcGen.Plans.PartMode.html">PartMode</a></dt>
+    <dd><p>Whether its cells are added or cut out.</p>
+</dd>
+    <dt><code>Chance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How likely it is to be there at all.</p>
+</dd>
+    <dt><code>At</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>The cell it starts from.</p>
+</dd>
+    <dt><code>Direction</code> <a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a></dt>
+    <dd><p>The way it grows (north is toward −Z).</p>
+</dd>
+    <dt><code>Length</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>The fewest and most cells long.</p>
+</dd>
+    <dt><code>Width</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>The fewest and most cells across; an even width is made one wider, so it has a middle line.</p>
+</dd>
+    <dt><code>Mirror</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether a copy goes on the other side of the centerline (Z = 0) too.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_At_" data-uid="LastFleet.ProcGen.Plans.ArmPart.At*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_At" data-uid="LastFleet.ProcGen.Plans.ArmPart.At">
+  At
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cell it starts from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int X, int Z) At { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Direction_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Direction*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Direction" data-uid="LastFleet.ProcGen.Plans.ArmPart.Direction">
+  Direction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The way it grows (north is toward −Z).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Side Direction { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Kind_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Kind*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Kind" data-uid="LastFleet.ProcGen.Plans.ArmPart.Kind">
+  Kind
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part's kind as plans.json names it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Kind { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Length_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Length*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Length" data-uid="LastFleet.ProcGen.Plans.ArmPart.Length">
+  Length
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest and most cells long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Length { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Mirror_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Mirror*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Mirror" data-uid="LastFleet.ProcGen.Plans.ArmPart.Mirror">
+  Mirror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a copy goes on the other side of the centerline (Z = 0) too.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Mirror { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Width_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Width*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Width" data-uid="LastFleet.ProcGen.Plans.ArmPart.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest and most cells across; an even width is made one wider, so it has a middle line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Width { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_ArmPart_Cover_" data-uid="LastFleet.ProcGen.Plans.ArmPart.Cover*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ArmPart_Cover_LastFleet_Core_Determinism_DeterministicRandom_System_Collections_Generic_List_System_ValueTuple_System_Int32_System_Int32___" data-uid="LastFleet.ProcGen.Plans.ArmPart.Cover(LastFleet.Core.Determinism.DeterministicRandom,System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}})">
+  Cover(DeterministicRandom, List&lt;(int X, int Z)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ArmPart.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the cells the part covers for <code class="paramref">random</code>'s draws to <code class="paramref">cells</code>, and returns the
+shape it was drawn at.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override PartShape Cover(DeterministicRandom random, List&lt;(int X, int Z)&gt; cells)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>random</code> <a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html">DeterministicRandom</a></dt>
+    <dd><p>The part's own stream; drawn from in the same order every time.</p>
+</dd>
+    <dt><code>cells</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.z">Z</a>)&gt;</dt>
+    <dd><p>Where its cells go. A cell may be added more than once.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PartShape.html">PartShape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

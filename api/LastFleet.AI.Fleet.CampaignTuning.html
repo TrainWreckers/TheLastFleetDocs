@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CampaignTuning | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CampaignTuning | The Last Fleet ">
+      
+      <meta name="description" content="What the fleet finds to raid as it crosses the sectors (content/defs/campaign.json): stations, laid out by the station plans, and ships (frigates, carriers, strike carriers), each laid out by its plan, each turning up as often as its weight once the fleet has come far enough. Each system has a few of them (its points of interest), and a sector&#39;s first system and its gate always have a station first. A point raided is picked over: its cargo thinner, its guards heavier.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Fleet_CampaignTuning.md&amp;value=---%0Auid%3A%20LastFleet.AI.Fleet.CampaignTuning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Fleet.CampaignTuning">
+
+
+
+  <h1 id="LastFleet_AI_Fleet_CampaignTuning" data-uid="LastFleet.AI.Fleet.CampaignTuning" class="text-break">
+Class CampaignTuning  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Fleet.html">Fleet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>What the fleet finds to raid as it crosses the sectors (content/defs/campaign.json): stations, laid out by the
+station plans, and ships (frigates, carriers, strike carriers), each laid out by its plan, each turning up as often
+as its weight once the fleet has come far enough. Each system has a few of them (its points of interest), and a
+sector's first system and its gate always have a station first. A point raided is picked over: its cargo thinner,
+its guards heavier.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CampaignTuning</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CampaignTuning</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_FileName" data-uid="LastFleet.AI.Fleet.CampaignTuning.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file's name in content/defs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FileName = &quot;campaign.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_ShipRaid" data-uid="LastFleet.AI.Fleet.CampaignTuning.ShipRaid">
+  ShipRaid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ship raid's template id: a ship laid out by its plan.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ShipRaid = &quot;ship_raid&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Station" data-uid="LastFleet.AI.Fleet.CampaignTuning.Station">
+  Station
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A station's target id, what a system is when nothing else is said (a fleet saved before ships).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Station = &quot;station&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_StationRaid" data-uid="LastFleet.AI.Fleet.CampaignTuning.StationRaid">
+  StationRaid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The station raid's template id: a station laid out by one of the station plans.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string StationRaid = &quot;station_raid&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Boarding_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Boarding*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Boarding" data-uid="LastFleet.AI.Fleet.CampaignTuning.Boarding">
+  Boarding
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How a boarding action's fight goes (<code>boarding</code>): its timings and harm, and how its crew fights. Its
+batteries, reactor and panels are where the level has them (how many batteries is the plan recipe's); this one
+has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoardingPlan Boarding { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.BoardingPlan.html">BoardingPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Default_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Default*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Default" data-uid="LastFleet.AI.Fleet.CampaignTuning.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stations three times in six, frigates from the first sector, carriers from the second and strike carriers from the
+third: what the shipped file says, used without it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CampaignTuning Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html">CampaignTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_DefaultIntercom_" data-uid="LastFleet.AI.Fleet.CampaignTuning.DefaultIntercom*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_DefaultIntercom" data-uid="LastFleet.AI.Fleet.CampaignTuning.DefaultIntercom">
+  DefaultIntercom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The intercom's lines without the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyDictionary&lt;string, IReadOnlyList&lt;string&gt;&gt; DefaultIntercom { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_FewestPoints_" data-uid="LastFleet.AI.Fleet.CampaignTuning.FewestPoints*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_FewestPoints" data-uid="LastFleet.AI.Fleet.CampaignTuning.FewestPoints">
+  FewestPoints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest points of interest a system has (<code>points.fewest</code>, 2).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FewestPoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_InPlay_" data-uid="LastFleet.AI.Fleet.CampaignTuning.InPlay*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_InPlay" data-uid="LastFleet.AI.Fleet.CampaignTuning.InPlay">
+  InPlay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the map is drawn with: the loaded file once it's loaded, else <a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html#LastFleet_AI_Fleet_CampaignTuning_Default">Default</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CampaignTuning InPlay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html">CampaignTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Intercom_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Intercom*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Intercom" data-uid="LastFleet.AI.Fleet.CampaignTuning.Intercom">
+  Intercom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What a boarded warship's intercom says (<code>boarding.intercom</code>), by what's happened: <code>hit</code>, <code>fire</code>,
+<code>battery</code> (one silenced), <code>reactor</code> (its power cut), <code>suppression</code> (its fire suppression knocked
+out or lost), <code>suppression_up</code> (repaired), <code>bridge</code> (taken), <code>ambient</code> (now and then). Each a list,
+taken in turn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, IReadOnlyList&lt;string&gt;&gt; Intercom { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Jump_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Jump*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Jump" data-uid="LastFleet.AI.Fleet.CampaignTuning.Jump">
+  Jump
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the jump plays out on the ship (<code>jump</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JumpTuning Jump { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.JumpTuning.html">JumpTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_MostPoints_" data-uid="LastFleet.AI.Fleet.CampaignTuning.MostPoints*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_MostPoints" data-uid="LastFleet.AI.Fleet.CampaignTuning.MostPoints">
+  MostPoints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most points of interest a system has (<code>points.most</code>, 4).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MostPoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Objectives_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Objectives*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Objectives" data-uid="LastFleet.AI.Fleet.CampaignTuning.Objectives">
+  Objectives
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The objectives a target can set, as mission recipes name them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; Objectives { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_PickedOverCargo_" data-uid="LastFleet.AI.Fleet.CampaignTuning.PickedOverCargo*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_PickedOverCargo" data-uid="LastFleet.AI.Fleet.CampaignTuning.PickedOverCargo">
+  PickedOverCargo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A raided point's cargo, as a percentage of what it had before, for each time it's been raided
+(<code>pickedOver.cargoPercent</code>, 50).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PickedOverCargo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_PickedOverGuards_" data-uid="LastFleet.AI.Fleet.CampaignTuning.PickedOverGuards*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_PickedOverGuards" data-uid="LastFleet.AI.Fleet.CampaignTuning.PickedOverGuards">
+  PickedOverGuards
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A raided point's guards, as a percentage of what it had before, for each time it's been raided
+(<code>pickedOver.soldierPercent</code>, 125).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PickedOverGuards { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Targets_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Targets*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Targets" data-uid="LastFleet.AI.Fleet.CampaignTuning.Targets">
+  Targets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The targets, in file order. Never empty, and always with a station.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;CampaignTarget&gt; Targets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.AI.Fleet.CampaignTarget.html">CampaignTarget</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Find_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Find*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Find_System_String_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Find(System.String)">
+  Find(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The target with id <code class="paramref">id</code>, or the station if there's none (or <code class="paramref">id</code> is empty).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CampaignTarget Find(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTarget.html">CampaignTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Load_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Load*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Load_System_String_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads <code class="paramref">path</code>, or <a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html#LastFleet_AI_Fleet_CampaignTuning_Default">Default</a> if there's no such file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CampaignTuning Load(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html">CampaignTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file has problems. The message names every one.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Parse_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Parse*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Parse_System_String_System_String_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Parse(System.String,System.String)">
+  Parse(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads campaign.json's text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CampaignTuning Parse(string json, string source = &quot;campaign.json&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html">CampaignTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>It has problems. The message names every one.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Pick_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Pick*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Pick_System_Single_System_Int32_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Pick(System.Single,System.Int32)">
+  Pick(float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The target a system of sector <code class="paramref">sector</code> has, picked by <code class="paramref">roll</code> (0 to 1) among
+those that turn up there by weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CampaignTarget Pick(float roll, int sector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>roll</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>sector</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.CampaignTarget.html">CampaignTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_CampaignTuning_Use_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Use*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_CampaignTuning_Use_LastFleet_AI_Fleet_CampaignTuning_" data-uid="LastFleet.AI.Fleet.CampaignTuning.Use(LastFleet.AI.Fleet.CampaignTuning)">
+  Use(CampaignTuning?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/CampaignTuning.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes <code class="paramref">tuning</code> the one the map is drawn with from now on; null for <a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html#LastFleet_AI_Fleet_CampaignTuning_Default">Default</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Use(CampaignTuning? tuning)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Fleet.CampaignTuning.html">CampaignTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

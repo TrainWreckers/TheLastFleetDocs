@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Adding content: what is data, and what still needs code | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Adding content: what is data, and what still needs code | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="adding-content-what-is-data-and-what-still-needs-code">Adding content: what is data, and what still needs code</h1>
+
+<p>So you want to add a new gun, a room, an enemy? Good news: most things are data! That means a new entry in a JSON
+file under <code>content/defs/</code>, plus art under <code>content/</code> if it needs a model. None of it needs a programmer or a build.</p>
+<p>You can edit the data in LastFleet Studio (<a href="studio/reference.html">the Studio reference</a>) or by hand. Studio picks up hand edits as soon as
+you save them, so use whichever you like.</p>
+<p>In Studio, every list has a <strong>+ New</strong> button. It adds an entry at the end of the list, copied from the one you have
+selected (or the first one), so every field is already filled in. Give it an <code>id</code> and a <code>name</code>, then change whatever
+makes it different. Too easy!</p>
+<p>Not sure what something does? The text above the fields says what the list is for, and hovering over a field tells you
+what it does. Fields that point to other entries (a rarity, a maker, a frame) are picked from a list, so you can't make
+a typo.</p>
+<p>The tables below go area by area: what you can add, where it lives, what to set, and anything else it needs.</p>
+<h2 id="guns-and-loot-contentdefsloot">Guns and loot (<code>content/defs/loot/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Where</th>
+<th>What to set</th>
+<th>Anything else?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>maker</strong></td>
+<td>Armory &gt; Makers (<code>manufacturers.json</code>)</td>
+<td><code>id</code>, <code>name</code>, <code>color</code> (its paint), <code>models</code> (the model names it sells for each frame it makes), <code>bias</code> (stats applied to all its guns), <code>signature</code> (its trait), <code>weight</code>, <code>minRarity</code></td>
+<td>Optional: give it its own parts (set their <code>manufacturer</code> to the maker's id). Loot tables can favor it under <code>manufacturers</code>.</td>
+</tr>
+<tr>
+<td>A <strong>part</strong></td>
+<td>Armory &gt; Parts (<code>parts.json</code>)</td>
+<td><code>slot</code>, <code>mods</code>, <code>rarity</code>, <code>weight</code>; <code>manufacturer</code> to limit it to one maker; <code>archetypes</code> to limit it to some frames; <code>model</code> for the model it shows as</td>
+<td>Its model goes in the frame's file in <code>content/weapons/</code> (<a href="blender/weapons.html">weapons.md</a>). The <code>model</code> field opens a 3D picker with icons for that slot's models. The 3D panel's <strong>Part models</strong> shows every model and which parts use it.</td>
+</tr>
+<tr>
+<td>An <strong>affix</strong></td>
+<td>Armory &gt; Affixes (<code>affixes.json</code>)</td>
+<td><code>kind</code> (prefix or suffix), <code>rarity</code>, <code>weight</code>, <code>mods</code>, <code>traits</code></td>
+<td></td>
+</tr>
+<tr>
+<td>A <strong>frame</strong> (archetype)</td>
+<td>Armory &gt; Frames (<code>archetypes.json</code>)</td>
+<td><code>model</code> (its models file), <code>firing</code> (hitscan, pellets or projectile), <code>frameStats</code> (rate of fire, magazine, damage, spread...), <code>base</code> stats, <code>clamps</code>; <code>sound</code>, <code>kit</code>, <code>sidearm</code> and <code>grip</code> (how a body holds it, <a href="animation-graphs.html">animation-graphs.md</a>); <code>soldier</code> (how an enemy soldier fights with it: damage and range scales, how long it holds the trigger, its squad role)</td>
+<td>Its models go in <code>content/weapons/&lt;model&gt;.gltf</code>, made in Blender (<a href="blender/weapons.html">weapons.md</a>). Frames can share a file. A maker has to list <code>models</code> for the frame before it makes it, and a loot table has to name the frame before it drops. Enemy variants carry it once their <code>weapons</code> list it. Its shot sound is the cue <code>gun_&lt;model&gt;</code> (<code>content/defs/sounds.json</code>, <a href="sound.html">sound.md</a>), unless <code>sound</code> names a different one.</td>
+</tr>
+<tr>
+<td>A <strong>rarity</strong></td>
+<td>Loot &gt; Rarities (<code>rarities.json</code>)</td>
+<td><code>color</code>, <code>weight</code>, <code>perLevel</code>, <code>affixes</code>, <code>statBonus</code>, <code>mods</code></td>
+<td>Tiers rank in file order, lowest first.</td>
+</tr>
+<tr>
+<td>A <strong>relic</strong></td>
+<td>Loot &gt; Relics (<code>relics.json</code>)</td>
+<td><code>archetype</code>, <code>manufacturer</code>, five <code>parts</code>, <code>traits</code>, <code>affixes</code>, <code>flavor</code></td>
+<td>It never drops unless a loot table entry names it (<code>&quot;relic&quot;: &quot;&lt;id&gt;&quot;</code>).</td>
+</tr>
+<tr>
+<td>A <strong>loot table</strong></td>
+<td>Loot &gt; Loot tables (<code>tables.json</code>)</td>
+<td><code>entries</code> (frames, other tables, relics; weights and item levels), <code>rarity</code> and <code>manufacturers</code> bias</td>
+<td>Something has to roll on it: a mission's loot settings or another table. Never change a table that has shipped, because guns are rebuilt from their table.</td>
+</tr>
+<tr>
+<td>A <strong>trait's strength</strong></td>
+<td>Armory &gt; Trait rules (<code>traits.json</code>)</td>
+<td>The numbers for each trait</td>
+<td>A new trait (a new effect) needs code.</td>
+</tr>
+<tr>
+<td>An <strong>item</strong> (a medkit, an ammo pack, a fleet supply, a raw material...)</td>
+<td>Items &gt; Items (<code>items.json</code>)</td>
+<td><code>id</code>, <code>name</code>, <code>model</code> (<code>file/Object</code> in <code>content/props</code>), <code>paint</code>, <code>color</code>, <code>stack</code>; flags: <code>consumable</code> (<code>useSeconds</code>, and the <code>effect</code> it runs), <code>fleetSupply</code>, <code>refinable</code> (a raw material), <code>weaponPart</code> (<code>fitSeconds</code>), <code>carried</code> (held in both arms, like a crate)</td>
+<td>Put it in item tables so players can find it lying around. There's a limit of 64 items, and the order matters (it's how items are sent over the network), so add new ones at the end. An item that does something the game can't do yet needs code (see below).</td>
+</tr>
+<tr>
+<td>An <strong>effect</strong> (what an item does: healing, armor, a shield, a stat change for a while, refilling ammo, calling a pod, or a mix of these)</td>
+<td>Items &gt; Effects (<code>effects.json</code>)</td>
+<td><code>id</code>, <code>name</code>, <code>trigger</code> (<code>use</code>: from a quick slot; <code>passive</code>: while its item is held), <code>actions</code> in order. Each action is a <code>do</code>: <code>heal</code> with <code>amount</code>; <code>giveArmor</code> with <code>amount</code>, <code>max</code>; <code>shield</code> with <code>amount</code>, <code>delaySeconds</code>, <code>perSecond</code>; <code>changeStat</code> with <code>stat</code>, <code>by</code>, <code>seconds</code>; <code>refillAmmo</code> with <code>magazines</code>; <code>callPod</code>; <code>placeDevice</code> with <code>fuseSeconds</code>, <code>blastRadius</code>, <code>blastDamage</code>; <code>sound</code> with <code>cue</code>; <code>flash</code> with <code>color</code>, <code>brightness</code>, <code>radius</code>, <code>seconds</code></td>
+<td>A consumable item names a use effect in its <code>effect</code>. Any item can name a passive effect in its <code>passive</code>. Try one out with <code>--give &lt;item&gt;</code>.</td>
+</tr>
+<tr>
+<td>A <strong>fleet supply's rules</strong> (how much a jump uses, what happens when you run short or have enough, its stations)</td>
+<td>Items &gt; Supplies (<code>supplies.json</code>)</td>
+<td><code>item</code> (an item with <code>fleetSupply</code>), <code>use</code> (each one a <code>per</code>: <code>jump</code>, <code>ship</code>, <code>damagedShip</code>, <code>people</code> with <code>people</code> and <code>round</code>, <code>shipAlive</code> with <code>ship</code>, <code>contact</code>; plus its <code>amount</code>), <code>short</code> (each one a <code>do</code>: <code>peopleLost</code>, <code>morale</code>, <code>shipWorn</code>, <code>message</code>), <code>stocked</code> (<code>morale</code>, <code>repairShips</code>, <code>produce</code>), <code>jumps</code>, <code>boarders</code>, <code>startJumps</code>, <code>stations</code></td>
+<td>Every fleet supply item needs rules. A new supply's crates come from item tables, and its stations get added to the star map. Whether a station keeps it in tanks is the mission's (<code>tankKinds</code> and the reservoir's <code>supplies</code>).</td>
+</tr>
+<tr>
+<td>A <strong>kind of tank</strong>, or the fittings for the <strong>reservoir</strong> or the <strong>airlock</strong></td>
+<td>A model in <code>content/props</code> (in Blender, see docs/blender/props.md: <code>station.gltf</code>'s <code>Tank</code>, with <code>Hose</code>, <code>Gauge</code> and <code>Gauge_Top</code>), then Missions &gt; <code>tankKinds</code> (<code>station_raid.json</code>)</td>
+<td><code>model</code>, <code>supplies</code>, <code>radius</code>, <code>height</code>, <code>weight</code>; for <code>reservoir</code>: <code>model</code>, <code>outlet</code>, <code>valve</code>, <code>radius</code>, <code>height</code>, <code>supplies</code>; for <code>airlock</code>: <code>intake</code> and <code>chute</code></td>
+<td>Collision is boxes only (<code>..._CollisionOnly</code>). Whatever the tank kinds hold is everything a station keeps in tanks. Run the gate tests, since a solid fixture in the way can break a seed.</td>
+</tr>
+<tr>
+<td>An <strong>item table</strong> (what a supply pile, a footlocker, a case or a cargo crate holds)</td>
+<td>Items &gt; Item tables (<code>items.json</code>)</td>
+<td><code>entries</code>: an <code>item</code> (by id), its <code>weight</code>, <code>count</code> and <code>perDeck</code></td>
+<td>A mission names it in its <code>loot</code> (<code>pileTable</code>, <code>footlockerTable</code>, <code>caseTable</code>, <code>cargoTable</code>). A cargo crate only holds fleet supplies.</td>
+</tr>
+<tr>
+<td>A <strong>grade</strong> of refined material (Mk I...)</td>
+<td>Items &gt; Grades (<code>crafting.json</code>)</td>
+<td><code>id</code>, <code>name</code>, <code>itemLevel</code> (the item level that things made from it roll at), <code>color</code></td>
+<td>Lowest first. Recipes make it, refinery tiers unlock it, fabrication spends it.</td>
+</tr>
+<tr>
+<td>A <strong>refinery tier</strong> (the fleet's refinery upgrades)</td>
+<td>Items &gt; Refinery tiers (<code>crafting.json</code>)</td>
+<td><code>cost</code> (fleet supplies, by item id), <code>grades</code> it can make, <code>batches</code> per jump</td>
+<td>Lowest first. A fleet starts at the first tier and upgrades from the needs board.</td>
+</tr>
+<tr>
+<td>A <strong>refinery recipe</strong></td>
+<td>Items &gt; Recipes (<code>crafting.json</code>)</td>
+<td><code>inputs</code> (raw materials, by item id, and how many), <code>grade</code>, <code>gives</code></td>
+<td>The refinery makes the best grade it can first.</td>
+</tr>
+<tr>
+<td>Something the <strong>armory fabricates</strong></td>
+<td>Items &gt; Fabrication (<code>crafting.json</code>)</td>
+<td><code>makes</code> (a <code>weapon</code> from a loot <code>table</code>, a <code>part</code> for a <code>slot</code>, or anything), <code>grade</code>, <code>cost</code></td>
+<td>Players drag it at the armory bench on the ship. It rolls at the grade's item level.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="missions-contentdefsmissions">Missions (<code>content/defs/missions/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Where</th>
+<th>What to set</th>
+<th>Anything else?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>mission template</strong></td>
+<td>Missions &gt; <strong>+ New mission (a copy)</strong> (a new file)</td>
+<td>Decks, rooms, loops, soldiers, stories, built rooms, and its <code>loot</code> tables</td>
+<td>The game plays <code>station_raid.json</code> and <code>ship_raid.json</code> (<code>campaign.json</code> says which a star map target uses). You can make and check a new template in Studio, but playing it needs code (see below).</td>
+</tr>
+<tr>
+<td>A station's <strong>tanks and deep reservoir</strong></td>
+<td>Missions &gt; the template (<code>station_raid.json</code>, <code>ship_raid.json</code>)</td>
+<td><code>tanks</code>, <code>tankAmount</code>, <code>tankFill</code>, <code>hoseLength</code>, <code>pumpRate</code>; <code>reservoir</code>: <code>chance</code>, <code>amount</code>, <code>junctions</code> (valves along the way), <code>valveSeconds</code>, <code>pumpRate</code></td>
+<td>The reservoir sits deeper in than the hose can reach, and it's piped to an outlet near the airlock.</td>
+</tr>
+<tr>
+<td>A <strong>ship raid</strong> (a mission laid out by a plan)</td>
+<td>Missions &gt; <code>ship_raid.json</code> &gt; laid out by a plan (<code>plan</code>)</td>
+<td><code>plans</code> (weighted), <code>zones</code>, <code>routeLength</code>, <code>keycard</code> (<code>rooms</code> by tag, <code>offRoute</code>, <code>detourChance</code>), <code>objective</code> (<code>kind</code>: <code>hack</code>, <code>data</code> or <code>destruct</code>, <code>rooms</code>, <code>archetype</code>, <code>seconds</code>, <code>countdown</code>, <code>sealEvery</code>) or <code>objectives</code> (several, each with a <code>weight</code>), <code>insertion</code> and <code>extraction</code> (<code>exits</code>: <code>hangar</code>, <code>airlock</code>), <code>pods</code> (<code>perZone</code>, <code>seats</code>), <code>closets</code>, <code>threat</code> (<code>zones</code>, <code>districts</code>, <code>rooms</code>, <code>reinforcements</code>: <code>everySeconds</code>, <code>size</code>; <code>sources</code>)</td>
+<td>The game plays one as <code>--level frigate:&lt;seed&gt;</code>, <code>carrier:&lt;seed&gt;</code> or any plan's id (<code>accreted_station:&lt;seed&gt;</code>). Run the gate tests (<code>-class &quot;*GateSeeds*&quot;</code>) after a change. The lobby can force an objective kind (<code>-o&lt;kind&gt;</code> in a level's settings).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="levels-contentdefsprocgen">Levels (<code>content/defs/procgen/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Where</th>
+<th>What to set</th>
+<th>Anything else?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>tag</strong> (a room type, a style, a zone)</td>
+<td>Levels &gt; <strong>+ New tag</strong> (<code>tags.json</code>)</td>
+<td>Its dotted name (<code>room.storage.cold</code>) and what it means</td>
+<td>Rules that use tags come with the next phases of the procgen revamp (plans/procgen-revamp.md).</td>
+</tr>
+<tr>
+<td>A <strong>room archetype</strong> (a kind of room built from the seed)</td>
+<td>Levels &gt; Archetypes &gt; <strong>+ New archetype</strong> (<code>archetypes.json</code>)</td>
+<td>Its shape (a kind with its ranges, or a stamp drawn on the grid), tags, roles, style, furniture (a furnishing in <code>rules.json</code>), cut corners, pillars, weight and <code>roomDoor</code> (its doors in a ship's level: <code>auto</code> or <code>interact</code>). Set <code>vertical</code> for a tall room: the <strong>stories</strong> slider goes up to 4. Each story above the ground gets a gallery, mezzanine, catwalks, landing or nothing, 2.5 to 8 m deep. Stairs are generated, either straight or switchback, running up from the nearest floor below where they fit and through any open stories in between. A room with a floor that needs stairs has to be at least 4 cells each way.</td>
+<td>A template builds rooms from the archetypes it lists (Missions &gt; the template's <code>archetypes</code>). A template never draws an archetype taller than its own <code>stories</code>.</td>
+</tr>
+<tr>
+<td>A <strong>room in a biome's kit</strong> (a room every level in the biome has: a corridor, the insertion bay, a hangar to extract from)</td>
+<td>Levels &gt; Archetypes &gt; <strong>+ New archetype</strong>, with <code>kit</code> (<code>archetypes.json</code>)</td>
+<td>The same as an archetype, plus <code>kit</code> (the biome: <code>station</code>). For a rectangle of a fixed size, also <code>doors</code> (each one a side, a cell and a level; one-cell sides are allowed). It can also take the mission's roles (insertion, corridor, closet, key, objective, extraction). Set <code>vertical</code> with a <code>landing</code> for a stairwell.</td>
+<td>Nothing else. The kit is built once from each room's id and offered to every level. If a role needs a spot in the room, the room gets it from its roles (the insertion's spawns, the extraction's spot) or from a prop its furnishing places (a terminal's <code>marker</code>). If a furnishing's required rules can't be met in any of six footprints, the kit stops and names the room.</td>
+</tr>
+<tr>
+<td>A <strong>surface style</strong> (how rooms or halls look)</td>
+<td>Levels &gt; Styles &gt; <strong>+ New style</strong> (<code>styles.json</code>)</td>
+<td>Its id, its base, and what's different from the base: walls, floor, ceiling, trims, duct, pipes, lights, and how a hall built in it looks (<code>hall</code>)</td>
+<td>A deck theme builds its halls in the style it names (<code>style</code> under the template's <code>hallThemes</code>). Rooms built from the seed use their archetype's style. In later phases, rules will pick styles for kit rooms.</td>
+</tr>
+<tr>
+<td>A <strong>prop</strong> (something rules place)</td>
+<td>Levels &gt; Props &gt; <strong>+ New prop</strong> (<code>props.json</code>)</td>
+<td>Its kind (furniture, footlocker, case, cargo, supplies, ammo, keycard, tank) and size. For furniture: a model (picked from content/props, and its size comes from the model) and its paint, or its color, what it breaks into and its piece's name, and which mission spot it stands for (<code>marker</code>: terminal, extraction or key; <code>markerAhead</code> is how many meters in front of it)</td>
+<td>A rule that places it (Levels &gt; Rules). A tank's size and model come from its kind in the mission template.</td>
+</tr>
+<tr>
+<td>A <strong>furniture model</strong> (a table, a chair, a rack)</td>
+<td>A recipe in <code>content/props/forge.json</code>, edited in Levels &gt; Props &gt; <strong>Its recipe</strong>, or a model in a new <code>content/props</code> file (docs/blender/props.md)</td>
+<td>Its parts and materials, its solid boxes, <code>Socket_&lt;Group&gt;_&lt;n&gt;</code> empties where loot sits, and <code>Attach_&lt;Group&gt;_&lt;n&gt;</code> where another piece stands</td>
+<td>A prop that uses it. Then on the prop, set <code>sockets</code> (each group's loot table, chance and count) and <code>attach</code> (what stands at each group, and how far it's pulled out). Collision is boxes only, and a piece that breaks is one box.</td>
+</tr>
+<tr>
+<td>A <strong>placement rule</strong> (what goes where in rooms)</td>
+<td>Levels &gt; Rules &gt; <strong>+ New rule</strong> (<code>rules.json</code>)</td>
+<td>What (props and weights), where (a tag query), anchor and fallback, count, clear space, spacing, priority, blocks, interaction, required. Set <code>arrange</code> for a row or grid (gaps, aisles of 1.1 m or more, back to back).</td>
+<td>Nothing else. The level's rules apply to every station level. You can see how a rule did in a room on the Missions mode map.</td>
+</tr>
+<tr>
+<td>A <strong>furnishing</strong> (how a built room is furnished)</td>
+<td>Levels &gt; Rules &gt; <strong>+ New furnishing</strong> (<code>rules.json</code>)</td>
+<td>Its rules (with no where, since they apply to the room being furnished)</td>
+<td>An archetype that names it (<code>furniture</code>), or built rooms that draw one.</td>
+</tr>
+<tr>
+<td>A <strong>loot assignment</strong> (what loot a kind of room gets)</td>
+<td>Levels &gt; Loot &gt; <strong>+ New assignment</strong> (<code>loot.json</code>)</td>
+<td>Where (a tag query: <code>role.*</code>, <code>deck.*</code>, <code>layout.*</code>, or the content's tags), and any of these: a cache (table, count), a stash weight (per room deeper, per soldier carrying it; table), the tables its piles, footlockers, cases and cargo roll from, and added item levels</td>
+<td>Its tables have to exist in the loot data (Checks will tell you). Order matters: the first cache and table win, while weights and levels add up.</td>
+</tr>
+<tr>
+<td>A <strong>recipe step</strong> (how a mission's decks grow)</td>
+<td>Missions &gt; the map's <strong>Recipe</strong> view &gt; <strong>+ side rooms</strong> or <strong>+ loot rooms</strong> (the template's <code>recipe</code>)</td>
+<td>How many per deck, how often a side room is two deep, and which decks (leave it out for every deck). Move it with <strong>&lt; Earlier</strong> and <strong>Later &gt;</strong>.</td>
+<td>The main path and the keycard steps stay as they are. The node shows the mission's graph after the step runs.</td>
+</tr>
+<tr>
+<td>A <strong>typing rule</strong> (what mix of rooms a level has)</td>
+<td>Levels &gt; Typing &gt; <strong>+ count</strong>, <strong>+ adjacent</strong> or <strong>+ distance</strong> (<code>typing.json</code>), or a tick in the <strong>Adjacency table</strong></td>
+<td>A count (where, per deck or level, min and max), an adjacency (rooms a and b are never connected) or a distance (min and max steps between rooms a and b), all by tags; plus the kit's share</td>
+<td>If a rule set can't be satisfied, the level stops and tells you why. Try a few seeds in Missions mode (<strong>Types</strong>).</td>
+</tr>
+<tr>
+<td>A <strong>network</strong>'s costs (where a pipe runs)</td>
+<td>Levels &gt; Networks (<code>networks.json</code>)</td>
+<td>What its route pays for each direction it can run and each bend, its open span and service cells, and its pipe's look</td>
+<td>The generator lays <code>reservoir_feed</code>. A new network only gets laid once code asks for it. You can see its route on the Missions mode map.</td>
+</tr>
+<tr>
+<td>A <strong>level plan</strong> (a ship's or a station's shape)</td>
+<td>Levels &gt; Plans &gt; <strong>+ New plan</strong> (<code>plans.json</code>)</td>
+<td>Its parts (a hull, boxes, arms, rings, painted cells), its halls (spines, cross passages, rings, service ways) and its sections; its <code>decks</code> (names, districts) and stair <code>cores</code>; parts and halls name their <code>decks</code></td>
+<td>Its rooms come from its sections' districts; its mission comes with the next phase of the structure-first plan (plans/structure-first.md).</td>
+</tr>
+<tr>
+<td>A <strong>pin</strong> (a set piece held in place on a plan)</td>
+<td>Levels &gt; Plans &gt; Its pins &gt; <strong>+ room pin</strong> or <strong>+ boarding pin</strong>, then drag it on the preview (<code>plans.json</code>)</td>
+<td><code>pin</code> (<code>room</code> or <code>boarding</code>, the squad's airlock; one boarding pin a plan), <code>archetype</code> for a room, <code>on</code> (the part), <code>at</code> (along it, 0 to 1), <code>across</code> (cells off its line) or <code>offset</code> (cells from a ring's center), <code>deck</code></td>
+<td>A room pin's room is cut round where it's pinned (the bridge at the bow). A boarding pin picks the airlock or hangar nearest it.</td>
+</tr>
+<tr>
+<td>A <strong>district</strong> (what a section's rooms are)</td>
+<td>Levels &gt; Districts &gt; <strong>+ New district</strong> (<code>districts.json</code>)</td>
+<td>Its anchor and its rooms: archetypes with widths, weights, runs and private</td>
+<td>A plan's sections name it.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enemies-and-their-behavior-contentdefsai">Enemies and their behavior (<code>content/defs/ai/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Where</th>
+<th>What to set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An <strong>enemy variant</strong> (a new kind of soldier)</td>
+<td>Behavior &gt; Enemies, <strong>+ New</strong> (<code>enemies.json</code>)</td>
+<td><code>behavior</code> (which behavior file it thinks with), <code>body</code> and <code>model</code> (what it's drawn as: an animation graph in <code>content/anim</code> and a model in <code>content/characters</code>; see <a href="blender/rigs.html">rigs.md</a>), <code>faction</code> (hostile or choir), <code>health</code>, <code>damageScale</code>, <code>grenades</code>, <code>runSpeed</code>, <code>sprintSpeed</code>, <code>dropsLoot</code>, <code>weapons</code> (frames and how often each is used), <code>spawns</code> (how often this variant shows up in the level's squads, reinforcements, the director's patrols or the Choir), <code>clips</code> (its own clips in place of the body's, <a href="animation-graphs.html">animation-graphs.md</a>)</td>
+</tr>
+<tr>
+<td>A <strong>behavior</strong> (how a kind of soldier thinks)</td>
+<td>Behavior &gt; Behaviors, <strong>+ New behavior</strong> (a new file next to <code>soldier.json</code>, named after its id)</td>
+<td>Its tree, built from the palette (right-click the canvas), and its scoring if the tree picks an intent. Then pick it as a variant's <code>behavior</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>And inside a behavior's scoring:</p>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Where</th>
+<th>What to set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>personality</strong></td>
+<td>Behavior &gt; Behaviors &gt; Scoring (right-click the graph background)</td>
+<td><code>share</code> (how many squads get it), <code>flankers</code>, <code>cohesion</code> (how many meters its soldiers stay within each other), and a scale for each intent</td>
+</tr>
+<tr>
+<td>A <strong>term, factor or condition</strong></td>
+<td>Behavior &gt; Behaviors &gt; Scoring</td>
+<td>Right-click the canvas for the palette (or drag from an input and let go on empty canvas), then wire it to an intent's or term's pin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="art">Art</h2>
+<p>Art has its own guides (start at <a href="blender/README.html">the artists' start page</a> if you're new). Here's which one covers what:</p>
+<table>
+<thead>
+<tr>
+<th>To add</th>
+<th>Guide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Part models and frame receivers</td>
+<td><a href="blender/weapons.html">weapons.md</a></td>
+</tr>
+<tr>
+<td>The ship's hub (rooms are archetypes: see the table above)</td>
+<td><a href="blender/hub.html">hub.md</a></td>
+</tr>
+<tr>
+<td>Creatures</td>
+<td><a href="blender/creatures.html">creatures.md</a></td>
+</tr>
+<tr>
+<td>Characters on a rig, their clips, and new rigs</td>
+<td><a href="blender/rigs.html">rigs.md</a></td>
+</tr>
+<tr>
+<td>How a body type's clips are blended (its animation graph)</td>
+<td><a href="animation-graphs.html">animation-graphs.md</a></td>
+</tr>
+<tr>
+<td>Props: loot, containers, crates, the cargo pod</td>
+<td><a href="blender/props.html">props.md</a></td>
+</tr>
+<tr>
+<td>Surface materials (how every model takes light), and which ones a model uses</td>
+<td><a href="blender/materials.html">materials.md</a></td>
+</tr>
+<tr>
+<td>The skies windows show, one a sector (content/defs/skies.json)</td>
+<td>Studio, Look mode, Skies</td>
+</tr>
+<tr>
+<td>How windows break and what a breach does (content/defs/breaches.json)</td>
+<td>Studio, Missions mode, Breaches</td>
+</tr>
+<tr>
+<td>How rooms' own doors behave (content/defs/doors.json)</td>
+<td>Studio, Missions mode, Doors</td>
+</tr>
+<tr>
+<td>What the fleet raids on the star map: stations and ships (content/defs/campaign.json)</td>
+<td>Studio, Missions mode, Campaign</td>
+</tr>
+</tbody>
+</table>
+<h2 id="still-in-code-ask-a-programmer">Still in code: ask a programmer</h2>
+<p>We're not all the way there yet. These are the places where adding or changing content still needs code, so grab a
+programmer for these. Each one is on the list to move into data.</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where it is</th>
+<th>Why it's still code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>new way of firing</strong> (beyond hitscan, pellets and a flying round)</td>
+<td><code>WeaponHandling</code>, <code>WeaponFiring</code></td>
+<td>It's new behavior. Any frame that fires one of those ways is data.</td>
+</tr>
+<tr>
+<td>A <strong>new trait</strong> (a new effect)</td>
+<td><code>WeaponTraits</code>, <code>WeaponTraitSystem</code></td>
+<td>It's new behavior. Its strength is data (<code>traits.json</code>), but its card text is still in <code>WeaponCard</code>.</td>
+</tr>
+<tr>
+<td>An <strong>effect that does something new</strong> (an action beyond the ones above, or a new stat to change), or a <strong>fleet rule</strong> beyond what a supply's rules cover (a new kind of use, shortage or bonus)</td>
+<td>a record under <code>LastFleet.Simulation/Effects</code> (<code>EffectAction</code>), <code>EffectRunner</code>, <code>EffectReader.Actions</code> and Studio's <code>LootGlossary.Variants</code>; a record under <code>LastFleet.Simulation/Supplies</code>, <code>FleetSim</code>, <code>SupplyReader</code></td>
+<td>It's new behavior. Any effect built from the existing actions, and any supply rules built from the existing parts, in any order and amounts, is data.</td>
+</tr>
+<tr>
+<td>What a <strong>soldier</strong> drops besides its gun</td>
+<td><code>SoldierLoot</code></td>
+<td>Not moved yet.</td>
+</tr>
+<tr>
+<td>Which <strong>mission template</strong> a mission plays (the lobby uses the station raid; the star map the station or ship raid)</td>
+<td><code>Levels</code>, <code>StarMap</code></td>
+<td><code>Levels</code> loads each template by name.</td>
+</tr>
+<tr>
+<td><strong>Bark lines</strong> (what soldiers shout)</td>
+<td><code>BarkLines</code></td>
+<td>Not moved yet.</td>
+</tr>
+<tr>
+<td>The <strong>reasons</strong> shown over a soldier's head</td>
+<td><code>IntentReason</code></td>
+<td>A term can only give one of the reasons the game already knows.</td>
+</tr>
+<tr>
+<td>How a gun's <strong>power</strong> number is worked out, and how tall a loot beam is for each rarity</td>
+<td><code>WeaponRoller</code>, <code>GameView</code></td>
+<td>Not moved yet.</td>
+</tr>
+<tr>
+<td>The horde's and the director's <strong>tuning</strong></td>
+<td><code>HordeTuning</code>, <code>DirectorTuning</code></td>
+<td>Not moved yet. (The soldiers' tuning is data: <code>content/defs/ai/tuning.json</code>, one per side, edited in Studio's Behavior mode, Tuning tab.)</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

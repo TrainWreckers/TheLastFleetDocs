@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Loot.Definitions | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Loot.Definitions | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Loot.Definitions">
+
+  <h1 id="LastFleet_Loot_Definitions" data-uid="LastFleet.Loot.Definitions" class="text-break">Namespace LastFleet.Loot.Definitions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.Affix.html">Affix</a></dt>
+      <dd><p>A prefix (&quot;Overclocked&quot;) or suffix (&quot;of the Vigil&quot;) that can roll onto weapons of high enough rarity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a></dt>
+      <dd><p>Something the armory can fabricate from graded material (the &quot;fabrication&quot; data). It's either a weapon rolled from
+a loot table or a weapon part (for one slot or any slot). The item level comes from the grade it costs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.ItemTable.html">ItemTable</a></dt>
+      <dd><p>What a pile, container or cargo crate holds (content/defs/loot/items.json, &quot;itemTables&quot;). A roll picks one entry by
+weight, plus a count.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.ItemTableEntry.html">ItemTableEntry</a></dt>
+      <dd><p>One entry in an <a class="xref" href="LastFleet.Loot.Definitions.ItemTable.html">ItemTable</a>: an item, how likely it is to be picked, and how many drop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootArchetype.html">LootArchetype</a></dt>
+      <dd><p>A weapon frame for loot rolls: the simulation's <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a>, the 0–100 stats a roll starts from,
+and the bounds every stat gets clamped to at the end.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootEntry.html">LootEntry</a></dt>
+      <dd><p>One weighted entry in a loot table. It can only drop between its min and max item levels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootTable.html">LootTable</a></dt>
+      <dd><p>A loot table: weighted entries (archetypes, nested tables, relics), plus biases on the rarity and manufacturer
+odds. The biases multiply down through nested tables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.Manufacturer.html">Manufacturer</a></dt>
+      <dd><p>A weapon manufacturer: its stat bias, which applies to every gun it makes, and its model names per archetype. A
+manufacturer with no model for an archetype doesn't make that archetype.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.MaterialGrade.html">MaterialGrade</a></dt>
+      <dd><p>A grade of refined material (the &quot;grades&quot; data: Mk I, Mk II, ...). The fleet's refinery makes it from raw
+materials, and the armory uses it to fabricate items. A higher grade gives a higher item level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.Rarity.html">Rarity</a></dt>
+      <dd><p>A rarity tier. Its chance is <a class="xref" href="LastFleet.Loot.Definitions.Rarity.html#LastFleet_Loot_Definitions_Rarity_Weight">Weight</a> × (1 + <a class="xref" href="LastFleet.Loot.Definitions.Rarity.html#LastFleet_Loot_Definitions_Rarity_PerLevel">PerLevel</a> × (item level − 1)), times the
+loot table's bias. So higher item levels shift the odds toward rarer tiers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.RefineryRecipe.html">RefineryRecipe</a></dt>
+      <dd><p>A refinery recipe for turning raw materials into a material grade (the &quot;recipes&quot; data). One batch uses
+<code class="paramref">Inputs</code> and produces <code class="paramref">Count</code> of <code class="paramref">Grade</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.RefineryTier.html">RefineryTier</a></dt>
+      <dd><p>One upgrade level of the fleet's refinery (the &quot;refineryTiers&quot; data, lowest first). A fleet starts at the first
+tier. Each tier has an upgrade cost paid from the fleet's stores, the grades it can make, and how many batches it
+refines per jump.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.Relic.html">Relic</a></dt>
+      <dd><p>A hand-authored unique weapon with a fixed archetype, manufacturer, parts and affixes. Every range rolls at its
+best value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.ReworkRules.html">ReworkRules</a></dt>
+      <dd><p>How the armory's workbench reworks what's in the locker (crafting.json's &quot;rework&quot;), paid in refined material. A
+weapon is reworked to a higher item level: the same roll, its stats at the new level, paid in the grade that makes
+things of that level. A part is tuned: its ranges roll better, paid in the grade of its rarity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.SalvageYield.html">SalvageYield</a></dt>
+      <dd><p>What the armory's workbench gets from dismantling a weapon or a part of one rarity (crafting.json's &quot;salvage&quot;): raw
+materials, by item id, which go to the fleet's stores for the refinery.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a></dt>
+      <dd><p>A weapon part in a slot's pool.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootColor.html">LootColor</a></dt>
+      <dd><p>A HUD color, parsed from a <code>#rrggbb</code> value in the data.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.StatRange.html">StatRange</a></dt>
+      <dd><p>One stat change and the range it rolls in. If <a class="xref" href="LastFleet.Loot.Definitions.StatRange.html#LastFleet_Loot_Definitions_StatRange_Multiply">Multiply</a> is false, it adds whole points to a 0–100
+stat. If it's true, it multiplies the stat or scale. Additions are applied before multiplications.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.FabricationKind.html">FabricationKind</a></dt>
+      <dd><p>What a <a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a> makes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootEntryKind.html">LootEntryKind</a></dt>
+      <dd><p>What a loot table entry drops.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.LootStat.html">LootStat</a></dt>
+      <dd><p>A stat that a weapon part, manufacturer or affix can change. The first five are 0–100 stats. The rest are scales on
+the frame's damage, magazine or zoom (see <a class="xref" href="LastFleet.Simulation.Weapons.WeaponProfile.html">WeaponProfile</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Loot.Definitions.WeaponPartSlot.html">WeaponPartSlot</a></dt>
+      <dd><p>The part slots on a weapon (see the design doc, &quot;Weapon anatomy&quot;). The first five are the original slots. Muzzle,
+grip and trigger were added later. They roll after everything else, each from its own random stream, so adding them
+didn't change any weapon rolled before (see <a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_Since">Since</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

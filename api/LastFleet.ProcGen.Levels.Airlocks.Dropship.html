@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Dropship | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Dropship | The Last Fleet ">
+      
+      <meta name="description" content="The dropship landed in a hangar, for a level boarded by its hangar rather than an airlock (docs/plans/structure- first.md, Phase 4). The squad starts in its hold, behind its rear hatch, which the mission opens once everyone is aboard and the ramp is down, just as an airlock&#39;s inner door. Its intake and cargo chute are on its hull, so tanks are hosed to it and cargo loaded into it where it stands. It&#39;s built of boxes along the hangar&#39;s length, its tail toward the hangar&#39;s doors. A mission that leaves by a hangar gets one landed there too, its hatch open, the squad taken off from its hold.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Levels_Airlocks_Dropship.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Levels.Airlocks.Dropship%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship">
+
+
+
+  <h1 id="LastFleet_ProcGen_Levels_Airlocks_Dropship" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship" class="text-break">
+Class Dropship  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Levels.html">Levels</a>.<a class="xref" href="LastFleet.ProcGen.Levels.Airlocks.html">Airlocks</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The dropship landed in a hangar, for a level boarded by its hangar rather than an airlock (docs/plans/structure-
+first.md, Phase 4). The squad starts in its hold, behind its rear hatch, which the mission opens once everyone is
+aboard and the ramp is down, just as an airlock's inner door. Its intake and cargo chute are on its hull, so tanks
+are hosed to it and cargo loaded into it where it stands. It's built of boxes along the hangar's length, its tail
+toward the hangar's doors. A mission that leaves by a hangar gets one landed there too, its hatch open, the squad taken
+off from its hold.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Dropship</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Dropship</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The pad it needs is kept clear when the hangar is built (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>, the <code>landing</code> tag and its
+<code>Marker_Landing</code> in the middle). Its frame: u runs nose-ward along the hangar, v across it, from the pad's middle.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_HalfSpan" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.HalfSpan">
+  HalfSpan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Half its span across, wings and all, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float HalfSpan = 4.4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Margin" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Margin">
+  Margin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The clear margin round it on its pad, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Margin = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Marker" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Marker">
+  Marker
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The marker at the middle of the pad, where it lands.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Marker = &quot;landing&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Nose" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Nose">
+  Nose
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far ahead of the pad's middle its nose is, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Nose = 5.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_PickupPrefix" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.PickupPrefix">
+  PickupPrefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The start of the parts of the dropship landed at extraction to take the squad off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PickupPrefix = &quot;Pickup_Ship_&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Tail" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Tail">
+  Tail
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far behind the pad's middle its tail is, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Tail = 3.8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Forward_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Forward*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Forward_System_Int32_System_Int32_System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Modules_ModuleConnector__" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Forward(System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Modules.ModuleConnector})">
+  Forward(int, int, IReadOnlyList&lt;ModuleConnector&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the way its nose points, in a room <code class="paramref">width</code> by <code class="paramref">depth</code> cells with
+<code class="paramref">doors</code>, in the room's own frame: along the room's longer side, its tail toward the doors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 Forward(int width, int depth, IReadOnlyList&lt;ModuleConnector&gt; doors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>doors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Hold_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Hold*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Hold_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Hold(System.Numerics.Vector3,System.Numerics.Vector3)">
+  Hold(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The middle of the hold's floor, in the room's own frame: where the squad gathers to be taken off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 Hold(Vector3 center, Vector3 forward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Pad_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Pad*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Pad_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Pad(System.Numerics.Vector3,System.Numerics.Vector3)">
+  Pad(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The pad it needs, in the room's own frame: its middle <code class="paramref">center</code>, its nose along
+<code class="paramref">forward</code>, with its margin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (Vector3 Min, Vector3 Max) Pad(Vector3 center, Vector3 forward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Seats_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Seats*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Airlocks_Dropship_Seats_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Levels.Airlocks.Dropship.Seats(System.Numerics.Vector3,System.Numerics.Vector3)">
+  Seats(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Airlocks/Dropship.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The squad's places in the hold, facing the hatch, in the room's own frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(Vector3 Spot, float Yaw)&gt; Seats(Vector3 center, Vector3 forward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.single-.spot">Spot</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.single-.yaw">Yaw</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AlertSettings | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AlertSettings | The Last Fleet ">
+      
+      <meta name="description" content="How a mission&#39;s station alert level builds up (its template&#39;s &amp;quot;alert&amp;quot;): how it rises over time and with noise, how little it drops, and what it does to patrols and the horde. The fight&#39;s Director reads these (see its AlertTuning).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Missions_AlertSettings.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Missions.AlertSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Missions.AlertSettings">
+
+
+
+  <h1 id="LastFleet_ProcGen_Missions_AlertSettings" data-uid="LastFleet.ProcGen.Missions.AlertSettings" class="text-break">
+Class AlertSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>How a mission's station alert level builds up (its template's &quot;alert&quot;): how it rises over time and with noise, how
+little it drops, and what it does to patrols and the horde. The fight's Director reads these (see its
+<code>AlertTuning</code>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record AlertSettings : IEquatable&lt;AlertSettings&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AlertSettings</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Missions.AlertSettings.html">AlertSettings</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings__ctor_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  AlertSettings(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How a mission's station alert level builds up (its template's &quot;alert&quot;): how it rises over time and with noise, how
+little it drops, and what it does to patrols and the horde. The fight's Director reads these (see its
+<code>AlertTuning</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AlertSettings(float PerMinute = 0.05, float PerFightSecond = 0.003, float PerNoiseSecond = 0.002, float HackJump = 0.15, float Keep = 0.75, float Fade = 0.01, float Aggression = 2.5, float PatrolBonus = 2, float CapBonus = 3, float HordeAt = 0.6, float Elevated = 0.35, float High = 0.65, float Lockdown = 0.9, float SweepRooms = 6, float NudgeSeconds = 45, float BackOffSeconds = 25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PerMinute</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much alert rises per minute on the level.</p>
+</dd>
+    <dt><code>PerFightSecond</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much alert rises per second a soldier is fighting.</p>
+</dd>
+    <dt><code>PerNoiseSecond</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much alert rises per second for each pumping tank or each inbound pod drone.</p>
+</dd>
+    <dt><code>HackJump</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much alert jumps immediately when the hack starts.</p>
+</dd>
+    <dt><code>Keep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The fraction of its peak that alert never drops below.</p>
+</dd>
+    <dt><code>Fade</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much alert drops per second while everything is quiet.</p>
+</dd>
+    <dt><code>Aggression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>At full alert, the Director's wait times are divided by this.</p>
+</dd>
+    <dt><code>PatrolBonus</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>At full alert, this many extra soldiers per patrol.</p>
+</dd>
+    <dt><code>CapBonus</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>At full alert, this many extra patrol soldiers can be alive at once.</p>
+</dd>
+    <dt><code>HordeAt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>From this alert level on, the run's hordes can show up while infiltrating.</p>
+</dd>
+    <dt><code>Elevated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Alert level for the first stage (amber light, the PA).</p>
+</dd>
+    <dt><code>High</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Alert level for high alert.</p>
+</dd>
+    <dt><code>Lockdown</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Alert level for lockdown (red light, patrols go out without waiting).</p>
+</dd>
+    <dt><code>SweepRooms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>At full alert, how many extra rooms a hunter sweeps (two when calm).</p>
+</dd>
+    <dt><code>NudgeSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>While calm, seconds between nudges that move the garrison toward the squad's area.</p>
+</dd>
+    <dt><code>BackOffSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Seconds hunters can crowd the squad without a fight before they get pulled off.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Aggression_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Aggression*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Aggression" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Aggression">
+  Aggression
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>At full alert, the Director's wait times are divided by this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Aggression { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_BackOffSeconds_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.BackOffSeconds*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_BackOffSeconds" data-uid="LastFleet.ProcGen.Missions.AlertSettings.BackOffSeconds">
+  BackOffSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds hunters can crowd the squad without a fight before they get pulled off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BackOffSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_CapBonus_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.CapBonus*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_CapBonus" data-uid="LastFleet.ProcGen.Missions.AlertSettings.CapBonus">
+  CapBonus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>At full alert, this many extra patrol soldiers can be alive at once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CapBonus { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Default_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Default*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Default" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AlertSettings Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.AlertSettings.html">AlertSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Elevated_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Elevated*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Elevated" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Elevated">
+  Elevated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Alert level for the first stage (amber light, the PA).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Elevated { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Fade_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Fade*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Fade" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Fade">
+  Fade
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much alert drops per second while everything is quiet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Fade { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_HackJump_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.HackJump*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_HackJump" data-uid="LastFleet.ProcGen.Missions.AlertSettings.HackJump">
+  HackJump
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much alert jumps immediately when the hack starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HackJump { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_High_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.High*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_High" data-uid="LastFleet.ProcGen.Missions.AlertSettings.High">
+  High
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Alert level for high alert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float High { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_HordeAt_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.HordeAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_HordeAt" data-uid="LastFleet.ProcGen.Missions.AlertSettings.HordeAt">
+  HordeAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>From this alert level on, the run's hordes can show up while infiltrating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HordeAt { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Keep_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Keep*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Keep" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Keep">
+  Keep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fraction of its peak that alert never drops below.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Keep { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_Lockdown_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Lockdown*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_Lockdown" data-uid="LastFleet.ProcGen.Missions.AlertSettings.Lockdown">
+  Lockdown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Alert level for lockdown (red light, patrols go out without waiting).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Lockdown { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_NudgeSeconds_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.NudgeSeconds*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_NudgeSeconds" data-uid="LastFleet.ProcGen.Missions.AlertSettings.NudgeSeconds">
+  NudgeSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>While calm, seconds between nudges that move the garrison toward the squad's area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NudgeSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_PatrolBonus_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PatrolBonus*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_PatrolBonus" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PatrolBonus">
+  PatrolBonus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>At full alert, this many extra soldiers per patrol.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PatrolBonus { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_PerFightSecond_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerFightSecond*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_PerFightSecond" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerFightSecond">
+  PerFightSecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much alert rises per second a soldier is fighting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PerFightSecond { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_PerMinute_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerMinute*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_PerMinute" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerMinute">
+  PerMinute
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much alert rises per minute on the level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PerMinute { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_PerNoiseSecond_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerNoiseSecond*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_PerNoiseSecond" data-uid="LastFleet.ProcGen.Missions.AlertSettings.PerNoiseSecond">
+  PerNoiseSecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much alert rises per second for each pumping tank or each inbound pod drone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PerNoiseSecond { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_AlertSettings_SweepRooms_" data-uid="LastFleet.ProcGen.Missions.AlertSettings.SweepRooms*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_AlertSettings_SweepRooms" data-uid="LastFleet.ProcGen.Missions.AlertSettings.SweepRooms">
+  SweepRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/AlertSettings.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>At full alert, how many extra rooms a hunter sweeps (two when calm).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SweepRooms { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

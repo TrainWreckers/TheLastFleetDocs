@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VulkanRenderer | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VulkanRenderer | The Last Fleet ">
+      
+      <meta name="description" content="The Vulkan 1.3 renderer. It draws the scene in HDR with multisampling (the static world mesh, flat-shaded with a depth buffer and tinted per part, plus the horde, bodies, world-space effects and the gun in hand), then applies bloom and the tone curve into the swapchain, then draws the 2D overlay and textured UI (Dear ImGui) on top.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Rendering_VulkanRenderer.md&amp;value=---%0Auid%3A%20LastFleet.Rendering.VulkanRenderer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Rendering.VulkanRenderer">
+
+
+
+  <h1 id="LastFleet_Rendering_VulkanRenderer" data-uid="LastFleet.Rendering.VulkanRenderer" class="text-break">
+Class VulkanRenderer  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Vulkan 1.3 renderer. It draws the scene in HDR with multisampling (the static world mesh, flat-shaded with a
+depth buffer and tinted per part, plus the horde, bodies, world-space effects and the gun in hand), then applies
+bloom and the tone curve into the swapchain, then draws the 2D overlay and textured UI (Dear ImGui) on top.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class VulkanRenderer : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">VulkanRenderer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Rendering_VulkanRenderer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Uses core Vulkan 1.3 features only: dynamic rendering (no render pass objects) and synchronization2 barriers
+and submits. Two frames are in flight, so the CPU records frame N+1 while the GPU draws frame N. Memory comes from
+VMA.
+</p>
+<p>
+Call <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_PreloadLoader">PreloadLoader()</a> once, before the window is created, then construct the renderer on the main thread.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer__ctor_" data-uid="LastFleet.Rendering.VulkanRenderer.#ctor*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer__ctor_LastFleet_Platform_GameWindow_LastFleet_Rendering_RendererOptions_" data-uid="LastFleet.Rendering.VulkanRenderer.#ctor(LastFleet.Platform.GameWindow,LastFleet.Rendering.RendererOptions)">
+  VulkanRenderer(GameWindow, RendererOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L290"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the Vulkan instance, picks a GPU and builds the swapchain for <code class="paramref">window</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VulkanRenderer(GameWindow window, RendererOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>window</code> <a class="xref" href="LastFleet.Platform.GameWindow.html">GameWindow</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LastFleet.Rendering.RendererOptions.html">RendererOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>No GPU supports Vulkan 1.3 and can present to the window.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxCaptureLights" data-uid="LastFleet.Rendering.VulkanRenderer.MaxCaptureLights">
+  MaxCaptureLights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum total lights for all of one frame's reflection captures (<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_CaptureLights">CaptureLights</a>). Any
+extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxCaptureLights = 8192</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxDebrisVertices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxDebrisVertices">
+  MaxDebrisVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum debris vertices drawn per frame: room for every fragment a <code>DebrisWorld</code> keeps (160, a box of 36
+vertices each). Debris has this space to itself, after the dynamic world's, so a busy level never crowds it out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxDebrisVertices = 5760</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxDynamicVertices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxDynamicVertices">
+  MaxDynamicVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum dynamic world vertices (characters, loot, props, hoses) drawn per frame. Any extra are dropped, from the
+end of <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_DynamicWorld">DynamicWorld</a> (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_DroppedDynamicVertices">DroppedDynamicVertices</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxDynamicVertices = 196608</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxEffectVertices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxEffectVertices">
+  MaxEffectVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum effect vertices drawn per frame. Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxEffectVertices = 12288</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxFogVolumes" data-uid="LastFleet.Rendering.VulkanRenderer.MaxFogVolumes">
+  MaxFogVolumes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum smoke volumes per frame (<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_FogVolumes">FogVolumes</a>). Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxFogVolumes = 32</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxLights" data-uid="LastFleet.Rendering.VulkanRenderer.MaxLights">
+  MaxLights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum point lights per frame. Any extra are dropped, so pass the nearest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxLights = 128</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxOverlayVertices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxOverlayVertices">
+  MaxOverlayVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum overlay vertices drawn per frame. Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxOverlayVertices = 6144</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxRooms" data-uid="LastFleet.Rendering.VulkanRenderer.MaxRooms">
+  MaxRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum number of rooms a level's <a class="xref" href="LastFleet.Rendering.Lighting.RoomLighting.html">RoomLighting</a> can have.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxRooms = 512</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxShadows" data-uid="LastFleet.Rendering.VulkanRenderer.MaxShadows">
+  MaxShadows
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum shadow maps drawn per frame. Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxShadows = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxSkinMatrices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxSkinMatrices">
+  MaxSkinMatrices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum skinned body joint matrices per frame (<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_SkinMatrices">SkinMatrices</a>). Bodies past that are
+dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxSkinMatrices = 8192</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxSwarmInstances" data-uid="LastFleet.Rendering.VulkanRenderer.MaxSwarmInstances">
+  MaxSwarmInstances
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum horde bodies drawn per frame (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_SetSwarmModel_LastFleet_Content_Creatures_AnimatedModel_System_ReadOnlySpan_System_Numerics_Vector3__">SetSwarmModel(AnimatedModel, ReadOnlySpan&lt;Vector3&gt;)</a>). Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxSwarmInstances = 1024</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_MaxViewModelVertices" data-uid="LastFleet.Rendering.VulkanRenderer.MaxViewModelVertices">
+  MaxViewModelVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum view model vertices (the weapon in your hands) per frame. Any extra are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxViewModelVertices = 12288</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_ShadowCacheSlots" data-uid="LastFleet.Rendering.VulkanRenderer.ShadowCacheSlots">
+  ShadowCacheSlots
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of lights whose level shadow maps are kept from frame to frame (<a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_CacheSlot">CacheSlot</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ShadowCacheSlots = 32</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_AmbientOcclusion_" data-uid="LastFleet.Rendering.VulkanRenderer.AmbientOcclusion*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_AmbientOcclusion" data-uid="LastFleet.Rendering.VulkanRenderer.AmbientOcclusion">
+  AmbientOcclusion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L425"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How ambient occlusion is computed: off, at half resolution, or at full resolution. Changing the resolution
+rebuilds the frame's images before the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AmbientOcclusion AmbientOcclusion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Post.AmbientOcclusion.html">AmbientOcclusion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_Antialiasing_" data-uid="LastFleet.Rendering.VulkanRenderer.Antialiasing*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_Antialiasing" data-uid="LastFleet.Rendering.VulkanRenderer.Antialiasing">
+  Antialiasing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Samples per pixel for the scene (1 is off, 2 or 4 is multisampled antialiasing). Changing it rebuilds the
+frame's images and pipelines before the next frame. Uses fewer if the GPU can't do it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Antialiasing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_Atmosphere_" data-uid="LastFleet.Rendering.VulkanRenderer.Atmosphere*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_Atmosphere" data-uid="LastFleet.Rendering.VulkanRenderer.Atmosphere">
+  Atmosphere
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the air is rendered: even haze (off) or the froxel grid, coarse or fine (<span class="xref">LastFleet.Rendering.Lighting.FroxelGrid</span>). Changing
+the grid waits for the GPU and recreates it before the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Atmosphere Atmosphere { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Lighting.Atmosphere.html">Atmosphere</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_Bloom_" data-uid="LastFleet.Rendering.VulkanRenderer.Bloom*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_Bloom" data-uid="LastFleet.Rendering.VulkanRenderer.Bloom">
+  Bloom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether light brighter than white blooms (glows over its surroundings).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Bloom { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_DeviceName_" data-uid="LastFleet.Rendering.VulkanRenderer.DeviceName*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_DeviceName" data-uid="LastFleet.Rendering.VulkanRenderer.DeviceName">
+  DeviceName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the GPU in use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DeviceName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_DeviceRestarts_" data-uid="LastFleet.Rendering.VulkanRenderer.DeviceRestarts*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_DeviceRestarts" data-uid="LastFleet.Rendering.VulkanRenderer.DeviceRestarts">
+  DeviceRestarts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many times the device has been lost and the renderer recreated on a new one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DeviceRestarts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_DlssSupport_" data-uid="LastFleet.Rendering.VulkanRenderer.DlssSupport*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_DlssSupport" data-uid="LastFleet.Rendering.VulkanRenderer.DlssSupport">
+  DlssSupport
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What DLSS can do here (Streamline loaded, the GPU and driver), for the video settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DlssSupport DlssSupport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Streamline.DlssSupport.html">DlssSupport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_DroppedDynamicVertices_" data-uid="LastFleet.Rendering.VulkanRenderer.DroppedDynamicVertices*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_DroppedDynamicVertices" data-uid="LastFleet.Rendering.VulkanRenderer.DroppedDynamicVertices">
+  DroppedDynamicVertices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dynamic world and debris vertices the last frame built but couldn't draw (past <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxDynamicVertices">MaxDynamicVertices</a>
+and <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxDebrisVertices">MaxDebrisVertices</a>). Anything above zero means something in the level went missing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DroppedDynamicVertices { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_GpuMilliseconds_" data-uid="LastFleet.Rendering.VulkanRenderer.GpuMilliseconds*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_GpuMilliseconds" data-uid="LastFleet.Rendering.VulkanRenderer.GpuMilliseconds">
+  GpuMilliseconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L466"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the GPU spent on each of <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_GpuPasses">GpuPasses</a>, in milliseconds, smoothed over recent frames. Empty if
+the GPU queue doesn't support timestamps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;float&gt; GpuMilliseconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_GpuPasses_" data-uid="LastFleet.Rendering.VulkanRenderer.GpuPasses*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_GpuPasses" data-uid="LastFleet.Rendering.VulkanRenderer.GpuPasses">
+  GpuPasses
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The passes <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_GpuMilliseconds">GpuMilliseconds</a> times, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; GpuPasses { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PathPlan_" data-uid="LastFleet.Rendering.VulkanRenderer.PathPlan*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PathPlan" data-uid="LastFleet.Rendering.VulkanRenderer.PathPlan">
+  PathPlan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last path-traced frame's plan: its render size, the DLSS mode in effect, the denoiser, and a note when
+something asked for could not run.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PathPlan PathPlan { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.PathTracing.PathPlan.html">PathPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PathTracing_" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracing*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PathTracing" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracing">
+  PathTracing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The path tracer's settings (bounces, denoiser, DLSS mode). Apply on the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PathTracingSettings PathTracing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.PathTracing.PathTracingSettings.html">PathTracingSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PathTracingActive_" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracingActive*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PathTracingActive" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracingActive">
+  PathTracingActive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the last frame was path traced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PathTracingActive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PathTracingUnavailableReason_" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracingUnavailableReason*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PathTracingUnavailableReason" data-uid="LastFleet.Rendering.VulkanRenderer.PathTracingUnavailableReason">
+  PathTracingUnavailableReason
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this GPU can path trace (it traces rays), and if not, why not, for the video settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PathTracingUnavailableReason { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PresentationPaused_" data-uid="LastFleet.Rendering.VulkanRenderer.PresentationPaused*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PresentationPaused" data-uid="LastFleet.Rendering.VulkanRenderer.PresentationPaused">
+  PresentationPaused
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the last frame wasn't drawn because nothing can be shown right now: the window's surface has no area
+(Windows display asleep or gone), or the GPU or the display held the frame longer than
+<a class="xref" href="LastFleet.Rendering.RendererOptions.html#LastFleet_Rendering_RendererOptions_FrameWaitLimit">FrameWaitLimit</a>. Instead of drawing at full rate, wait a little for window events
+before the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PresentationPaused { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayBounceView_" data-uid="LastFleet.Rendering.VulkanRenderer.RayBounceView*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayBounceView" data-uid="LastFleet.Rendering.VulkanRenderer.RayBounceView">
+  RayBounceView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws only the ray-traced bounce (the light coming back off each surface's surroundings, as a white surface
+would receive it), when rays are on. Shows what the bounce rays find. If both are on, the shadow view wins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayBounceView { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayDebug_" data-uid="LastFleet.Rendering.VulkanRenderer.RayDebug*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayDebug" data-uid="LastFleet.Rendering.VulkanRenderer.RayDebug">
+  RayDebug
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws what rays from the eye hit instead of the scene (level grey-blue, bodies orange, the viewer's own body
+green, the horde red, the moving world yellow), when rays are on. Used to check the structures against what's
+drawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayDebug { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayOcclusionView_" data-uid="LastFleet.Rendering.VulkanRenderer.RayOcclusionView*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayOcclusionView" data-uid="LastFleet.Rendering.VulkanRenderer.RayOcclusionView">
+  RayOcclusionView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws only the ray-traced ambient occlusion (grey where a surface is open, black where it's enclosed), when rays
+are on and ambient occlusion is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayOcclusionView { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayQuality_" data-uid="LastFleet.Rendering.VulkanRenderer.RayQuality*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayQuality" data-uid="LastFleet.Rendering.VulkanRenderer.RayQuality">
+  RayQuality
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much ray tracing work is done each frame when rays are on (<a class="xref" href="LastFleet.Rendering.Rays.RayQualitySettings.html#LastFleet_Rendering_Rays_RayQualitySettings_For_LastFleet_Rendering_Rays_RayTracingQuality_">For(RayTracingQuality)</a>), starting
+next frame. Always Medium if the GPU can't trace rays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RayTracingQuality RayQuality { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Rays.RayTracingQuality.html">RayTracingQuality</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayReflectionView_" data-uid="LastFleet.Rendering.VulkanRenderer.RayReflectionView*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayReflectionView" data-uid="LastFleet.Rendering.VulkanRenderer.RayReflectionView">
+  RayReflectionView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws only the ray-traced reflections, on surfaces smooth enough to get them (black elsewhere), when rays are
+on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayReflectionView { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayShadowView_" data-uid="LastFleet.Rendering.VulkanRenderer.RayShadowView*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayShadowView" data-uid="LastFleet.Rendering.VulkanRenderer.RayShadowView">
+  RayShadowView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws only the ray-traced shadows (grey where a surface's light arrives, black where it's shadowed), when rays
+are on. Shows what the rays find without the light colors and room bounce on top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayShadowView { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayTracing_" data-uid="LastFleet.Rendering.VulkanRenderer.RayTracing*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayTracing" data-uid="LastFleet.Rendering.VulkanRenderer.RayTracing">
+  RayTracing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether to ray trace (build the frame's acceleration structures and run the passes that read them), if the GPU
+supports it. Ignored if it doesn't. Takes effect on the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RayTracing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RayTracingSupport_" data-uid="LastFleet.Rendering.VulkanRenderer.RayTracingSupport*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RayTracingSupport" data-uid="LastFleet.Rendering.VulkanRenderer.RayTracingSupport">
+  RayTracingSupport
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the GPU supports ray tracing (so <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_RayTracing">RayTracing</a> can be turned on), and what it's missing if
+not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RayTracingSupport RayTracingSupport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Rays.RayTracingSupport.html">RayTracingSupport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RaysTraced_" data-uid="LastFleet.Rendering.VulkanRenderer.RaysTraced*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RaysTraced" data-uid="LastFleet.Rendering.VulkanRenderer.RaysTraced">
+  RaysTraced
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L370"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when rays are actually being traced: requested (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_RayTracing">RayTracing</a>) and supported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RaysTraced { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RenderPath_" data-uid="LastFleet.Rendering.VulkanRenderer.RenderPath*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RenderPath" data-uid="LastFleet.Rendering.VulkanRenderer.RenderPath">
+  RenderPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.PathTracing.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the scene is lit: the hybrid rasterizer or the path tracer. The path tracer needs a GPU that traces rays and a
+level; without either, frames are drawn the hybrid way (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_PathTracingActive">PathTracingActive</a> says which ran). Applies
+on the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderPath RenderPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.RenderPath.html">RenderPath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_TextureCount_" data-uid="LastFleet.Rendering.VulkanRenderer.TextureCount*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_TextureCount" data-uid="LastFleet.Rendering.VulkanRenderer.TextureCount">
+  TextureCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L649"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of live UI textures: those from <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_CreateTexture_System_ReadOnlySpan_System_Byte__System_Int32_System_Int32_System_Boolean_">CreateTexture(ReadOnlySpan&lt;byte&gt;, int, int, bool)</a> plus ImGui's own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TextureCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_ToneCurve_" data-uid="LastFleet.Rendering.VulkanRenderer.ToneCurve*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_ToneCurve" data-uid="LastFleet.Rendering.VulkanRenderer.ToneCurve">
+  ToneCurve
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L456"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tone curve used to map light into the display's range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToneCurve ToneCurve { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Post.ToneCurve.html">ToneCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_VSync_" data-uid="LastFleet.Rendering.VulkanRenderer.VSync*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_VSync" data-uid="LastFleet.Rendering.VulkanRenderer.VSync">
+  VSync
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L2051"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether presenting waits for vertical blank. Changing it rebuilds the swapchain before the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool VSync { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_ViewportSize_" data-uid="LastFleet.Rendering.VulkanRenderer.ViewportSize*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_ViewportSize" data-uid="LastFleet.Rendering.VulkanRenderer.ViewportSize">
+  ViewportSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Size of the images being rendered, in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 ViewportSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_AddSkinnedMesh_" data-uid="LastFleet.Rendering.VulkanRenderer.AddSkinnedMesh*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_AddSkinnedMesh_System_ReadOnlySpan_LastFleet_Content_Skeletal_SkinnedVertex__" data-uid="LastFleet.Rendering.VulkanRenderer.AddSkinnedMesh(System.ReadOnlySpan{LastFleet.Content.Skeletal.SkinnedVertex})">
+  AddSkinnedMesh(ReadOnlySpan&lt;SkinnedVertex&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L594"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads a skinned body's vertices (<a class="xref" href="LastFleet.Content.Skeletal.SkinnedModel.html#LastFleet_Content_Skeletal_SkinnedModel_Colored_System_ReadOnlySpan_System_Numerics_Vector3__">Colored(ReadOnlySpan&lt;Vector3&gt;)</a>: its bind pose, joints and weights, in
+the colors it is drawn in) and returns its handle for <a class="xref" href="LastFleet.Rendering.Geometry.SkinnedDraw.html#LastFleet_Rendering_Geometry_SkinnedDraw_Mesh">Mesh</a>. Kept until
+<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_ClearSkinnedMeshes">ClearSkinnedMeshes()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AddSkinnedMesh(ReadOnlySpan&lt;SkinnedVertex&gt; vertices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Skeletal.SkinnedVertex.html">SkinnedVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_AttachImGui_" data-uid="LastFleet.Rendering.VulkanRenderer.AttachImGui*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_AttachImGui" data-uid="LastFleet.Rendering.VulkanRenderer.AttachImGui">
+  AttachImGui()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L622"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tells the current Dear ImGui context that this renderer draws its output: it handles large meshes and creates
+ImGui's textures (the font atlas) itself. Call once after creating the context and before the first frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AttachImGui()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_ClearSkinnedMeshes_" data-uid="LastFleet.Rendering.VulkanRenderer.ClearSkinnedMeshes*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_ClearSkinnedMeshes" data-uid="LastFleet.Rendering.VulkanRenderer.ClearSkinnedMeshes">
+  ClearSkinnedMeshes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L606"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destroys every skinned mesh (a level unloading, models read again). Waits for the GPU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearSkinnedMeshes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_CreateTexture_" data-uid="LastFleet.Rendering.VulkanRenderer.CreateTexture*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_CreateTexture_System_ReadOnlySpan_System_Byte__System_Int32_System_Int32_System_Boolean_" data-uid="LastFleet.Rendering.VulkanRenderer.CreateTexture(System.ReadOnlySpan{System.Byte},System.Int32,System.Int32,System.Boolean)">
+  CreateTexture(ReadOnlySpan&lt;byte&gt;, int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L633"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads an RGBA8 image for the UI and returns its texture ID, usable as an ImGui <code>ImTextureID</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint CreateTexture(ReadOnlySpan&lt;byte&gt; rgba, int width, int height, bool srgb = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgba</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd><p>Four bytes per pixel, rows top to bottom, not premultiplied.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Width in pixels.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Height in pixels.</p>
+</dd>
+    <dt><code>srgb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True for color art authored in sRGB, which is nearly all art.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_DestroyTexture_" data-uid="LastFleet.Rendering.VulkanRenderer.DestroyTexture*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_DestroyTexture_System_IntPtr_" data-uid="LastFleet.Rendering.VulkanRenderer.DestroyTexture(System.IntPtr)">
+  DestroyTexture(nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destroys a texture made by <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_CreateTexture_System_ReadOnlySpan_System_Byte__System_Int32_System_Int32_System_Boolean_">CreateTexture(ReadOnlySpan&lt;byte&gt;, int, int, bool)</a>: at once for the UI, and its image once no frame in flight
+can draw it. Does not wait for the GPU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyTexture(nint texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_Dispose_" data-uid="LastFleet.Rendering.VulkanRenderer.Dispose*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_Dispose" data-uid="LastFleet.Rendering.VulkanRenderer.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L860"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Waits for the GPU to go idle and destroys every Vulkan object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_PreloadLoader_" data-uid="LastFleet.Rendering.VulkanRenderer.PreloadLoader*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_PreloadLoader" data-uid="LastFleet.Rendering.VulkanRenderer.PreloadLoader">
+  PreloadLoader()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads BRUTAL's Vulkan loader. GLFW cannot find it by itself, so call this after
+<a class="xref" href="LastFleet.Platform.GlfwRuntime.html#LastFleet_Platform_GlfwRuntime_Initialize">Initialize()</a> and before creating the window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PreloadLoader()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RenderFrame_" data-uid="LastFleet.Rendering.VulkanRenderer.RenderFrame*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RenderFrame_LastFleet_Rendering_FrameParameters__LastFleet_Rendering_FrameGeometry__" data-uid="LastFleet.Rendering.VulkanRenderer.RenderFrame(LastFleet.Rendering.FrameParameters@,LastFleet.Rendering.FrameGeometry@)">
+  RenderFrame(in FrameParameters, in FrameGeometry)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L685"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws one frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RenderFrame(in FrameParameters frame, in FrameGeometry geometry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="LastFleet.Rendering.FrameParameters.html">FrameParameters</a></dt>
+    <dd><p>Camera and clear color.</p>
+</dd>
+    <dt><code>geometry</code> <a class="xref" href="LastFleet.Rendering.FrameGeometry.html">FrameGeometry</a></dt>
+    <dd><p>Part tints, effects and overlay for this frame.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>False if the frame was skipped: a minimized window, a swapchain that needs rebuilding, presentation paused
+(<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_PresentationPaused">PresentationPaused</a>), or a device that was lost and has just been made anew.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RenderFrame_" data-uid="LastFleet.Rendering.VulkanRenderer.RenderFrame*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RenderFrame_LastFleet_Rendering_FrameParameters__System_ReadOnlySpan_LastFleet_Rendering_Geometry_OverlayVertex__" data-uid="LastFleet.Rendering.VulkanRenderer.RenderFrame(LastFleet.Rendering.FrameParameters@,System.ReadOnlySpan{LastFleet.Rendering.Geometry.OverlayVertex})">
+  RenderFrame(in FrameParameters, ReadOnlySpan&lt;OverlayVertex&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L675"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws one frame with only a 2D overlay over the world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RenderFrame(in FrameParameters frame, ReadOnlySpan&lt;OverlayVertex&gt; overlay)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="LastFleet.Rendering.FrameParameters.html">FrameParameters</a></dt>
+    <dd><p>Camera and clear color.</p>
+</dd>
+    <dt><code>overlay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.OverlayVertex.html">OverlayVertex</a>&gt;</dt>
+    <dd><p>2D triangles drawn over the scene, at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxOverlayVertices">MaxOverlayVertices</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>False if the frame was skipped (minimized window, or a swapchain that needs rebuilding).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_RequestScreenshot_" data-uid="LastFleet.Rendering.VulkanRenderer.RequestScreenshot*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_RequestScreenshot_System_String_" data-uid="LastFleet.Rendering.VulkanRenderer.RequestScreenshot(System.String)">
+  RequestScreenshot(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L665"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the next drawn frame to <code class="paramref">path</code> as a PNG. The file is written before the
+<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_RenderFrame_LastFleet_Rendering_FrameParameters__LastFleet_Rendering_FrameGeometry__">RenderFrame(in FrameParameters, in FrameGeometry)</a> call that draws that frame returns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RequestScreenshot(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_SetMaterials_" data-uid="LastFleet.Rendering.VulkanRenderer.SetMaterials*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_SetMaterials_LastFleet_Content_Materials_MaterialLibrary_" data-uid="LastFleet.Rendering.VulkanRenderer.SetMaterials(LastFleet.Content.Materials.MaterialLibrary)">
+  SetMaterials(MaterialLibrary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The surface materials vertices are drawn with (by default the shipped library): from the next frame. Studio's
+Look mode tunes them as it draws. Models keep the indices they were loaded with, so a library whose order has
+changed needs them loaded again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMaterials(MaterialLibrary materials)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materials</code> <a class="xref" href="LastFleet.Content.Materials.MaterialLibrary.html">MaterialLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_SetSky_" data-uid="LastFleet.Rendering.VulkanRenderer.SetSky*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_SetSky_LastFleet_Content_Skies_SkyLook__" data-uid="LastFleet.Rendering.VulkanRenderer.SetSky(LastFleet.Content.Skies.SkyLook@)">
+  SetSky(in SkyLook)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L542"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sky windows onto space show (<a class="xref" href="LastFleet.Content.Materials.SurfaceMaterial.html#LastFleet_Content_Materials_SurfaceMaterial_Space">Space</a>): from the next frame. Black with nothing in
+it until set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSky(in SkyLook sky)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sky</code> <a class="xref" href="LastFleet.Content.Skies.SkyLook.html">SkyLook</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_SetSwarmModel_" data-uid="LastFleet.Rendering.VulkanRenderer.SetSwarmModel*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_SetSwarmModel_LastFleet_Content_Creatures_AnimatedModel_System_ReadOnlySpan_System_Numerics_Vector3__" data-uid="LastFleet.Rendering.VulkanRenderer.SetSwarmModel(LastFleet.Content.Creatures.AnimatedModel,System.ReadOnlySpan{System.Numerics.Vector3})">
+  SetSwarmModel(AnimatedModel, ReadOnlySpan&lt;Vector3&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads the horde's animated body (<a class="xref" href="LastFleet.Content.Creatures.AnimatedModel.html">AnimatedModel</a>), replacing any previous one, its materials drawn
+in <code class="paramref">materialColors</code> (one per <a class="xref" href="LastFleet.Content.Creatures.AnimatedModel.html#LastFleet_Content_Creatures_AnimatedModel_Materials">Materials</a>; above 1 glows). Frames then
+draw it once for each <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Swarm">Swarm</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSwarmModel(AnimatedModel model, ReadOnlySpan&lt;Vector3&gt; materialColors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="LastFleet.Content.Creatures.AnimatedModel.html">AnimatedModel</a></dt>
+    <dd></dd>
+    <dt><code>materialColors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_SetWorldMesh_" data-uid="LastFleet.Rendering.VulkanRenderer.SetWorldMesh*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_SetWorldMesh_LastFleet_Content_Meshes_MeshData_System_Func_System_String_System_Boolean__" data-uid="LastFleet.Rendering.VulkanRenderer.SetWorldMesh(LastFleet.Content.Meshes.MeshData,System.Func{System.String,System.Boolean})">
+  SetWorldMesh(MeshData, Func&lt;string, bool&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads the static world mesh to GPU memory, replacing any previous one. If the GPU supports ray tracing, also
+builds its acceleration structure (and waits for it), whether or not rays are currently on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetWorldMesh(MeshData mesh, Func&lt;string, bool&gt;? canGo = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd><p>The level's mesh.</p>
+</dd>
+    <dt><code>canGo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Returns whether a part, by name, can disappear (a prop that breaks, a door that opens:
+<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Gone">Gone</a>), which the rays then have to check every frame. Null means none can.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_VulkanRenderer_SimulateDeviceLoss_" data-uid="LastFleet.Rendering.VulkanRenderer.SimulateDeviceLoss*"></a>
+
+  <h3 id="LastFleet_Rendering_VulkanRenderer_SimulateDeviceLoss" data-uid="LastFleet.Rendering.VulkanRenderer.SimulateDeviceLoss">
+  SimulateDeviceLoss()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/VulkanRenderer.cs/#L703"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Acts at the start of the next frame as though the GPU had been lost (as Windows does when the driver resets): the
+renderer is made anew on a new device, with everything it was given. For checking that recovery (--lose-device).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SimulateDeviceLoss()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PlanStructure | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PlanStructure | The Last Fleet ">
+      
+      <meta name="description" content="A plan&#39;s structure for a seed, before any room: its envelope, the halls carved into it, the sections bulkheads cut it into (each with its district), the pressure doors and hatches where halls cross bulkheads, and service stubs so every section a service way passes has a hatch onto a corridor. Also what&#39;s wrong with it, for Studio and the tests.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Plans_PlanStructure.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Plans.PlanStructure%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans.PlanStructure">
+
+
+
+  <h1 id="LastFleet_ProcGen_Plans_PlanStructure" data-uid="LastFleet.ProcGen.Plans.PlanStructure" class="text-break">
+Class PlanStructure  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Plans.html">Plans</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A plan's structure for a seed, before any room: its envelope, the halls carved into it, the sections bulkheads cut
+it into (each with its district), the pressure doors and hatches where halls cross bulkheads, and service stubs so
+every section a service way passes has a hatch onto a corridor. Also what's wrong with it, for Studio and the tests.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PlanStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PlanStructure</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Plans_PlanStructure_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Built in a fixed order: the envelope, then the corridors (primary and secondary halls, in the plan's order), then
+the service ways round them, then the sections, the doors and the stubs. The stubs and the bulkheads' jitter draw from
+the level's circulation stream (<a class="xref" href="LastFleet.ProcGen.Seeding.GenerationStage.html#LastFleet_ProcGen_Seeding_GenerationStage_Circulation">Circulation</a>); everything else follows the envelope's
+draws, in whole cells, so a seed gives the same structure on every machine.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_MostStub" data-uid="LastFleet.ProcGen.Plans.PlanStructure.MostStub">
+  MostStub
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most cells a service stub runs from a service way to a corridor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostStub = 5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_BandCount_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandCount*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_BandCount" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandCount">
+  BandCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many smooth halls' bands it has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BandCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Compartments_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Compartments*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Compartments" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Compartments">
+  Compartments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many compartments its halls make with every pressure door and hatch shut.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Compartments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Deck_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Deck*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Deck" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Deck">
+  Deck
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deck it's the structure of, by index from the bottom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Deck { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Doors_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Doors*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Doors" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Doors">
+  Doors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The pressure doors and hatches, in the order they were found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PlanDoor&gt; Doors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanDoor.html">PlanDoor</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Envelope_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Envelope*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Envelope" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Envelope">
+  Envelope
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its envelope.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Envelope Envelope { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html">Envelope</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Plan_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Plan*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Plan" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Plan">
+  Plan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The plan it was built from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LevelPlan Plan { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Problems_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Problems*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Problems" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Problems">
+  Problems
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What's wrong with it, in words a designer can act on; empty when nothing is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Problems { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_SectionCount_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.SectionCount*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_SectionCount" data-uid="LastFleet.ProcGen.Plans.PlanStructure.SectionCount">
+  SectionCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many sections it has (numbered from 0; a section can be empty when its part was left out).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SectionCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Seed_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Seed*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Seed" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Seed">
+  Seed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The seed it was built for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Seed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Band_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Band*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Band_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Band(System.Int32)">
+  Band(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns smooth hall <code class="paramref">index</code>'s band, in plan meters (<a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html#LastFleet_ProcGen_Plans_PlanStructure_BandIndexAt_System_Int32_System_Int32_">BandIndexAt(int, int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HallBand Band(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_BandAt_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_BandAt_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandAt(System.Int32,System.Int32)">
+  BandAt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the band of the smooth hall (a ring hall, a bridge on a slant) cell (<code class="paramref">x</code>, <code class="paramref">z</code>)
+is on, in plan meters (a cell is <a class="xref" href="LastFleet.ProcGen.Layouts.Grid.html#LastFleet_ProcGen_Layouts_Grid_CellSize">CellSize</a> on a side from its own number), or null if it's built on
+the grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HallBand? BandAt(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_BandIndexAt_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandIndexAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_BandIndexAt_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.BandIndexAt(System.Int32,System.Int32)">
+  BandIndexAt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns which smooth hall's band cell (<code class="paramref">x</code>, <code class="paramref">z</code>) is on, or −1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BandIndexAt(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Build_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Build*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Build_LastFleet_ProcGen_Plans_LevelPlan_System_UInt64_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Build(LastFleet.ProcGen.Plans.LevelPlan,System.UInt64,System.Int32)">
+  Build(LevelPlan, ulong, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds <code class="paramref">plan</code>'s structure on <code class="paramref">deck</code> for <code class="paramref">seed</code>: the deck's
+envelope and halls. Its sections are cut the same on every deck, so the bulkheads line up through them all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlanStructure Build(LevelPlan plan, ulong seed, int deck = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plan</code> <a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>deck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The envelope spans too much (<a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html#LastFleet_ProcGen_Plans_Envelope_MostSpan">MostSpan</a>).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_Bulkheads_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Bulkheads*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_Bulkheads" data-uid="LastFleet.ProcGen.Plans.PlanStructure.Bulkheads">
+  Bulkheads()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the bulkheads: each inside cell's side that faces an inside cell of another section, east and south sides
+only (so each is listed once).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;(int X, int Z, Side Side)&gt; Bulkheads()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,lastfleet.procgen.layouts.side-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,lastfleet.procgen.layouts.side-.z">Z</a>, <a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,lastfleet.procgen.layouts.side-.side">Side</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_District_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.District*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_District_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.District(System.Int32)">
+  District(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns section <code class="paramref">section</code>'s district, or an empty string if it has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string District(int section)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>section</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_DistrictSlot_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.DistrictSlot*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_DistrictSlot_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.DistrictSlot(System.Int32)">
+  DistrictSlot(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Which entry of the districts list section <code class="paramref">section</code> takes its district from: its own, or for a
+ring cut by angle, the ring part's (every piece of it shares one).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DistrictSlot(int section)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>section</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_HallAt_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_HallAt_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallAt(System.Int32,System.Int32)">
+  HallAt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hall at cell (<code class="paramref">x</code>, <code class="paramref">z</code>), or null if it isn't a hall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HallTier? HallAt(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.HallTier.html">HallTier</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_HallCells_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallCells*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_HallCells_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallCells(System.Int32)">
+  HallCells(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cells hall <code class="paramref">index</code> of the plan was laid on (including ones an earlier hall already
+had), for showing a designer which hall is which.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;(int X, int Z)&gt; HallCells(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_HallPartAt_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallPartAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_HallPartAt_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.HallPartAt(System.Int32,System.Int32)">
+  HallPartAt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of the plan's hall that carved cell (<code class="paramref">x</code>, <code class="paramref">z</code>) first, or −1 where none
+did (a cell outside every hall, or a service way's stub).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HallPartAt(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_RingOf_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.RingOf*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_RingOf_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.RingOf(System.Int32)">
+  RingOf(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the ring part section <code class="paramref">section</code> is (or is a piece of, cut by angle), when each part is its
+own section, or null: its rooms are cut round the ring's center (<a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PartShape? RingOf(int section)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>section</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PartShape.html">PartShape</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanStructure_SectionAt_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.SectionAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanStructure_SectionAt_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanStructure.SectionAt(System.Int32,System.Int32)">
+  SectionAt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanStructure.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the section of cell (<code class="paramref">x</code>, <code class="paramref">z</code>), or −1 outside the envelope.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SectionAt(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

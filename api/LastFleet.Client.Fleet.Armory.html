@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Armory | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Armory | The Last Fleet ">
+      
+      <meta name="description" content="The armory&#39;s workbench and locker (design doc, &amp;quot;The armoury&amp;quot;): the rules for what the squad does with the fleet&#39;s weapons and parts between missions. Store and take, fit and remove parts at once, dismantle into raw material for the refinery, rework with refined material, and fabricate into the locker.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Client_Fleet_Armory.md&amp;value=---%0Auid%3A%20LastFleet.Client.Fleet.Armory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Client.Fleet.Armory">
+
+
+
+  <h1 id="LastFleet_Client_Fleet_Armory" data-uid="LastFleet.Client.Fleet.Armory" class="text-break">
+Class Armory  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<span class="xref">Client</span>.<a class="xref" href="LastFleet.Client.Fleet.html">Fleet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The armory's workbench and locker (design doc, &quot;The armoury&quot;): the rules for what the squad does with the fleet's
+weapons and parts between missions. Store and take, fit and remove parts at once, dismantle into raw material for
+the refinery, rework with refined material, and fabricate into the locker.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Armory</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Armory</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Client_Fleet_Armory_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Everything here works on the fleet alone, so it's the same for the host and in tests. The host carries it out for
+everyone (a joined player asks), and every spend goes in the fleet's log with who made it.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Client_Fleet_Armory_LockerCapacity" data-uid="LastFleet.Client.Fleet.Armory.LockerCapacity">
+  LockerCapacity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most the locker holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LockerCapacity = 40</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Dismantle_" data-uid="LastFleet.Client.Fleet.Armory.Dismantle*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Dismantle_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.Dismantle(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,System.Int32)">
+  Dismantle(FleetState, LootCatalog, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dismantles item <code class="paramref">id</code>: what it gives goes to the fleet's stores, for the refinery. A weapon's
+fitted parts come off first, back into the locker, so nothing fitted is lost with it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Dismantle(FleetState fleet, LootCatalog catalog, int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What happened, for the log; null if there's no such item.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Fabricate_" data-uid="LastFleet.Client.Fleet.Armory.Fabricate*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Fabricate_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_LastFleet_Loot_Definitions_Fabrication_" data-uid="LastFleet.Client.Fleet.Armory.Fabricate(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,LastFleet.Loot.Definitions.Fabrication)">
+  Fabricate(FleetState, LootCatalog, Fabrication)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fabricates <code class="paramref">fabrication</code> into the locker, paying the fleet's refined material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Fabricate(FleetState fleet, LootCatalog catalog, Fabrication fabrication)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>fabrication</code> <a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What happened, for the log; null if it can't be done (not enough material, or the locker's full).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Fit_" data-uid="LastFleet.Client.Fleet.Armory.Fit*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Fit_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_System_Int32_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.Fit(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,System.Int32,System.Int32)">
+  Fit(FleetState, LootCatalog, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fits part <code class="paramref">partId</code> from the locker to weapon <code class="paramref">weaponId</code> there, at once. A part it
+replaces that was fitted before goes back in the locker; a part the weapon rolled with is replaced for good.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Fit(FleetState fleet, LootCatalog catalog, int weaponId, int partId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>weaponId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>partId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What happened, for the log; null if it can't be done.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_HasRoom_" data-uid="LastFleet.Client.Fleet.Armory.HasRoom*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_HasRoom_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.Client.Fleet.Armory.HasRoom(LastFleet.AI.Fleet.FleetState)">
+  HasRoom(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the locker has room for one more.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasRoom(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_IdentityOf_" data-uid="LastFleet.Client.Fleet.Armory.IdentityOf*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_IdentityOf_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.IdentityOf(LastFleet.AI.Fleet.LockerItem)">
+  IdentityOf(LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weapon a locker item is, as the simulation carries it: its roll and the parts fitted to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponIdentity IdentityOf(LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html">WeaponIdentity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Name_" data-uid="LastFleet.Client.Fleet.Armory.Name*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Name_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.Name(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  Name(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What <code class="paramref">item</code> is called: the weapon's name, or the part's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Name(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_PartOf_" data-uid="LastFleet.Client.Fleet.Armory.PartOf*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_PartOf_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.PartOf(LastFleet.AI.Fleet.LockerItem)">
+  PartOf(LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The loose part a locker item is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PartFit PartOf(LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_PartsFor_" data-uid="LastFleet.Client.Fleet.Armory.PartsFor*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_PartsFor_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.PartsFor(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,System.Int32)">
+  PartsFor(FleetState, LootCatalog, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The locker's parts that can go on weapon <code class="paramref">weaponId</code>: its frame, its maker's or no maker's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;LockerItem&gt; PartsFor(FleetState fleet, LootCatalog catalog, int weaponId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>weaponId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_PartsOf_" data-uid="LastFleet.Client.Fleet.Armory.PartsOf*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_PartsOf_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.PartsOf(LastFleet.AI.Fleet.LockerItem)">
+  PartsOf(LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parts fitted to a locker weapon in place of the ones it rolled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FittedParts PartsOf(LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.FittedParts.html">FittedParts</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Preview_" data-uid="LastFleet.Client.Fleet.Armory.Preview*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Preview_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.Preview(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  Preview(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weapon reworking <code class="paramref">item</code> would give: the same roll at the higher level. Null for a part or
+one that can't be reworked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RolledWeapon? Preview(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_RarityOf_" data-uid="LastFleet.Client.Fleet.Armory.RarityOf*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_RarityOf_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.RarityOf(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  RarityOf(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rarity rank of <code class="paramref">item</code>: the weapon's, or the part's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int RarityOf(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Remove_" data-uid="LastFleet.Client.Fleet.Armory.Remove*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Remove_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_System_Int32_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.Remove(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,System.Int32,System.Int32)">
+  Remove(FleetState, LootCatalog, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes the part fitted in slot <code class="paramref">slot</code> off weapon <code class="paramref">weaponId</code>, back into the
+locker; the weapon goes back to the part it rolled with. Only a fitted part comes off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Remove(FleetState fleet, LootCatalog catalog, int weaponId, int slot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>weaponId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>slot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What happened, for the log; null if it can't be done (nothing fitted there, or the locker's full).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Rework_" data-uid="LastFleet.Client.Fleet.Armory.Rework*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Rework_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.Rework(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,System.Int32)">
+  Rework(FleetState, LootCatalog, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L339"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reworks item <code class="paramref">id</code> once, paying the fleet's refined material: a weapon gains item levels, a part
+rolls better.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Rework(FleetState fleet, LootCatalog catalog, int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>What happened, for the log; null if it can't be done (as good as it gets, or not enough material).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_ReworkCost_" data-uid="LastFleet.Client.Fleet.Armory.ReworkCost*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_ReworkCost_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.ReworkCost(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  ReworkCost(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What reworking <code class="paramref">item</code> once more takes: for a weapon, the item level it'd be and the grade and
+amount it costs; for a part, the quality it'd have. Null if it's as good as rework makes it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (int To, string Grade, int Cost)? ReworkCost(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string,system.int32-.to">To</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string,system.int32-.grade">Grade</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.string,system.int32-.cost">Cost</a>)?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Store_" data-uid="LastFleet.Client.Fleet.Armory.Store*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Store_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Components_Arms_PartFit_" data-uid="LastFleet.Client.Fleet.Armory.Store(LastFleet.AI.Fleet.FleetState,LastFleet.Simulation.Components.Arms.PartFit)">
+  Store(FleetState, PartFit)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts a loose part in the locker. Returns it, or null if the locker is full or there's no part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LockerItem? Store(FleetState fleet, PartFit part)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>part</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Store_" data-uid="LastFleet.Client.Fleet.Armory.Store*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Store_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Components_Arms_WeaponIdentity_" data-uid="LastFleet.Client.Fleet.Armory.Store(LastFleet.AI.Fleet.FleetState,LastFleet.Simulation.Components.Arms.WeaponIdentity)">
+  Store(FleetState, WeaponIdentity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts a rolled weapon in the locker. Returns it, or null if the locker is full or the weapon is stock.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LockerItem? Store(FleetState fleet, WeaponIdentity weapon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>weapon</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html">WeaponIdentity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Take_" data-uid="LastFleet.Client.Fleet.Armory.Take*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Take_LastFleet_AI_Fleet_FleetState_System_Int32_" data-uid="LastFleet.Client.Fleet.Armory.Take(LastFleet.AI.Fleet.FleetState,System.Int32)">
+  Take(FleetState, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes item <code class="paramref">id</code> out of the locker. Returns it, or null if there's no such item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LockerItem? Take(FleetState fleet, int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Weapon_" data-uid="LastFleet.Client.Fleet.Armory.Weapon*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Weapon_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.Weapon(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  Weapon(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weapon <code class="paramref">item</code> rolls to, or null if it's a part or the data doesn't have it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RolledWeapon? Weapon(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Armory_Yield_" data-uid="LastFleet.Client.Fleet.Armory.Yield*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Armory_Yield_LastFleet_Loot_LootCatalog_LastFleet_AI_Fleet_LockerItem_" data-uid="LastFleet.Client.Fleet.Armory.Yield(LastFleet.Loot.LootCatalog,LastFleet.AI.Fleet.LockerItem)">
+  Yield(LootCatalog, LockerItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Armory.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What dismantling <code class="paramref">item</code> gives, by item id: its rarity's salvage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyDictionary&lt;string, int&gt; Yield(LootCatalog catalog, LockerItem item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="LastFleet.AI.Fleet.LockerItem.html">LockerItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

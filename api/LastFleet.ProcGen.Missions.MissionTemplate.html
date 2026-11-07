@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MissionTemplate | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MissionTemplate | The Last Fleet ">
+      
+      <meta name="description" content="A mission template (design doc, &amp;quot;Mission types&amp;quot; and &amp;quot;Pass 1: mission graph&amp;quot;), read from content/defs/missions/*.json. It sets how many rooms of each kind, how many key and lock pairs, loops and soldiers, and how many stories the level can climb through (1 keeps it flat).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Missions_MissionTemplate.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Missions.MissionTemplate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Missions.MissionTemplate">
+
+
+
+  <h1 id="LastFleet_ProcGen_Missions_MissionTemplate" data-uid="LastFleet.ProcGen.Missions.MissionTemplate" class="text-break">
+Class MissionTemplate  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A mission template (design doc, &quot;Mission types&quot; and &quot;Pass 1: mission graph&quot;), read from
+<code>content/defs/missions/*.json</code>. It sets how many rooms of each kind, how many key and lock pairs, loops and
+soldiers, and how many stories the level can climb through (1 keeps it flat).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MissionTemplate : IEquatable&lt;MissionTemplate&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MissionTemplate</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Missions_MissionTemplate_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>With more than one zone, a level is a chain of zones (station decks), each its own small mission: main path rooms,
+side rooms to explore, loot, and the keycard for the gate into the next zone, whose first room is a transit set
+piece. The objective and the arena are in the second-to-last zone. The gate into the last zone opens when the hack
+is done, and extraction is at its far end. Room counts, side rooms, loot, soldiers and loops are then per zone, and
+<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Locks">Locks</a> isn't used, since every gate is a lock.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate__ctor_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate__ctor_System_String_System_String_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Int32_System_Boolean_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Int32_System_Int32_System_ValueTuple_System_Int32_System_Int32__" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.#ctor(System.String,System.String,System.ValueTuple{System.Int32,System.Int32},System.ValueTuple{System.Int32,System.Int32},System.Int32,System.Boolean,System.ValueTuple{System.Int32,System.Int32},System.ValueTuple{System.Int32,System.Int32},System.Int32,System.Int32,System.ValueTuple{System.Int32,System.Int32})">
+  MissionTemplate(string, string, (int Min, int Max), (int Min, int Max), int, bool, (int Min, int Max), (int Min, int Max), int, int, (int Min, int Max))
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A mission template (design doc, &quot;Mission types&quot; and &quot;Pass 1: mission graph&quot;), read from
+<code>content/defs/missions/*.json</code>. It sets how many rooms of each kind, how many key and lock pairs, loops and
+soldiers, and how many stories the level can climb through (1 keeps it flat).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionTemplate(string Id, string Biome, (int Min, int Max) ExploreRooms, (int Min, int Max) LootRooms, int Locks, bool Arena, (int Min, int Max) Loops, (int Min, int Max) Soldiers, int Stories = 1, int Zones = 1, (int Min, int Max) SideRooms = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Biome</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ExploreRooms</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+    <dt><code>LootRooms</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+    <dt><code>Locks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Arena</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>Loops</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+    <dt><code>Soldiers</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+    <dt><code>Stories</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Zones</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>SideRooms</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_ProcGen_Missions_MissionTemplate__ctor_System_String_System_String_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Int32_System_Boolean_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Int32_System_Int32_System_ValueTuple_System_Int32_System_Int32___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>With more than one zone, a level is a chain of zones (station decks), each its own small mission: main path rooms,
+side rooms to explore, loot, and the keycard for the gate into the next zone, whose first room is a transit set
+piece. The objective and the arena are in the second-to-last zone. The gate into the last zone opens when the hack
+is done, and extraction is at its far end. Room counts, side rooms, loot, soldiers and loops are then per zone, and
+<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Locks">Locks</a> isn't used, since every gate is a lock.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Airlock_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Airlock*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Airlock" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Airlock">
+  Airlock
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The airlock's hull fittings (&quot;airlock&quot;): the dropship's intake and cargo chute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AirlockModels Airlock { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.AirlockModels.html">AirlockModels</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Alert_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Alert*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Alert" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Alert">
+  Alert
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the station's alert builds up the longer the squad is aboard, and what that does (&quot;alert&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AlertSettings Alert { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.AlertSettings.html">AlertSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Archetypes_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Archetypes*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Archetypes" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Archetypes">
+  Archetypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The room archetypes its built rooms are picked from (ids in the procgen data's archetypes.json), each by its
+weight. Empty means rectangles of <a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_ParametricRoomSize">ParametricRoomSize</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Archetypes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Arena_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Arena*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Arena" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Arena">
+  Arena
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Arena { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Biome_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Biome*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Biome" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Biome">
+  Biome
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Biome { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_CargoFocus_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.CargoFocus*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_CargoFocus" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.CargoFocus">
+  CargoFocus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the station's cargo crates mostly hold (an item id, such as &quot;fuel&quot;), or null for a mix. Set when a mission
+is picked on the star map for what the fleet needs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CargoFocus { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_CargoShare_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.CargoShare*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_CargoShare" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.CargoShare">
+  CargoShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of cargo crates, as a fraction of the usual amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CargoShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_EarlyExtraction_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.EarlyExtraction*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_EarlyExtraction" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.EarlyExtraction">
+  EarlyExtraction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Settings for leaving early on the docked dropship, and what counts as success (&quot;earlyExtraction&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EarlyExtractionSettings EarlyExtraction { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.EarlyExtractionSettings.html">EarlyExtractionSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_ExploreRooms_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ExploreRooms*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_ExploreRooms" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ExploreRooms">
+  ExploreRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) ExploreRooms { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_HallShare_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallShare*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_HallShare" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallShare">
+  HallShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How often a corridor on a deck with themed halls is one of those halls instead of a kit corridor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HallShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_HallThemes_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallThemes*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_HallThemes" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallThemes">
+  HallThemes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deck themes to pick from, and how each builds its halls (&quot;hallThemes&quot;). Uses the defaults if none are named.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;HallTheme&gt; HallThemes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.HallTheme.html">HallTheme</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_HallsPerDeck_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallsPerDeck*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_HallsPerDeck" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HallsPerDeck">
+  HallsPerDeck
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of halls built for each deck in its theme.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HallsPerDeck { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_HoseLength_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HoseLength*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_HoseLength" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.HoseLength">
+  HoseLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a tank's hose is, in meters. A tank is never placed further from the airlock than the hose reaches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HoseLength { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Id_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Id*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Id" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Locks_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Locks*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Locks" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Locks">
+  Locks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Locks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_LoopRules_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.LoopRules*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_LoopRules" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.LoopRules">
+  LoopRules
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the level's loops are made, beyond how many each zone gets (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Loops">Loops</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LoopRules LoopRules { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.LoopRules.html">LoopRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Loops_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Loops*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Loops" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Loops">
+  Loops
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Loops { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Loot_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Loot*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Loot" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Loot">
+  Loot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Weapon loot in the level: caches in loot rooms, stashes in other rooms, and soldier drops.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LootSettings Loot { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.LootSettings.html">LootSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_LootRooms_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.LootRooms*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_LootRooms" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.LootRooms">
+  LootRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) LootRooms { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_OwnRecipe_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.OwnRecipe*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_OwnRecipe" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.OwnRecipe">
+  OwnRecipe
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The template's own recipe (<code>recipe</code>), or null to grow the level from its room counts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LevelRecipe? OwnRecipe { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_ParametricRoomSize_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ParametricRoomSize*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_ParametricRoomSize" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ParametricRoomSize">
+  ParametricRoomSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max cells along each side of a built room (used when the template names no archetypes).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) ParametricRoomSize { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_ParametricRooms_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ParametricRooms*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_ParametricRooms" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ParametricRooms">
+  ParametricRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many rooms are built for each level from its seed (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) and offered next to
+the kit's own for main path rooms and side rooms. None by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) ParametricRooms { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Plan_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Plan*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Plan" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Plan">
+  Plan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the mission is read into a plan's level (<a class="xref" href="LastFleet.ProcGen.Missions.PlanRecipe.html">PlanRecipe</a>), if it's laid out by a plan; null when the
+growth solver lays it out from <a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Recipe">Recipe</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanRecipe? Plan { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.PlanRecipe.html">PlanRecipe</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_PumpRate_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.PumpRate*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_PumpRate" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.PumpRate">
+  PumpRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How fast a tank pumps into the dropship, in units per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PumpRate { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Recipe_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Recipe*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Recipe" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Recipe">
+  Recipe
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the level's mission graph is grown, deck by deck (<a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a>). Uses the template's own recipe,
+or if there isn't one, the recipe built from its room counts (<a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html#LastFleet_ProcGen_Missions_LevelRecipe_Of_LastFleet_ProcGen_Missions_MissionTemplate_">Of(MissionTemplate)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LevelRecipe Recipe { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Reservoir_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Reservoir*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Reservoir" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Reservoir">
+  Reservoir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A deep reservoir piped to an outlet by the airlock, through valves the squad has to open (&quot;reservoir&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReservoirSettings Reservoir { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.ReservoirSettings.html">ReservoirSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_SideRooms_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.SideRooms*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_SideRooms" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.SideRooms">
+  SideRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) SideRooms { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Soldiers_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Soldiers*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Soldiers" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Soldiers">
+  Soldiers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Soldiers { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_SoldiersPerExtraPlayer_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.SoldiersPerExtraPlayer*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_SoldiersPerExtraPlayer" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.SoldiersPerExtraPlayer">
+  SoldiersPerExtraPlayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extra soldiers per extra player, as a fraction of a zone's budget. They wait in their rooms, out of sight, until
+the squad is that big (the second, third and fourth player each add this many more).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SoldiersPerExtraPlayer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_StationRaid_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.StationRaid*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_StationRaid" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.StationRaid">
+  StationRaid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The station raid: the Phase 3 mission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MissionTemplate StationRaid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Stories_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Stories*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Stories" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Stories">
+  Stories
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Stories { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_TankAmount_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankAmount*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_TankAmount" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankAmount">
+  TankAmount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max capacity of a tank on the first deck. Each deck deeper adds a tenth more.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) TankAmount { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_TankEmptyChance_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankEmptyChance*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_TankEmptyChance" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankEmptyChance">
+  TankEmptyChance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The chance a tank starts empty: gauge at the bottom, nothing to pump.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TankEmptyChance { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_TankFill_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankFill*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_TankFill" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankFill">
+  TankFill
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max fill level a tank starts at, as a fraction of its capacity (its gauge shows it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (float Min, float Max) TankFill { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_TankKinds_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankKinds*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_TankKinds" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankKinds">
+  TankKinds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The kinds of tank that can go in its rooms (&quot;tankKinds&quot;): their models, sizes and supplies. A tank only holds
+supplies some kind allows. A station chosen for one of those supplies gets one extra tank of it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;TankKind&gt; TankKinds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Missions.TankKind.html">TankKind</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_TankSupplies_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankSupplies*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_TankSupplies" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.TankSupplies">
+  TankSupplies
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The supplies this station keeps in tanks (its tank kinds' supplies, then its reservoir's), by item id, in order.
+These come by hose and never show up in its crates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; TankSupplies { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Tanks_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Tanks*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Tanks" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Tanks">
+  Tanks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max number of fuel and water tanks in the level (<a class="xref" href="LastFleet.ProcGen.Levels.Supplies.TankSpot.html">TankSpot</a>). They get
+emptied into the docked dropship through a hose run back to the airlock. None if there's no airlock.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Tanks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_ThemedHalls_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ThemedHalls*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_ThemedHalls" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.ThemedHalls">
+  ThemedHalls
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether each deck gets halls built in its theme (wide, tall, columned or arched, lit from the floor), alongside
+the kit's corridors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ThemedHalls { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Zones_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Zones*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Zones" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Zones">
+  Zones
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Zones { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Load_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Load*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Load_System_String_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MissionTemplate Load(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_MissionTemplate_Parse_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Parse*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_MissionTemplate_Parse_System_String_System_String_" data-uid="LastFleet.ProcGen.Missions.MissionTemplate.Parse(System.String,System.String)">
+  Parse(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/MissionTemplate.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MissionTemplate Parse(string json, string source = &quot;mission template&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

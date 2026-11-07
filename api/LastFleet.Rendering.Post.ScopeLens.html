@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct ScopeLens | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct ScopeLens | The Last Fleet ">
+      
+      <meta name="description" content="The scope view for this frame (the Scope parameter of ; docs/plans/weapons.md phase 2, docs/plans/combat.md). The tonemap pass draws its lens over the zoomed scene, with its reticle at the aim point. Looking through a scope&#39;s eyepiece (), the lens is that window, and the rest of the frame (the scope&#39;s body round it, the world past it) is left as drawn, as Modern Warfare&#39;s scopes are. Without one, the lens is a circle of its own and the rest of the screen is blurred and darkened.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Rendering_Post_ScopeLens.md&amp;value=---%0Auid%3A%20LastFleet.Rendering.Post.ScopeLens%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Rendering.Post.ScopeLens">
+
+
+
+  <h1 id="LastFleet_Rendering_Post_ScopeLens" data-uid="LastFleet.Rendering.Post.ScopeLens" class="text-break">
+Struct ScopeLens  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Rendering.html">Rendering</a>.<a class="xref" href="LastFleet.Rendering.Post.html">Post</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The scope view for this frame (the Scope parameter of <a class="xref" href="LastFleet.Rendering.FrameParameters.html">FrameParameters</a>; docs/plans/weapons.md phase 2,
+docs/plans/combat.md). The tonemap pass draws its lens over the zoomed scene, with its reticle at the aim point.
+Looking through a scope's eyepiece (<a class="xref" href="LastFleet.Rendering.Post.ScopeLens.html#LastFleet_Rendering_Post_ScopeLens_Window">Window</a>), the lens is that window, and the rest of the frame (the
+scope's body round it, the world past it) is left as drawn, as Modern Warfare's scopes are. Without one, the lens is
+a circle of its own and the rest of the screen is blurred and darkened.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly record struct ScopeLens : IEquatable&lt;ScopeLens&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Rendering.Post.ScopeLens.html">ScopeLens</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens__ctor_" data-uid="LastFleet.Rendering.Post.ScopeLens.#ctor*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens__ctor_System_Single_System_Numerics_Vector2_LastFleet_Rendering_Post_ScopeReticle_System_Single_" data-uid="LastFleet.Rendering.Post.ScopeLens.#ctor(System.Single,System.Numerics.Vector2,LastFleet.Rendering.Post.ScopeReticle,System.Single)">
+  ScopeLens(float, Vector2, ScopeReticle, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The scope view for this frame (the Scope parameter of <a class="xref" href="LastFleet.Rendering.FrameParameters.html">FrameParameters</a>; docs/plans/weapons.md phase 2,
+docs/plans/combat.md). The tonemap pass draws its lens over the zoomed scene, with its reticle at the aim point.
+Looking through a scope's eyepiece (<a class="xref" href="LastFleet.Rendering.Post.ScopeLens.html#LastFleet_Rendering_Post_ScopeLens_Window">Window</a>), the lens is that window, and the rest of the frame (the
+scope's body round it, the world past it) is left as drawn, as Modern Warfare's scopes are. Without one, the lens is
+a circle of its own and the rest of the screen is blurred and darkened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScopeLens(float Amount, Vector2 Offset, ScopeReticle Reticle, float Window = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>0 to 1, from no scope to fully up to the eye. The lens opens as the scope comes up.</p>
+</dd>
+    <dt><code>Offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd><p>How far the lens is off the aim point as the gun sways and kicks, in screen heights (+X right, +Y up). The reticle
+stays on the aim point, where the shots go. The lens moves around it, and its edge shadows the side it's moving
+away from.</p>
+</dd>
+    <dt><code>Reticle</code> <a class="xref" href="LastFleet.Rendering.Post.ScopeReticle.html">ScopeReticle</a></dt>
+    <dd><p>The reticle drawn on the aim point.</p>
+</dd>
+    <dt><code>Window</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The radius of the eyepiece's window on the screen, in screen heights, when looking through one; 0 for a lens drawn
+over the screen (<a class="xref" href="LastFleet.Rendering.Post.ScopeLens.html#LastFleet_Rendering_Post_ScopeLens_Radius">Radius</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_Radius" data-uid="LastFleet.Rendering.Post.ScopeLens.Radius">
+  Radius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lens radius at full amount, in screen heights, when there's no eyepiece window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Radius = 0.46</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens_Amount_" data-uid="LastFleet.Rendering.Post.ScopeLens.Amount*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_Amount" data-uid="LastFleet.Rendering.Post.ScopeLens.Amount">
+  Amount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>0 to 1, from no scope to fully up to the eye. The lens opens as the scope comes up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Amount { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens_IsWindow_" data-uid="LastFleet.Rendering.Post.ScopeLens.IsWindow*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_IsWindow" data-uid="LastFleet.Rendering.Post.ScopeLens.IsWindow">
+  IsWindow
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the lens is an eyepiece's window rather than drawn over the screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWindow { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens_Offset_" data-uid="LastFleet.Rendering.Post.ScopeLens.Offset*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_Offset" data-uid="LastFleet.Rendering.Post.ScopeLens.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far the lens is off the aim point as the gun sways and kicks, in screen heights (+X right, +Y up). The reticle
+stays on the aim point, where the shots go. The lens moves around it, and its edge shadows the side it's moving
+away from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 Offset { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens_Reticle_" data-uid="LastFleet.Rendering.Post.ScopeLens.Reticle*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_Reticle" data-uid="LastFleet.Rendering.Post.ScopeLens.Reticle">
+  Reticle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reticle drawn on the aim point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScopeReticle Reticle { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Post.ScopeReticle.html">ScopeReticle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Post_ScopeLens_Window_" data-uid="LastFleet.Rendering.Post.ScopeLens.Window*"></a>
+
+  <h3 id="LastFleet_Rendering_Post_ScopeLens_Window" data-uid="LastFleet.Rendering.Post.ScopeLens.Window">
+  Window
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Post/ScopeLens.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The radius of the eyepiece's window on the screen, in screen heights, when looking through one; 0 for a lens drawn
+over the screen (<a class="xref" href="LastFleet.Rendering.Post.ScopeLens.html#LastFleet_Rendering_Post_ScopeLens_Radius">Radius</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Window { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WeaponPickupSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WeaponPickupSystem | The Last Fleet ">
+      
+      <meta name="description" content="Handles everything a player uses with Interact: weapons and items in the world, containers, cargo, pods, supply tanks and the dropship&#39;s hold. Most take a press; searching a container and turning a valve take a hold.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Systems_WeaponPickupSystem.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Systems.WeaponPickupSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem">
+
+
+
+  <h1 id="LastFleet_Simulation_Systems_WeaponPickupSystem" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem" class="text-break">
+Class WeaponPickupSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Systems.html">Systems</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Handles everything a player uses with Interact: weapons and items in the world, containers, cargo, pods, supply
+tanks and the dropship's hold. Most take a press; searching a container and turning a valve take a hold.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class WeaponPickupSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WeaponPickupSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Systems_WeaponPickupSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A player standing by a <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponDrop.html">WeaponDrop</a> or an <a class="xref" href="LastFleet.Simulation.Components.Gear.ItemDrop.html">ItemDrop</a>, looking at it
+(<a class="xref" href="LastFleet.Simulation.Systems.Interaction.html">Interaction</a>), and pressing Interact picks it up. A weapon goes into a
+free slot, or replaces the weapon in hand, which is left where the new one was. Items go into the inventory as far
+as they fit, and the rest stays on the ground.
+</p>
+<p>
+A closed <a class="xref" href="LastFleet.Simulation.Components.Gear.Container.html">Container</a> is opened by holding Interact for <a class="xref" href="LastFleet.Simulation.Systems.WeaponPickupSystem.html#LastFleet_Simulation_Systems_WeaponPickupSystem_HoldSeconds">HoldSeconds</a> (it's searched), and its
+contents are laid out on top of it. A
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoCrate.html">CargoCrate</a> is picked up in both hands (see <a class="xref" href="LastFleet.Simulation.Systems.CargoSystem.html">CargoSystem</a>). At a loading
+<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>, holding loads the fleet supplies from the pack into it, or if the pack has none and the pod
+has some, calls the drone for it. At a <a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a>'s valve, or the end of its hose where it's lying,
+holding picks up the hose to drag (<a class="xref" href="LastFleet.Simulation.Systems.TankSystem.html">TankSystem</a>). At a cut in the hose, it repairs it. At a shut valve
+on a deep reservoir's pipe, holding for its <a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html#LastFleet_Simulation_Components_Cargo_SupplyTank_ValveSeconds">ValveSeconds</a> opens it. At the docked
+dropship's hold (the cargo chute by the hatch, <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Chute">Chute</a>), it unloads the fleet supplies
+from the pack into it.
+</p>
+<p>
+When several things are in reach and in view, the one looked at most directly wins. While carrying a crate,
+nothing else can be used.
+</p>
+<p>
+Runs after the loadout system and before the weapon system, so a picked-up weapon starts raising on the same tick.
+A player who is reviving a teammate (weapon holstered), downed or dead can't pick anything up. Doesn't allocate,
+apart from the items an opened container lays out.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_HoldSeconds" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.HoldSeconds">
+  HoldSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long Interact has to be held to search a container, in seconds. Everything else takes a press.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float HoldSeconds = 0.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_Reach" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Reach">
+  Reach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close (horizontally) a player's feet have to be to a drop, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Reach = 1.6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_FindTarget_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FindTarget*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_FindTarget_Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Arms_WeaponDrop_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Gear_ItemDrop_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Gear_Container_LastFleet_Simulation_Components_Characters_WorldPosition__System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Cargo_CargoCrate_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Cargo_CargoPod_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Cargo_SupplyTank_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Missions_MissionState__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FindTarget(Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Arms.WeaponDrop,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Gear.ItemDrop,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Gear.Container,LastFleet.Simulation.Components.Characters.WorldPosition},System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3,Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Cargo.CargoCrate,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Cargo.CargoPod,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Cargo.SupplyTank,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Missions.MissionState})">
+  FindTarget(ArchetypeQuery&lt;WeaponDrop, WorldPosition&gt;, ArchetypeQuery&lt;ItemDrop, WorldPosition&gt;, ArchetypeQuery&lt;Container, WorldPosition&gt;?, Vector3, Vector3, Vector3, ArchetypeQuery&lt;CargoCrate, WorldPosition&gt;?, ArchetypeQuery&lt;CargoPod, WorldPosition&gt;?, ArchetypeQuery&lt;SupplyTank, WorldPosition&gt;?, ArchetypeQuery&lt;MissionState&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L440"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Same as
+<a class="xref" href="LastFleet.Simulation.Systems.WeaponPickupSystem.html#LastFleet_Simulation_Systems_WeaponPickupSystem_FindTarget_Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Arms_WeaponDrop_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Gear_ItemDrop_LastFleet_Simulation_Components_Characters_WorldPosition__System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_">FindTarget(ArchetypeQuery&lt;WeaponDrop, WorldPosition&gt;, ArchetypeQuery&lt;ItemDrop, WorldPosition&gt;, Vector3, Vector3, Vector3)</a>,
+but also considers closed containers, cargo crates, loading cargo pods, supply tank hoses and valves, and the
+docked dropship's hold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindTarget(ArchetypeQuery&lt;WeaponDrop, WorldPosition&gt; drops, ArchetypeQuery&lt;ItemDrop, WorldPosition&gt; items, ArchetypeQuery&lt;Container, WorldPosition&gt;? containers, Vector3 feet, Vector3 eye, Vector3 view, ArchetypeQuery&lt;CargoCrate, WorldPosition&gt;? cargo = null, ArchetypeQuery&lt;CargoPod, WorldPosition&gt;? pods = null, ArchetypeQuery&lt;SupplyTank, WorldPosition&gt;? tanks = null, ArchetypeQuery&lt;MissionState&gt;? missions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>drops</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponDrop.html">WeaponDrop</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>items</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Gear.ItemDrop.html">ItemDrop</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>containers</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Gear.Container.html">Container</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>cargo</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoCrate.html">CargoCrate</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>pods</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>tanks</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>missions</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_FindTarget_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FindTarget*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_FindTarget_Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Arms_WeaponDrop_LastFleet_Simulation_Components_Characters_WorldPosition__Friflo_Engine_ECS_ArchetypeQuery_LastFleet_Simulation_Components_Gear_ItemDrop_LastFleet_Simulation_Components_Characters_WorldPosition__System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FindTarget(Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Arms.WeaponDrop,LastFleet.Simulation.Components.Characters.WorldPosition},Friflo.Engine.ECS.ArchetypeQuery{LastFleet.Simulation.Components.Gear.ItemDrop,LastFleet.Simulation.Components.Characters.WorldPosition},System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3)">
+  FindTarget(ArchetypeQuery&lt;WeaponDrop, WorldPosition&gt;, ArchetypeQuery&lt;ItemDrop, WorldPosition&gt;, Vector3, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L430"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns what a player at <code class="paramref">feet</code>, looking from <code class="paramref">eye</code> along
+<code class="paramref">view</code>, would pick up or use. Out of the things in reach that the player is looking at
+(<a class="xref" href="LastFleet.Simulation.Systems.Interaction.html#LastFleet_Simulation_Systems_Interaction_LooksAt_System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_System_Single_System_Single_System_Single__">LooksAt(Vector3, Vector3, Vector3, float, float, out float)</a>), it's the one most directly in view. Returns zero if there's nothing. The HUD
+uses this to show what it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindTarget(ArchetypeQuery&lt;WeaponDrop, WorldPosition&gt; drops, ArchetypeQuery&lt;ItemDrop, WorldPosition&gt; items, Vector3 feet, Vector3 eye, Vector3 view)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>drops</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponDrop.html">WeaponDrop</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd><p>The world's weapon drops.</p>
+</dd>
+    <dt><code>items</code> <span class="xref">ArchetypeQuery</span>&lt;<a class="xref" href="LastFleet.Simulation.Components.Gear.ItemDrop.html">ItemDrop</a>, <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>&gt;</dt>
+    <dd><p>The world's item drops.</p>
+</dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>The player's feet position.</p>
+</dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>The player's eye position.</p>
+</dd>
+    <dt><code>view</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>The player's view direction (a unit vector).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The drop's entity ID, or zero.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_FleetSupplies_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FleetSupplies*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_FleetSupplies_LastFleet_Simulation_Components_Gear_Inventory__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.FleetSupplies(LastFleet.Simulation.Components.Gear.Inventory@)">
+  FleetSupplies(in Inventory)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how many fleet supplies and raw materials <code class="paramref">inventory</code> holds, for loading a pod.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FleetSupplies(in Inventory inventory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inventory</code> <a class="xref" href="LastFleet.Simulation.Components.Gear.Inventory.html">Inventory</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_HoldSecondsFor_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.HoldSecondsFor*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_HoldSecondsFor_Friflo_Engine_ECS_Entity_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.HoldSecondsFor(Friflo.Engine.ECS.Entity)">
+  HoldSecondsFor(Entity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long Interact has to be held at <code class="paramref">target</code> before it's used: <a class="xref" href="LastFleet.Simulation.Systems.WeaponPickupSystem.html#LastFleet_Simulation_Systems_WeaponPickupSystem_HoldSeconds">HoldSeconds</a> to
+search a container, 0 (a press) for anything else. A valve has its own (<a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html#LastFleet_Simulation_Components_Cargo_SupplyTank_ValveSeconds">ValveSeconds</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float HoldSecondsFor(Entity target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_Initialize_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_LoadOrCall_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.LoadOrCall*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_LoadOrCall_LastFleet_Simulation_Components_Cargo_CargoPod__LastFleet_Simulation_Components_Gear_Inventory__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.LoadOrCall(LastFleet.Simulation.Components.Cargo.CargoPod@,LastFleet.Simulation.Components.Gear.Inventory@)">
+  LoadOrCall(ref CargoPod, ref Inventory)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses a loading pod. Moves the fleet supplies in <code class="paramref">inventory</code> into it. If the inventory has none
+and the pod has some, calls the drone instead. Returns what happened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PodUse LoadOrCall(ref CargoPod pod, ref Inventory inventory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pod</code> <a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a></dt>
+    <dd></dd>
+    <dt><code>inventory</code> <a class="xref" href="LastFleet.Simulation.Components.Gear.Inventory.html">Inventory</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Systems.PodUse.html">PodUse</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_NearestShut_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.NearestShut*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_NearestShut_LastFleet_Simulation_Components_Cargo_SupplyTank__System_Numerics_Vector3_System_Nullable_System_Numerics_Vector3__System_Nullable_System_Numerics_Vector3__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.NearestShut(LastFleet.Simulation.Components.Cargo.SupplyTank@,System.Numerics.Vector3,System.Nullable{System.Numerics.Vector3},System.Nullable{System.Numerics.Vector3})">
+  NearestShut(in SupplyTank, Vector3, Vector3?, Vector3?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L562"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the reservoir's shut valve that the player at <code class="paramref">feet</code> is looking at, or the
+nearest one in reach if no view is given. Returns -1 if there isn't one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NearestShut(in SupplyTank tank, Vector3 feet, Vector3? eye = null, Vector3? view = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tank</code> <a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a></dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>?</dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_Open_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Open*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_Open_Friflo_Engine_ECS_EntityStore_Friflo_Engine_ECS_Entity_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Open(Friflo.Engine.ECS.EntityStore,Friflo.Engine.ECS.Entity)">
+  Open(EntityStore, Entity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the closed container <code class="paramref">entity</code>, laying its contents out on top of it along its length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Open(EntityStore store, Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+    <dt><code>entity</code> <span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_Unload_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Unload*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_Unload_LastFleet_Simulation_Components_Missions_MissionState__LastFleet_Simulation_Components_Gear_Inventory__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Unload(LastFleet.Simulation.Components.Missions.MissionState@,LastFleet.Simulation.Components.Gear.Inventory@)">
+  Unload(ref MissionState, ref Inventory)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unloads the fleet supplies in <code class="paramref">inventory</code> into the docked dropship's hold. Returns true if
+anything was unloaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Unload(ref MissionState mission, ref Inventory inventory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mission</code> <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a></dt>
+    <dd></dd>
+    <dt><code>inventory</code> <a class="xref" href="LastFleet.Simulation.Components.Gear.Inventory.html">Inventory</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_WeaponPickupSystem_Update_" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Update*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_WeaponPickupSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.Simulation.Systems.WeaponPickupSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/WeaponPickupSystem.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

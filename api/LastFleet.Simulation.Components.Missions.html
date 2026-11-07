@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Simulation.Components.Missions | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Simulation.Components.Missions | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Components.Missions">
+
+  <h1 id="LastFleet_Simulation_Components_Missions" data-uid="LastFleet.Simulation.Components.Missions" class="text-break">Namespace LastFleet.Simulation.Components.Missions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.Breach.html">Breach</a></dt>
+      <dd><p>A hull breach: a patched plate in the station's outer hull. Like a <a class="xref" href="LastFleet.Simulation.Components.Missions.ClosetDoor.html">ClosetDoor</a>, it sits on the same
+entity as an unbreakable <a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a> (the plate). The horde blows it open (marked broken, collision
+off) and pours in through the hole behind it, and it stays open. It's replicated through the broken-surface list
+like any prop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.ClosetDoor.html">ClosetDoor</a></dt>
+      <dd><p>A spawn closet's door. Like a <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionLock.html">MissionLock</a>, it's a level part on the same entity as an unbreakable
+<a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a>. It's open (marked broken, collision off) while reinforcements leave the closet, and
+shuts again once the closet is empty. It's replicated through the broken-surface list like any prop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.EscapePod.html">EscapePod</a></dt>
+      <dd><p>An escape pod's hatch. Like a <a class="xref" href="LastFleet.Simulation.Components.Missions.ClosetDoor.html">ClosetDoor</a>, it's a level part on the same entity as an unbreakable
+<a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a>, but the other way round: open (marked broken, collision off) until the pod launches, then
+shut for good with whoever was inside.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.HullWindow.html">HullWindow</a></dt>
+      <dd><p>A window onto space (docs/plans/structure-first.md, Phase 10), on the same entity as its pane's
+<a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a>, which holds (takes damage, never breaks: <a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html#LastFleet_Simulation_Components_World_Destructible_Holds">Holds</a>). Its damage
+shows as cracks, then blows it out: a breach, which the mission's breach system runs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.MissionKey.html">MissionKey</a></dt>
+      <dd><p>A keycard lying in the level (with a <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>). The squad picks it up by walking over it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.MissionLock.html">MissionLock</a></dt>
+      <dd><p>A locked door: a level part on the same entity as a <a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a> that shots can't break. Its keycard
+opens it by marking the part broken and turning its collision off, so clients see it and walk through it the same
+way as a broken prop. Restarting the fight closes it again.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a></dt>
+      <dd><p>The mission's state, kept on one entity. It's small, so it's replicated whole to co-op clients in every snapshot,
+and it's hashed in the simulation checksum. Keycard and lock ids start at 1, with one bit each in
+<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_KeysHeld">KeysHeld</a> and <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_LocksOpen">LocksOpen</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.RoomDoorState.html">RoomDoorState</a></dt>
+      <dd><p>A room's own door in a plan's level (docs/plans/structure-first.md, Phase 10), on the same entity as its door's
+<a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a>: open is broken, as for any door, so clients see it the same way. It slides open for
+whoever comes near, or (<a class="xref" href="LastFleet.Simulation.Components.Missions.RoomDoorState.html#LastFleet_Simulation_Components_Missions_RoomDoorState_ByHand">ByHand</a>) is opened and shut by hand; the swarm batters one opened by hand until
+it's <a class="xref" href="LastFleet.Simulation.Components.Missions.RoomDoorState.html#LastFleet_Simulation_Components_Missions_RoomDoorState_Wrecked">Wrecked</a>, open for good. A breach in either of its rooms seals it shut.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.SealableDoor.html">SealableDoor</a></dt>
+      <dd><p>A door through a bulkhead, between compartments <a class="xref" href="LastFleet.Simulation.Components.Missions.SealableDoor.html#LastFleet_Simulation_Components_Missions_SealableDoor_A">A</a> and <a class="xref" href="LastFleet.Simulation.Components.Missions.SealableDoor.html#LastFleet_Simulation_Components_Missions_SealableDoor_B">B</a>, that shuts while either is
+sealed: on the same entity as its door's <a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a> (a pressure door's, or a gate's beside its
+<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionLock.html">MissionLock</a>). Open is broken, as for any door, so clients see it the same way.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.WindowPart.html">WindowPart</a></dt>
+      <dd><p>One of a window's parts that the mission shows as its breach goes (<a class="xref" href="LastFleet.Simulation.Components.Missions.HullWindow.html">HullWindow</a>): on the same entity as
+the part's <a class="xref" href="LastFleet.Simulation.Components.World.Destructible.html">Destructible</a>, which never breaks but is marked broken while the part is hidden, so clients
+see it come and go the same way as anything broken.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.BreachPhase.html">BreachPhase</a></dt>
+      <dd><p>Where a window's breach is (docs/plans/structure-first.md, Phase 10).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.MissionPhase.html">MissionPhase</a></dt>
+      <dd><p>Which phase a mission is in (see the design doc, &quot;Mission structure&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.ObjectiveKind.html">ObjectiveKind</a></dt>
+      <dd><p>What a mission's squad comes for (docs/plans/structure-first.md, &quot;Objective kinds&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Missions.WindowPartKind.html">WindowPartKind</a></dt>
+      <dd><p>Which of a window's hidden parts a <a class="xref" href="LastFleet.Simulation.Components.Missions.WindowPart.html">WindowPart</a> is.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Models | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Models | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-models">Studio: Models</h1>
+
+<p>When a player bumps into a desk, a soldier hides behind a crate or a round goes through a planter, what are they
+actually hitting? Not the drawn model. They hit its <em>collider</em>, and every prop model gets one, set in
+<code>content/props/colliders.json</code>. Characters, shots, sight, cover and the navigation grid all use the same one.</p>
+<p><strong>Models</strong> mode is where you pick it. You see the collider's outline over the model as it turns, built exactly the way
+the level generator sets it into a level, along with anything worth fixing. The plan behind it is in
+plans/model-colliders.md.</p>
+<p>There are five kinds of collider:</p>
+<ul>
+<li><strong>authored</strong>: the boxes in the model's file (<code>..._CollisionOnly</code>). The default.</li>
+<li><strong>mesh</strong>: exactly what's drawn. Good for irregular furniture, like a desk's hutch or a terminal's screen.</li>
+<li><strong>box</strong> and <strong>cylinder</strong>: one box, or one upright cylinder, around what's drawn. A cylinder suits barrels and drums.</li>
+<li><strong>none</strong>: nothing at all; walked and shot through.</li>
+</ul>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Models</strong> on the mode bar at the top, or start Studio straight in it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode models
+</code></pre>
+<p>Want to land right on one model? <code>--select furniture/Desk</code> opens on the desk.</p>
+<p><img src="images/models/01-models-mode.png" alt="Models mode as it opens: every prop model listed by file, with its collider"></p>
+<p>Here's the tour:</p>
+<ul>
+<li><strong>The list</strong> on the left has every prop model, grouped by file (<code>cargo</code>, <code>containers</code>, <code>furniture (mesh)</code>,
+<code>items</code>...). The file's default collider is in brackets after its name. Each model shows its collider, with
+<code>(file's)</code> when it's using the file's default, and <code>not placed</code> when nothing sets it into a level (it isn't
+furniture or a station fixture). There's a <strong>filter by name</strong> box at the top.</li>
+<li><strong>The stage</strong> on the right shows the picked model, once you pick one.</li>
+</ul>
+<h2 id="pick-a-models-collider">Pick a model's collider</h2>
+<p>So the desk is a pain to walk around? Let's see what it's collided with.</p>
+<ol>
+<li>Click <strong>Desk</strong> under <strong>furniture (mesh)</strong>. The top of the stage tells you how it's placed (<code>Placed as furniture by desk.</code>), then two boxes: <strong>Every model in furniture.gltf</strong> (the file's default, <code>mesh</code>) and <strong>This model</strong> (<code>as its file (mesh)</code>). The cyan outline is the collider: every leg, drawer and the monitor, exactly as drawn. Under the stage
+is what it's made of (<code>216 solid triangles (216 drawn), 1.7 × 0.8 m, 1.35 m high.</code>) and <code>Nothing to fix.</code></li>
+</ol>
+<p><img src="images/models/02-desk-mesh.png" alt="The desk with its mesh collider outlined in cyan"></p>
+<ol start="2">
+<li>Open <strong>This model</strong> and pick <strong>box</strong>. The outline becomes one box around the whole desk, the solid triangles drop
+from 216 to 12, and the list says <code>Desk box</code>. The status bar says <code>1 file not saved (Ctrl+S): colliders.json</code>.</li>
+</ol>
+<p><img src="images/models/03-desk-box.png" alt="The desk collided with one box around it, and colliders.json not saved"></p>
+<p>Every change reaches the furniture Studio builds levels from right away, saved or not. Ctrl+S writes
+<code>colliders.json</code>, and Ctrl+Z puts it back (the status bar says <code>Undid a change to colliders.json</code>). Too easy!</p>
+<h2 id="see-what-studio-flags">See what Studio flags</h2>
+<p>Not every collider works for every model, and Studio tells you when one won't do. Breakable props are a good example.</p>
+<ol>
+<li>Click <strong>Crate_Stack</strong>. It's <code>Placed as furniture by crate_stack (breaks).</code> and it's collided with its <strong>authored</strong>
+box.</li>
+<li>Open <strong>This model</strong> and pick <strong>mesh</strong>. Studio flags it in orange under the stage: <code>It breaks, so it keeps its authored box: a piece that breaks takes damage through one solid part, and shots hit a mesh, not the part.</code> The
+outline stays the authored box, because that's what the game would really use.</li>
+</ol>
+<p><img src="images/models/04-breaks-flag.png" alt="Crate_Stack set to mesh, with Studio's warning that a piece that breaks keeps its authored box"></p>
+<p>Ctrl+Z that one. Studio flags a few other things in the same spot: why a collider won't do (an authored model whose
+solid isn't a box), surfaces characters step up onto (drawn in orange on the outline), and a mesh that isn't closed
+(shots and sight only hit a face from the front, so they slip through a hole). When there's nothing, it says <code>Nothing to fix.</code></p>
+<h2 id="find-a-model-and-compare-its-colliders">Find a model and compare its colliders</h2>
+<p>The list is long, so use the filter.</p>
+<ol>
+<li>Click <strong>filter by name</strong> and type <code>planter</code>. The list narrows to <strong>Planter</strong> and <strong>Planter_Bed</strong>.</li>
+<li>Click <strong>Planter_Bed</strong>. It's on its file's <strong>mesh</strong>, so every plant and both lamps are solid.</li>
+</ol>
+<p><img src="images/models/05-filter-planter.png" alt="The list filtered to &quot;planter&quot;, and Planter_Bed on its mesh collider"></p>
+<ol start="3">
+<li>Open <strong>This model</strong> and pick <strong>authored</strong> to compare. Now only the bed itself is solid, and the plants and lamps
+above it aren't collided with at all.</li>
+</ol>
+<p><img src="images/models/06-planter-authored.png" alt="Planter_Bed on its authored collider: just the bed is solid"></p>
+<p>Which one's right? That's a design call: whether a soldier should see over the plants, and whether rounds should pass
+through them. Pick it, then Ctrl+S to keep it or Ctrl+Z to go back.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The reference is <a href="reference.html#models-what-each-model-is-collided-with">Models: what each model is collided with</a>.</li>
+<li>How prop models are made and exported (including the <code>_CollisionOnly</code> boxes) is in
+<a href="../blender/props.html">props.md</a>.</li>
+<li>For the materials those models are drawn with, see <a href="look.html">look.md</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

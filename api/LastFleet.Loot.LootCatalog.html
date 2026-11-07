@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LootCatalog | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LootCatalog | The Last Fleet ">
+      
+      <meta name="description" content="Every loot definition, loaded from content/defs/loot/*.json and checked: rarities, manufacturers, archetypes, parts, affixes, relics and loot tables. Rolls weapons from it with .">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Loot_LootCatalog.md&amp;value=---%0Auid%3A%20LastFleet.Loot.LootCatalog%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Loot.LootCatalog">
+
+
+
+  <h1 id="LastFleet_Loot_LootCatalog" data-uid="LastFleet.Loot.LootCatalog" class="text-break">
+Class LootCatalog  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Loot.html">Loot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Loot.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Every loot definition, loaded from <code>content/defs/loot/*.json</code> and checked: rarities, manufacturers, archetypes,
+parts, affixes, relics and loot tables. Rolls weapons from it with <a class="xref" href="LastFleet.Loot.LootCatalog.html#LastFleet_Loot_LootCatalog_Roll_System_UInt64_System_String_System_Int32_">Roll(ulong, string, int)</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LootCatalog</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LootCatalog</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Loot_LootCatalog_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Loading fails with one message listing every problem (an unknown id, an empty pool, a bad range), naming the file
+and the entry, so a designer fixes them in one go.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Loot_LootCatalog_MaxNesting" data-uid="LastFleet.Loot.LootCatalog.MaxNesting">
+  MaxNesting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deepest a table may nest other tables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxNesting = 8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Loot_LootCatalog_Affixes_" data-uid="LastFleet.Loot.LootCatalog.Affixes*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Affixes" data-uid="LastFleet.Loot.LootCatalog.Affixes">
+  Affixes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Affix&gt; Affixes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.Affix.html">Affix</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Archetypes_" data-uid="LastFleet.Loot.LootCatalog.Archetypes*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Archetypes" data-uid="LastFleet.Loot.LootCatalog.Archetypes">
+  Archetypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;LootArchetype&gt; Archetypes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.LootArchetype.html">LootArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Effects_" data-uid="LastFleet.Loot.LootCatalog.Effects*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Effects" data-uid="LastFleet.Loot.LootCatalog.Effects">
+  Effects
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What items do (the shipped ones if the data has none): put in play with <a class="xref" href="LastFleet.Simulation.Effects.EffectRegistry.html#LastFleet_Simulation_Effects_EffectRegistry_Use_System_Collections_Generic_IReadOnlyList_LastFleet_Simulation_Effects_EffectDefinition__">Use(IReadOnlyList&lt;EffectDefinition&gt;?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;EffectDefinition&gt; Effects { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html">EffectDefinition</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Fabrications_" data-uid="LastFleet.Loot.LootCatalog.Fabrications*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Fabrications" data-uid="LastFleet.Loot.LootCatalog.Fabrications">
+  Fabrications
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the armory fabricates from graded material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Fabrication&gt; Fabrications { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FiringNames_" data-uid="LastFleet.Loot.LootCatalog.FiringNames*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FiringNames" data-uid="LastFleet.Loot.LootCatalog.FiringNames">
+  FiringNames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L1489"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The names of the ways a frame can fire, as archetypes.json spells them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; FiringNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Generation_" data-uid="LastFleet.Loot.LootCatalog.Generation*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Generation" data-uid="LastFleet.Loot.LootCatalog.Generation">
+  Generation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data's generation: the newest part's <a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_Since">Since</a>. A weapon rolled now is of it
+(<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html#LastFleet_Simulation_Components_Arms_WeaponIdentity_Generation">Generation</a>), and rolls from its parts and older ones only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Generation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Grades_" data-uid="LastFleet.Loot.LootCatalog.Grades*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Grades" data-uid="LastFleet.Loot.LootCatalog.Grades">
+  Grades
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The grades of refined material, lowest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;MaterialGrade&gt; Grades { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.MaterialGrade.html">MaterialGrade</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_ImpactRules_" data-uid="LastFleet.Loot.LootCatalog.ImpactRules*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_ImpactRules" data-uid="LastFleet.Loot.LootCatalog.ImpactRules">
+  ImpactRules
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How rounds push what they hit (<code>impact.json</code>), or the shipped values where the data says nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImpactRules ImpactRules { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html">ImpactRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_ItemTables_" data-uid="LastFleet.Loot.LootCatalog.ItemTables*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_ItemTables" data-uid="LastFleet.Loot.LootCatalog.ItemTables">
+  ItemTables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What piles, containers and cargo crates hold, by id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ItemTable&gt; ItemTables { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.ItemTable.html">ItemTable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Items_" data-uid="LastFleet.Loot.LootCatalog.Items*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Items" data-uid="LastFleet.Loot.LootCatalog.Items">
+  Items
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The items, in the order written (the shipped ones if the data has none): put in play with
+<a class="xref" href="LastFleet.Simulation.Components.Gear.Items.html#LastFleet_Simulation_Components_Gear_Items_Use_System_Collections_Generic_IReadOnlyList_LastFleet_Simulation_Components_Gear_ItemDefinition__">Use(IReadOnlyList&lt;ItemDefinition&gt;?)</a>. The items this catalog makes (<a class="xref" href="LastFleet.Loot.LootCatalog.html#LastFleet_Loot_LootCatalog_RollPile_System_String_LastFleet_Core_Determinism_DeterministicRandom_System_Int32_System_Int32_">RollPile(string, DeterministicRandom, int, int)</a>,
+<a class="xref" href="LastFleet.Loot.LootCatalog.html#LastFleet_Loot_LootCatalog_Fabricate_LastFleet_Loot_Definitions_Fabrication_System_UInt64_">Fabricate(Fabrication, ulong)</a>) are named by their place in this list, as they are in play once it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ItemDefinition&gt; Items { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Components.Gear.ItemDefinition.html">ItemDefinition</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Manufacturers_" data-uid="LastFleet.Loot.LootCatalog.Manufacturers*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Manufacturers" data-uid="LastFleet.Loot.LootCatalog.Manufacturers">
+  Manufacturers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Manufacturer&gt; Manufacturers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.Manufacturer.html">Manufacturer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Parts_" data-uid="LastFleet.Loot.LootCatalog.Parts*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Parts" data-uid="LastFleet.Loot.LootCatalog.Parts">
+  Parts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every part, by slot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;WeaponPart&gt; Parts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Rarities_" data-uid="LastFleet.Loot.LootCatalog.Rarities*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Rarities" data-uid="LastFleet.Loot.LootCatalog.Rarities">
+  Rarities
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rarity tiers, lowest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Rarity&gt; Rarities { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.Rarity.html">Rarity</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Recipes_" data-uid="LastFleet.Loot.LootCatalog.Recipes*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Recipes" data-uid="LastFleet.Loot.LootCatalog.Recipes">
+  Recipes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the refinery makes of raw materials, in the order written (the first it can make comes first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;RefineryRecipe&gt; Recipes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.RefineryRecipe.html">RefineryRecipe</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_RefineryTiers_" data-uid="LastFleet.Loot.LootCatalog.RefineryTiers*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_RefineryTiers" data-uid="LastFleet.Loot.LootCatalog.RefineryTiers">
+  RefineryTiers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fleet refinery's tiers, lowest first (a fleet starts at the first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;RefineryTier&gt; RefineryTiers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.RefineryTier.html">RefineryTier</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Relics_" data-uid="LastFleet.Loot.LootCatalog.Relics*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Relics" data-uid="LastFleet.Loot.LootCatalog.Relics">
+  Relics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Relic&gt; Relics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.Relic.html">Relic</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Rework_" data-uid="LastFleet.Loot.LootCatalog.Rework*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Rework" data-uid="LastFleet.Loot.LootCatalog.Rework">
+  Rework
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the workbench reworks weapons and tunes parts (crafting.json's &quot;rework&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReworkRules Rework { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.ReworkRules.html">ReworkRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Salvage_" data-uid="LastFleet.Loot.LootCatalog.Salvage*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Salvage" data-uid="LastFleet.Loot.LootCatalog.Salvage">
+  Salvage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What dismantling gives, by rarity, most common first (crafting.json's &quot;salvage&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SalvageYield&gt; Salvage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.SalvageYield.html">SalvageYield</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Supplies_" data-uid="LastFleet.Loot.LootCatalog.Supplies*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Supplies" data-uid="LastFleet.Loot.LootCatalog.Supplies">
+  Supplies
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the fleet uses its supplies (the shipped rules if the data has none): put in play with
+<a class="xref" href="LastFleet.Simulation.Supplies.FleetSupplies.html#LastFleet_Simulation_Supplies_FleetSupplies_Use_System_Collections_Generic_IReadOnlyList_LastFleet_Simulation_Supplies_SupplyDefinition__">Use(IReadOnlyList&lt;SupplyDefinition&gt;?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SupplyDefinition&gt; Supplies { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Supplies.SupplyDefinition.html">SupplyDefinition</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Tables_" data-uid="LastFleet.Loot.LootCatalog.Tables*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Tables" data-uid="LastFleet.Loot.LootCatalog.Tables">
+  Tables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;LootTable&gt; Tables { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.LootTable.html">LootTable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TraitNames_" data-uid="LastFleet.Loot.LootCatalog.TraitNames*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TraitNames" data-uid="LastFleet.Loot.LootCatalog.TraitNames">
+  TraitNames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L1470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The traits the data can name (a maker's signature, an affix's or relic's traits), as it names them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; TraitNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TraitRules_" data-uid="LastFleet.Loot.LootCatalog.TraitRules*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TraitRules" data-uid="LastFleet.Loot.LootCatalog.TraitRules">
+  TraitRules
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The numbers behind weapon traits: the shipped values, with whatever the data sets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponTraitRules TraitRules { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html">WeaponTraitRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_WeaponPartItem_" data-uid="LastFleet.Loot.LootCatalog.WeaponPartItem*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_WeaponPartItem" data-uid="LastFleet.Loot.LootCatalog.WeaponPartItem">
+  WeaponPartItem
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The loose weapon part's item: the first with weaponPart; none if no item is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemKind WeaponPartItem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Gear.ItemKind.html">ItemKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Loot_LootCatalog_CanFit_" data-uid="LastFleet.Loot.LootCatalog.CanFit*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_CanFit_LastFleet_Loot_Rolling_RolledWeapon_LastFleet_Loot_Definitions_WeaponPart_" data-uid="LastFleet.Loot.LootCatalog.CanFit(LastFleet.Loot.Rolling.RolledWeapon,LastFleet.Loot.Definitions.WeaponPart)">
+  CanFit(RolledWeapon, WeaponPart)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <code class="paramref">part</code> can go on <code class="paramref">weapon</code>: a rolled weapon (a relic's parts are its
+own), a frame it fits, and its maker's if it is a maker's part. Any rarity: a better part is the point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanFit(RolledWeapon weapon, WeaponPart part)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>weapon</code> <a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a></dt>
+    <dd></dd>
+    <dt><code>part</code> <a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Describe_" data-uid="LastFleet.Loot.LootCatalog.Describe*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Describe_LastFleet_Simulation_Components_Arms_PartFit_" data-uid="LastFleet.Loot.LootCatalog.Describe(LastFleet.Simulation.Components.Arms.PartFit)">
+  Describe(PartFit)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L321"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part <code class="paramref">fit</code> names, with its ranges at its quality; null if there is no such part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RolledPart? Describe(PartFit fit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fit</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Rolling.RolledPart.html">RolledPart</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Effect_" data-uid="LastFleet.Loot.LootCatalog.Effect*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Effect_System_String_" data-uid="LastFleet.Loot.LootCatalog.Effect(System.String)">
+  Effect(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The effect <code class="paramref">id</code>, or null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EffectDefinition? Effect(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html">EffectDefinition</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Fabricate_" data-uid="LastFleet.Loot.LootCatalog.Fabricate*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Fabricate_LastFleet_Loot_Definitions_Fabrication_System_UInt64_" data-uid="LastFleet.Loot.LootCatalog.Fabricate(LastFleet.Loot.Definitions.Fabrication,System.UInt64)">
+  Fabricate(Fabrication, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes <code class="paramref">fabrication</code> from seed <code class="paramref">seed</code>: a weapon rolled from its table, or a
+part (of its slot) as a pile, at its grade's item level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (RolledWeapon? Weapon, ItemPile Part) Fabricate(Fabrication fabrication, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fabrication</code> <a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.loot.rolling.rolledweapon,lastfleet.simulation.components.gear.itempile-.weapon">Weapon</a>, <a class="xref" href="LastFleet.Simulation.Components.Gear.ItemPile.html">ItemPile</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.loot.rolling.rolledweapon,lastfleet.simulation.components.gear.itempile-.part">Part</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindAffix_" data-uid="LastFleet.Loot.LootCatalog.FindAffix*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindAffix_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindAffix(System.String)">
+  FindAffix(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Affix FindAffix(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.Affix.html">Affix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindArchetype_" data-uid="LastFleet.Loot.LootCatalog.FindArchetype*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindArchetype_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindArchetype(System.String)">
+  FindArchetype(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LootArchetype FindArchetype(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.LootArchetype.html">LootArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindManufacturer_" data-uid="LastFleet.Loot.LootCatalog.FindManufacturer*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindManufacturer_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindManufacturer(System.String)">
+  FindManufacturer(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Manufacturer FindManufacturer(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.Manufacturer.html">Manufacturer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindPart_" data-uid="LastFleet.Loot.LootCatalog.FindPart*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindPart_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindPart(System.String)">
+  FindPart(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponPart FindPart(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindRarity_" data-uid="LastFleet.Loot.LootCatalog.FindRarity*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindRarity_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindRarity(System.String)">
+  FindRarity(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rarity FindRarity(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.Rarity.html">Rarity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindRelic_" data-uid="LastFleet.Loot.LootCatalog.FindRelic*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindRelic_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindRelic(System.String)">
+  FindRelic(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Relic FindRelic(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.Relic.html">Relic</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FindTable_" data-uid="LastFleet.Loot.LootCatalog.FindTable*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FindTable_System_String_" data-uid="LastFleet.Loot.LootCatalog.FindTable(System.String)">
+  FindTable(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LootTable FindTable(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.LootTable.html">LootTable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FirstThat_" data-uid="LastFleet.Loot.LootCatalog.FirstThat*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FirstThat__1" data-uid="LastFleet.Loot.LootCatalog.FirstThat``1">
+  FirstThat&lt;TAction&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first consumable item whose effect has a <code class="typeparamref">TAction</code>, or none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemKind FirstThat&lt;TAction&gt;() where TAction : EffectAction</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Gear.ItemKind.html">ItemKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAction</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_FitOf_" data-uid="LastFleet.Loot.LootCatalog.FitOf*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_FitOf_LastFleet_Loot_Rolling_RolledPart_" data-uid="LastFleet.Loot.LootCatalog.FitOf(LastFleet.Loot.Rolling.RolledPart)">
+  FitOf(RolledPart)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A part on a weapon as a loose part: which it is, and how well its ranges rolled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PartFit FitOf(RolledPart rolled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rolled</code> <a class="xref" href="LastFleet.Loot.Rolling.RolledPart.html">RolledPart</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_GradeFor_" data-uid="LastFleet.Loot.LootCatalog.GradeFor*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_GradeFor_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.GradeFor(System.Int32)">
+  GradeFor(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The grade that makes things of item level <code class="paramref">level</code>: the lowest whose item level reaches it, or
+the best there is. Null if there are no grades.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaterialGrade? GradeFor(int level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.MaterialGrade.html">MaterialGrade</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_HashOf_" data-uid="LastFleet.Loot.LootCatalog.HashOf*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_HashOf_System_String_" data-uid="LastFleet.Loot.LootCatalog.HashOf(System.String)">
+  HashOf(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hash a <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html">WeaponIdentity</a> carries for loot table <code class="paramref">id</code>, or a <a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a>
+for a part: never zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint HashOf(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Item_" data-uid="LastFleet.Loot.LootCatalog.Item*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Item_LastFleet_Simulation_Components_Gear_ItemKind_" data-uid="LastFleet.Loot.LootCatalog.Item(LastFleet.Simulation.Components.Gear.ItemKind)">
+  Item(ItemKind)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The item <code class="paramref">kind</code> is in this catalog, or null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemDefinition? Item(ItemKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kind</code> <a class="xref" href="LastFleet.Simulation.Components.Gear.ItemKind.html">ItemKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Gear.ItemDefinition.html">ItemDefinition</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Kind_" data-uid="LastFleet.Loot.LootCatalog.Kind*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Kind_System_String_" data-uid="LastFleet.Loot.LootCatalog.Kind(System.String)">
+  Kind(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The item <code class="paramref">id</code> names, by its place in <a class="xref" href="LastFleet.Loot.LootCatalog.html#LastFleet_Loot_LootCatalog_Items">Items</a>; none if there is no such item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemKind Kind(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Gear.ItemKind.html">ItemKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Load_" data-uid="LastFleet.Loot.LootCatalog.Load*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Load_System_String_" data-uid="LastFleet.Loot.LootCatalog.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads every <code>*.json</code> in <code class="paramref">folder</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LootCatalog Load(string folder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>folder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A file is not valid, or the definitions do not fit together.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Parse_" data-uid="LastFleet.Loot.LootCatalog.Parse*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Parse_System_Collections_Generic_IEnumerable_System_ValueTuple_System_String_System_String___" data-uid="LastFleet.Loot.LootCatalog.Parse(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+  Parse(IEnumerable&lt;(string Source, string Json)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds a catalog from data files' text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LootCatalog Parse(IEnumerable&lt;(string Source, string Json)&gt; files)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>files</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.source">Source</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.json">Json</a>)&gt;</dt>
+    <dd><p>Each file's name (for messages) and text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A file is not valid, or the definitions do not fit together.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_RarityOfRank_" data-uid="LastFleet.Loot.LootCatalog.RarityOfRank*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_RarityOfRank_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.RarityOfRank(System.Int32)">
+  RarityOfRank(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rarity of rank <code class="paramref">rank</code>, clamped to the tiers there are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rarity RarityOfRank(int rank)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rank</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.Rarity.html">Rarity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Roll_" data-uid="LastFleet.Loot.LootCatalog.Roll*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Roll_LastFleet_Simulation_Components_Arms_WeaponIdentity_" data-uid="LastFleet.Loot.LootCatalog.Roll(LastFleet.Simulation.Components.Arms.WeaponIdentity)">
+  Roll(WeaponIdentity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rebuilds the weapon a <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html">WeaponIdentity</a> names, with the parts fitted to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RolledWeapon Roll(WeaponIdentity identity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identity</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html">WeaponIdentity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>Its table is not in this catalog (a stock weapon, or other data).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_Roll_" data-uid="LastFleet.Loot.LootCatalog.Roll*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_Roll_System_UInt64_System_String_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.Roll(System.UInt64,System.String,System.Int32)">
+  Roll(ulong, string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls a weapon from <code class="paramref">table</code> at item level <code class="paramref">level</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RolledWeapon Roll(ulong seed, string table, int level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The roll's seed: the same seed, table and level always give the same weapon.</p>
+</dd>
+    <dt><code>table</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Loot table id.</p>
+</dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Item level, 1 and up.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_RollPart_" data-uid="LastFleet.Loot.LootCatalog.RollPart*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_RollPart_System_UInt64_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.RollPart(System.UInt64,System.Int32)">
+  RollPart(ulong, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A loose part as loot, at item level <code class="paramref">level</code>: rarer parts deeper in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PartFit RollPart(ulong seed, int level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.PartFit.html">PartFit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_RollPile_" data-uid="LastFleet.Loot.LootCatalog.RollPile*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_RollPile_System_String_LastFleet_Core_Determinism_DeterministicRandom_System_Int32_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.RollPile(System.String,LastFleet.Core.Determinism.DeterministicRandom,System.Int32,System.Int32)">
+  RollPile(string, DeterministicRandom, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A pile from item table <code class="paramref">table</code>, <code class="paramref">deck</code> decks in: a weapon part is rolled at item
+level <code class="paramref">level</code>. Empty if there is no such table. Its item is named by its place in
+<a class="xref" href="LastFleet.Loot.LootCatalog.html#LastFleet_Loot_LootCatalog_Items">Items</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemPile RollPile(string table, DeterministicRandom random, int deck, int level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>random</code> <a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html">DeterministicRandom</a></dt>
+    <dd></dd>
+    <dt><code>deck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Gear.ItemPile.html">ItemPile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_SalvageFor_" data-uid="LastFleet.Loot.LootCatalog.SalvageFor*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_SalvageFor_System_Int32_" data-uid="LastFleet.Loot.LootCatalog.SalvageFor(System.Int32)">
+  SalvageFor(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What dismantling something of rarity rank <code class="paramref">rank</code> gives: that rarity's salvage, or the nearest
+rarer one below it that has some; null if there's no salvage data at all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SalvageYield? SalvageFor(int rank)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rank</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.SalvageYield.html">SalvageYield</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_StatName_" data-uid="LastFleet.Loot.LootCatalog.StatName*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_StatName_LastFleet_Loot_Definitions_LootStat_" data-uid="LastFleet.Loot.LootCatalog.StatName(LastFleet.Loot.Definitions.LootStat)">
+  StatName(LootStat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L1457"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data's name for each stat, as in the files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string StatName(LootStat stat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stat</code> <a class="xref" href="LastFleet.Loot.Definitions.LootStat.html">LootStat</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TryGetGrade_" data-uid="LastFleet.Loot.LootCatalog.TryGetGrade*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TryGetGrade_System_String_LastFleet_Loot_Definitions_MaterialGrade__" data-uid="LastFleet.Loot.LootCatalog.TryGetGrade(System.String,LastFleet.Loot.Definitions.MaterialGrade@)">
+  TryGetGrade(string, out MaterialGrade)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The grade <code class="paramref">id</code>, if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetGrade(string id, out MaterialGrade grade)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>grade</code> <a class="xref" href="LastFleet.Loot.Definitions.MaterialGrade.html">MaterialGrade</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TryGetItemTable_" data-uid="LastFleet.Loot.LootCatalog.TryGetItemTable*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TryGetItemTable_System_String_LastFleet_Loot_Definitions_ItemTable__" data-uid="LastFleet.Loot.LootCatalog.TryGetItemTable(System.String,LastFleet.Loot.Definitions.ItemTable@)">
+  TryGetItemTable(string, out ItemTable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The item table <code class="paramref">id</code>, if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetItemTable(string id, out ItemTable table)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="LastFleet.Loot.Definitions.ItemTable.html">ItemTable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TryGetPart_" data-uid="LastFleet.Loot.LootCatalog.TryGetPart*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TryGetPart_System_UInt32_LastFleet_Loot_Definitions_WeaponPart__" data-uid="LastFleet.Loot.LootCatalog.TryGetPart(System.UInt32,LastFleet.Loot.Definitions.WeaponPart@)">
+  TryGetPart(uint, out WeaponPart)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part with hash <code class="paramref">hash</code>, if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetPart(uint hash, out WeaponPart part)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>part</code> <a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_LootCatalog_TryGetTable_" data-uid="LastFleet.Loot.LootCatalog.TryGetTable*"></a>
+
+  <h3 id="LastFleet_Loot_LootCatalog_TryGetTable_System_UInt32_LastFleet_Loot_Definitions_LootTable__" data-uid="LastFleet.Loot.LootCatalog.TryGetTable(System.UInt32,LastFleet.Loot.Definitions.LootTable@)">
+  TryGetTable(uint, out LootTable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/LootCatalog.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The table with hash <code class="paramref">hash</code>, if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetTable(uint hash, out LootTable table)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="LastFleet.Loot.Definitions.LootTable.html">LootTable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

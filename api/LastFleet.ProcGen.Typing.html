@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Typing | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Typing | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Typing">
+
+  <h1 id="LastFleet_ProcGen_Typing" data-uid="LastFleet.ProcGen.Typing" class="text-break">Namespace LastFleet.ProcGen.Typing</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.AdjacencyRule.html">AdjacencyRule</a></dt>
+      <dd><p>Two rooms the mission joins (a room and the one it is reached from), one matching <code class="paramref">A</code> and the
+other <code class="paramref">B</code>, may never be: no lab next to a lab, say.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.CountRule.html">CountRule</a></dt>
+      <dd><p>A rule limiting how many rooms matching <code class="paramref">Where</code> each deck, or the whole level, can have.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.DistanceRule.html">DistanceRule</a></dt>
+      <dd><p>A rule on how far apart rooms matching <code class="paramref">A</code> are from rooms matching <code class="paramref">B</code>, counted in
+rooms along the mission's paths. They're never closer than <code class="paramref">Min</code> (for example two cargo holds kept
+well apart). If <code class="paramref">Max</code> is set, each A room must also be within that many steps of some B room (for
+example a lab near the objective).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.NodeTyping.html">NodeTyping</a></dt>
+      <dd><p>Why one mission room is its type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.RoomTyper.html">RoomTyper</a></dt>
+      <dd><p>Types the rooms of a mission (<a class="xref" href="LastFleet.ProcGen.Typing.RoomTyping.html">RoomTyping</a>) before they're laid out. Each room becomes either one of the
+mission's archetypes or the kit's own, so the level's room mix follows the designers' rules
+(<a class="xref" href="LastFleet.ProcGen.Typing.TypingRule.html">TypingRule</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.RoomTyping.html">RoomTyping</a></dt>
+      <dd><p>The result of typing a level's mission rooms (<a class="xref" href="LastFleet.ProcGen.Typing.RoomTyper.html">RoomTyper</a>). Each room is either one of the mission's
+archetypes or the kit's own (null). It also records why: what each room could have been, at what weight, and which
+rule ruled out each type it didn't get.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.RoomTypingException.html">RoomTypingException</a></dt>
+      <dd><p>Thrown when a level's rooms can't be typed under the rules (<a class="xref" href="LastFleet.ProcGen.Typing.RoomTyper.html">RoomTyper</a>). The trace says why.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.TypingData.html">TypingData</a></dt>
+      <dd><p>How a level's rooms get typed (<code>typing.json</code>): how often a room is left to the kit's own rooms instead of being
+built from one of the mission's archetypes, and the rules the mix has to follow (<a class="xref" href="LastFleet.ProcGen.Typing.TypingRule.html">TypingRule</a>). If there's
+no <code>typing.json</code>, <a class="xref" href="LastFleet.ProcGen.Typing.TypingData.html#LastFleet_ProcGen_Typing_TypingData_Default">Default</a> is used.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.TypingRule.html">TypingRule</a></dt>
+      <dd><p>A rule a level's room mix keeps (<code>typing.json</code>), over each mission room's tags as its type would give them:
+its role (<code>role.<em></em></code>), its deck (<code>deck.</code>), whether it is on the main path (<code>layout.main_path</code>), and its
+type's (an archetype's content tags, or <code>type.kit</code> for a room of the kit's own).</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Typing.CountScope.html">CountScope</a></dt>
+      <dd><p>What a <a class="xref" href="LastFleet.ProcGen.Typing.CountRule.html">CountRule</a> counts over.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

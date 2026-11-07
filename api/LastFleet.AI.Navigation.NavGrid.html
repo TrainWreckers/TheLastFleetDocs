@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NavGrid | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NavGrid | The Last Fleet ">
+      
+      <meta name="description" content="A layered navigation grid over a level. Each column of the grid holds every floor in it, from the ground up to mezzanines, catwalks and stair landings, so floors stacked over each other are all navigable.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Navigation_NavGrid.md&amp;value=---%0Auid%3A%20LastFleet.AI.Navigation.NavGrid%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Navigation.NavGrid">
+
+
+
+  <h1 id="LastFleet_AI_Navigation_NavGrid" data-uid="LastFleet.AI.Navigation.NavGrid" class="text-break">
+Class NavGrid  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Navigation.html">Navigation</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A layered navigation grid over a level. Each column of the grid holds every floor in it, from the ground up to
+mezzanines, catwalks and stair landings, so floors stacked over each other are all navigable.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NavGrid</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NavGrid</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Navigation_NavGrid_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A cell is one floor in one column. Cells are numbered column by column, bottom floor first, so a cell number is
+no longer <code>z * Width + x</code>; use <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_CellX_System_Int32_">CellX(int)</a>, <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_CellZ_System_Int32_">CellZ(int)</a> and <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_Column_System_Int32_System_Int32_">Column(int, int)</a>.
+</p>
+<p>
+Sampling: a ray down each column finds the top surface. The ray then restarts just under it and passes out of the
+solid without hitting anything (faces are one-sided), finds the next surface down, and so on. A surface counts as
+floor when it's flat enough and an upward ray finds headroom. Below the top surface, that upward ray has to hit the
+underside of something before it reaches the surface above. If it doesn't, the surface is inside a solid (the floor
+under a wall or crate) and isn't floor. Every collider is a closed box, so open air always has an underside above it.
+</p>
+<p>
+Each floor cell links to the floor in each of its eight neighboring columns that's within a step of its height. A
+cell is walkable when it's floor and every column within the agent's radius has floor reachable by steps, so agents
+keep their distance from walls and edges. Walkable cells at a ledge also get one-way drop links to walkable floor
+below, up to <a class="xref" href="LastFleet.AI.Navigation.NavGridSettings.html#LastFleet_AI_Navigation_NavGridSettings_MaxDropHeight">MaxDropHeight</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_MaxLayers" data-uid="LastFleet.AI.Navigation.NavGrid.MaxLayers">
+  MaxLayers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum number of floors kept per column.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxLayers = 8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CellCount_" data-uid="LastFleet.AI.Navigation.NavGrid.CellCount*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CellCount" data-uid="LastFleet.AI.Navigation.NavGrid.CellCount">
+  CellCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of cells (floors across all columns).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CellCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CellSize_" data-uid="LastFleet.AI.Navigation.NavGrid.CellSize*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CellSize" data-uid="LastFleet.AI.Navigation.NavGrid.CellSize">
+  CellSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CellSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Depth_" data-uid="LastFleet.AI.Navigation.NavGrid.Depth*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Depth" data-uid="LastFleet.AI.Navigation.NavGrid.Depth">
+  Depth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Columns along Z.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Depth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_DropCount_" data-uid="LastFleet.AI.Navigation.NavGrid.DropCount*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_DropCount" data-uid="LastFleet.AI.Navigation.NavGrid.DropCount">
+  DropCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of drop links, from a ledge to the floor below.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DropCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_HasObstacles_" data-uid="LastFleet.AI.Navigation.NavGrid.HasObstacles*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_HasObstacles" data-uid="LastFleet.AI.Navigation.NavGrid.HasObstacles">
+  HasObstacles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True once an obstacle placed after the grid was built covers some of its cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasObstacles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_ObstacleVersion_" data-uid="LastFleet.AI.Navigation.NavGrid.ObstacleVersion*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_ObstacleVersion" data-uid="LastFleet.AI.Navigation.NavGrid.ObstacleVersion">
+  ObstacleVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes whenever obstacles are placed or cleared, so what depends on them knows to look again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ObstacleVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Origin_" data-uid="LastFleet.AI.Navigation.NavGrid.Origin*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Origin" data-uid="LastFleet.AI.Navigation.NavGrid.Origin">
+  Origin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>World X and Z of the corner of column 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 Origin { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_StepHeight_" data-uid="LastFleet.AI.Navigation.NavGrid.StepHeight*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_StepHeight" data-uid="LastFleet.AI.Navigation.NavGrid.StepHeight">
+  StepHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float StepHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Topology_" data-uid="LastFleet.AI.Navigation.NavGrid.Topology*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Topology" data-uid="LastFleet.AI.Navigation.NavGrid.Topology">
+  Topology
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What never changes about this grid's navigation (each cell's coordinates, the cluster map), built the first time
+it's asked for and then shared by every <a class="xref" href="LastFleet.AI.Navigation.Pathfinder.html">Pathfinder</a> on the grid. It's of the floor as built, so
+obstacles placed later don't change it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NavTopology Topology { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Navigation.NavTopology.html">NavTopology</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_WalkableCount_" data-uid="LastFleet.AI.Navigation.NavGrid.WalkableCount*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_WalkableCount" data-uid="LastFleet.AI.Navigation.NavGrid.WalkableCount">
+  WalkableCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of walkable cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WalkableCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Width_" data-uid="LastFleet.AI.Navigation.NavGrid.Width*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Width" data-uid="LastFleet.AI.Navigation.NavGrid.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Columns along X.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Build_" data-uid="LastFleet.AI.Navigation.NavGrid.Build*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Build_LastFleet_Simulation_Physics_ICollisionWorld_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.AI.Navigation.NavGrid.Build(LastFleet.Simulation.Physics.ICollisionWorld,System.Numerics.Vector3,System.Numerics.Vector3)">
+  Build(ICollisionWorld, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Samples <code class="paramref">world</code> over the box from <code class="paramref">min</code> to <code class="paramref">max</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NavGrid Build(ICollisionWorld world, Vector3 min, Vector3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Build_" data-uid="LastFleet.AI.Navigation.NavGrid.Build*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Build_LastFleet_Simulation_Physics_ICollisionWorld_System_Numerics_Vector3_System_Numerics_Vector3_LastFleet_AI_Navigation_NavGridSettings_" data-uid="LastFleet.AI.Navigation.NavGrid.Build(LastFleet.Simulation.Physics.ICollisionWorld,System.Numerics.Vector3,System.Numerics.Vector3,LastFleet.AI.Navigation.NavGridSettings)">
+  Build(ICollisionWorld, Vector3, Vector3, NavGridSettings)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Samples <code class="paramref">world</code> over the box from <code class="paramref">min</code> to <code class="paramref">max</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NavGrid Build(ICollisionWorld world, Vector3 min, Vector3 max, NavGridSettings settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="LastFleet.AI.Navigation.NavGridSettings.html">NavGridSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CanStep_" data-uid="LastFleet.AI.Navigation.NavGrid.CanStep*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CanStep_System_Int32_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.CanStep(System.Int32,System.Int32)">
+  CanStep(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L454"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if an agent can walk directly between two walkable cells in neighboring columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanStep(int from, int to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CellOf_" data-uid="LastFleet.AI.Navigation.NavGrid.CellOf*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CellOf_System_Numerics_Vector3_" data-uid="LastFleet.AI.Navigation.NavGrid.CellOf(System.Numerics.Vector3)">
+  CellOf(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L489"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cell under <code class="paramref">position</code> (feet, or a point just above them): the highest floor in its
+column that's no more than half a meter above it. Returns -1 outside the grid or below every floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CellOf(Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CellX_" data-uid="LastFleet.AI.Navigation.NavGrid.CellX*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CellX_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.CellX(System.Int32)">
+  CellX(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L472"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CellX(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CellZ_" data-uid="LastFleet.AI.Navigation.NavGrid.CellZ*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CellZ_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.CellZ(System.Int32)">
+  CellZ(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CellZ(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_CenterOf_" data-uid="LastFleet.AI.Navigation.NavGrid.CenterOf*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_CenterOf_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.CenterOf(System.Int32)">
+  CenterOf(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the center of a cell's floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 CenterOf(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_ClearObstacles_" data-uid="LastFleet.AI.Navigation.NavGrid.ClearObstacles*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_ClearObstacles" data-uid="LastFleet.AI.Navigation.NavGrid.ClearObstacles">
+  ClearObstacles()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears every mark made by <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_SetObstacle_System_Int32_System_Boolean_">SetObstacle(int, bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearObstacles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Column_" data-uid="LastFleet.AI.Navigation.NavGrid.Column*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Column_System_Int32_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.Column(System.Int32,System.Int32)">
+  Column(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cells of the column at (<code class="paramref">x</code>, <code class="paramref">z</code>): its floors, bottom first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int First, int Count) Column(int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Direction_" data-uid="LastFleet.AI.Navigation.NavGrid.Direction*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Direction_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.Direction(System.Int32)">
+  Direction(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the column offset for a neighbor direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (int X, int Z) Direction(int direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_DropsFrom_" data-uid="LastFleet.AI.Navigation.NavGrid.DropsFrom*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_DropsFrom_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.DropsFrom(System.Int32)">
+  DropsFrom(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L450"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the walkable floor cells below a ledge that an agent can drop to from <code class="paramref">cell</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;int&gt; DropsFrom(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_HasClearLine_" data-uid="LastFleet.AI.Navigation.NavGrid.HasClearLine*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_HasClearLine_System_Int32_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.HasClearLine(System.Int32,System.Int32)">
+  HasClearLine(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L589"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if an agent can walk in a straight line between two cells: every column the line crosses has walkable
+floor linked by steps to the last, ending on <code class="paramref">to</code> itself rather than a floor above or below
+it. Used to smooth paths and to check strafe room.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasClearLine(int from, int to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_HasClearLine_" data-uid="LastFleet.AI.Navigation.NavGrid.HasClearLine*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_HasClearLine_System_Int32_System_Int32_System_Boolean___" data-uid="LastFleet.AI.Navigation.NavGrid.HasClearLine(System.Int32,System.Int32,System.Boolean[])">
+  HasClearLine(int, int, bool[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L595"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>As <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_HasClearLine_System_Int32_System_Int32_">HasClearLine(int, int)</a>, and the line crosses no cell marked in <code class="paramref">shut</code> (one entry
+per cell, such as a pathfinder's shut doors), so a smoothed path doesn't cut through a shut door.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasClearLine(int from, int to, bool[]? shut)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shut</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_HeightAt_" data-uid="LastFleet.AI.Navigation.NavGrid.HeightAt*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_HeightAt_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.HeightAt(System.Int32)">
+  HeightAt(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the floor height of a cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HeightAt(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_IsWalkable_" data-uid="LastFleet.AI.Navigation.NavGrid.IsWalkable*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_IsWalkable_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.IsWalkable(System.Int32)">
+  IsWalkable(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWalkable(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_NearestWalkable_" data-uid="LastFleet.AI.Navigation.NavGrid.NearestWalkable*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_NearestWalkable_System_Numerics_Vector3_System_Single_" data-uid="LastFleet.AI.Navigation.NavGrid.NearestWalkable(System.Numerics.Vector3,System.Single)">
+  NearestWalkable(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the walkable cell nearest <code class="paramref">position</code> within <code class="paramref">maxRadius</code> meters
+horizontally, on a floor from 2.5 m below to half a meter above it, or -1. That range means a point in the air
+finds the floor under it, not the story above or below.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NearestWalkable(Vector3 position, float maxRadius = 3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>maxRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Navigation_NavGrid_NearestWalkable_System_Numerics_Vector3_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Walkable floor at the point's own height within 1.5 m is preferred. That way someone at the edge of a catwalk
+(too close to the railing to be walkable) is placed on the catwalk, not on the floor beneath it.</p>
+</div>
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_Neighbor_" data-uid="LastFleet.AI.Navigation.NavGrid.Neighbor*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_Neighbor_System_Int32_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.Neighbor(System.Int32,System.Int32)">
+  Neighbor(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the floor in the neighboring column in <code class="paramref">direction</code> (0 to 7: +X, -X, +Z, -Z, then the
+diagonals) that's within a step of this cell's height, or -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Neighbor(int cell, int direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_SetObstacle_" data-uid="LastFleet.AI.Navigation.NavGrid.SetObstacle*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_SetObstacle_System_Int32_System_Boolean_" data-uid="LastFleet.AI.Navigation.NavGrid.SetObstacle(System.Int32,System.Boolean)">
+  SetObstacle(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L412"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks a cell as covered by an obstacle placed after the grid was built, so nothing walks there, or clears the
+mark. LastFleet Studio's sandbox places test cover this way. A cell that wasn't walkable stays unwalkable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetObstacle(int cell, bool obstacle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>obstacle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Navigation_NavGrid_WasBuiltWalkable_" data-uid="LastFleet.AI.Navigation.NavGrid.WasBuiltWalkable*"></a>
+
+  <h3 id="LastFleet_AI_Navigation_NavGrid_WasBuiltWalkable_System_Int32_" data-uid="LastFleet.AI.Navigation.NavGrid.WasBuiltWalkable(System.Int32)">
+  WasBuiltWalkable(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Navigation/NavGrid.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a cell was walkable as the grid was built, whatever obstacles have been placed since.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WasBuiltWalkable(int cell)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cell</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

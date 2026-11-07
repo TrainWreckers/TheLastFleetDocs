@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PlanPin | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PlanPin | The Last Fleet ">
+      
+      <meta name="description" content="A set piece a designer pinned to a plan (docs/plans/structure-first.md, Phase 11): a room of an archetype that goes here, or where the squad boards. Like a stair core (), it&#39;s placed on a part, so it follows the part however long or wide a seed draws it: along a line (a hull, a box, an arm), as a share of its length and cells off its middle line; round a ring, as cells from its center at its fewest radius, grown with it.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Plans_PlanPin.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Plans.PlanPin%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans.PlanPin">
+
+
+
+  <h1 id="LastFleet_ProcGen_Plans_PlanPin" data-uid="LastFleet.ProcGen.Plans.PlanPin" class="text-break">
+Class PlanPin  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Plans.html">Plans</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A set piece a designer pinned to a plan (docs/plans/structure-first.md, Phase 11): a room of an archetype that goes
+here, or where the squad boards. Like a stair core (<a class="xref" href="LastFleet.ProcGen.Plans.PlanCore.html">PlanCore</a>), it's placed on a part, so it follows the
+part however long or wide a seed draws it: along a line (a hull, a box, an arm), as a share of its length and cells off
+its middle line; round a ring, as cells from its center at its fewest radius, grown with it.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record PlanPin : IEquatable&lt;PlanPin&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PlanPin</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html">PlanPin</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin__ctor_" data-uid="LastFleet.ProcGen.Plans.PlanPin.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin__ctor_LastFleet_ProcGen_Plans_PlanPinKind_System_String_System_Int32_System_Single_System_Int32_System_ValueTuple_System_Int32_System_Int32__System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanPin.#ctor(LastFleet.ProcGen.Plans.PlanPinKind,System.String,System.Int32,System.Single,System.Int32,System.ValueTuple{System.Int32,System.Int32},System.Int32)">
+  PlanPin(PlanPinKind, string?, int, float, int, (int X, int Z), int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A set piece a designer pinned to a plan (docs/plans/structure-first.md, Phase 11): a room of an archetype that goes
+here, or where the squad boards. Like a stair core (<a class="xref" href="LastFleet.ProcGen.Plans.PlanCore.html">PlanCore</a>), it's placed on a part, so it follows the
+part however long or wide a seed draws it: along a line (a hull, a box, an arm), as a share of its length and cells off
+its middle line; round a ring, as cells from its center at its fewest radius, grown with it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanPin(PlanPinKind Kind, string? Archetype, int On, float At, int Across, (int X, int Z) Offset, int Deck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Kind</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanPinKind.html">PlanPinKind</a></dt>
+    <dd><p>What it pins.</p>
+</dd>
+    <dt><code>Archetype</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The room's archetype (archetypes.json), for a room; null for boarding.</p>
+</dd>
+    <dt><code>On</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the part it's placed on.</p>
+</dd>
+    <dt><code>At</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How far along a line part, from 0 (its start) to 1 (its end).</p>
+</dd>
+    <dt><code>Across</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How far off a line part's middle line, in cells (+ is right of it, looking along it).</p>
+</dd>
+    <dt><code>Offset</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>Cells from a ring part's center, at its fewest radius; (0, 0) for a line part.</p>
+</dd>
+    <dt><code>Deck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The deck it's on, from 0 at the bottom.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_Across_" data-uid="LastFleet.ProcGen.Plans.PlanPin.Across*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_Across" data-uid="LastFleet.ProcGen.Plans.PlanPin.Across">
+  Across
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far off a line part's middle line, in cells (+ is right of it, looking along it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Across { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_Archetype_" data-uid="LastFleet.ProcGen.Plans.PlanPin.Archetype*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_Archetype" data-uid="LastFleet.ProcGen.Plans.PlanPin.Archetype">
+  Archetype
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The room's archetype (archetypes.json), for a room; null for boarding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Archetype { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_At_" data-uid="LastFleet.ProcGen.Plans.PlanPin.At*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_At" data-uid="LastFleet.ProcGen.Plans.PlanPin.At">
+  At
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far along a line part, from 0 (its start) to 1 (its end).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float At { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_Deck_" data-uid="LastFleet.ProcGen.Plans.PlanPin.Deck*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_Deck" data-uid="LastFleet.ProcGen.Plans.PlanPin.Deck">
+  Deck
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deck it's on, from 0 at the bottom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Deck { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_Kind_" data-uid="LastFleet.ProcGen.Plans.PlanPin.Kind*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_Kind" data-uid="LastFleet.ProcGen.Plans.PlanPin.Kind">
+  Kind
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What it pins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanPinKind Kind { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPinKind.html">PlanPinKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_Offset_" data-uid="LastFleet.ProcGen.Plans.PlanPin.Offset*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_Offset" data-uid="LastFleet.ProcGen.Plans.PlanPin.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cells from a ring part's center, at its fewest radius; (0, 0) for a line part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int X, int Z) Offset { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_On_" data-uid="LastFleet.ProcGen.Plans.PlanPin.On*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_On" data-uid="LastFleet.ProcGen.Plans.PlanPin.On">
+  On
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of the part it's placed on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int On { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_CellOn_" data-uid="LastFleet.ProcGen.Plans.PlanPin.CellOn*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_CellOn_LastFleet_ProcGen_Plans_LevelPlan_LastFleet_ProcGen_Plans_Envelope_" data-uid="LastFleet.ProcGen.Plans.PlanPin.CellOn(LastFleet.ProcGen.Plans.LevelPlan,LastFleet.ProcGen.Plans.Envelope)">
+  CellOn(LevelPlan, Envelope)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cell it's pinned to on <code class="paramref">envelope</code> (one of <code class="paramref">plan</code>'s decks, built for a
+seed), or null if its part isn't there (not on that deck, or not drawn this seed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int X, int Z)? CellOn(LevelPlan plan, Envelope envelope)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plan</code> <a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+    <dt><code>envelope</code> <a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html">Envelope</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanPin_MovedTo_" data-uid="LastFleet.ProcGen.Plans.PlanPin.MovedTo*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanPin_MovedTo_LastFleet_ProcGen_Plans_LevelPlan_System_Int32_LastFleet_ProcGen_Plans_PartShape_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanPin.MovedTo(LastFleet.ProcGen.Plans.LevelPlan,System.Int32,LastFleet.ProcGen.Plans.PartShape,System.Int32,System.Int32)">
+  MovedTo(LevelPlan, int, PartShape, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanPin.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a pin like this one moved to cell (<code class="paramref">x</code>, <code class="paramref">z</code>) on part
+<code class="paramref">on</code>, drawn as <code class="paramref">shape</code> for the seed it was dropped on: the inverse of
+<a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html#LastFleet_ProcGen_Plans_PlanPin_CellOn_LastFleet_ProcGen_Plans_LevelPlan_LastFleet_ProcGen_Plans_Envelope_">CellOn(LevelPlan, Envelope)</a>, for a pin dragged on a preview.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanPin MovedTo(LevelPlan plan, int on, PartShape shape, int x, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plan</code> <a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+    <dt><code>on</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="LastFleet.ProcGen.Plans.PartShape.html">PartShape</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html">PlanPin</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

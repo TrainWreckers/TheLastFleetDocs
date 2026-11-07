@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WarshipLayout | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WarshipLayout | The Last Fleet ">
+      
+      <meta name="description" content="What a boarding action&#39;s warship has aboard (design doc, &amp;quot;Boarding action: a ship in the fight&amp;quot;): its gun batteries, its reactor and its fire suppression controls. The level&#39;s rules stand them in the rooms the mission gave them (mission.battery, mission.reactor, mission.suppression: a gun deck each, an engine or reactor room, damage control).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Levels_Warship_WarshipLayout.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Levels.Warship.WarshipLayout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout">
+
+
+
+  <h1 id="LastFleet_ProcGen_Levels_Warship_WarshipLayout" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout" class="text-break">
+Class WarshipLayout  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Warship/WarshipLayout.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Levels.html">Levels</a>.<a class="xref" href="LastFleet.ProcGen.Levels.Warship.html">Warship</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>What a boarding action's warship has aboard (design doc, &quot;Boarding action: a ship in the fight&quot;): its gun batteries,
+its reactor and its fire suppression controls. The level's rules stand them in the rooms the mission gave them
+(<code>mission.battery</code>, <code>mission.reactor</code>, <code>mission.suppression</code>: a gun deck each, an engine or reactor
+room, damage control).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record WarshipLayout : IEquatable&lt;WarshipLayout&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WarshipLayout</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipLayout.html">WarshipLayout</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Levels_Warship_WarshipLayout__ctor_" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Warship_WarshipLayout__ctor_System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Levels_Warship_WarshipFixture__System_Nullable_LastFleet_ProcGen_Levels_Warship_WarshipFixture__System_Nullable_LastFleet_ProcGen_Levels_Warship_WarshipFixture__" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.#ctor(System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Levels.Warship.WarshipFixture},System.Nullable{LastFleet.ProcGen.Levels.Warship.WarshipFixture},System.Nullable{LastFleet.ProcGen.Levels.Warship.WarshipFixture})">
+  WarshipLayout(IReadOnlyList&lt;WarshipFixture&gt;, WarshipFixture?, WarshipFixture?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Warship/WarshipLayout.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What a boarding action's warship has aboard (design doc, &quot;Boarding action: a ship in the fight&quot;): its gun batteries,
+its reactor and its fire suppression controls. The level's rules stand them in the rooms the mission gave them
+(<code>mission.battery</code>, <code>mission.reactor</code>, <code>mission.suppression</code>: a gun deck each, an engine or reactor
+room, damage control).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WarshipLayout(IReadOnlyList&lt;WarshipFixture&gt; Batteries, WarshipFixture? Reactor, WarshipFixture? Suppression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Batteries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>&gt;</dt>
+    <dd><p>Its gun batteries, in order (at most eight).</p>
+</dd>
+    <dt><code>Reactor</code> <a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>?</dt>
+    <dd><p>Its reactor, or null when the level has none.</p>
+</dd>
+    <dt><code>Suppression</code> <a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>?</dt>
+    <dd><p>Its fire suppression controls, or null when the level has none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Batteries_" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Batteries*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Batteries" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Batteries">
+  Batteries
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Warship/WarshipLayout.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its gun batteries, in order (at most eight).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;WarshipFixture&gt; Batteries { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Reactor_" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Reactor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Reactor" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Reactor">
+  Reactor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Warship/WarshipLayout.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its reactor, or null when the level has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WarshipFixture? Reactor { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Suppression_" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Suppression*"></a>
+
+  <h3 id="LastFleet_ProcGen_Levels_Warship_WarshipLayout_Suppression" data-uid="LastFleet.ProcGen.Levels.Warship.WarshipLayout.Suppression">
+  Suppression
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Levels/Warship/WarshipLayout.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its fire suppression controls, or null when the level has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WarshipFixture? Suppression { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Levels.Warship.WarshipFixture.html">WarshipFixture</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

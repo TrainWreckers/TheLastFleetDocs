@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICollisionWorld | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICollisionWorld | The Last Fleet ">
+      
+      <meta name="description" content="The collision the simulation needs: moving characters through the level and casting rays. This keeps the simulation headless and engine-free. LastFleet.Physics implements it with Jolt, and  is an infinite floor for tests and headless runs.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Physics_ICollisionWorld.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Physics.ICollisionWorld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Physics.ICollisionWorld">
+
+
+
+  <h1 id="LastFleet_Simulation_Physics_ICollisionWorld" data-uid="LastFleet.Simulation.Physics.ICollisionWorld" class="text-break">
+Interface ICollisionWorld  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Physics.html">Physics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The collision the simulation needs: moving characters through the level and casting rays. This keeps the
+simulation headless and engine-free. <code>LastFleet.Physics</code> implements it with Jolt, and
+<a class="xref" href="LastFleet.Simulation.Physics.FlatGroundWorld.html">FlatGroundWorld</a> is an infinite floor for tests and headless runs.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICollisionWorld</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="LastFleet_Simulation_Physics_ICollisionWorld_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Characters are identified by a handle greater than zero. The world owns their collision state (contacts, current
+shape), and the simulation copies the results into components every tick, so positions stay in the ECS and in the
+checksum.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_GeometryVersion_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.GeometryVersion*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_GeometryVersion" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.GeometryVersion">
+  GeometryVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes whenever what <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html#LastFleet_Simulation_Physics_ICollisionWorld_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_System_Single_LastFleet_Simulation_Physics_RayHit__">Raycast(Vector3, Vector3, float, out RayHit)</a> can hit changes (a level part added, or turned off or back on), so
+an answer found by rays can be kept until it does. Worlds whose geometry never changes leave it at 0; a world
+whose does must change it, or what's kept goes stale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GeometryVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_AddCharacter_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.AddCharacter*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_AddCharacter_System_Numerics_Vector3_LastFleet_Simulation_Physics_CharacterShape__" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.AddCharacter(System.Numerics.Vector3,LastFleet.Simulation.Physics.CharacterShape@)">
+  AddCharacter(Vector3, in CharacterShape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a standing character with its feet at <code class="paramref">feet</code>. Returns its handle, which is greater than
+zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int AddCharacter(Vector3 feet, in CharacterShape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="LastFleet.Simulation.Physics.CharacterShape.html">CharacterShape</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_CanStandUp_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.CanStandUp*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_CanStandUp_System_Int32_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.CanStandUp(System.Int32)">
+  CanStandUp(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if a crouched character has room to stand up where it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool CanStandUp(int character)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_MoveCharacter_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.MoveCharacter*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_MoveCharacter_System_Int32_System_Numerics_Vector3_System_Single_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.MoveCharacter(System.Int32,System.Numerics.Vector3,System.Single)">
+  MoveCharacter(int, Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a character at <code class="paramref">velocity</code> for <code class="paramref">deltaSeconds</code>, sliding along walls,
+walking up steps and following slopes down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CharacterMove MoveCharacter(int character, Vector3 velocity, float deltaSeconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>deltaSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Physics.CharacterMove.html">CharacterMove</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_PlaceCharacter_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.PlaceCharacter*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_PlaceCharacter_System_Int32_System_Numerics_Vector3_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.PlaceCharacter(System.Int32,System.Numerics.Vector3)">
+  PlaceCharacter(int, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts a character's feet at <code class="paramref">feet</code> without moving it through the level. For example, a co-op
+client uses this to reset its predicted player to where the host has it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PlaceCharacter(int character, Vector3 feet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_Raycast_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.Raycast*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_System_Single_LastFleet_Simulation_Physics_RayHit__" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,System.Single,LastFleet.Simulation.Physics.RayHit@)">
+  Raycast(Vector3, Vector3, float, out RayHit)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts a ray against the level. Characters aren't hit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Raycast(Vector3 origin, Vector3 direction, float maxDistance, out RayHit hit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Start point.</p>
+</dd>
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Unit direction.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Length of the ray, in meters.</p>
+</dd>
+    <dt><code>hit</code> <a class="xref" href="LastFleet.Simulation.Physics.RayHit.html">RayHit</a></dt>
+    <dd><p>The closest hit, if any.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_RemoveCharacter_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.RemoveCharacter*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_RemoveCharacter_System_Int32_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.RemoveCharacter(System.Int32)">
+  RemoveCharacter(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a character, for example when it dies. Its handle isn't reused. Unknown handles are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveCharacter(int character)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_SetSurfaceSolid_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.SetSurfaceSolid*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_SetSurfaceSolid_System_Int32_System_Boolean_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.SetSurfaceSolid(System.Int32,System.Boolean)">
+  SetSurfaceSolid(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Turns a level part's collision off (for example when a prop breaks) or back on. While it's off, characters pass
+through it and rays miss it. Worlds without level parts ignore this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetSurfaceSolid(int surface, bool solid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surface</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>solid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Physics_ICollisionWorld_TrySetCrouched_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.TrySetCrouched*"></a>
+
+  <h3 id="LastFleet_Simulation_Physics_ICollisionWorld_TrySetCrouched_System_Int32_System_Boolean_" data-uid="LastFleet.Simulation.Physics.ICollisionWorld.TrySetCrouched(System.Int32,System.Boolean)">
+  TrySetCrouched(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Physics/ICollisionWorld.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switches between the standing and crouching capsule. Standing up fails, and changes nothing, if something is in
+the way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool TrySetCrouched(int character, bool crouched)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>crouched</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the character now has the requested shape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RoomModule | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RoomModule | The Last Fleet ">
+      
+      <meta name="description" content="A room that levels are laid out from. It&#39;s either built from an archetype () or a hall, and checked against the kit&#39;s rules by . It holds the geometry, the footprint in grid cells, the connectors, the roles it can fill (tags), and markers in module coordinates.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Modules_RoomModule.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Modules.RoomModule%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Modules.RoomModule">
+
+
+
+  <h1 id="LastFleet_ProcGen_Modules_RoomModule" data-uid="LastFleet.ProcGen.Modules.RoomModule" class="text-break">
+Class RoomModule  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Modules.html">Modules</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A room that levels are laid out from. It's either built from an archetype (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) or a hall,
+and checked against the kit's rules by <a class="xref" href="LastFleet.ProcGen.Modules.ModuleReader.html">ModuleReader</a>. It holds the geometry, the footprint in grid
+cells, the connectors, the roles it can fill (tags), and markers in module coordinates.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RoomModule</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RoomModule</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule__ctor_" data-uid="LastFleet.ProcGen.Modules.RoomModule.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule__ctor_System_String_System_Int32_System_Int32_System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Modules_ModuleConnector__System_Collections_Generic_IReadOnlyList_LastFleet_Content_Encounters_SpawnLayout__System_Collections_Generic_IReadOnlyList_LastFleet_Content_Encounters_SpawnLayout__System_Collections_Generic_IReadOnlyList_System_Numerics_Vector3__System_Collections_Generic_IReadOnlyDictionary_System_String_System_Numerics_Vector3__LastFleet_Content_Meshes_MeshData_System_Collections_Generic_IReadOnlyList_System_Numerics_Vector3__System_Collections_Generic_IReadOnlyList_LastFleet_Content_Encounters_SpawnLayout__System_Collections_Generic_IReadOnlyList_LastFleet_Content_Encounters_SpawnLayout__LastFleet_ProcGen_Rooms_Footprint_" data-uid="LastFleet.ProcGen.Modules.RoomModule.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Modules.ModuleConnector},System.Collections.Generic.IReadOnlyList{LastFleet.Content.Encounters.SpawnLayout},System.Collections.Generic.IReadOnlyList{LastFleet.Content.Encounters.SpawnLayout},System.Collections.Generic.IReadOnlyList{System.Numerics.Vector3},System.Collections.Generic.IReadOnlyDictionary{System.String,System.Numerics.Vector3},LastFleet.Content.Meshes.MeshData,System.Collections.Generic.IReadOnlyList{System.Numerics.Vector3},System.Collections.Generic.IReadOnlyList{LastFleet.Content.Encounters.SpawnLayout},System.Collections.Generic.IReadOnlyList{LastFleet.Content.Encounters.SpawnLayout},LastFleet.ProcGen.Rooms.Footprint)">
+  RoomModule(string, int, int, IReadOnlyList&lt;string&gt;, IReadOnlyList&lt;ModuleConnector&gt;, IReadOnlyList&lt;SpawnLayout&gt;, IReadOnlyList&lt;SpawnLayout&gt;, IReadOnlyList&lt;Vector3&gt;, IReadOnlyDictionary&lt;string, Vector3&gt;, MeshData, IReadOnlyList&lt;Vector3&gt;?, IReadOnlyList&lt;SpawnLayout&gt;?, IReadOnlyList&lt;SpawnLayout&gt;?, Footprint?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomModule(string id, int width, int depth, IReadOnlyList&lt;string&gt; tags, IReadOnlyList&lt;ModuleConnector&gt; connectors, IReadOnlyList&lt;SpawnLayout&gt; soldierSpawns, IReadOnlyList&lt;SpawnLayout&gt; playerSpawns, IReadOnlyList&lt;Vector3&gt; ammoCrates, IReadOnlyDictionary&lt;string, Vector3&gt; markers, MeshData mesh, IReadOnlyList&lt;Vector3&gt;? itemSpots = null, IReadOnlyList&lt;SpawnLayout&gt;? spawnSpots = null, IReadOnlyList&lt;SpawnLayout&gt;? lockerSpots = null, Footprint? footprint = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>connectors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>soldierSpawns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>playerSpawns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>ammoCrates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>markers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>mesh</code> <a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd></dd>
+    <dt><code>itemSpots</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>spawnSpots</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>lockerSpots</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>footprint</code> <a class="xref" href="LastFleet.ProcGen.Rooms.Footprint.html">Footprint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_AmmoCrates_" data-uid="LastFleet.ProcGen.Modules.RoomModule.AmmoCrates*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_AmmoCrates" data-uid="LastFleet.ProcGen.Modules.RoomModule.AmmoCrates">
+  AmmoCrates
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Vector3&gt; AmmoCrates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Archetype_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Archetype*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Archetype" data-uid="LastFleet.ProcGen.Modules.RoomModule.Archetype">
+  Archetype
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id of the archetype it was built from (<a class="xref" href="LastFleet.ProcGen.Rooms.RoomArchetype.html">RoomArchetype</a>), or null if it wasn't built from one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Archetype { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Band_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Band*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Band" data-uid="LastFleet.ProcGen.Modules.RoomModule.Band">
+  Band
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The band a smooth stretch of hall is built round (a ring's bend, a bridge on a slant), in module coordinates
+(<a class="xref" href="LastFleet.ProcGen.Modules.AngledHall.html">AngledHall</a>); null for anything built on the grid. The dressing runs its lights along it, and puts no
+trims or services along its cells' edges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HallBand? Band { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Bays_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Bays*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Bays" data-uid="LastFleet.ProcGen.Modules.RoomModule.Bays">
+  Bays
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its ship entrances, if it's a hangar with any (<a class="xref" href="LastFleet.ProcGen.Modules.ShipBay.html">ShipBay</a>), in its own frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ShipBay&gt; Bays { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ShipBay.html">ShipBay</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Chamfer_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Chamfer*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Chamfer" data-uid="LastFleet.ProcGen.Modules.RoomModule.Chamfer">
+  Chamfer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much its corners are cut at 45°, in meters along each wall (<a class="xref" href="LastFleet.ProcGen.Levels.CornerChamfer.html">CornerChamfer</a>). Only applies
+to corners that have the room on one side only and no doorway on either wall. 0 for none, and always 0 for a kit
+module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Chamfer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Climbs_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Climbs*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Climbs" data-uid="LastFleet.ProcGen.Modules.RoomModule.Climbs">
+  Climbs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The bottom of each ramp or staircase up from the ground floor (its <code>climb</code> markers; the first is the
+<code>climb</code> entry in <a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_Markers">Markers</a>). Placed props keep these clear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Vector3&gt; Climbs { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Connectors_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Connectors*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Connectors" data-uid="LastFleet.ProcGen.Modules.RoomModule.Connectors">
+  Connectors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ModuleConnector&gt; Connectors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_ContentTags_" data-uid="LastFleet.ProcGen.Modules.RoomModule.ContentTags*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_ContentTags" data-uid="LastFleet.ProcGen.Modules.RoomModule.ContentTags">
+  ContentTags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The content tags it has (for example room.storage.cold). For a built room these come from its archetype, so
+every room built from that archetype has them. A kit module has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; ContentTags { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Deck_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Deck*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Deck" data-uid="LastFleet.ProcGen.Modules.RoomModule.Deck">
+  Deck
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deck (region) it was built for (a themed hall), or -1 for any deck (the kit's own modules).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Deck { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Depth_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Depth*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Depth" data-uid="LastFleet.ProcGen.Modules.RoomModule.Depth">
+  Depth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The footprint size along Z, in cells. For a shape that doesn't fill its bounds, this is the bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Depth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Footprint_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Footprint*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Footprint" data-uid="LastFleet.ProcGen.Modules.RoomModule.Footprint">
+  Footprint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cells it occupies, in module coordinates. For a kit module, that's every cell of its <a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_Width">Width</a> by
+<a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_Depth">Depth</a> bounds on each story. For a room built from a shape recipe, it can be any connected shape
+within those bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Footprint Footprint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Rooms.Footprint.html">Footprint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_FurnitureLoot_" data-uid="LastFleet.ProcGen.Modules.RoomModule.FurnitureLoot*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_FurnitureLoot" data-uid="LastFleet.ProcGen.Modules.RoomModule.FurnitureLoot">
+  FurnitureLoot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The socket groups on its furniture that designers gave loot (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a>), with
+their reachable sockets, in module coordinates. They're filled when a level is made from the module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;FurnitureLoot&gt; FurnitureLoot { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureLoot.html">FurnitureLoot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Hull_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Hull*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Hull" data-uid="LastFleet.ProcGen.Modules.RoomModule.Hull">
+  Hull
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The side its airlock backs onto, if it was built knowing where the hull is (a plan's airlock vestibule). If null,
+the airlock goes against the first side with no doorway (<a class="xref" href="LastFleet.ProcGen.Levels.Airlocks.Airlock.html#LastFleet_ProcGen_Levels_Airlocks_Airlock_HullSide_LastFleet_ProcGen_Modules_RoomModule_">HullSide(RoomModule)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Side? Hull { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Id_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Id*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Id" data-uid="LastFleet.ProcGen.Modules.RoomModule.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_IsKit_" data-uid="LastFleet.ProcGen.Modules.RoomModule.IsKit*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_IsKit" data-uid="LastFleet.ProcGen.Modules.RoomModule.IsKit">
+  IsKit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if it's part of its biome's kit of rooms (<a class="xref" href="LastFleet.ProcGen.Modules.KitRooms.html">KitRooms</a>), offered in every level. False for a room a
+level builds when its rooms are typed as an archetype, or for a deck's hall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsKit { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_ItemSpots_" data-uid="LastFleet.ProcGen.Modules.RoomModule.ItemSpots*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_ItemSpots" data-uid="LastFleet.ProcGen.Modules.RoomModule.ItemSpots">
+  ItemSpots
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spots where a keycard (or later, loot) can go: on desks, counters, crates, or the floor (Marker_Item).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Vector3&gt; ItemSpots { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_KeepClear_" data-uid="LastFleet.ProcGen.Modules.RoomModule.KeepClear*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_KeepClear" data-uid="LastFleet.ProcGen.Modules.RoomModule.KeepClear">
+  KeepClear
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Boxes in its own frame that nothing is placed in later (a hangar's pad and the lanes in to it from its ship
+entrances), so the level's props, loot and crates leave them clear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;(Vector3 Min, Vector3 Max)&gt; KeepClear { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.max">Max</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Lights_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Lights*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Lights" data-uid="LastFleet.ProcGen.Modules.RoomModule.Lights">
+  Lights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extra lights besides the ceiling panels (a hall's floor glow), in module coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ModuleLight&gt; Lights { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleLight.html">ModuleLight</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_LockerSpots_" data-uid="LastFleet.ProcGen.Modules.RoomModule.LockerSpots*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_LockerSpots" data-uid="LastFleet.ProcGen.Modules.RoomModule.LockerSpots">
+  LockerSpots
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spots where a footlocker fits, found from the room's geometry: on the ground floor against a wall, clear of props,
+with walking space in front, and away from doorways. The yaw is the direction its long side runs (0 is along X).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SpawnLayout&gt; LockerSpots { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Markers_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Markers*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Markers" data-uid="LastFleet.ProcGen.Modules.RoomModule.Markers">
+  Markers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Named points: key, terminal, extraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, Vector3&gt; Markers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Mesh_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Mesh*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Mesh" data-uid="LastFleet.ProcGen.Modules.RoomModule.Mesh">
+  Mesh
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The geometry, in module coordinates (footprint starts at the origin, top of the floor at y = 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeshData Mesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_PlayerSpawns_" data-uid="LastFleet.ProcGen.Modules.RoomModule.PlayerSpawns*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_PlayerSpawns" data-uid="LastFleet.ProcGen.Modules.RoomModule.PlayerSpawns">
+  PlayerSpawns
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SpawnLayout&gt; PlayerSpawns { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_SoldierSpawns_" data-uid="LastFleet.ProcGen.Modules.RoomModule.SoldierSpawns*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_SoldierSpawns" data-uid="LastFleet.ProcGen.Modules.RoomModule.SoldierSpawns">
+  SoldierSpawns
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SpawnLayout&gt; SoldierSpawns { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_SpawnSpots_" data-uid="LastFleet.ProcGen.Modules.RoomModule.SpawnSpots*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_SpawnSpots" data-uid="LastFleet.ProcGen.Modules.RoomModule.SpawnSpots">
+  SpawnSpots
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soldier start positions found from the room's geometry (<a class="xref" href="LastFleet.ProcGen.Modules.ModuleReader.html">ModuleReader</a>): open floor clear of props
+and doorways, spread apart, cover spots first, each facing the nearest doorway. The level's population uses
+<a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_SoldierSpawns">SoldierSpawns</a> (picked by a designer) first, then these.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SpawnLayout&gt; SpawnSpots { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Encounters.SpawnLayout.html">SpawnLayout</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Stories_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Stories*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Stories" data-uid="LastFleet.ProcGen.Modules.RoomModule.Stories">
+  Stories
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many stories the module spans (<a class="xref" href="LastFleet.ProcGen.Layouts.Grid.html#LastFleet_ProcGen_Layouts_Grid_StoryHeight">StoryHeight</a> each): 1 for a room with 3.6 m walls, 2 for a
+stairwell or a hall with a catwalk. Nothing else can be placed in that space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Stories { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Style_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Style*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Style" data-uid="LastFleet.ProcGen.Modules.RoomModule.Style">
+  Style
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The surface style used for its dressing (ceiling, trims, ducts, light panels, if any), as an id from the procgen
+data's styles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Style { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Tags_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Tags*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Tags" data-uid="LastFleet.ProcGen.Modules.RoomModule.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The roles it can fill: insertion, corridor, room, arena, objective, key, loot, extraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Tags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_WallsEveryStory_" data-uid="LastFleet.ProcGen.Modules.RoomModule.WallsEveryStory*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_WallsEveryStory" data-uid="LastFleet.ProcGen.Modules.RoomModule.WallsEveryStory">
+  WallsEveryStory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if its walls are built full height through every story it spans (a procedurally built room). A kit module's
+walls are only one story high, and the dressing fills them up to its ceiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WallsEveryStory { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_Width_" data-uid="LastFleet.ProcGen.Modules.RoomModule.Width*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_Width" data-uid="LastFleet.ProcGen.Modules.RoomModule.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The footprint size along X, in cells. For a shape that doesn't fill its bounds, this is the bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_HasTag_" data-uid="LastFleet.ProcGen.Modules.RoomModule.HasTag*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_HasTag_System_String_" data-uid="LastFleet.ProcGen.Modules.RoomModule.HasTag(System.String)">
+  HasTag(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L290"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasTag(string tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomModule_StoriesOf_" data-uid="LastFleet.ProcGen.Modules.RoomModule.StoriesOf*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomModule_StoriesOf_LastFleet_Content_Meshes_MeshData_" data-uid="LastFleet.ProcGen.Modules.RoomModule.StoriesOf(LastFleet.Content.Meshes.MeshData)">
+  StoriesOf(MeshData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomModule.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how many stories a mesh spans, based on the top of its geometry. Going slightly over a story doesn't
+count as another one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int StoriesOf(MeshData mesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

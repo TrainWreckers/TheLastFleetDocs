@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Art in THE LAST FLEET: start here | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Art in THE LAST FLEET: start here | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="art-in-the-last-fleet-start-here">Art in THE LAST FLEET: start here</h1>
+
+<p>(If you're a designer tuning loot and weapons, start at <a href="../studio/reference.html">the Studio reference</a> instead. What can be added as data is
+listed in <a href="../adding-content.html">adding-content.md</a>.)</p>
+<p>Good news: everything you model goes into the game the same way! You work in a <code>.blend</code> file, export it with one of our
+Blender add-ons to a glTF file in <code>content/</code>, and the game reads that file when it starts. Reshaping a model doesn't
+need any code changes, so you never have to wait on a programmer.</p>
+<p>This page is the overview. Each kind of model has its own guide with the details.</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Guide</th>
+<th>The game reads</th>
+<th>Your <code>.blend</code> goes in</th>
+<th>Add-on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The ship's hub (the deck between missions)</td>
+<td><a href="hub.html">hub.md</a></td>
+<td><code>content/modules/hub/hangar_deck.gltf</code></td>
+<td><code>content/raw/modules/hub/</code></td>
+<td><code>lastfleet_hub.py</code></td>
+</tr>
+<tr>
+<td>Weapon parts</td>
+<td><a href="weapons.html">weapons.md</a></td>
+<td><code>content/weapons/&lt;frame&gt;.gltf</code></td>
+<td><code>content/raw/weapons/</code></td>
+<td><code>lastfleet_weapons.py</code></td>
+</tr>
+<tr>
+<td>Creatures (the horde)</td>
+<td><a href="creatures.html">creatures.md</a></td>
+<td><code>content/models/&lt;creature&gt;.gltf</code></td>
+<td><code>content/raw/models/</code></td>
+<td><code>lastfleet_creatures.py</code></td>
+</tr>
+<tr>
+<td>Characters on a rig (soldiers, lancers, players) and their clips</td>
+<td><a href="rigs.html">rigs.md</a></td>
+<td><code>content/characters/&lt;model&gt;.gltf</code>, <code>content/anim/&lt;rig&gt;.gltf</code></td>
+<td><code>content/raw/characters/</code></td>
+<td><code>lastfleet_rigs.py</code></td>
+</tr>
+<tr>
+<td>Props: loot, containers, crates, the cargo pod and drone</td>
+<td><a href="props.html">props.md</a></td>
+<td><code>content/props/&lt;file&gt;.gltf</code></td>
+<td><code>content/raw/props/</code></td>
+<td><code>lastfleet_props.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>The add-ons are in <code>tools/blender/</code>. Install each one from <strong>Edit &gt; Preferences &gt; Add-ons &gt; Install from Disk</strong>. They
+all put their tools on the <strong>Last Fleet</strong> tab of the 3D view's sidebar (N). Use Blender 4.2 or newer.</p>
+<p>Whatever you're modeling, install <code>lastfleet_materials.py</code> too. It's how you give each material one of the game's
+surface materials (<a href="materials.html">materials.md</a>).</p>
+<p><strong>Had the VANGUARD add-ons installed?</strong> That was their name before the game had one. Remove them in
+<strong>Edit &gt; Preferences &gt; Add-ons</strong> (they're listed as VANGUARD Creatures, VANGUARD Rigs and so on), then install the
+<code>lastfleet_*.py</code> files in their place. Your <code>.blend</code> files don't need anything from you: the first time one opens with
+the new add-ons, its settings and every material's surface material move over to the new names. Save it, and that's
+done. The game still reads models exported with the old names too.</p>
+<h2 id="getting-set-up-once">Getting set up (once)</h2>
+<ol>
+<li>Install <a href="https://git-scm.com/">Git</a> and <a href="https://git-lfs.com/">Git LFS</a>, then run <code>git lfs install</code> once. <code>.blend</code>
+files, images and sounds go through LFS. Skip it and you'll commit a pointer instead of your file... not great.</li>
+<li>Clone the repository and install the <a href="https://dotnet.microsoft.com/download">.NET 10 SDK</a> to build and run the
+game: <code>dotnet run --project src/LastFleet.Client</code>.</li>
+<li>Install the add-ons for whatever you'll be working on.</li>
+</ol>
+<h2 id="the-same-everywhere">The same everywhere</h2>
+<p>These rules hold no matter what you're making:</p>
+<ul>
+<li><strong>Axes.</strong> In Blender, +Y is the game's forward, +Z is up and +X is right. The add-ons export with the axes the game
+expects, so leave the exporter's settings alone.</li>
+<li><strong>Scale.</strong> One unit is one meter. For a feel of it: a room's walls are 3.6 m high, a cargo crate is 0.44 m high, and
+a rifle's body is about 0.4 m long.</li>
+<li><strong>Names.</strong> The game finds things by name. An object's name says what it is (<code>Barrel_2_Heavy</code>, <code>Crate</code>,
+<code>Footlocker_Lid</code>), and empties mark points (<code>Muzzle</code>, <code>Hinge</code>, <code>Door</code>). Blender's <code>.001</code> suffixes don't matter.
+Each guide lists the names it uses.</li>
+<li><strong>Origins.</strong> A model's origin matters, because it's the point where the model stands or attaches. Where the model
+sits in the file usually doesn't matter, so go ahead and lay things out side by side. Apply rotation and scale before
+you export (<strong>Ctrl + A &gt; Rotation &amp; Scale</strong>).</li>
+<li><strong>Materials.</strong> Shading is flat: each face is lit by its own normal. A material's Base Color is its color, except for
+a few material names the game colors itself (a maker's finish on a gun, a rarity's color, a glow), and each guide
+lists those. How the color reacts to light (paint, bare metal, rubber, glass, a glow) is set by the material's
+<strong>surface material</strong>, which you pick from the game's library with the Last Fleet Materials add-on (see
+<a href="materials.html">materials.md</a>). Textures aren't used.</li>
+<li><strong>Check before Export.</strong> Every add-on has a <strong>Check</strong> button that tells you what the game would reject or ignore.
+<strong>Export</strong> runs it first, so you can't forget.</li>
+</ul>
+<h2 id="committing-your-work">Committing your work</h2>
+<p>Happy with it? Here's how it gets in:</p>
+<ol>
+<li>Export the <code>.gltf</code> with the add-on, into its folder in <code>content/</code>.</li>
+<li>Save your <code>.blend</code> into <code>content/raw/...</code> (see the table above).</li>
+<li>Run the tests: <code>dotnet test --solution LastFleet.slnx</code>. They load every model and check its names, markers and
+sizes. CI runs the same tests on every pull request, so a broken file can't sneak in without anyone noticing.</li>
+<li>Look at it in the game. Each guide says how to get to it quickly (<code>--pod</code>, <code>--horde</code>, a level seed).</li>
+<li>Commit the <code>.blend</code> and the <code>.gltf</code> together, on a branch, and open a pull request. Done!</li>
+</ol>
+<h2 id="grey-box-starting-files">Grey-box starting files</h2>
+<p>Most of the models in the game started out as boxes written by scripts in <code>tools/greybox/</code>. Those scripts made the
+starting files you edit.</p>
+<p>Never run one again over files someone has edited, because it would put the boxes back! If you want to start a <em>new</em>
+weapon frame or room from boxes, each guide says how to make just that one file.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

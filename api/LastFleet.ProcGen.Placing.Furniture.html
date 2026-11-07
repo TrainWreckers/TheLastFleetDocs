@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Placing.Furniture | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Placing.Furniture | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Placing.Furniture">
+
+  <h1 id="LastFleet_ProcGen_Placing_Furniture" data-uid="LastFleet.ProcGen.Placing.Furniture" class="text-break">Namespace LastFleet.ProcGen.Placing.Furniture</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Attachment.html">Attachment</a></dt>
+      <dd><p>Extra furniture placed with a piece at its model's <code>Attach_&lt;Group&gt;_&lt;n&gt;</code> empties (the <code>attach</code>
+field in <code>props.json</code>), for example chairs around a table or a stool at a counter. Each one is placed with its
+origin at the empty, facing the piece, either tucked in or pulled out, and rotated a little. It's placed and checked
+together with the piece.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.ColliderReport.html">ColliderReport</a></dt>
+      <dd><p>What a model is collided with, as furniture (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.ColliderReport.html#LastFleet_ProcGen_Placing_Furniture_ColliderReport_For_LastFleet_Content_Models_LibraryModel_LastFleet_Content_Models_ColliderKind_System_Boolean_System_Single_System_Single_System_Single_">For(LibraryModel, ColliderKind, bool, float, float, float)</a>) or a station fixture (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.ColliderReport.html#LastFleet_ProcGen_Placing_Furniture_ColliderReport_ForFixture_LastFleet_Content_Models_LibraryModel_System_Collections_Generic_IReadOnlyList_System_String__LastFleet_Content_Models_ColliderKind_System_Single_System_Single_System_Single_">ForFixture(LibraryModel, IReadOnlyList&lt;string&gt;, ColliderKind, float, float, float)</a>), with
+a given <a class="xref" href="LastFleet.Content.Models.ColliderKind.html">ColliderKind</a>, built exactly as the generator sets it into the level, and what's worth knowing
+about it: Studio's Models mode shows it over the model. Headless, so it's tested like the rest of the generator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a></dt>
+      <dd><p>A furnishing style for built rooms, from the furnishings in <code>rules.json</code> (offices, a warehouse, and so on). It
+holds the rules used to place furniture while the room is built. A room archetype names the furnishing it uses; a
+room without one picks one at random.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html">FurnitureModel</a></dt>
+      <dd><p>A furniture model (a top-level object in a file under content/props, named by its prop's <code>model</code>), as the
+generator builds it into a room: its footprint, its solid boxes, its visible shape, and the spots on it where items
+go (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Sockets">Sockets</a>) and where other furniture attaches (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Attachments">Attachments</a>). Its origin is the center of
+its base, and it faces into the room along its forward axis (glTF -Z, Blender +Y), the same as a station fixture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a></dt>
+      <dd><p>The loot a group of sockets on a furniture model holds (the <code>sockets</code> field in <code>props.json</code>). Once a
+designer gives a group loot, the group belongs to them, so the placement rules don't put anything on it. Which of
+its sockets get filled is rolled with the level.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.ColliderEdge.html">ColliderEdge</a></dt>
+      <dd><p>An edge of a collider's outline, in the placed model's space (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.ColliderReport.html#LastFleet_ProcGen_Placing_Furniture_ColliderReport_Mesh">Mesh</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureLoot.html">FurnitureLoot</a></dt>
+      <dd><p>A socket group on a placed piece that a designer gave loot to (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a>), with the positions of its
+reachable sockets. Positions are in room space while the room is built, and in level space after. Which sockets get
+filled, and with what, is rolled with the level (<span class="xref">LastFleet.ProcGen.Levels.Supplies.FurnitureLootRolls</span>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureSocket.html">FurnitureSocket</a></dt>
+      <dd><p>A marked point on a furniture model (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html">FurnitureModel</a>), in model space. It's either a spot where an item
+sits (<code>Socket_Top_1</code>) or where another piece attaches (<code>Attach_Seat_1</code>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ForgePart | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ForgePart | The Last Fleet ">
+      
+      <meta name="description" content="A weapon part as the forge builds it (docs/plans/weapons.md phase 5). It has the name the game looks for (Receiver, Barrel_0_Plain), its triangles in its own space (with the origin at the attach point), and its markers.  adds shapes to it, and  writes parts out as glTF.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Content_Forge_ForgePart.md&amp;value=---%0Auid%3A%20LastFleet.Content.Forge.ForgePart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Content.Forge.ForgePart">
+
+
+
+  <h1 id="LastFleet_Content_Forge_ForgePart" data-uid="LastFleet.Content.Forge.ForgePart" class="text-break">
+Class ForgePart  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Content.html">Content</a>.<a class="xref" href="LastFleet.Content.Forge.html">Forge</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Content.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A weapon part as the forge builds it (docs/plans/weapons.md phase 5). It has the name the game looks for
+(<code>Receiver</code>, <code>Barrel_0_Plain</code>), its triangles in its own space (with the origin at the attach point), and
+its markers. <a class="xref" href="LastFleet.Content.Forge.ForgeShapes.html">ForgeShapes</a> adds shapes to it, and <a class="xref" href="LastFleet.Content.Forge.ForgeFile.html">ForgeFile</a> writes parts out as glTF.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ForgePart</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ForgePart</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Content_Forge_ForgePart__ctor_" data-uid="LastFleet.Content.Forge.ForgePart.#ctor*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart__ctor_System_String_" data-uid="LastFleet.Content.Forge.ForgePart.#ctor(System.String)">
+  ForgePart(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A weapon part as the forge builds it (docs/plans/weapons.md phase 5). It has the name the game looks for
+(<code>Receiver</code>, <code>Barrel_0_Plain</code>), its triangles in its own space (with the origin at the attach point), and
+its markers. <a class="xref" href="LastFleet.Content.Forge.ForgeShapes.html">ForgeShapes</a> adds shapes to it, and <a class="xref" href="LastFleet.Content.Forge.ForgeFile.html">ForgeFile</a> writes parts out as glTF.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ForgePart(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_DetailNode" data-uid="LastFleet.Content.Forge.ForgePart.DetailNode">
+  DetailNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the child mesh that holds a part's detail. The game looks it up by this name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DetailNode = &quot;Detail&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_FarNode" data-uid="LastFleet.Content.Forge.ForgePart.FarNode">
+  FarNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the child mesh that holds a part's far version (<a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_Far">Far</a>). The game looks it up by this
+name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FarNode = &quot;Far&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_ShapeNode" data-uid="LastFleet.Content.Forge.ForgePart.ShapeNode">
+  ShapeNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the child mesh a prop with <a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_Collision">Collision</a> is drawn with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ShapeNode = &quot;Shape_NoCollision&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Collision_" data-uid="LastFleet.Content.Forge.ForgePart.Collision*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Collision" data-uid="LastFleet.Content.Forge.ForgePart.Collision">
+  Collision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The solid collision boxes for a prop (furniture, a station fixture), as center and half size in its own space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;(Vector3 Center, Vector3 Half)&gt; Collision { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.center">Center</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.numerics.vector3,system.numerics.vector3-.half">Half</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="LastFleet_Content_Forge_ForgePart_Collision_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If there are any, the triangles are only drawn (<a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_ShapeNode">ShapeNode</a>) and these boxes are only collided with
+(<a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_SolidNode_System_Int32_">SolidNode(int)</a>), which is what level collision expects (docs/blender/props.md).</p>
+</div>
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Detailing_" data-uid="LastFleet.Content.Forge.ForgePart.Detailing*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Detailing" data-uid="LastFleet.Content.Forge.ForgePart.Detailing">
+  Detailing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When true, anything added now is detail (<a class="xref" href="LastFleet.Content.Forge.ForgeTriangle.html#LastFleet_Content_Forge_ForgeTriangle_Detail">Detail</a>): small things shown on your own gun
+but left off other players' guns, to keep the number of moving triangles per frame down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Detailing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Far_" data-uid="LastFleet.Content.Forge.ForgePart.Far*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Far" data-uid="LastFleet.Content.Forge.ForgePart.Far">
+  Far
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part's far version, used for other players' guns: the same shapes without bevels or detail, with round
+shapes using fewer sides (<a class="xref" href="LastFleet.Content.Forge.ForgeRecipes.html">ForgeRecipes</a> builds it). It's drawn instead of the normal mesh. If
+empty, the normal mesh is drawn without its detail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ForgeTriangle&gt; Far { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LastFleet.Content.Forge.ForgeTriangle.html">ForgeTriangle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Markers_" data-uid="LastFleet.Content.Forge.ForgePart.Markers*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Markers" data-uid="LastFleet.Content.Forge.ForgePart.Markers">
+  Markers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part's markers, in its own space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ForgeMarker&gt; Markers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LastFleet.Content.Forge.ForgeMarker.html">ForgeMarker</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Name_" data-uid="LastFleet.Content.Forge.ForgePart.Name*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Name" data-uid="LastFleet.Content.Forge.ForgePart.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part name the game looks for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Triangles_" data-uid="LastFleet.Content.Forge.ForgePart.Triangles*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Triangles" data-uid="LastFleet.Content.Forge.ForgePart.Triangles">
+  Triangles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The part's triangles, in its own space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ForgeTriangle&gt; Triangles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LastFleet.Content.Forge.ForgeTriangle.html">ForgeTriangle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Face_" data-uid="LastFleet.Content.Forge.ForgePart.Face*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Face_System_ReadOnlySpan_System_Numerics_Vector3__System_Numerics_Vector3_System_String_" data-uid="LastFleet.Content.Forge.ForgePart.Face(System.ReadOnlySpan{System.Numerics.Vector3},System.Numerics.Vector3,System.String)">
+  Face(ReadOnlySpan&lt;Vector3&gt;, Vector3, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a convex polygon as a fan of triangles. The corners go in order around it (either direction), and it's
+flipped to face away from <code class="paramref">inside</code>, a point inside the convex shape it bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Face(ReadOnlySpan&lt;Vector3&gt; corners, Vector3 inside, string material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>corners</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>inside</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_Mark_" data-uid="LastFleet.Content.Forge.ForgePart.Mark*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_Mark_System_String_System_Numerics_Vector3_" data-uid="LastFleet.Content.Forge.ForgePart.Mark(System.String,System.Numerics.Vector3)">
+  Mark(string, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an empty named <code class="paramref">name</code> at <code class="paramref">position</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Mark(string name, Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_SolidNode_" data-uid="LastFleet.Content.Forge.ForgePart.SolidNode*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_SolidNode_System_Int32_" data-uid="LastFleet.Content.Forge.ForgePart.SolidNode(System.Int32)">
+  SolidNode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the child mesh name for solid box <code class="paramref">index</code> (0-based) of a prop's
+<a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_Collision">Collision</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SolidNode(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_SolidTriangles_" data-uid="LastFleet.Content.Forge.ForgePart.SolidTriangles*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_SolidTriangles_System_Int32_System_String_" data-uid="LastFleet.Content.Forge.ForgePart.SolidTriangles(System.Int32,System.String)">
+  SolidTriangles(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the triangles of solid box <code class="paramref">index</code> of <a class="xref" href="LastFleet.Content.Forge.ForgePart.html#LastFleet_Content_Forge_ForgePart_Collision">Collision</a>, in a plain material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ForgeTriangle&gt; SolidTriangles(int index, string material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Forge.ForgeTriangle.html">ForgeTriangle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Forge_ForgePart_ToModelPart_" data-uid="LastFleet.Content.Forge.ForgePart.ToModelPart*"></a>
+
+  <h3 id="LastFleet_Content_Forge_ForgePart_ToModelPart_LastFleet_Content_Materials_MaterialLibrary_System_Collections_Generic_IReadOnlyList_LastFleet_Content_Forge_ForgeMaterial__" data-uid="LastFleet.Content.Forge.ForgePart.ToModelPart(LastFleet.Content.Materials.MaterialLibrary,System.Collections.Generic.IReadOnlyList{LastFleet.Content.Forge.ForgeMaterial})">
+  ToModelPart(MaterialLibrary?, IReadOnlyList&lt;ForgeMaterial&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Forge/ForgePart.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the part to what the game would read from a file (<a class="xref" href="LastFleet.Content.Models.ModelPart.html">ModelPart</a>), without writing one. Each
+triangle gets its material's color (<a class="xref" href="LastFleet.Content.Forge.ForgeFile.html#LastFleet_Content_Forge_ForgeFile_Materials">Materials</a>) and its surface material from
+<code class="paramref">materials</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelPart ToModelPart(MaterialLibrary? materials = null, IReadOnlyList&lt;ForgeMaterial&gt;? kit = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materials</code> <a class="xref" href="LastFleet.Content.Materials.MaterialLibrary.html">MaterialLibrary</a></dt>
+    <dd><p>The surface material library. Defaults to the shipped one.</p>
+</dd>
+    <dt><code>kit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Forge.ForgeMaterial.html">ForgeMaterial</a>&gt;</dt>
+    <dd><p>The materials its shapes use (a props recipe's). Defaults to the weapon kit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Models.ModelPart.html">ModelPart</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

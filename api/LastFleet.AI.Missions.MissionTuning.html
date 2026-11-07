@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MissionTuning | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MissionTuning | The Last Fleet ">
+      
+      <meta name="description" content="Mission tuning values. Distances are in meters, times in seconds.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Missions_MissionTuning.md&amp;value=---%0Auid%3A%20LastFleet.AI.Missions.MissionTuning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Missions.MissionTuning">
+
+
+
+  <h1 id="LastFleet_AI_Missions_MissionTuning" data-uid="LastFleet.AI.Missions.MissionTuning" class="text-break">
+Class MissionTuning  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Mission tuning values. Distances are in meters, times in seconds.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MissionTuning : IEquatable&lt;MissionTuning&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MissionTuning</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.AI.Missions.MissionTuning.html">MissionTuning</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning__ctor_" data-uid="LastFleet.AI.Missions.MissionTuning.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="LastFleet.AI.Missions.MissionTuning.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  MissionTuning(float, float, float, float, float, float, float, int, int, int, float, float, float, float, float, float, float, float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mission tuning values. Distances are in meters, times in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionTuning(float KeyReach = 1.4, float DoorReach = 3, float TerminalReach = 2, float StartSeconds = 1.5, float HackSeconds = 60, float HoldRadius = 7, float HoldHeight = 2.5, int Waves = 3, int WaveBase = 2, int WavePerPlayer = 1, float FirstWaveDelay = 4, float WaveInterval = 18, float SpawnClearance = 15, float ClosetOpenSeconds = 3, float WaveHoldSeconds = 10, float ExtractRadius = 5, float ExtractSeconds = 3, float AirlockSeconds = 5, float EarlySeconds = 5, float EarlyRadius = 4.5, float BoardingSeconds = 120, float PodSeconds = 2, float PodRadius = 1.3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>KeyReach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How close (horizontally) a standing player has to get to pick up a keycard.</p>
+</dd>
+    <dt><code>DoorReach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How close a player holding the keycard has to get to open a locked door.</p>
+</dd>
+    <dt><code>TerminalReach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How close to the terminal Interact starts the hack.</p>
+</dd>
+    <dt><code>StartSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long Interact has to be held to start the hack.</p>
+</dd>
+    <dt><code>HackSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long the hack takes. It only counts down while the room is held.</p>
+</dd>
+    <dt><code>HoldRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How far from the terminal still counts as holding its room.</p>
+</dd>
+    <dt><code>HoldHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How far up or down still counts as the same room. Also used for the extraction point.</p>
+</dd>
+    <dt><code>Waves</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many reinforcement waves the hack brings.</p>
+</dd>
+    <dt><code>WaveBase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Soldiers in every wave, regardless of squad size.</p>
+</dd>
+    <dt><code>WavePerPlayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Extra soldiers per wave for each player.</p>
+</dd>
+    <dt><code>FirstWaveDelay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Time from the start of the hack to the first wave.</p>
+</dd>
+    <dt><code>WaveInterval</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Time between waves.</p>
+</dd>
+    <dt><code>SpawnClearance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>No reinforcement spawns (and no closet opens) within this distance of a standing player.</p>
+</dd>
+    <dt><code>ClosetOpenSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Minimum time a closet door stays open once soldiers are inside.</p>
+</dd>
+    <dt><code>WaveHoldSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Longest a wave waits while the Director is holding waves back (because the squad is under heavy pressure).</p>
+</dd>
+    <dt><code>ExtractRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How close to the extraction point everyone has to stand.</p>
+</dd>
+    <dt><code>ExtractSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long everyone has to stand there together to extract.</p>
+</dd>
+    <dt><code>AirlockSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long the airlock takes to cycle at the start before its inner door opens, counted once every player is aboard.</p>
+</dd>
+    <dt><code>EarlySeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long the squad has to hold Interact together at the airlock to leave early.</p>
+</dd>
+    <dt><code>EarlyRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How close to the hatch everyone has to stand to leave early.</p>
+</dd>
+    <dt><code>BoardingSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The longest the insertion waits for players still loading the level before it cycles anyway, so one stuck client
+can't hold the squad forever.</p>
+</dd>
+    <dt><code>PodSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long someone inside an escape pod has to hold Interact to launch it.</p>
+</dd>
+    <dt><code>PodRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How near the middle of a pod's floor counts as inside it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_AirlockSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.AirlockSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_AirlockSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.AirlockSeconds">
+  AirlockSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the airlock takes to cycle at the start before its inner door opens, counted once every player is aboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AirlockSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_BoardingSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.BoardingSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_BoardingSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.BoardingSeconds">
+  BoardingSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The longest the insertion waits for players still loading the level before it cycles anyway, so one stuck client
+can't hold the squad forever.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BoardingSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_ClosetOpenSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.ClosetOpenSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_ClosetOpenSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.ClosetOpenSeconds">
+  ClosetOpenSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum time a closet door stays open once soldiers are inside.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ClosetOpenSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_Default_" data-uid="LastFleet.AI.Missions.MissionTuning.Default*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_Default" data-uid="LastFleet.AI.Missions.MissionTuning.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MissionTuning Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.MissionTuning.html">MissionTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_DoorReach_" data-uid="LastFleet.AI.Missions.MissionTuning.DoorReach*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_DoorReach" data-uid="LastFleet.AI.Missions.MissionTuning.DoorReach">
+  DoorReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close a player holding the keycard has to get to open a locked door.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DoorReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_EarlyRadius_" data-uid="LastFleet.AI.Missions.MissionTuning.EarlyRadius*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_EarlyRadius" data-uid="LastFleet.AI.Missions.MissionTuning.EarlyRadius">
+  EarlyRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close to the hatch everyone has to stand to leave early.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EarlyRadius { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_EarlySeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.EarlySeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_EarlySeconds" data-uid="LastFleet.AI.Missions.MissionTuning.EarlySeconds">
+  EarlySeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the squad has to hold Interact together at the airlock to leave early.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EarlySeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_ExtractRadius_" data-uid="LastFleet.AI.Missions.MissionTuning.ExtractRadius*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_ExtractRadius" data-uid="LastFleet.AI.Missions.MissionTuning.ExtractRadius">
+  ExtractRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close to the extraction point everyone has to stand.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ExtractRadius { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_ExtractSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.ExtractSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_ExtractSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.ExtractSeconds">
+  ExtractSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long everyone has to stand there together to extract.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ExtractSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_FirstWaveDelay_" data-uid="LastFleet.AI.Missions.MissionTuning.FirstWaveDelay*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_FirstWaveDelay" data-uid="LastFleet.AI.Missions.MissionTuning.FirstWaveDelay">
+  FirstWaveDelay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time from the start of the hack to the first wave.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FirstWaveDelay { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_HackSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.HackSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_HackSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.HackSeconds">
+  HackSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the hack takes. It only counts down while the room is held.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HackSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_HoldHeight_" data-uid="LastFleet.AI.Missions.MissionTuning.HoldHeight*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_HoldHeight" data-uid="LastFleet.AI.Missions.MissionTuning.HoldHeight">
+  HoldHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far up or down still counts as the same room. Also used for the extraction point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HoldHeight { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_HoldRadius_" data-uid="LastFleet.AI.Missions.MissionTuning.HoldRadius*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_HoldRadius" data-uid="LastFleet.AI.Missions.MissionTuning.HoldRadius">
+  HoldRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far from the terminal still counts as holding its room.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HoldRadius { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_KeyReach_" data-uid="LastFleet.AI.Missions.MissionTuning.KeyReach*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_KeyReach" data-uid="LastFleet.AI.Missions.MissionTuning.KeyReach">
+  KeyReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close (horizontally) a standing player has to get to pick up a keycard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float KeyReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_PodRadius_" data-uid="LastFleet.AI.Missions.MissionTuning.PodRadius*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_PodRadius" data-uid="LastFleet.AI.Missions.MissionTuning.PodRadius">
+  PodRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How near the middle of a pod's floor counts as inside it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PodRadius { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_PodSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.PodSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_PodSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.PodSeconds">
+  PodSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long someone inside an escape pod has to hold Interact to launch it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PodSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_SpawnClearance_" data-uid="LastFleet.AI.Missions.MissionTuning.SpawnClearance*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_SpawnClearance" data-uid="LastFleet.AI.Missions.MissionTuning.SpawnClearance">
+  SpawnClearance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>No reinforcement spawns (and no closet opens) within this distance of a standing player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpawnClearance { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_StartSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.StartSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_StartSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.StartSeconds">
+  StartSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long Interact has to be held to start the hack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float StartSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_TerminalReach_" data-uid="LastFleet.AI.Missions.MissionTuning.TerminalReach*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_TerminalReach" data-uid="LastFleet.AI.Missions.MissionTuning.TerminalReach">
+  TerminalReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How close to the terminal Interact starts the hack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TerminalReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_WaveBase_" data-uid="LastFleet.AI.Missions.MissionTuning.WaveBase*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_WaveBase" data-uid="LastFleet.AI.Missions.MissionTuning.WaveBase">
+  WaveBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soldiers in every wave, regardless of squad size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WaveBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_WaveHoldSeconds_" data-uid="LastFleet.AI.Missions.MissionTuning.WaveHoldSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_WaveHoldSeconds" data-uid="LastFleet.AI.Missions.MissionTuning.WaveHoldSeconds">
+  WaveHoldSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Longest a wave waits while the Director is holding waves back (because the squad is under heavy pressure).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float WaveHoldSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_WaveInterval_" data-uid="LastFleet.AI.Missions.MissionTuning.WaveInterval*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_WaveInterval" data-uid="LastFleet.AI.Missions.MissionTuning.WaveInterval">
+  WaveInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time between waves.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float WaveInterval { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_WavePerPlayer_" data-uid="LastFleet.AI.Missions.MissionTuning.WavePerPlayer*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_WavePerPlayer" data-uid="LastFleet.AI.Missions.MissionTuning.WavePerPlayer">
+  WavePerPlayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extra soldiers per wave for each player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WavePerPlayer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_Waves_" data-uid="LastFleet.AI.Missions.MissionTuning.Waves*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_Waves" data-uid="LastFleet.AI.Missions.MissionTuning.Waves">
+  Waves
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many reinforcement waves the hack brings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Waves { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionTuning_WaveSize_" data-uid="LastFleet.AI.Missions.MissionTuning.WaveSize*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionTuning_WaveSize_System_Int32_" data-uid="LastFleet.AI.Missions.MissionTuning.WaveSize(System.Int32)">
+  WaveSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionTuning.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of soldiers in a wave against <code class="paramref">players</code> players.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WaveSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Content.Skeletal.Graph | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Content.Skeletal.Graph | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Content.Skeletal.Graph">
+
+  <h1 id="LastFleet_Content_Skeletal_Graph" data-uid="LastFleet.Content.Skeletal.Graph" class="text-break">Namespace LastFleet.Content.Skeletal.Graph</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimAction.html">AnimAction</a></dt>
+      <dd><p>A one-shot animation a body plays on top of whatever else it's doing (like Unreal's montage played into a slot),
+for example a reload, a throw or a shot's kick.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimGraph.html">AnimGraph</a></dt>
+      <dd><p>A body type's animation graph, read from <code>content/anim/&lt;id&gt;.json</code>. It has the parameters it reads, and
+a tree of nodes (clips, blend spaces, selects, masked layers, additives, and IK for reaching, looking and foot
+placement) that turns those parameters into a pose. It's shared by every model of its rig.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html">AnimInstance</a></dt>
+      <dd><p>One body playing an <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimGraph.html">AnimGraph</a>. It holds the body's parameters, which get set every frame before
+evaluation, and the per-body state the graph keeps between frames (each clip's clock, each synced blend's phase,
+which state each select node picked and how far it has faded to it). Create one per body; evaluating it doesn't
+allocate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimParameter.html">AnimParameter</a></dt>
+      <dd><p>A number an <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimGraph.html">AnimGraph</a> reads. The code that knows the body's state (the client's bridge from the
+simulation) sets it for each body every frame. Flags are numbers too: 1 for on, 0 for off.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimPlayer.html">AnimPlayer</a></dt>
+      <dd><p>An <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimGraph.html">AnimGraph</a> bound to a model's skeleton and the rig's clips. It poses any number of bodies (each an
+<a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html">AnimInstance</a>), one at a time, without allocating. Not thread-safe.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.ClipChoice.html">ClipChoice</a></dt>
+      <dd><p>Decides which actual clip plays for each clip a graph names, for one grip style and one enemy variant (like
+Unreal's per-item animation layers, the way Lyra gives each weapon its own). The graph stays a single template for
+every body of its type, and whoever plays it swaps in their own clips. Created by <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimPlayer.html#LastFleet_Content_Skeletal_Graph_AnimPlayer_Choose_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__">Choose(string?, IReadOnlyDictionary&lt;string, string&gt;?)</a>
+and assigned to a body's <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html#LastFleet_Content_Skeletal_Graph_AnimInstance_Clips">Clips</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.ClipEvent.html">ClipEvent</a></dt>
+      <dd><p>An event defined in a graph (like Unreal's notify). It marks a moment on a clip node (in seconds into the clip) or
+in an action (as a fraction, 0 to 1), and says what happens when a body passes it: a sound to play, an effect to
+show, and where on the body.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimEvent.html">AnimEvent</a></dt>
+      <dd><p>A named moment in a clip (a footstep, the magazine coming out) that an <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimInstance.html">AnimInstance</a> passed during a
+frame.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Content.Skeletal.Graph.IAnimWorld.html">IAnimWorld</a></dt>
+      <dd><p>What a body's IK nodes query from the world while its graph plays: where its targets are (the grips of the gun it
+holds) and where the ground is under its feet. Everything is in the body's model space: feet at the origin, +Y up,
+facing -Z. The game passes this to <a class="xref" href="LastFleet.Content.Skeletal.Graph.AnimPlayer.html#LastFleet_Content_Skeletal_Graph_AnimPlayer_Evaluate_LastFleet_Content_Skeletal_Graph_AnimInstance_System_Single_LastFleet_Content_Skeletal_Pose_LastFleet_Content_Skeletal_Graph_IAnimWorld_">Evaluate(AnimInstance, float, Pose, IAnimWorld?)</a>. Without one, IK nodes do nothing.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Missions | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Missions | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Missions">
+
+  <h1 id="LastFleet_ProcGen_Missions" data-uid="LastFleet.ProcGen.Missions" class="text-break">Namespace LastFleet.ProcGen.Missions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.AirlockModels.html">AirlockModels</a></dt>
+      <dd><p>The models of the airlock's fittings in the hull (a mission template's &quot;airlock&quot;): the dropship's intake, where a
+tank's hose couples, and its cargo chute, each a station prop (&quot;file/Object&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.AlertSettings.html">AlertSettings</a></dt>
+      <dd><p>How a mission's station alert level builds up (its template's &quot;alert&quot;): how it rises over time and with noise, how
+little it drops, and what it does to patrols and the horde. The fight's Director reads these (see its
+<code>AlertTuning</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.BoardingTargets.html">BoardingTargets</a></dt>
+      <dd><p>Where a boarding action's targets are in a ship (design doc, &quot;Boarding action: a ship in the fight&quot;): its gun
+batteries, its reactor and its fire suppression controls. Read the same from the level on every machine, so the
+host's mission and everyone's markers agree.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.BreachRule.html">BreachRule</a></dt>
+      <dd><p>How a plan mission's breaches go (docs/plans/structure-first.md, Phase 10; the <code>breaches</code> block of a template's
+<code>plan</code>): the chance a breach seals its compartment for good when the mission can still be finished without it,
+and the districts never lost, whose compartments only ever seal for a while. How tough windows are, the pull and the
+timers are every mission's (breaches.json).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.EarlyExtractionSettings.html">EarlyExtractionSettings</a></dt>
+      <dd><p>Settings for leaving early on the docked dropship (a mission template's &quot;earlyExtraction&quot;): whether the squad can,
+how long they hold at the airlock to leave, and what the fleet needs to get for it to count as a success. That
+requisition is the supplies running short, topped up to <code class="paramref">ReserveJumps</code> jumps of reserve, with some
+minimum amount either way.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.ExitRule.html">ExitRule</a></dt>
+      <dd><p>How a plan mission's squad gets on or off: the kinds of exit it would rather use, in order. The first kind the
+level has wins.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.FleetRule.html">FleetRule</a></dt>
+      <dd><p>The fleet seen from a plan's windows (docs/plans/structure-first.md, Phase 10): how many ships hang in space round the
+level, and how far off, set in the mission template's plan (<code>fleet</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.GenerationSettings.html">GenerationSettings</a></dt>
+      <dd><p>The settings a lobby can change on a mission template before a level is generated: how many decks, how many soldiers,
+how much loot, how many stories, and how many rooms are built from the seed. They're encoded in the level's name
+(<a class="xref" href="LastFleet.ProcGen.Missions.GenerationSettings.html#LastFleet_ProcGen_Missions_GenerationSettings_Encode">Encode()</a>), so every co-op peer generates the same level from the name alone.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.KeycardRule.html">KeycardRule</a></dt>
+      <dd><p>Where a plan mission's keycards go: one for each gate the hack doesn't open, in a room of the zone before its gate,
+off the way through.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.KeycardStep.html">KeycardStep</a></dt>
+      <dd><p>The keycard for each deck's gate into the next (but the gate the hack opens), on a branch off the deck's way through,
+sometimes behind a room to explore: before its lock, so the level can always be finished. On every deck.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a></dt>
+      <dd><p>How a level's mission graph is grown, deck by deck (<a class="xref" href="LastFleet.ProcGen.Missions.MissionGraph.html">MissionGraph</a>). It's a list of steps in order: first
+the main path (<a class="xref" href="LastFleet.ProcGen.Missions.MainPathStep.html">MainPathStep</a>), then the keycard (<a class="xref" href="LastFleet.ProcGen.Missions.KeycardStep.html">KeycardStep</a>), then any side and loot rooms.
+Every step is applied to each deck in turn, so the level is always finishable by construction: each keycard sits on
+its deck before the gate it opens. This is a mission template's <code>recipe</code>. A template without one grows from its
+room counts (<a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html#LastFleet_ProcGen_Missions_LevelRecipe_Of_LastFleet_ProcGen_Missions_MissionTemplate_">Of(MissionTemplate)</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.LoopRules.html">LoopRules</a></dt>
+      <dd><p>How a level's loops get made, beyond how many each zone gets (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Loops">Loops</a>). Sets how far
+apart in the room tree a loop's two ends have to be, how long a corridor routed around corners for a loop can be,
+what fraction of rooms should end up on a loop, the most that should be dead ends, and how many one-way shortcuts
+cross each gate between zones. Loops keep getting added until both the loop and dead-end targets are met, or no more
+fit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.LootRoomsStep.html">LootRoomsStep</a></dt>
+      <dd><p>Loot rooms, each off any room of the deck but its ends (and other loot rooms).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.LootSettings.html">LootSettings</a></dt>
+      <dd><p>Weapon loot settings for a mission's level (design doc, &quot;Procedural weapons and loot&quot;). Loot tables are only named
+here, not loaded; the game rolls them. Item level goes up by one per zone, so deeper decks have better weapons. Loot
+rooms hold caches. On top of that, the Director hides a few stashes in each zone, placed to reward going out of the
+way or taking on a guarded room.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.MainPathStep.html">MainPathStep</a></dt>
+      <dd><p>Builds the main path through each deck: the first room (the insertion, or a transit set piece behind the gate), some
+rooms along the way, then the objective and arena on the second-to-last deck and extraction at the end of the last.
+It's always the recipe's first step and runs on every deck.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionGraph.html">MissionGraph</a></dt>
+      <dd><p>Pass 1 (design doc): the mission as a tree of rooms starting from the insertion, with key and lock pairs. It's grown
+by the template's recipe (<a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a>), applying each step in turn on each deck, so it's always
+completable by construction: each keycard sits off the path before its lock.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a></dt>
+      <dd><p>A mission template (design doc, &quot;Mission types&quot; and &quot;Pass 1: mission graph&quot;), read from
+<code>content/defs/missions/*.json</code>. It sets how many rooms of each kind, how many key and lock pairs, loops and
+soldiers, and how many stories the level can climb through (1 keeps it flat).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.ObjectiveRule.html">ObjectiveRule</a></dt>
+      <dd><p>What a plan mission's squad comes for and where it is: a room of the zone before the last (docs/plans/structure-
+first.md, &quot;Objective kinds&quot;). Whatever its kind, finishing it opens the gate into the last zone, where extraction is.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.PlanRecipe.html">PlanRecipe</a></dt>
+      <dd><p>How a mission reads itself into a plan's level (docs/plans/structure-first.md, &quot;The mission recipe&quot;). The level's
+structure is built first, so there's nothing to grow: these are rules for choosing among the rooms it has.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.PodRule.html">PodRule</a></dt>
+      <dd><p>A plan mission's escape pods: bays on the hull, each with a pod or two, that take one or two players off at any time
+(never a crate). Whoever gets off by whatever way, the squad ends up together.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.RecipeStep.html">RecipeStep</a></dt>
+      <dd><p>One step of a level's recipe (<a class="xref" href="LastFleet.ProcGen.Missions.LevelRecipe.html">LevelRecipe</a>): what it adds to each deck's rooms, in the recipe's order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.ReservoirSettings.html">ReservoirSettings</a></dt>
+      <dd><p>Settings for deep reservoirs of fuel or water (a mission template's &quot;reservoir&quot;). A reservoir is a big tank deeper in
+the station than a hose can reach. It's piped back to an outlet near the airlock through valves the squad has to
+open (one at the reservoir and some along the way) before the hose can be run from the outlet to the dropship.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.RoomRule.html">RoomRule</a></dt>
+      <dd><p>Which of a plan's rooms a mission rule is after: those with any of <a class="xref" href="LastFleet.ProcGen.Missions.RoomRule.html#LastFleet_ProcGen_Missions_RoomRule_Any">Any</a>'s tags, from their archetype
+(archetypes.json), a tag also matching every tag under it (<code>room.storage</code> takes <code>room.storage.armory</code>).
+With no tags, every room.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.SideRoomsStep.html">SideRoomsStep</a></dt>
+      <dd><p>Adds side rooms to explore. Each is a dead end off the deck's main path, sometimes two rooms deep. A one-deck level
+gets none.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html">StationSupplies</a></dt>
+      <dd><p>The supplies a station's cargo can hold, as defined in the game's data (the loot data's fleet supplies, put into use
+with <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Use_LastFleet_ProcGen_Missions_StationSupplies_">Use(StationSupplies?)</a>; with no data, <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Shipped">Shipped</a>). Lists every supply a station can be chosen for (a
+<a class="xref" href="LastFleet.ProcGen.Missions.GenerationSettings.html#LastFleet_ProcGen_Missions_GenerationSettings_CargoFocus">CargoFocus</a>), each with its color, used for a tank's band and glow when it holds
+that supply. Which ones are kept in tanks is up to the mission template (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_TankSupplies">TankSupplies</a>).
+Every co-op peer generates its levels from the same set.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.TankKind.html">TankKind</a></dt>
+      <dd><p>A kind of supply tank a station's rooms can have (a mission template's &quot;tankKinds&quot;). It sets the model (a station prop
+in content/props, <span class="xref">LastFleet.ProcGen.Levels.Dressing.StationProps</span>), how much room it takes, which supplies it can hold, and
+how often it's picked over other kinds that can hold the same supply.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.ThreatRule.html">ThreatRule</a></dt>
+      <dd><p>How hard a plan mission's places are defended, and what that sets (docs/plans/structure-first.md, &quot;Threat drives the
+fight&quot;; the <code>threat</code> block of a template's <code>plan</code>). Each zone's threat rises from the first to the last,
+scaled by its district and by what a room is (a security office more, quarters less). While the squad is somewhere,
+its threat sets how often the Director sends a patrol and how big; the station's alert speeds both on top. Patrols
+come from the spawn closets beside <a class="xref" href="LastFleet.ProcGen.Missions.ThreatRule.html#LastFleet_ProcGen_Missions_ThreatRule_Sources">Sources</a> rooms or on a service way first.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.MissionNode.html">MissionNode</a></dt>
+      <dd><p>A room in the mission graph.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.PlanChoice.html">PlanChoice</a></dt>
+      <dd><p>A plan a mission can be laid out by (plans.json), and how often it's picked against the mission's others.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.RecipeStepKind.html">RecipeStepKind</a></dt>
+      <dd><p>The kinds of recipe step, as named in a template's <code>recipe</code> (<a class="xref" href="LastFleet.ProcGen.Missions.RecipeStep.html">RecipeStep</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Missions.RoomRole.html">RoomRole</a></dt>
+      <dd><p>What a room is for in a mission.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

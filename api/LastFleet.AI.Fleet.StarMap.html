@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StarMap | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StarMap | The Last Fleet ">
+      
+      <meta name="description" content="Builds and queries the sector the fleet is crossing (design doc, &amp;quot;Map structure&amp;quot;). A sector has ten to fourteen systems from its entry (on the left) to its gate (on the right). Each is linked to its nearest neighbors so there are alternate routes, and each has a few points of interest to drop to, stations and ships.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Fleet_StarMap.md&amp;value=---%0Auid%3A%20LastFleet.AI.Fleet.StarMap%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Fleet.StarMap">
+
+
+
+  <h1 id="LastFleet_AI_Fleet_StarMap" data-uid="LastFleet.AI.Fleet.StarMap" class="text-break">
+Class StarMap  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Fleet.html">Fleet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builds and queries the sector the fleet is crossing (design doc, &quot;Map structure&quot;). A sector has ten to fourteen
+systems from its entry (on the left) to its gate (on the right). Each is linked to its nearest neighbors so there
+are alternate routes, and each has a few points of interest to drop to, stations and ships.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StarMap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StarMap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Fleet_StarMap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The squad picks the fleet's next system from the ones one jump away, and once there, which of its points to drop
+to. Everything is deterministic from the run's seed and the sector number.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_ChartReach" data-uid="LastFleet.AI.Fleet.StarMap.ChartReach">
+  ChartReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many jumps out the fleet's charts reach: the lanes and names of systems that far are known.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ChartReach = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_GateExit" data-uid="LastFleet.AI.Fleet.StarMap.GateExit">
+  GateExit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The course that leads through the gate into the next sector (<a class="xref" href="LastFleet.AI.Fleet.FleetState.html#LastFleet_AI_Fleet_FleetState_Destination">Destination</a>), from the
+gate's system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int GateExit = -2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_AtGate_" data-uid="LastFleet.AI.Fleet.StarMap.AtGate*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_AtGate_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.AtGate(LastFleet.AI.Fleet.FleetState)">
+  AtGate(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the fleet can set course through the gate (it's at the gate's system).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AtGate(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Cargo_" data-uid="LastFleet.AI.Fleet.StarMap.Cargo*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Cargo_LastFleet_AI_Fleet_PointOfInterest_" data-uid="LastFleet.AI.Fleet.StarMap.Cargo(LastFleet.AI.Fleet.PointOfInterest)">
+  Cargo(PointOfInterest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much cargo <code class="paramref">point</code> has left now, picked over as often as it's been raided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Cargo(PointOfInterest point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_CourseSet_" data-uid="LastFleet.AI.Fleet.StarMap.CourseSet*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_CourseSet_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.CourseSet(LastFleet.AI.Fleet.FleetState)">
+  CourseSet(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if a course is set: for a system one jump away, or through the gate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CourseSet(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Drop_" data-uid="LastFleet.AI.Fleet.StarMap.Drop*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Drop_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.Drop(LastFleet.AI.Fleet.FleetState)">
+  Drop(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns where the squad drops next: the point of interest picked in the fleet's system, or else the first one
+there that hasn't been raided (or the first if all have). Null if the system has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PointOfInterest? Drop(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Guards_" data-uid="LastFleet.AI.Fleet.StarMap.Guards*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Guards_LastFleet_AI_Fleet_PointOfInterest_" data-uid="LastFleet.AI.Fleet.StarMap.Guards(LastFleet.AI.Fleet.PointOfInterest)">
+  Guards(PointOfInterest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How heavily <code class="paramref">point</code> is guarded now, picked over as often as it's been raided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Guards(PointOfInterest point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_HasShip_" data-uid="LastFleet.AI.Fleet.StarMap.HasShip*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_HasShip_LastFleet_AI_Fleet_StarSystem_" data-uid="LastFleet.AI.Fleet.StarMap.HasShip(LastFleet.AI.Fleet.StarSystem)">
+  HasShip(StarSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if any of <code class="paramref">system</code>'s points is a ship.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasShip(StarSystem system)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>system</code> <a class="xref" href="LastFleet.AI.Fleet.StarSystem.html">StarSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Holds_" data-uid="LastFleet.AI.Fleet.StarMap.Holds*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Holds_LastFleet_AI_Fleet_PointOfInterest_" data-uid="LastFleet.AI.Fleet.StarMap.Holds(LastFleet.AI.Fleet.PointOfInterest)">
+  Holds(PointOfInterest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns what a point mostly holds, as display text (&quot;fuel&quot;, or &quot;a mix of supplies&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Holds(PointOfInterest point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_IsShip_" data-uid="LastFleet.AI.Fleet.StarMap.IsShip*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_IsShip_LastFleet_AI_Fleet_PointOfInterest_" data-uid="LastFleet.AI.Fleet.StarMap.IsShip(LastFleet.AI.Fleet.PointOfInterest)">
+  IsShip(PointOfInterest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the squad raids a ship at <code class="paramref">point</code>, not a station.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsShip(PointOfInterest point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="LastFleet.AI.Fleet.PointOfInterest.html">PointOfInterest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Jumps_" data-uid="LastFleet.AI.Fleet.StarMap.Jumps*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Jumps_LastFleet_AI_Fleet_FleetState_System_Int32_" data-uid="LastFleet.AI.Fleet.StarMap.Jumps(LastFleet.AI.Fleet.FleetState,System.Int32)">
+  Jumps(FleetState, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many jumps <code class="paramref">id</code> is from where the fleet is; a large number if it can't be reached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Jumps(FleetState fleet, int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Knowledge_" data-uid="LastFleet.AI.Fleet.StarMap.Knowledge*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Knowledge_LastFleet_AI_Fleet_FleetState_LastFleet_AI_Fleet_StarSystem_" data-uid="LastFleet.AI.Fleet.StarMap.Knowledge(LastFleet.AI.Fleet.FleetState,LastFleet.AI.Fleet.StarSystem)">
+  Knowledge(FleetState, StarSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the fleet knows of <code class="paramref">system</code> now: observed if it's in sensor range (the fleet's system or
+one jump away), stale if it was seen once and isn't now, charted if it's within <a class="xref" href="LastFleet.AI.Fleet.StarMap.html#LastFleet_AI_Fleet_StarMap_ChartReach">ChartReach</a> jumps
+(or is the gate, which every chart shows), and otherwise unknown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SystemKnowledge Knowledge(FleetState fleet, StarSystem system)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>system</code> <a class="xref" href="LastFleet.AI.Fleet.StarSystem.html">StarSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.SystemKnowledge.html">SystemKnowledge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_NewSector_" data-uid="LastFleet.AI.Fleet.StarMap.NewSector*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_NewSector_LastFleet_AI_Fleet_FleetState_System_Int32_" data-uid="LastFleet.AI.Fleet.StarMap.NewSector(LastFleet.AI.Fleet.FleetState,System.Int32)">
+  NewSector(FleetState, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates sector <code class="paramref">sector</code> for <code class="paramref">fleet</code>, placing it at the entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void NewSector(FleetState fleet, int sector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>sector</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Next_" data-uid="LastFleet.AI.Fleet.StarMap.Next*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Next_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.Next(LastFleet.AI.Fleet.FleetState)">
+  Next(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the system the course is set for, or null if none is (or it's set through the gate,
+<a class="xref" href="LastFleet.AI.Fleet.StarMap.html#LastFleet_AI_Fleet_StarMap_GateExit">GateExit</a>). A course is only ever set for a system one jump away.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StarSystem? Next(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Fleet.StarSystem.html">StarSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Observe_" data-uid="LastFleet.AI.Fleet.StarMap.Observe*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Observe_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.Observe(LastFleet.AI.Fleet.FleetState)">
+  Observe(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the fleet's sensors. Its own system and the ones one jump away get marked as seen (so their stations are
+known), and the Scourge is sighted if it's in one of them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Observe(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_Reachable_" data-uid="LastFleet.AI.Fleet.StarMap.Reachable*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_Reachable_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.Reachable(LastFleet.AI.Fleet.FleetState)">
+  Reachable(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the systems one jump from where the fleet is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;StarSystem&gt; Reachable(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LastFleet.AI.Fleet.StarSystem.html">StarSystem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_ScourgeInSight_" data-uid="LastFleet.AI.Fleet.StarMap.ScourgeInSight*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_ScourgeInSight_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.ScourgeInSight(LastFleet.AI.Fleet.FleetState)">
+  ScourgeInSight(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the Scourge is in sensor range right now (sighted this mission).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ScourgeInSight(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Fleet_StarMap_ScourgeSystem_" data-uid="LastFleet.AI.Fleet.StarMap.ScourgeSystem*"></a>
+
+  <h3 id="LastFleet_AI_Fleet_StarMap_ScourgeSystem_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.AI.Fleet.StarMap.ScourgeSystem(LastFleet.AI.Fleet.FleetState)">
+  ScourgeSystem(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Fleet/StarMap.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Scourge's system on the map. It's on the fleet's trail, as many jumps back as its distance (rounded).
+Once it has caught up, it's the fleet's own system. Returns -1 while it's further back than the trail goes (not
+in this sector yet).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ScourgeSystem(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

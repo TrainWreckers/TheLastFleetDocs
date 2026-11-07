@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SoldierSpawner | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SoldierSpawner | The Last Fleet ">
+      
+      <meta name="description" content="Spawns soldiers with their AI. Each one is an enemy variant (), which sets its body, guns, faction and the behavior it uses.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Soldiers_SoldierSpawner.md&amp;value=---%0Auid%3A%20LastFleet.AI.Soldiers.SoldierSpawner%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Soldiers.SoldierSpawner">
+
+
+
+  <h1 id="LastFleet_AI_Soldiers_SoldierSpawner" data-uid="LastFleet.AI.Soldiers.SoldierSpawner" class="text-break">
+Class SoldierSpawner  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Soldiers.html">Soldiers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Spawns soldiers with their AI. Each one is an enemy variant (<a class="xref" href="LastFleet.AI.Enemies.EnemyRoster.html">EnemyRoster</a>), which sets its body, guns,
+faction and the behavior it uses.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SoldierSpawner</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SoldierSpawner</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_LancerHealth" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.LancerHealth">
+  LancerHealth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shipped Choir Lancer's health: 1.5 times a soldier's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float LancerHealth = 210</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_PlainSoldier" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.PlainSoldier">
+  PlainSoldier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id of the variant spawned when none is specified: the plain soldier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PlainSoldier = &quot;soldier&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_FreeSquad_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.FreeSquad*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_FreeSquad_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.FreeSquad(Friflo.Engine.ECS.EntityStore)">
+  FreeSquad(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a squad number that no soldier in <code class="paramref">store</code> uses yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FreeSquad(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_Spawn_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.Spawn*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_Spawn_Friflo_Engine_ECS_EntityStore_System_Numerics_Vector3_System_Single_System_UInt64_System_Int32_LastFleet_Simulation_Weapons_WeaponArchetype_System_Int32_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.Spawn(Friflo.Engine.ECS.EntityStore,System.Numerics.Vector3,System.Single,System.UInt64,System.Int32,LastFleet.Simulation.Weapons.WeaponArchetype,System.Int32)">
+  Spawn(EntityStore, Vector3, float, ulong, int, WeaponArchetype?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spawns a soldier into <code class="paramref">store</code>. Used by systems that bring in reinforcements mid-fight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Entity Spawn(EntityStore store, Vector3 position, float yaw, ulong seed, int squad = 0, WeaponArchetype? arms = null, int variant = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd><p>The world to spawn it into.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Feet position.</p>
+</dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Facing.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>Seed for this soldier's weapon and its random choices.</p>
+</dd>
+    <dt><code>squad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The squad it belongs to.</p>
+</dd>
+    <dt><code>arms</code> <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd><p>Its gun. If null, one of its variant's guns is picked from its seed.</p>
+</dd>
+    <dt><code>variant</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Its variant index in the roster in play. -1 for the plain soldier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_Spawn_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.Spawn*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_Spawn_LastFleet_Ecs_GameWorld_System_Numerics_Vector3_System_Single_System_UInt64_System_Int32_LastFleet_Simulation_Weapons_WeaponArchetype_System_Int32_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.Spawn(LastFleet.Ecs.GameWorld,System.Numerics.Vector3,System.Single,System.UInt64,System.Int32,LastFleet.Simulation.Weapons.WeaponArchetype,System.Int32)">
+  Spawn(GameWorld, Vector3, float, ulong, int, WeaponArchetype?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spawns a soldier at <code class="paramref">position</code>, facing <code class="paramref">yaw</code>, guarding that spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Entity Spawn(GameWorld world, Vector3 position, float yaw, ulong seed, int squad = 0, WeaponArchetype? arms = null, int variant = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd><p>World to spawn into. It needs a <a class="xref" href="LastFleet.AI.Soldiers.SoldierAiSystem.html">SoldierAiSystem</a> for the soldier to think.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Feet position.</p>
+</dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Facing.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>Seed for this soldier's weapon and its random choices.</p>
+</dd>
+    <dt><code>squad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The squad it belongs to.</p>
+</dd>
+    <dt><code>arms</code> <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd><p>Its gun. If null, one of its variant's guns is picked from its seed.</p>
+</dd>
+    <dt><code>variant</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Its variant index in the roster in play. -1 for the plain soldier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_SpawnHunting_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SpawnHunting*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_SpawnHunting_Friflo_Engine_ECS_EntityStore_System_Numerics_Vector3_System_Single_System_UInt64_System_Int32_System_Numerics_Vector3_System_Int32_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SpawnHunting(Friflo.Engine.ECS.EntityStore,System.Numerics.Vector3,System.Single,System.UInt64,System.Int32,System.Numerics.Vector3,System.Int32)">
+  SpawnHunting(EntityStore, Vector3, float, ulong, int, Vector3, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spawns a soldier that already knows where to go. It hunts toward <code class="paramref">goal</code> as if it had lost sight
+of someone there, and fights whoever it meets on the way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Entity SpawnHunting(EntityStore store, Vector3 position, float yaw, ulong seed, int squad, Vector3 goal, int variant = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>squad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>goal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>variant</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_SpawnLancer_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SpawnLancer*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_SpawnLancer_Friflo_Engine_ECS_EntityStore_System_Numerics_Vector3_System_Single_System_UInt64_System_Int32_System_Numerics_Vector3_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SpawnLancer(Friflo.Engine.ECS.EntityStore,System.Numerics.Vector3,System.Single,System.UInt64,System.Int32,System.Numerics.Vector3)">
+  SpawnLancer(EntityStore, Vector3, float, ulong, int, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spawns a soldier for one of the Choir's squads (per the design doc, its elite squads that fight like soldiers;
+the shipped variant is the Lancer). It hunts the players from the start, heading for <code class="paramref">goal</code>.
+Its variant is whichever one the roster gives the Choir for this squad. The horde leaves it alone; soldiers and
+players fight it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Entity SpawnLancer(EntityStore store, Vector3 position, float yaw, ulong seed, int squad, Vector3 goal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>squad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>goal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierSpawner_SquadVariant_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SquadVariant*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierSpawner_SquadVariant_LastFleet_AI_Enemies_EnemySource_System_UInt64_" data-uid="LastFleet.AI.Soldiers.SoldierSpawner.SquadVariant(LastFleet.AI.Enemies.EnemySource,System.UInt64)">
+  SquadVariant(EnemySource, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierSpawner.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the variant for a squad from <code class="paramref">source</code>, picked by the roster in play using
+<code class="paramref">squadSeed</code>. Returns -1 if no variant comes from that source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SquadVariant(EnemySource source, ulong squadSeed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LastFleet.AI.Enemies.EnemySource.html">EnemySource</a></dt>
+    <dd></dd>
+    <dt><code>squadSeed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Surface materials | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Surface materials | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="surface-materials">Surface materials</h1>
+
+<p>Every model in the game is drawn with one fixed library of <strong>surface materials</strong>: painted metal, bare metal, rubber,
+glass and so on. Your model's colors are still yours. The material just says how those colors react to light: is it
+paint or polished steel, rough or glossy, how dirty does a station make it, and does it glow?</p>
+<p>Why one library for everything? Because then paint looks like paint on every gun, crate and wall, and changing a
+material (in Studio) changes every model at once. Tweak <code>painted_metal</code> once and the whole game follows!</p>
+<p>There are no textures. Faces are flat, and a material is just a few numbers.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>id</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plastic</td>
+<td><code>plastic</code></td>
+<td>Casings, furniture, anything not covered by another material. Anything with no library material gets drawn as this.</td>
+</tr>
+<tr>
+<td>Painted metal</td>
+<td><code>painted_metal</code></td>
+<td>Walls, hulls, crates, a gun's body: metal under paint.</td>
+</tr>
+<tr>
+<td>Bare metal</td>
+<td><code>bare_metal</code></td>
+<td>Barrels, rails, pipes, brass. No diffuse light; its color tints what it reflects. Smooth highlights.</td>
+</tr>
+<tr>
+<td>Worn metal</td>
+<td><code>worn_metal</code></td>
+<td>Floors, deck plates, ducts: paint worn through to the metal, rough and grimy.</td>
+</tr>
+<tr>
+<td>Rubber</td>
+<td><code>rubber</code></td>
+<td>Grips, feet, seals. Always close to black, and rough.</td>
+</tr>
+<tr>
+<td>Glass</td>
+<td><code>glass</code></td>
+<td>Windows, visors, screens. Glossy with smooth highlights, and never grimy.</td>
+</tr>
+<tr>
+<td>Cloth</td>
+<td><code>cloth</code></td>
+<td>Uniforms, sandbags. Fully rough.</td>
+</tr>
+<tr>
+<td>Concrete</td>
+<td><code>concrete</code></td>
+<td>Bunkers, outdoor walls and floors. Rough, and soaks up all the grime.</td>
+</tr>
+<tr>
+<td>Emissive</td>
+<td><code>emissive</code></td>
+<td>Light panels, reticles, signal lights, the Choir's eyes. Its color is the light it gives off.</td>
+</tr>
+<tr>
+<td>Sight glass</td>
+<td><code>sight_dot</code>, <code>sight_ring</code>, <code>sight_chevron</code></td>
+<td>A red dot's or holographic sight's glass: clear except for its reticle (a dot, a ring or a chevron), drawn in the model's color.</td>
+</tr>
+<tr>
+<td>Window onto space</td>
+<td><code>space_window</code></td>
+<td>A window in a ship or station. It shows the sector's sky, whatever its color, and never what's behind it.</td>
+</tr>
+<tr>
+<td>Hull plating</td>
+<td><code>hull_plating</code></td>
+<td>A ship's or station's outside, seen from a window. Lit by the sector's sun instead of a room's lights.</td>
+</tr>
+</tbody>
+</table>
+<p>The library is <code>content/defs/materials.json</code>. Each material has these numbers:</p>
+<ul>
+<li><strong>roughness</strong>: 0 is a mirror, 1 is chalk. Low roughness gives a small bright highlight, and high roughness gives a
+wide dim one.</li>
+<li><strong>metalness</strong>: 0 for paint, plastic, rubber and glass, which light up in their own color. 1 for bare metal, which is
+dark except for what it reflects, tinted by its color. Somewhere in between for metal with the paint worn through.</li>
+<li><strong>smooth</strong>: its highlights follow a smoothed surface, so a barrel shows one clean streak along its length instead of
+a stripe on each face. Its lighting stays faceted, like everything else's.</li>
+<li><strong>grime</strong>: how much of a station's dirt it picks up, from 0 (glass) to 1 (floors). Grime darkens the surface, makes
+it browner and makes it rougher. Anything that moves (characters, the gun in your hands) stays clean.</li>
+<li><strong>emissive</strong>: its color is light. A color of 1 or less is drawn as is, no matter what's lighting it. A color above 1
+(a material with an Emission in Blender) is lit normally, and the excess glows and blooms.</li>
+<li><strong>color</strong>: optional. A color it always has, whatever the model says (rubber is close to black).</li>
+<li><strong>sight</strong>: optional. Makes it a sight's glass: <code>dot</code>, <code>ring</code> or <code>chevron</code>. The reticle is drawn where the eye looks
+along the aim, the way a real one sits at infinity.</li>
+<li><strong>space</strong>: optional. Makes it a window onto space, drawn as the sector's sky (<code>content/defs/skies.json</code>).</li>
+<li><strong>outside</strong>: optional. It's out in space on a hull: lit by the sector's sun, not a room's fill, and seen through no
+haze.</li>
+</ul>
+<h3 id="reflections">Reflections</h3>
+<p>Inside a station, a surface reflects its room: the room's walls, props and lit panels, and what you can see through its
+doorways. We capture the reflection when the level starts, and again whenever one of the room's lights gets shot out or
+mended, or the alert stage changes.</p>
+<p>Roughness blurs the reflection, so bare metal shows the room sharply while paint only shows a soft sheen. Outdoors, a
+surface reflects the sky. Characters, flashlight beams and flashes don't show up in reflections; their light shows up
+in the highlights instead.</p>
+<h2 id="choosing-a-material-in-blender">Choosing a material in Blender</h2>
+<p>So you've got a model and want its materials to look right in the game? Here's the flow:</p>
+<ol>
+<li>Install <code>tools/blender/lastfleet_materials.py</code> (<strong>Edit &gt; Preferences &gt; Add-ons &gt; Install from Disk</strong>, then tick
+<strong>Last Fleet Materials</strong>), alongside the add-on you model with.</li>
+<li>It finds the library on its own when your <code>.blend</code> is in the repository (it looks for
+<code>content/defs/materials.json</code> in the folders above the file). Otherwise, set <strong>Library</strong> on the <strong>Last Fleet</strong> tab of
+the 3D view's sidebar (N), under <strong>Materials</strong>.</li>
+<li>Pick a library material for each of your materials. You can do it in <strong>Material Properties</strong>, with the
+<strong>Last Fleet</strong> panel's <strong>Material</strong> dropdown, or for all of the file's materials at once in the sidebar's
+<strong>Materials</strong> panel. The choice is saved as the material's custom property <code>lastfleet_material</code>, which every
+Last Fleet add-on exports into the glTF.</li>
+<li>Run <strong>Check materials</strong> (in the Materials panel, and in each add-on's own Check while Last Fleet Materials is
+enabled). It lists every material that has no library material and what it falls back to. It also lists any that
+names a material the library doesn't have. That one's an error, and the export stops.</li>
+</ol>
+<p>The kit materials each add-on makes (<strong>Kit materials</strong>) already have theirs set. A gun's <code>Body</code> is painted metal, its
+<code>Metal</code> is bare metal, its <code>Grip</code> is rubber and its <code>Reticle</code> is emissive. A room's <code>Floor</code> is worn metal and its <code>Wall</code>
+is painted metal.</p>
+<p>Your material keeps its name and Base Color. The names the game colors itself (<code>Paint_</code> slots, <code>Body</code>, <code>Glint</code> and the
+rest) still work, because the library material only controls how the color reacts to light, not what color it is.</p>
+<p><strong>A material with no library material</strong> falls back based on its name, the same as models made before the library
+existed: <code>Glass</code> becomes glass, <code>Light</code> (or any material with an Emission) becomes emissive, a <code>Paint_</code> slot becomes
+painted metal, and anything else becomes plastic.</p>
+<h2 id="tuning-materials-in-studio">Tuning materials in Studio</h2>
+<p>Studio's <strong>Look</strong> mode (<code>dotnet run --project src/LastFleet.Studio -- --mode look</code>) lists the library down the left.
+The selected material is shown on a sphere, a crate and a gun barrel, in front of a row of every other material so you
+can compare. Pick the lighting at the top:</p>
+<ul>
+<li><strong>Station lights</strong>: a station's ceiling panels, warm white, which is how most of the game is lit;</li>
+<li><strong>Flashlight in the dark</strong>: nothing but the beam from your eye, the hardest lighting in the game;</li>
+<li><strong>Red alarm</strong> and <strong>Sodium hall</strong>: saturated light, which has to stay its own color;</li>
+<li><strong>Outdoors</strong>: the sun and the sky.</li>
+</ul>
+<p>Drag in the room to look around, and use the mouse wheel to bring it closer. <strong>model's color</strong> sets the color of the
+shapes. Every change shows up right away, both there and on every model Studio draws (the Armory's guns, a level
+played from Missions). Ctrl+Z undoes it and Ctrl+S saves <code>materials.json</code>. <strong>Add</strong> and <strong>Duplicate</strong> make a new
+material at the end of the list, and <strong>Remove</strong> takes one out (<code>plastic</code> stays).</p>
+<p>A few rules for the library:</p>
+<ul>
+<li>An id is lowercase letters, digits and underscores. <strong>Never rename one that models use</strong>, because they'd fall back
+by name until they're re-exported.</li>
+<li><code>plastic</code> has to be first, because anything with no material is drawn with it. <code>plastic</code>, <code>painted_metal</code>, <code>glass</code>
+and <code>emissive</code> have to exist, because old models fall back to them.</li>
+<li>At most 64 materials.</li>
+<li>Add new materials at the end. Removing or reordering one renumbers the ones after it. The game re-reads models when
+it starts, but Studio keeps showing models it already loaded with the wrong materials until you restart it.</li>
+</ul>
+<p>The library is built into the game, so a change to <code>materials.json</code> shows up in the game after the next build.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

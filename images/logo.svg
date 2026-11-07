@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="The Last Fleet">
+  <!-- Three ships in a column: a placeholder mark for the documentation site until the game has a logo. -->
+  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="color:#e8a33d">
+    <path d="M8 9 16 4l8 5"/>
+    <path d="M8 17l8-5 8 5"/>
+    <path d="M8 25l8-5 8 5"/>
+  </g>
+</svg>

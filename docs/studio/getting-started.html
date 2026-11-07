@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting started with Studio | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting started with Studio | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started-with-studio">Getting started with Studio</h1>
+
+<p>LastFleet Studio is where we tune the game's data. Rarities, guns, items, missions, levels, enemies... nearly
+everything you'd want to tweak is a JSON file under <code>content/</code>, and Studio is the friendly way into those files.</p>
+<p>Why not just open the JSON? You can, but you'd be guessing. Studio runs the game's own code right next to the data, so
+you see what a change does the moment you make it: across thousands of loot rolls, on a gun's numbers, or in your own
+hands on the range. And nothing touches the files until you save!</p>
+<p>This guide covers what's the same in every mode: opening Studio, finding your way around, editing a field, saving and
+undoing. The other guides go mode by mode.</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>From the repository:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio
+</code></pre>
+<p>Studio edits the <code>content/</code> of whichever repository you run it from. It finds the repository by looking for
+<code>LastFleet.slnx</code> above the program, or above the folder you're in.</p>
+<p>Want to skip the clicking? Flags go after a <code>--</code>:</p>
+<ul>
+<li><code>--mode &lt;name&gt;</code> opens straight into a mode: <code>loot</code> (the default), <code>armory</code>, <code>items</code>, <code>flow</code>, <code>missions</code>, <code>levels</code>,
+<code>bodies</code>, <code>behavior</code>, <code>look</code> or <code>models</code>.</li>
+<li><code>--select &lt;id&gt;</code> opens with that definition already picked (<code>--select standard</code> for the Standard rarity). Use
+<code>&lt;list&gt;:&lt;id&gt;</code> when the same id lives in more than one list (<code>--select supplies:water</code>).</li>
+<li><code>--help</code> lists the rest. Many modes have their own, like <code>--range</code> or <code>--graph</code>, and the mode guides cover them.</li>
+</ul>
+<p>So <code>dotnet run --project src/LastFleet.Studio -- --mode loot --select standard</code> opens right where the next section
+starts.</p>
+<h2 id="a-quick-tour">A quick tour</h2>
+<p>Here's what you get with no flags at all:</p>
+<p><img src="images/basics/01-first-open.png" alt="Studio as it first opens, in Loot mode, with the menus and mode tabs along the top"></p>
+<p>Along the top:</p>
+<ul>
+<li><strong>File</strong>, <strong>Edit</strong> and <strong>View</strong> are the menus. More on those below.</li>
+<li>Then the <strong>mode tabs</strong>: <strong>Loot</strong>, <strong>Armory</strong>, <strong>Items</strong>, <strong>Flow</strong>, <strong>Missions</strong>, <strong>Levels</strong>, <strong>Bodies</strong>,
+<strong>Behavior</strong>, <strong>Look</strong> and <strong>Models</strong>. The highlighted one is the mode you're in. Click another to switch.</li>
+</ul>
+<p>Most modes are laid out the same way:</p>
+<ul>
+<li><strong>The left column</strong> lists every definition the mode edits, grouped by file (here: <strong>Rarities</strong>, <strong>Loot tables</strong> and
+<strong>Relics</strong>). Each group has a <strong>+ New</strong> button under its title.</li>
+<li><strong>The middle</strong> is the editor for whatever you've picked on the left.</li>
+<li><strong>The right</strong> is the mode's preview. In Loot mode that's the <em>Loot Lab</em>. Other modes have a 3D view, a sandbox, a
+map...</li>
+<li><strong>The status bar</strong> along the bottom says whether everything's saved, and which folder you're editing.</li>
+</ul>
+<p>Every pane can be resized by dragging the bar between them (there's a faint grip in the middle of each bar).
+Studio remembers your sizes for next time.</p>
+<p>Switching modes is just a click. Here's <strong>Items</strong>, with its own lists down the left and its own previews on the right:</p>
+<p><img src="images/basics/11-items-mode.png" alt="The Items mode tab picked, showing the items, effects, supplies and item tables lists and the What a table gives preview"></p>
+<h2 id="edit-a-field">Edit a field</h2>
+<p>So you want to change something? Here's the flow:</p>
+<ol>
+<li><p>Pick a definition on the left. We'll click <strong>standard</strong> under <strong>Rarities</strong>.</p>
+<p>The middle fills in. At the top is the definition's id and the file it lives in (<code>rarities.json</code>), with
+<strong>Duplicate</strong> and <strong>Delete</strong>. Under that is a short note on what this list is for and how to add to it, and then
+the fields themselves.</p>
+<p><img src="images/basics/02-pick-a-definition.png" alt="The standard rarity picked, with its fields in the middle editor"></p>
+</li>
+<li><p>Not sure what a field does? Rest the mouse on it. Every field has a tooltip, and they're written for designers, not
+programmers. Here's <code>perLevel</code>:</p>
+<p><img src="images/basics/03-field-tooltip.png" alt="The tooltip for perLevel explaining how the tier's chance changes with item level"></p>
+</li>
+<li><p>Want the bigger picture? Click <strong>About these fields</strong>. It opens the notes from the top of the file itself, so
+they're always the notes the team wrote alongside the data. Click it again to fold them away.</p>
+<p><img src="images/basics/04-about-these-fields.png" alt="About these fields opened, showing the notes from the top of rarities.json"></p>
+</li>
+<li><p>Now change something. Number fields work like sliders: drag left or right on <code>weight</code> to change it (or
+double-click it to type a number). Text fields, like <code>name</code>, you just click and type in.</p>
+<p>The moment you change it, two things happen. The header says <code>rarities.json (not saved)</code>, and the status bar turns
+orange: <strong>1 file not saved (Ctrl+S): rarities.json</strong>.</p>
+<p><img src="images/basics/05-unsaved-change.png" alt="The weight dragged from 62 to 72, with the header and status bar showing rarities.json is not saved"></p>
+</li>
+</ol>
+<p>A few more things about fields that are worth knowing up front:</p>
+<ul>
+<li>A field that refers to something else (a rarity, a maker, a frame, a part...) is picked from a list of what exists,
+so you can't make a typo. A name Studio doesn't recognize is marked in red.</li>
+<li>A field that's been left out of the file uses its default. It shows greyed out, with <strong>set</strong> to write a value in.</li>
+<li>Lists (a table's entries, a rarity's <code>mods</code>) open as a tree. <strong>x</strong> removes a row and <strong>+ add</strong> adds one.</li>
+<li><strong>+ New</strong> adds a copy of the selected entry at the end of the list, with the id <code>new</code>. <strong>Duplicate</strong> copies it right
+after itself. <strong>Delete</strong> removes it, and anything that refers to it will stop loading.</li>
+</ul>
+<p>What if a change breaks the data, like a table naming a frame that doesn't exist? The bottom of the window tells you
+what's wrong, using the game's own error message, and the previews keep showing the last version that worked. The game
+would refuse the data in that state, so fix it before you save.</p>
+<h2 id="undo-and-redo">Undo and redo</h2>
+<p>Changed your mind? <strong>Ctrl+Z</strong> undoes the last change, in any mode and any file. <strong>Ctrl+Y</strong> (or <strong>Ctrl+Shift+Z</strong>)
+redoes it.</p>
+<ol>
+<li><p>Open the <strong>Edit</strong> menu. <strong>Undo</strong> names the file the change was in, so you always know what you're about to undo.</p>
+<p><img src="images/basics/06-edit-menu-undo.png" alt="The Edit menu showing Undo (rarities.json) and Redo"></p>
+</li>
+<li><p>Click <strong>Undo</strong> (or press <strong>Ctrl+Z</strong>). The weight goes back to 62, and the status bar says what happened:
+<strong>Undid a change to rarities.json</strong>. Since that's exactly what's on disk, it's back to <strong>Saved.</strong> too!</p>
+<p><img src="images/basics/07-undone.png" alt="The weight back at 62, with the status bar showing Saved and Undid a change to rarities.json"></p>
+</li>
+</ol>
+<p>What counts as one change? A whole drag, from grabbing the field to letting go, or a whole bout of typing in a field.
+While you're still typing in a field, Ctrl+Z undoes just your typing. Studio keeps the last 200 changes.</p>
+<h2 id="save-your-work">Save your work</h2>
+<p>Nothing's written to the files until you save. When you're happy:</p>
+<ol>
+<li><p>Press <strong>Ctrl+S</strong>, or open <strong>File</strong> and click <strong>Save all</strong>. <strong>Revert to saved</strong> is in there too, for throwing away
+every change since the last save.</p>
+<p><img src="images/basics/08-file-menu.png" alt="The File menu with Save all, Revert to saved and Quit"></p>
+</li>
+<li><p>The status bar goes back to green: <strong>Saved. Editing</strong> and the folder.</p>
+<p><img src="images/basics/09-saved.png" alt="The weight saved at 72, and the status bar showing Saved"></p>
+</li>
+</ol>
+<p>Studio writes each file in the same layout it was already in, comments and all, so a save only changes the lines you
+edited. That keeps the diff small and easy to review. One heads up: only the comment block at the top of a file (the
+one <strong>About these fields</strong> shows) survives a save. Comments anywhere else in the file are lost.</p>
+<p>Edited a file by hand while Studio was open? Studio reads it again as soon as it changes on disk, and the status bar
+says so. If you had unsaved changes in that file, yours are kept: save to keep them, or <strong>Revert to saved</strong> to take the
+version on disk.</p>
+<h2 id="closing-with-unsaved-changes">Closing with unsaved changes</h2>
+<p>What if you forget to save? Studio has your back. Close it (or <strong>File &gt; Quit</strong>) with changes still pending, and it asks
+first:</p>
+<p><img src="images/basics/10-unsaved-changes-dialog.png" alt="The Unsaved changes dialog with Save and quit, Quit without saving and Stay"></p>
+<ul>
+<li><strong>Save and quit</strong> saves everything, then closes.</li>
+<li><strong>Quit without saving</strong> throws the changes away.</li>
+<li><strong>Stay</strong> takes you back to where you were.</li>
+</ul>
+<h2 id="seeing-a-change">Seeing a change</h2>
+<p>Editing numbers blind isn't much fun, so every mode has a way to show you what a change actually does. Here's a taste
+in Loot mode:</p>
+<ol>
+<li>In the <strong>Loot Lab</strong> on the right, pick <code>loot.station.soldier</code> (what a station soldier drops) and click
+<strong>Roll 10,000</strong>. Standard comes out at 62.5% of the drops.</li>
+<li>Now drag the standard rarity's <code>weight</code> up, from 62 to about 77. The Lab rolls the same 10,000 again on its own,
+and Standard climbs to 67.4%, with every other rarity a little rarer.</li>
+</ol>
+<p><img src="images/basics/12-see-the-change.png" alt="The Loot Lab re-rolled after the weight change, with Standard at 67.4 percent"></p>
+<p>That's it! Every mode has its own version of this: Armory's <strong>Preview</strong> and range, Items' <strong>What a table gives</strong>,
+Behavior's sandbox, and so on. The mode guides walk through each one.</p>
+<p>What about the game itself? The running game doesn't pick up a save, so save in Studio, then start the game (or
+restart the mission) to play with your new data. The grey-box range is a quick place to try a gun:</p>
+<pre><code>dotnet run --project src/LastFleet.Client -- --level range
+</code></pre>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li><a href="reference.html">The reference</a> covers every field. The sections on
+<a href="reference.html#running-it">running it</a>, <a href="reference.html#editing">editing</a> and
+<a href="reference.html#seeing-a-change">seeing a change</a> go deeper on everything above.</li>
+<li><a href="loot.html">loot.md</a>: rarities, loot tables, relics and the Loot Lab.</li>
+<li><a href="armory.html">armory.md</a>: the guns, their parts, the 3D preview and the range.</li>
+<li><a href="items.html">items.md</a>: items, effects, supplies and crafting.</li>
+<li>Not sure whether something is data or code? <a href="../adding-content.html">adding-content.md</a> covers what you can add in
+Studio, and what still needs a programmer.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

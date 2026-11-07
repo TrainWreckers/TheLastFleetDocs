@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WeaponArchetypes | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WeaponArchetypes | The Last Fleet ">
+      
+      <meta name="description" content="The weapon frames. Each one is an archetype from the loot data (archetypes.json) with its model file, how it fires, its fire rate, magazine, damage, spread and so on.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Weapons_WeaponArchetypes.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Weapons.WeaponArchetypes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes">
+
+
+
+  <h1 id="LastFleet_Simulation_Weapons_WeaponArchetypes" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes" class="text-break">
+Class WeaponArchetypes  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Weapons.html">Weapons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The weapon frames. Each one is an archetype from the loot data (archetypes.json) with its model file, how it fires,
+its fire rate, magazine, damage, spread and so on.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class WeaponArchetypes</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WeaponArchetypes</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Weapons_WeaponArchetypes_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The frames declared here are the shipped defaults. When the data loads, its frames are put in play with
+<a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetypes.html#LastFleet_Simulation_Weapons_WeaponArchetypes_Use_System_Collections_Generic_IEnumerable_LastFleet_Simulation_Weapons_WeaponArchetype__">Use(IEnumerable&lt;WeaponArchetype&gt;?)</a>, and <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetypes.html#LastFleet_Simulation_Weapons_WeaponArchetypes_Of_LastFleet_Simulation_Components_Arms_WeaponFrame_">Of(WeaponFrame)</a> returns the frame currently in play for a <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponFrame.html">WeaponFrame</a>.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_SoldiersRifle" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.SoldiersRifle">
+  SoldiersRifle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The frame a soldier carries when nothing specifies one, for example a variant that lists none, or a soldier
+in a test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SoldiersRifle = &quot;pulse_rifle&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_All_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.All*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_All" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.All">
+  All
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The frames in play, in order. A <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponFrame.html">WeaponFrame</a> is an index into this list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;WeaponArchetype&gt; All { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_AutoRifle_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.AutoRifle*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_AutoRifle" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.AutoRifle">
+  AutoRifle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>600 RPM automatic. Forgiving, steady damage, wins on sustained accuracy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype AutoRifle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_GrenadeLauncher_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.GrenadeLauncher*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_GrenadeLauncher" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.GrenadeLauncher">
+  GrenadeLauncher
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fires a lobbed round that bursts on impact. Good for clearing cover, or a squad standing close together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype GrenadeLauncher { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_HandCannon_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.HandCannon*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_HandCannon" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.HandCannon">
+  HandCannon
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Slow, heavy semi-automatic with big precision damage and a strong kick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype HandCannon { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Kit_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Kit*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Kit" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Kit">
+  Kit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stock kit frames, in order. The first one starts in hand.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;WeaponArchetype&gt; Kit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_MachineGun_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.MachineGun*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_MachineGun" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.MachineGun">
+  MachineGun
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Belt-fed, with a hundred rounds at 720 RPM for holding a corridor. Each round hits a little lighter than a
+rifle's, and the gun is heavy to bring up: slow to aim, wide from the hip, and a long reload once the belt runs
+out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype MachineGun { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_MarksmanRifle_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.MarksmanRifle*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_MarksmanRifle" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.MarksmanRifle">
+  MarksmanRifle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Slow, scoped semi-automatic. A head shot drops a soldier, a body shot doesn't.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype MarksmanRifle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_PulseRifle_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.PulseRifle*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_PulseRifle" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.PulseRifle">
+  PulseRifle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Three-round burst. Rewards landing whole bursts on the head.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype PulseRifle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Shipped_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Shipped*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Shipped" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Shipped">
+  Shipped
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The frames before any data is loaded, matching the repository's archetypes.json.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;WeaponArchetype&gt; Shipped { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Shotgun_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Shotgun*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Shotgun" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Shotgun">
+  Shotgun
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A pump action as it comes (a trigger group can make it semi-automatic or automatic). Eight pellets in a fixed
+pattern. Point blank it kills either soldier with a body shot and knocks down what it
+doesn't kill; across a room it pushes; across a hall it hardly hurts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype Shotgun { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Smg_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Smg*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Smg" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Smg">
+  Smg
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>950 RPM automatic. Shreds up close but falls off fast, and isn't much use beyond the length of a room.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype Smg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Find_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Find*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Find_System_String_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Find(System.String)">
+  Find(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the frame in play with id <code class="paramref">id</code>, or null if there isn't one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype? Find(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_FrameOf_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.FrameOf*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_FrameOf_System_String_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.FrameOf(System.String)">
+  FrameOf(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of frame <code class="paramref">id</code> in play, or the first frame if it isn't in play.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponFrame FrameOf(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponFrame.html">WeaponFrame</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Of_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Of*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Of_LastFleet_Simulation_Components_Arms_WeaponFrame_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Of(LastFleet.Simulation.Components.Arms.WeaponFrame)">
+  Of(WeaponFrame)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the frame in play at <code class="paramref">frame</code>, or the first frame if the index is past the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponArchetype Of(WeaponFrame frame)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponFrame.html">WeaponFrame</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponArchetypes_Use_" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Use*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponArchetypes_Use_System_Collections_Generic_IEnumerable_LastFleet_Simulation_Weapons_WeaponArchetype__" data-uid="LastFleet.Simulation.Weapons.WeaponArchetypes.Use(System.Collections.Generic.IEnumerable{LastFleet.Simulation.Weapons.WeaponArchetype})">
+  Use(IEnumerable&lt;WeaponArchetype&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponArchetypes.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts <code class="paramref">frames</code> in play: the loot data's archetypes as loaded, up to 256 of them. Passing null
+restores the shipped frames.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Use(IEnumerable&lt;WeaponArchetype&gt;? frames)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HordeSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HordeSystem | The Last Fleet ">
+      
+      <meta name="description" content="The horde (design doc, &amp;quot;Horde simulation&amp;quot;): the Choir&#39;s swarmlings, hundreds at once. Not characters: no controller, no physics body, no brain. Each runs over the navigation grid down one shared  towards the nearest player, straight at them once close and in the open, keeps apart from the others by a spatial hash, and lunges: a short wind-up (the telegraph) and a bite. Shots and grenades kill them (the shot and grenade systems test  bodies) and knock them back; the dead lie a moment and are gone.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Horde_HordeSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Horde.HordeSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Horde.HordeSystem">
+
+
+
+  <h1 id="LastFleet_AI_Horde_HordeSystem" data-uid="LastFleet.AI.Horde.HordeSystem" class="text-break">
+Class HordeSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Pods.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Horde.html">Horde</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The horde (design doc, &quot;Horde simulation&quot;): the Choir's swarmlings, hundreds at once. Not characters: no controller,
+no physics body, no brain. Each runs over the navigation grid down one shared <a class="xref" href="LastFleet.AI.Horde.HordeField.html">HordeField</a> towards the
+nearest player, straight at them once close and in the open, keeps apart from the others by a spatial hash, and
+lunges: a short wind-up (the telegraph) and a bite. Shots and grenades kill them (the shot and grenade systems test
+<a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a> bodies) and knock them back; the dead lie a moment and are gone.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class HordeSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">HordeSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Horde_HordeSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Hordes come when the mission calls for them: now and then while the squad infiltrates and the Director is building
+up, with every wave of the hack, and when the extraction starts, with a trickle in between those two. They come out
+of the floor where the players are not looking, 25 to 55 m away by the way there; or through the station's hull
+breaches (<a class="xref" href="LastFleet.Simulation.Components.Missions.Breach.html">Breach</a>): a fresh horde may blow one open, 18 to 55 m away by the way and with nobody right
+by it (in a blast of debris and smoke), and pour in through it, dropping out of the hole into the room; once open, a
+breach is a way in for every horde after. <a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Call_System_Int32_">Call(int)</a> sends one at any time (the developer tools,
+<code>--horde</code>).
+</p>
+<p>
+One of the world's late systems (<code>SimulationSetup.CreateWorld</code>'s <code>lateSystems</code>): it moves after the characters and logs its bites as hits. Deterministic; allocation-free on most ticks.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem__ctor_" data-uid="LastFleet.AI.Horde.HordeSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Navigation_NavGrid_LastFleet_Simulation_Weapons_HitLog_System_UInt64_LastFleet_AI_Horde_HordeTuning_LastFleet_Simulation_Weapons_DestructionLog_" data-uid="LastFleet.AI.Horde.HordeSystem.#ctor(LastFleet.Simulation.Physics.ICollisionWorld,LastFleet.AI.Navigation.NavGrid,LastFleet.Simulation.Weapons.HitLog,System.UInt64,LastFleet.AI.Horde.HordeTuning,LastFleet.Simulation.Weapons.DestructionLog)">
+  HordeSystem(ICollisionWorld, NavGrid, HitLog, ulong, HordeTuning?, DestructionLog?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The horde (design doc, &quot;Horde simulation&quot;): the Choir's swarmlings, hundreds at once. Not characters: no controller,
+no physics body, no brain. Each runs over the navigation grid down one shared <a class="xref" href="LastFleet.AI.Horde.HordeField.html">HordeField</a> towards the
+nearest player, straight at them once close and in the open, keeps apart from the others by a spatial hash, and
+lunges: a short wind-up (the telegraph) and a bite. Shots and grenades kill them (the shot and grenade systems test
+<a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a> bodies) and knock them back; the dead lie a moment and are gone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HordeSystem(ICollisionWorld world, NavGrid grid, HitLog hits, ulong seed = 0, HordeTuning? tuning = null, DestructionLog? breaks = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+    <dt><code>grid</code> <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd></dd>
+    <dt><code>hits</code> <a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html">HordeTuning</a></dt>
+    <dd></dd>
+    <dt><code>breaks</code> <a class="xref" href="LastFleet.Simulation.Weapons.DestructionLog.html">DestructionLog</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Horde_HordeSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Navigation_NavGrid_LastFleet_Simulation_Weapons_HitLog_System_UInt64_LastFleet_AI_Horde_HordeTuning_LastFleet_Simulation_Weapons_DestructionLog__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Hordes come when the mission calls for them: now and then while the squad infiltrates and the Director is building
+up, with every wave of the hack, and when the extraction starts, with a trickle in between those two. They come out
+of the floor where the players are not looking, 25 to 55 m away by the way there; or through the station's hull
+breaches (<a class="xref" href="LastFleet.Simulation.Components.Missions.Breach.html">Breach</a>): a fresh horde may blow one open, 18 to 55 m away by the way and with nobody right
+by it (in a blast of debris and smoke), and pour in through it, dropping out of the hole into the room; once open, a
+breach is a way in for every horde after. <a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Call_System_Int32_">Call(int)</a> sends one at any time (the developer tools,
+<code>--horde</code>).
+</p>
+<p>
+One of the world's late systems (<code>SimulationSetup.CreateWorld</code>'s <code>lateSystems</code>): it moves after the characters and logs its bites as hits. Deterministic; allocation-free on most ticks.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_AlertHordeAt_" data-uid="LastFleet.AI.Horde.HordeSystem.AlertHordeAt*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_AlertHordeAt" data-uid="LastFleet.AI.Horde.HordeSystem.AlertHordeAt">
+  AlertHordeAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>From this station alert (<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Alert">Alert</a>), the run's hordes may come while infiltrating however
+few decks are open (above 1: never).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AlertHordeAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Alive_" data-uid="LastFleet.AI.Horde.HordeSystem.Alive*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Alive" data-uid="LastFleet.AI.Horde.HordeSystem.Alive">
+  Alive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swarmlings alive now.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Alive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Breaches_" data-uid="LastFleet.AI.Horde.HordeSystem.Breaches*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Breaches" data-uid="LastFleet.AI.Horde.HordeSystem.Breaches">
+  Breaches
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hull breaches in all, usable or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Breaches { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Field_" data-uid="LastFleet.AI.Horde.HordeSystem.Field*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Field" data-uid="LastFleet.AI.Horde.HordeSystem.Field">
+  Field
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The field the horde follows, once the first tick has made it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HordeField? Field { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Horde.HordeField.html">HordeField</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Pacing_" data-uid="LastFleet.AI.Horde.HordeSystem.Pacing*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Pacing" data-uid="LastFleet.AI.Horde.HordeSystem.Pacing">
+  Pacing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L584"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far into a run this mission is (<a class="xref" href="LastFleet.AI.Director.RunPacing.html">RunPacing</a>): whether the mission's hordes come, from when, how
+often and how big. Hordes called by hand (<a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Call_System_Int32_">Call(int)</a>) come regardless.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RunPacing Pacing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Director.RunPacing.html">RunPacing</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Pending_" data-uid="LastFleet.AI.Horde.HordeSystem.Pending*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Pending" data-uid="LastFleet.AI.Horde.HordeSystem.Pending">
+  Pending
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swarmlings called and still to come out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Pending { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_PendingChoir_" data-uid="LastFleet.AI.Horde.HordeSystem.PendingChoir*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_PendingChoir" data-uid="LastFleet.AI.Horde.HordeSystem.PendingChoir">
+  PendingChoir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strippers and Spitters called and still to come.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PendingChoir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_PendingLancers_" data-uid="LastFleet.AI.Horde.HordeSystem.PendingLancers*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_PendingLancers" data-uid="LastFleet.AI.Horde.HordeSystem.PendingLancers">
+  PendingLancers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lancers called and still to come.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PendingLancers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_RoamingPacks_" data-uid="LastFleet.AI.Horde.HordeSystem.RoamingPacks*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_RoamingPacks" data-uid="LastFleet.AI.Horde.HordeSystem.RoamingPacks">
+  RoamingPacks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Packs.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many packs are roaming right now, not yet on anyone's trail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RoamingPacks { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Tuning_" data-uid="LastFleet.AI.Horde.HordeSystem.Tuning*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Tuning" data-uid="LastFleet.AI.Horde.HordeSystem.Tuning">
+  Tuning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the horde moves, bites and comes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HordeTuning Tuning { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Horde.HordeTuning.html">HordeTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_UsableBreaches_" data-uid="LastFleet.AI.Horde.HordeSystem.UsableBreaches*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_UsableBreaches" data-uid="LastFleet.AI.Horde.HordeSystem.UsableBreaches">
+  UsableBreaches
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hull breaches the horde can use, once its ways are mapped (<a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Prepare">Prepare()</a>): each one's index and the
+floor below it where bodies land.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;(int Breach, Vector3 Landing)&gt; UsableBreaches { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.numerics.vector3-.breach">Breach</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.numerics.vector3-.landing">Landing</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Call_" data-uid="LastFleet.AI.Horde.HordeSystem.Call*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Call_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.Call(System.Int32)">
+  Call(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls a horde of <code class="paramref">count</code> now (on top of any still coming).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Call(int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallChoir_" data-uid="LastFleet.AI.Horde.HordeSystem.CallChoir*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallChoir_LastFleet_Simulation_Components_Choir_ChoirKind_" data-uid="LastFleet.AI.Horde.HordeSystem.CallChoir(LastFleet.Simulation.Components.Choir.ChoirKind)">
+  CallChoir(ChoirKind)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls one of the Choir's bigger bodies now, with the next of the horde to come out (or alone).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallChoir(ChoirKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kind</code> <a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirKind.html">ChoirKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallHere_" data-uid="LastFleet.AI.Horde.HordeSystem.CallHere*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallHere_System_Numerics_Vector3_System_Int32_System_Single_System_Single_System_Boolean_" data-uid="LastFleet.AI.Horde.HordeSystem.CallHere(System.Numerics.Vector3,System.Int32,System.Single,System.Single,System.Boolean)">
+  CallHere(Vector3, int, float, float, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls a horde of <code class="paramref">count</code> right where <code class="paramref">near</code> is (the developer tools): on the
+floor round it, between <code class="paramref">minDistance</code> and <code class="paramref">maxDistance</code> away by the way there
+(so in the same room, or just through its doorway), seen or not. As <a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Call_System_Int32_">Call(int)</a> if there is no floor there.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallHere(Vector3 near, int count, float minDistance = 4, float maxDistance = 10, bool roaming = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>near</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Where.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many.</p>
+</dd>
+    <dt><code>minDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Nearest, by the way.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Farthest, by the way.</p>
+</dd>
+    <dt><code>roaming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A pack that roams until it notices someone (<a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_CallPack_System_Int32_">CallPack(int)</a>), not a hunting horde.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallLancers_" data-uid="LastFleet.AI.Horde.HordeSystem.CallLancers*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallLancers_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.CallLancers(System.Int32)">
+  CallLancers(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a squad of <code class="paramref">count</code> Choir Lancers (<a class="xref" href="LastFleet.AI.Soldiers.SoldierSpawner.html#LastFleet_AI_Soldiers_SoldierSpawner_SpawnLancer_Friflo_Engine_ECS_EntityStore_System_Numerics_Vector3_System_Single_System_UInt64_System_Int32_System_Numerics_Vector3_">SpawnLancer(EntityStore, Vector3, float, ulong, int, Vector3)</a>) now,
+out of sight like a horde, after the nearest player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallLancers(int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallPack_" data-uid="LastFleet.AI.Horde.HordeSystem.CallPack*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallPack_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.CallPack(System.Int32)">
+  CallPack(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Packs.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls a pack of <code class="paramref">count</code> that roams until it notices someone (see the class summary), instead of
+coming straight for the squad.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallPack(int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallThrough_" data-uid="LastFleet.AI.Horde.HordeSystem.CallThrough*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallThrough_System_Int32_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.CallThrough(System.Int32,System.Int32)">
+  CallThrough(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls a horde of <code class="paramref">count</code> now through hull breach <code class="paramref">breach</code> (by its index),
+blowing it open if it is shut, wherever the players are (the developer tools, <code>--breach</code>); as
+<a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_Call_System_Int32_">Call(int)</a> if there is no such breach or it has no floor below it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallThrough(int breach, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>breach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_CallToPod_" data-uid="LastFleet.AI.Horde.HordeSystem.CallToPod*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_CallToPod_System_Numerics_Vector3_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.CallToPod(System.Numerics.Vector3,System.Int32)">
+  CallToPod(Vector3, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Pods.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a horde at the cargo pod at <code class="paramref">pod</code>, sized like the mission's hordes for
+<code class="paramref">players</code>. It comes up out of the floor a room or two away and hunts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallToPod(Vector3 pod, int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pod</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Coming_" data-uid="LastFleet.AI.Horde.HordeSystem.Coming*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Coming_LastFleet_Simulation_Components_Missions_MissionState__" data-uid="LastFleet.AI.Horde.HordeSystem.Coming(LastFleet.Simulation.Components.Missions.MissionState@)">
+  Coming(in MissionState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Pods.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the mission's hordes are active right now, based on the run's pacing. Once the run has hordes at
+all, they come during the hack and extraction, and during infiltration from the deck the pacing sets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Coming(in MissionState mission)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mission</code> <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Initialize_" data-uid="LastFleet.AI.Horde.HordeSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Horde.HordeSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_IsRoaming_" data-uid="LastFleet.AI.Horde.HordeSystem.IsRoaming*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_IsRoaming_LastFleet_Simulation_Components_Choir_Swarmling__" data-uid="LastFleet.AI.Horde.HordeSystem.IsRoaming(LastFleet.Simulation.Components.Choir.Swarmling@)">
+  IsRoaming(in Swarmling)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.Packs.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if a body is roaming (in a pack that hasn't noticed anyone).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRoaming(in Swarmling body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_NearestBreach_" data-uid="LastFleet.AI.Horde.HordeSystem.NearestBreach*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_NearestBreach_System_Numerics_Vector3_" data-uid="LastFleet.AI.Horde.HordeSystem.NearestBreach(System.Numerics.Vector3)">
+  NearestBreach(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The usable hull breach nearest <code class="paramref">near</code> by the way there (one the horde could walk from to it), by
+its index; -1 if none can be reached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NearestBreach(Vector3 near)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>near</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Prepare_" data-uid="LastFleet.AI.Horde.HordeSystem.Prepare*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Prepare" data-uid="LastFleet.AI.Horde.HordeSystem.Prepare">
+  Prepare()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps the horde's ways now (tens of milliseconds on a station), rather than on the first tick: call while the
+level loads, once the mission's doors are in the world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Prepare()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Restart_" data-uid="LastFleet.AI.Horde.HordeSystem.Restart*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Restart_LastFleet_Ecs_GameWorld_" data-uid="LastFleet.AI.Horde.HordeSystem.Restart(LastFleet.Ecs.GameWorld)">
+  Restart(GameWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A fresh horde for a restarted fight: every swarmling gone, nothing coming.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Restart(GameWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_SpawnSwarmling_" data-uid="LastFleet.AI.Horde.HordeSystem.SpawnSwarmling*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_SpawnSwarmling_Friflo_Engine_ECS_EntityStore_System_Numerics_Vector3_System_Single_System_UInt32_System_Single_" data-uid="LastFleet.AI.Horde.HordeSystem.SpawnSwarmling(Friflo.Engine.ECS.EntityStore,System.Numerics.Vector3,System.Single,System.UInt32,System.Single)">
+  SpawnSwarmling(EntityStore, Vector3, float, uint, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Spawns a swarmling standing at <code class="paramref">feet</code>, facing <code class="paramref">yaw</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Entity SpawnSwarmling(EntityStore store, Vector3 feet, float yaw, uint seed, float health = 30)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>health</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Entity</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_ThroughBreach_" data-uid="LastFleet.AI.Horde.HordeSystem.ThroughBreach*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_ThroughBreach_System_Int32_" data-uid="LastFleet.AI.Horde.HordeSystem.ThroughBreach(System.Int32)">
+  ThroughBreach(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The horde called last comes through hull breach <code class="paramref">breach</code> (as <a class="xref" href="LastFleet.AI.Horde.HordeSystem.html#LastFleet_AI_Horde_HordeSystem_CallThrough_System_Int32_System_Int32_">CallThrough(int, int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ThroughBreach(int breach)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>breach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeSystem_Update_" data-uid="LastFleet.AI.Horde.HordeSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Horde.HordeSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeSystem.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

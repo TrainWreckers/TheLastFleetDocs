@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SoldierAiSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SoldierAiSystem | The Last Fleet ">
+      
+      <meta name="description" content="Barks, and picking an intent through utility scoring.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Soldiers_SoldierAiSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Soldiers.SoldierAiSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Soldiers.SoldierAiSystem">
+
+
+
+  <h1 id="LastFleet_AI_Soldiers_SoldierAiSystem" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem" class="text-break">
+Class SoldierAiSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Tactics.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Soldiers.html">Soldiers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Barks, and picking an intent through utility scoring.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class SoldierAiSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SoldierAiSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Soldiers_SoldierAiSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Runs first in the tick, so soldiers act on what the world looked like at the end of the last tick, exactly as a
+player does. Everything a soldier knows it saw, heard or was told: no perfect information.
+</p>
+<p>Deterministic: random choices hash the soldier's seed with a draw counter. Allocation-free after warm-up.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem__ctor_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Navigation_NavGrid_LastFleet_Simulation_Weapons_ShotLog_LastFleet_Simulation_Weapons_HitLog_LastFleet_AI_Soldiers_SoldierTuning_LastFleet_AI_Barks_BarkLog_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.#ctor(LastFleet.Simulation.Physics.ICollisionWorld,LastFleet.AI.Navigation.NavGrid,LastFleet.Simulation.Weapons.ShotLog,LastFleet.Simulation.Weapons.HitLog,LastFleet.AI.Soldiers.SoldierTuning,LastFleet.AI.Barks.BarkLog)">
+  SoldierAiSystem(ICollisionWorld, NavGrid?, ShotLog, HitLog, SoldierTuning?, BarkLog?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the system, building the cover map from <code class="paramref">grid</code> if there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SoldierAiSystem(ICollisionWorld world, NavGrid? grid, ShotLog shots, HitLog hits, SoldierTuning? tuning = null, BarkLog? barks = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd><p>Level geometry for sight lines.</p>
+</dd>
+    <dt><code>grid</code> <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd><p>Navigation grid; without one, soldiers stand their ground and only turn and shoot.</p>
+</dd>
+    <dt><code>shots</code> <a class="xref" href="LastFleet.Simulation.Weapons.ShotLog.html">ShotLog</a></dt>
+    <dd><p>Last tick's shots, which soldiers hear.</p>
+</dd>
+    <dt><code>hits</code> <a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a></dt>
+    <dd><p>Last tick's shot results: near misses suppress soldiers.</p>
+</dd>
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Soldiers.SoldierTuning.html">SoldierTuning</a></dt>
+    <dd><p>Difficulty, the same for every side (<a class="xref" href="LastFleet.AI.Soldiers.SoldierAiSystem.html#LastFleet_AI_Soldiers_SoldierAiSystem_Tunings">Tunings</a> sets each side's).</p>
+</dd>
+    <dt><code>barks</code> <a class="xref" href="LastFleet.AI.Barks.BarkLog.html">BarkLog</a></dt>
+    <dd><p>Where soldiers' barks go, or null when nothing listens.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Barks_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Barks*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Barks" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Barks">
+  Barks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Barks.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The log barks are written to. Null when nothing is listening.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BarkLog? Barks { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Barks.BarkLog.html">BarkLog</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Behaviors_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Behaviors*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Behaviors" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Behaviors">
+  Behaviors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Behavior.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The behaviors soldiers use, indexed by <a class="xref" href="LastFleet.AI.Components.SoldierBrain.html#LastFleet_AI_Components_SoldierBrain_Behavior">Behavior</a>. Just the shipped one unless the game
+(or LastFleet Studio) sets others. A soldier whose behavior isn't in the list uses the first one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SoldierBehavior&gt; Behaviors { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.AI.Behavior.SoldierBehavior.html">SoldierBehavior</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Cover_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Cover*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Cover" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Cover">
+  Cover
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cover points soldiers choose from, if there is a grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CoverMap? Cover { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Tactics.CoverMap.html">CoverMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Grid_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Grid*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Grid" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Grid">
+  Grid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The navigation grid soldiers path on, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NavGrid? Grid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_LastCoverWork_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastCoverWork*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_LastCoverWork" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastCoverWork">
+  LastCoverWork
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What choosing cover cost in the last tick. For the developer overlay and the headless benchmark.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CoverWork LastCoverWork { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Soldiers.CoverWork.html">CoverWork</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_LastSearchesDeferred_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastSearchesDeferred*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_LastSearchesDeferred" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastSearchesDeferred">
+  LastSearchesDeferred
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many times in the last tick a soldier wanted a path search and waited for a later tick, because the tick's
+searches or its budget of cells were used up. For the developer overlay and the headless benchmark.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LastSearchesDeferred { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_LastSightWork_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastSightWork*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_LastSightWork" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastSightWork">
+  LastSightWork
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What looking for enemies cost in the last tick. For the developer overlay and the headless benchmark.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SightWork LastSightWork { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Soldiers.SightWork.html">SightWork</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Lights_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Lights*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Lights" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Lights">
+  Lights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where the station is dark, for flashlights; null on a level without lights (they stay off but for a hunt).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightMap? Lights { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Tactics.LightMap.html">LightMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_PathSearches_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.PathSearches*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_PathSearches" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.PathSearches">
+  PathSearches
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last tick's path searches, by what they were for (indexed by <a class="xref" href="LastFleet.AI.Soldiers.PathPurpose.html">PathPurpose</a>). For the developer
+overlay and the headless benchmark: the times in it never feed back into the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;PathSearchStats&gt; PathSearches { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.AI.Navigation.PathSearchStats.html">PathSearchStats</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Rooms_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Rooms*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Rooms" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Rooms">
+  Rooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Rooms.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level's rooms and doorways, for fighting indoors; null on a level without them (soldiers then fight as in
+the open).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomMap? Rooms { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Tactics.RoomMap.html">RoomMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Seed_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Seed*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Seed" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Seed">
+  Seed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level's seed: with a squad's number, it picks the squad's personality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Seed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Trace_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Trace*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Trace" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Trace">
+  Trace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Behavior.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What each node of the traced soldier's tree did on the last tick, by node index: 0 not run, 1 succeeded,
+2 failed. Also returns the tree it's for (null if the soldier is gone or none is set).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (BehaviorTree? Tree, ReadOnlyMemory&lt;byte&gt; Results) Trace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="LastFleet.AI.Behavior.BehaviorTree.html">BehaviorTree</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.ai.behavior.behaviortree,system.readonlymemory-system.byte--.tree">Tree</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.ai.behavior.behaviortree,system.readonlymemory-system.byte--.results">Results</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_TracedSoldier_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.TracedSoldier*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_TracedSoldier" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.TracedSoldier">
+  TracedSoldier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Behavior.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The soldier whose tree gets traced each tick (<a class="xref" href="LastFleet.AI.Soldiers.SoldierAiSystem.html#LastFleet_AI_Soldiers_SoldierAiSystem_Trace">Trace</a>), for LastFleet Studio. 0 for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TracedSoldier { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Tunings_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Tunings*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Tunings" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Tunings">
+  Tunings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How hard each side's soldiers are (content/defs/ai/tuning.json). Can be changed while running: the developer
+overlay's AI tuning, LastFleet Studio's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SoldierTunings Tunings { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Soldiers.SoldierTunings.html">SoldierTunings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Assignment_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Assignment*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Assignment_LastFleet_AI_Components_SoldierBrain__" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Assignment(LastFleet.AI.Components.SoldierBrain@)">
+  Assignment(in SoldierBrain)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Tactics.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The role and cover a soldier has, for the AI debugger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (SquadRole Role, int Cover) Assignment(in SoldierBrain brain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>brain</code> <a class="xref" href="LastFleet.AI.Components.SoldierBrain.html">SoldierBrain</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="LastFleet.AI.Components.SquadRole.html">SquadRole</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.ai.components.squadrole,system.int32-.role">Role</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.ai.components.squadrole,system.int32-.cover">Cover</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_BehaviorIndex_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.BehaviorIndex*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_BehaviorIndex_System_String_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.BehaviorIndex(System.String)">
+  BehaviorIndex(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Behavior.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index in <a class="xref" href="LastFleet.AI.Soldiers.SoldierAiSystem.html#LastFleet_AI_Soldiers_SoldierAiSystem_Behaviors">Behaviors</a> of the behavior with id <code class="paramref">id</code>, or 0 (the first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte BehaviorIndex(string? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_BehaviorOf_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.BehaviorOf*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_BehaviorOf_LastFleet_AI_Components_SoldierBrain__" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.BehaviorOf(LastFleet.AI.Components.SoldierBrain@)">
+  BehaviorOf(in SoldierBrain)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.Behavior.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the behavior <code class="paramref">brain</code> uses: the one assigned to it (<a class="xref" href="LastFleet.AI.Components.SoldierBrain.html#LastFleet_AI_Components_SoldierBrain_Behavior">Behavior</a>),
+otherwise its variant's, otherwise the first one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SoldierBehavior BehaviorOf(in SoldierBrain brain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>brain</code> <a class="xref" href="LastFleet.AI.Components.SoldierBrain.html">SoldierBrain</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Behavior.SoldierBehavior.html">SoldierBehavior</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Initialize_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_LastMilliseconds_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastMilliseconds*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_LastMilliseconds_LastFleet_AI_Soldiers_AiSection_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.LastMilliseconds(LastFleet.AI.Soldiers.AiSection)">
+  LastMilliseconds(AiSection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the last tick spent in one part of the AI, in milliseconds. The parts add up to the whole tick. For the
+developer overlay and the headless benchmark, like <a class="xref" href="LastFleet.AI.Soldiers.SoldierAiSystem.html#LastFleet_AI_Soldiers_SoldierAiSystem_PathSearches">PathSearches</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LastMilliseconds(AiSection section)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>section</code> <a class="xref" href="LastFleet.AI.Soldiers.AiSection.html">AiSection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_RebuildCover_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.RebuildCover*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_RebuildCover" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.RebuildCover">
+  RebuildCover()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the level's cover again, after obstacles have been placed or taken away (LastFleet Studio's test cover,
+with <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html#LastFleet_AI_Navigation_NavGrid_SetObstacle_System_Int32_System_Boolean_">SetObstacle(int, bool)</a>). Every soldier gives up the cover and the path it had, and chooses again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RebuildCover()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Soldiers_SoldierAiSystem_Update_" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Soldiers_SoldierAiSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Soldiers.SoldierAiSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Soldiers/SoldierAiSystem.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

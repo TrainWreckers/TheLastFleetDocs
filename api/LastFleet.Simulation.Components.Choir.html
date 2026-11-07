@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Simulation.Components.Choir | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Simulation.Components.Choir | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Components.Choir">
+
+  <h1 id="LastFleet_Simulation_Components_Choir" data-uid="LastFleet.Simulation.Components.Choir" class="text-break">Namespace LastFleet.Simulation.Components.Choir</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.SwarmSurfaces.html">SwarmSurfaces</a></dt>
+      <dd><p>Which way is up for a body on each <a class="xref" href="LastFleet.Simulation.Components.Choir.SwarmSurface.html">SwarmSurface</a>, and which way it faces.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html">AcidGlob</a></dt>
+      <dd><p>A Spitter's glob of acid in flight, with its <a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a>. It's thrown from <a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html#LastFleet_Simulation_Components_Choir_AcidGlob_Origin">Origin</a> at
+<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html#LastFleet_Simulation_Components_Choir_AcidGlob_Velocity">Velocity</a> on <a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html#LastFleet_Simulation_Components_Choir_AcidGlob_LaunchTick">LaunchTick</a>, falls under <a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html#LastFleet_Simulation_Components_Choir_AcidGlob_Gravity">Gravity</a>, and leaves an
+<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html">AcidPool</a> where it lands. Its position can be worked out from those values alone, so clients draw it
+from them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html">AcidPool</a></dt>
+      <dd><p>A pool of a Spitter's acid on the floor. It burns anyone standing in it who isn't Choir, from
+<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html#LastFleet_Simulation_Components_Choir_AcidPool_StartTick">StartTick</a> until <a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html#LastFleet_Simulation_Components_Choir_AcidPool_EndTick">EndTick</a>. It's there to force players to move.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirUnit.html">ChoirUnit</a></dt>
+      <dd><p>One of the Choir's bigger units (Strippers, Spitters, Weavers, the Herald). It's a character like a soldier
+(controller, body, health, the Choir's <a class="xref" href="LastFleet.Simulation.Components.Characters.Faction.html">Faction</a>), but driven by the Choir's own simple AI instead of
+a soldier's. This component holds what kind it is and what it's doing, which the clients can see.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a></dt>
+      <dd><p>A horde body (the Choir's swarmlings, see the design doc, &quot;Horde simulation&quot;). It isn't a character with a
+controller and a physics body. It's a small thing that runs over the navigation grid in large numbers. It also has
+<a class="xref" href="LastFleet.Simulation.Components.Characters.WorldPosition.html">WorldPosition</a> (its feet), <a class="xref" href="LastFleet.Simulation.Components.Characters.ViewAngles.html">ViewAngles</a> (which way it faces), <a class="xref" href="LastFleet.Simulation.Components.Characters.Health.html">Health</a> and
+<a class="xref" href="LastFleet.Simulation.Components.Characters.Faction.html">Faction</a>.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirAction.html">ChoirAction</a></dt>
+      <dd><p>What a <a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirUnit.html">ChoirUnit</a> is doing, for drawing it and telegraphing its attacks.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirKind.html">ChoirKind</a></dt>
+      <dd><p>Which kind of Choir unit a <a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirUnit.html">ChoirUnit</a> is (see the design doc, &quot;Factions&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.SwarmSurface.html">SwarmSurface</a></dt>
+      <dd><p>What a <a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a> is clinging to: the floor, the ceiling (feet on it, hanging down), or a wall it's
+climbing. Walls are named by the direction they face, since a station's walls line up with the grid. The body
+sticks out from the surface.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Components.Choir.SwarmlingAction.html">SwarmlingAction</a></dt>
+      <dd><p>What a <a class="xref" href="LastFleet.Simulation.Components.Choir.Swarmling.html">Swarmling</a> is doing.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

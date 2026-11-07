@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Simulation.Systems | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Simulation.Systems | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Systems">
+
+  <h1 id="LastFleet_Simulation_Systems" data-uid="LastFleet.Simulation.Systems" class="text-break">Namespace LastFleet.Simulation.Systems</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.CargoSystem.html">CargoSystem</a></dt>
+      <dd><p>Handles cargo crates carried in both hands (<a class="xref" href="LastFleet.Simulation.Components.Gear.Inventory.html#LastFleet_Simulation_Components_Gear_Inventory_Carried">Carried</a>, picked up by the weapon pickup
+system). While carrying, the player is slower, can't sprint or dash, has the weapon lowered, and can't use anything
+else.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.CharacterBodySystem.html">CharacterBodySystem</a></dt>
+      <dd><p>Moves characters through the level: velocity in, position, collision-adjusted velocity and ground contact out.
+Also swaps the standing and crouching capsules, keeps a character crouched where it has no room to stand, and
+keeps characters from walking through each other.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.CharacterControllerSystem.html">CharacterControllerSystem</a></dt>
+      <dd><p>Applies each character's <a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerCommand.html">PlayerCommand</a>: look first, then the movement model.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.CoverSystem.html">CoverSystem</a></dt>
+      <dd><p>Red Orchestra style cover for soldiers, and low cover and leaning for players. A character takes low cover
+automatically when it faces something close by.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.DestructionSystem.html">DestructionSystem</a></dt>
+      <dd><p>Handles breakable props. Shots (<a class="xref" href="LastFleet.Simulation.Systems.ShotResolutionSystem.html">ShotResolutionSystem</a>) and grenades (<a class="xref" href="LastFleet.Simulation.Systems.GrenadeSystem.html">GrenadeSystem</a>)
+damage them through this system. When a prop breaks, its collision is switched off so it stops blocking movement,
+sight and shots, and the break is recorded in the <a class="xref" href="LastFleet.Simulation.Weapons.DestructionLog.html">DestructionLog</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.DropFallSystem.html">DropFallSystem</a></dt>
+      <dd><p>Makes loot fall when whatever it was resting on breaks (docs/plans/furniture.md). Every weapon, pile, case and cargo
+crate resting on a prop that broke this tick (inside its bounds, from its base to a little above its top) starts
+falling, and keeps falling under gravity until a ray finds something to land on. Positions go out in snapshots as
+normal, so clients see it fall.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.EffectSystem.html">EffectSystem</a></dt>
+      <dd><p>Applies effects to players over time (<a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerEffects.html">PlayerEffects</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.GrenadeSystem.html">GrenadeSystem</a></dt>
+      <dd><p>Frag grenades. Handles throwing them (a fresh press of <a class="xref" href="LastFleet.Simulation.Components.Characters.CommandButtons.html#LastFleet_Simulation_Components_Characters_CommandButtons_Grenade">Grenade</a> throws along the
+view), flying and bouncing off the level, and exploding when the fuse runs out. Explosions damage the thrower's
+enemies if there's a clear line from the blast, with damage falling off with distance, and are recorded in the
+<a class="xref" href="LastFleet.Simulation.Weapons.ExplosionLog.html">ExplosionLog</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.HullPulls.html">HullPulls</a></dt>
+      <dd><p>How an open breach (<a class="xref" href="LastFleet.Simulation.Components.World.HullPull.html">HullPull</a>) drags whoever can see it: like a wind, a drift added to where they move
+each tick (<a class="xref" href="LastFleet.Simulation.Systems.CharacterBodySystem.html">CharacterBodySystem</a>), so ground friction doesn't eat it and running away still counts. It's
+strongest at the breach, falling off evenly to nothing at its reach, only in front of the wall it's in and only in
+sight of it. The same on the host and in a client's prediction, which runs the same body step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.Interaction.html">Interaction</a></dt>
+      <dd><p>Works out what a player is looking at, for interacting with it. A thing counts as looked at when the line of sight
+from the eye passes within its radius (treating it as an upright column from its base up to its height) and it's
+close enough to reach.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.InventorySystem.html">InventorySystem</a></dt>
+      <dd><p>Applies the inventory actions (<a class="xref" href="LastFleet.Simulation.Components.Gear.InventoryOp.html">InventoryOp</a>) players send in their commands to their
+<a class="xref" href="LastFleet.Simulation.Components.Gear.Inventory.html">Inventory</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.LagCompensation.html">LagCompensation</a></dt>
+      <dd><p>Lag compensation for co-op: remembers where every character was at the end of each recent tick, so a client's shot
+is tested against the characters where that client saw them, not where they have moved since.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html">LifeSystem</a></dt>
+      <dd><p>Handles health over time: regeneration, being downed, death and respawn. A dead character's input is ignored and
+its collision body is removed, so others can walk through the corpse. Players with a <a class="xref" href="LastFleet.Simulation.Components.Characters.SpawnPoint.html">SpawnPoint</a>
+respawn after <a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_RespawnSeconds">RespawnSeconds</a> with the stock kit (<a class="xref" href="LastFleet.Simulation.SimulationSetup.html#LastFleet_Simulation_SimulationSetup_DefaultLoadout_System_UInt64_">DefaultLoadout(ulong)</a>). The
+weapons they found and everything in their inventory are left where they died, for them or a teammate to pick up.
+Soldiers stay dead.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.LoadoutSystem.html">LoadoutSystem</a></dt>
+      <dd><p>Switches weapons. When a command asks for another slot, the weapon in hand is stowed in its slot and the new one is
+brought up, and it can't fire until its swap time has passed. A reload in progress is lost, like in Destiny.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.MantleSystem.html">MantleSystem</a></dt>
+      <dd><p>Starts and drives mantles. Runs after the controller, so it can take over this tick's velocity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.PickupSystem.html">PickupSystem</a></dt>
+      <dd><p>Ammo pickups in the world. Characters with an <a class="xref" href="LastFleet.Simulation.Components.Arms.AmmoDrop.html">AmmoDrop</a> leave a pickup where they die, and players who
+walk over a pickup take it if any of their weapons has room. Dropped pickups disappear after a while; crates
+respawn.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.PingSystem.html">PingSystem</a></dt>
+      <dd><p>Pings. Pressing Ping marks whatever is in the middle of the player's view: an enemy there (with a little leeway,
+so it doesn't need perfect aim), or otherwise the spot where the view hits the level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.RescueSystem.html">RescueSystem</a></dt>
+      <dd><p>Reviving and dragging downed teammates (design doc, &quot;Downed, revive and drag&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.ShotResolutionSystem.html">ShotResolutionSystem</a></dt>
+      <dd><p>Resolves hitscan shots. Casts each of this tick's shots against the level and every living character, applies
+damage to whatever target or character it hits (including falloff and precision), and records the result in the
+<a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.TankSystem.html">TankSystem</a></dt>
+      <dd><p>Handles dragging supply tank hoses (<a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.TargetSystem.html">TargetSystem</a></dt>
+      <dd><p>Stands destroyed targets back up, at full health, once their respawn time has passed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.WeaponPickupSystem.html">WeaponPickupSystem</a></dt>
+      <dd><p>Handles everything a player uses with Interact: weapons and items in the world, containers, cargo, pods, supply
+tanks and the dropship's hold. Most take a press; searching a container and turning a valve take a hold.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.WeaponSystem.html">WeaponSystem</a></dt>
+      <dd><p>Runs the weapon model for every armed character and records shots in the <a class="xref" href="LastFleet.Simulation.Weapons.ShotLog.html">ShotLog</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.WeaponTraitSystem.html">WeaponTraitSystem</a></dt>
+      <dd><p>Applies weapon trait effects (<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html">WeaponTraits</a>) after this tick's shots are resolved.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.HeldEffects.html">HeldEffects</a></dt>
+      <dd><p>The combined passive effects of everything a player is holding (see <a class="xref" href="LastFleet.Simulation.Systems.EffectSystem.html#LastFleet_Simulation_Systems_EffectSystem_Held_LastFleet_Simulation_Components_Gear_Inventory__">Held(in Inventory)</a>).</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.IShownCharacters.html">IShownCharacters</a></dt>
+      <dd><p>Where each client was shown the other characters. In co-op the host knows this from what it sent each client.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.IShownHorde.html">IShownHorde</a></dt>
+      <dd><p>Where each client was shown the horde. In co-op the host knows this from what it sent each client. A client's
+shots at swarmlings are resolved against these positions, so it hits what it saw (see
+<a class="xref" href="LastFleet.Simulation.Systems.LagCompensation.html">LagCompensation</a>).</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Systems.PodUse.html">PodUse</a></dt>
+      <dd><p>The result of holding Interact at a cargo pod (see <a class="xref" href="LastFleet.Simulation.Systems.WeaponPickupSystem.html#LastFleet_Simulation_Systems_WeaponPickupSystem_LoadOrCall_LastFleet_Simulation_Components_Cargo_CargoPod__LastFleet_Simulation_Components_Gear_Inventory__">LoadOrCall(ref CargoPod, ref Inventory)</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

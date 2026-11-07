@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Modeling weapons in Blender | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modeling weapons in Blender | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="modeling-weapons-in-blender">Modeling weapons in Blender</h1>
+
+<p>Every gun in the game is put together from part models: a receiver for its frame, plus a barrel, magazine, stock,
+optic and module picked by its roll. The models are glTF files in <code>content/weapons/</code>. This page shows you how to edit
+them and add more in Blender. The game reads them when it starts, so a new or reshaped part doesn't need any code
+changes!</p>
+<h2 id="forged-parts-vs-blender-parts">Forged parts vs. Blender parts</h2>
+<p>Before you open Blender, there's a catch: <strong>the shipped part files are forged from recipes</strong> (docs/plans/weapons.md
+phase 5). <code>content/weapons/forge.json</code> holds every part's shapes (chamfered boxes, prisms, tubes, rails, vents, bolts,
+blocks) and markers, and the weapon forge writes the <code>.gltf</code> files from it.</p>
+<p>You can run the forge two ways:</p>
+<ul>
+<li>From Studio's Armory (Part models, tick Recipe): edit a part's shapes one per line, see it rebuilt, then
+<strong>Write files</strong>.</li>
+<li>From the command line with <code>dotnet run --project tools/LastFleet.WeaponForge -- content/weapons</code> (<code>--format</code> also
+rewrites <code>forge.json</code> in its own layout).</li>
+</ul>
+<p>A test fails if a part file doesn't match what its recipe makes. So if a part has a recipe, change the recipe, not the
+Blender file, because the forge would overwrite your Blender edit.</p>
+<p>Each forged part has two child meshes besides its own:</p>
+<ul>
+<li><strong><code>Detail</code></strong>: small things only your own gun shows (rail ridges, vents, bolts).</li>
+<li><strong><code>Far</code></strong>: the part without its bevels and detail. Other players' guns are drawn with it, so the frame's moving
+triangle count stays low.</li>
+</ul>
+<p>So where does Blender come in? It's still how you make a part that has no recipe. Take its recipe out of <code>forge.json</code>
+(or don't give a new file one) and model it as described below. The forge replaces the old grey-box kit
+(<code>tools/greybox/generate_weapon_parts.py</code>).</p>
+<p>A brand-new frame only needs its file (forged or modeled) and an archetype in Armory &gt; Frames whose <code>model</code> names it.
+No code needed. Too easy!</p>
+<h2 id="how-a-gun-is-put-together">How a gun is put together</h2>
+<p>The game builds each gun the same way, whether it's in your hands, held by a soldier or lying on the floor:</p>
+<ol>
+<li><p>It takes the <strong>Receiver</strong> from the frame's file. That's the archetype's <code>model</code> in <code>archetypes.json</code>: a frame with
+<code>&quot;model&quot;: &quot;auto_rifle&quot;</code> is built from <code>auto_rifle.gltf</code>, and frames can share a file. The receiver is the gun's body,
+and its origin is where the hand holds the gun.</p>
+</li>
+<li><p>The receiver has <strong>sockets</strong>: empties named <code>Socket_Barrel</code>, <code>Socket_Magazine</code>, <code>Socket_Stock</code>, <code>Socket_Optic</code>,
+<code>Socket_Module</code> and <code>Socket_Grip</code> (the top of the pistol grip). The game attaches one part for that slot at each
+socket.</p>
+<p>A muzzle device (<code>Muzzle_…</code>, in <code>shared.gltf</code>) goes on the barrel's <code>Muzzle</code>, scaled to the barrel's thickness at
+that point, and its own <code>Muzzle</code> marks the new end (where the flash appears).</p>
+<p>No socket for a slot? Then the frame has no part there. The hand cannon has no <code>Socket_Stock</code>, and the shotgun,
+hand cannon and grenade launcher have no <code>Socket_Magazine</code> (their pump, cylinder and drum are part of the receiver
+or barrel).</p>
+</li>
+<li><p><strong>Which part.</strong> A slot's options are the parts named after it: <code>Barrel_&lt;anything&gt;</code>, <code>Magazine_&lt;anything&gt;</code>,
+<code>Stock_&lt;anything&gt;</code>, <code>Module_&lt;anything&gt;</code>, <code>Grip_&lt;anything&gt;</code>, <code>Muzzle_&lt;anything&gt;</code>, in name order.</p>
+<p>Every part in the loot data (<code>parts.json</code>) names its model, either in full (<code>&quot;model&quot;: &quot;Barrel_2_Brake&quot;</code>) or by its
+shape, which is the last word of the name (<code>&quot;model&quot;: &quot;Brake&quot;</code>). A shape name picks that look on every frame, and a
+frame without that shape shows its first one. <code>&quot;None&quot;</code> shows nothing in the slot (a bare rail). A stock (unrolled)
+weapon uses the first.</p>
+<p>A part that doesn't name a model gets one picked from its id (and adding a model to the slot reshuffles those), so
+give it one.</p>
+</li>
+<li><p><strong>Which optic.</strong> The optic part decides. Its <code>model</code> names the kind, <code>Iron</code>, <code>RedDot</code>, <code>Holographic</code> or <code>Scope</code>
+(which picks the first of <code>Optic_Iron</code>, <code>Optic_RedDot</code>, ...), or one specific look in full (<code>Optic_RedDot_Round</code>). A
+gun with 2× magnification or more (the marksman rifle's frame) ALWAYS carries a scope, whatever optic is fitted.</p>
+</li>
+<li><p><strong>Stretching.</strong> A barrel is stretched along its length based on the weapon's range, from 0.85× to 1.15× of the
+model. A magazine is stretched along its height based on its capacity, so model it 0.16 m long, which is the middle
+size.</p>
+</li>
+<li><p><strong>Colors.</strong> Some materials are colored by the game. The rest keep the Base Color you give them:</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Color in the game</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Body</code></td>
+<td>The maker's finish: its <code>color</code> in <code>manufacturers.json</code> (Kessler olive, Halcyon white...; gunmetal if it has none)</td>
+</tr>
+<tr>
+<td><code>BodyDark</code>, <code>BodyShade</code></td>
+<td>The maker's finish at 85% and 80% brightness</td>
+</tr>
+<tr>
+<td><code>Accent</code></td>
+<td>The rarity's color: the stripe along the side</td>
+</tr>
+<tr>
+<td><code>Reticle</code></td>
+<td>A glowing red, for an optic's dot</td>
+</tr>
+<tr>
+<td><code>Lamp</code></td>
+<td>A glowing white, for a weapon light's lens</td>
+</tr>
+<tr>
+<td><code>Paint_&lt;Slot&gt;</code></td>
+<td>A <strong>paint slot</strong>: a color the part's data picks (its <code>paint</code> in <code>parts.json</code>, by slot), with its Base Color as the default</td>
+</tr>
+<tr>
+<td>anything else</td>
+<td>Its own Base Color</td>
+</tr>
+</tbody>
+</table>
+<p>The names above are reserved, because the game colors them. <strong>Paint slot</strong> (next to <strong>Kit materials</strong>) adds a
+<code>Paint_&lt;Slot&gt;</code> material to the selected faces. A slot name is letters, digits and underscores, starting with a
+letter.</p>
+<p><strong>Check</strong> reports any misused name:</p>
+<ul>
+<li>a paint slot named after one of them (<code>Paint_Accent</code>);</li>
+<li>a prop's game color on a gun (<code>Glint</code>, <code>Light</code>; on a gun they keep their own color);</li>
+<li>a reserved name with different capitals (<code>body</code>).</li>
+</ul>
+<p>How each material reacts to light is set by its surface material, which you pick with the Last Fleet Materials add-on
+(<a href="materials.html">materials.md</a>). In the kit, <code>Body</code> and <code>Accent</code> are painted metal, <code>Metal</code> is bare metal (a barrel's
+clean streak), <code>Grip</code> is rubber, <code>Glass</code> is glass, and <code>Reticle</code> and <code>Lamp</code> are emissive.</p>
+</li>
+</ol>
+<p><strong>Shared parts.</strong> <code>content/weapons/shared.gltf</code> holds parts any frame can use: the red dot, holographic sight and
+scope, the modules, and the muzzle devices (brake, flash hider, suppressor). A frame only uses the shared parts for a
+slot when its own file has none for that slot.</p>
+<p>So to give the shotgun its own red dot, add an <code>Optic_RedDot</code> to <code>shotgun.gltf</code>, and every other frame keeps the shared
+one. That's why the hand cannon's file has its own modules: it has no fore grip, so its third module, <code>Module_2_None</code>,
+is an empty.</p>
+<p><strong>Markers.</strong></p>
+<ul>
+<li><p>Each barrel has an empty named <code>Muzzle</code> where the flash appears.</p>
+</li>
+<li><p>Each optic has an empty named <code>Sight</code>, which is its aim point. When aiming, the game holds the gun so this point is
+on the eye line. Put it in the middle of the optic's window, or on the tip of the front post for iron sights, and
+keep everything except the reticle clear of the line through it along the barrel.</p>
+<p>A red dot's or holographic sight's <code>Reticle</code> triangles aren't drawn. Instead the game puts a pane of sight glass
+across the window at <code>Sight</code>, and its reticle (the part's <code>reticle</code>: dot, ring or chevron) stays on the aim point
+however the gun sways, just like a real one does! Keep the window's frame around <code>Sight</code>.</p>
+</li>
+<li><p>The receiver has two more, <code>Grip.R</code> and <code>Grip.L</code>: where the right hand holds the pistol grip and the left hand holds
+the fore grip (a shotgun's pump; on a pistol the left hand cups the right). Bodies drawn on a rig hold the gun by
+these. The gun hangs from the right hand, and the left arm reaches for <code>Grip.L</code>. A receiver with no <code>Grip.L</code> is held
+a third of the way to the muzzle.</p>
+</li>
+<li><p>Parts can mark where hands go on them too (docs/plans/weapons.md):</p>
+<ul>
+<li>A fore grip module or a barrel (a handguard) can have <code>Hand.L</code>, which the left hand uses instead of the receiver's
+<code>Grip.L</code> (an unmarked grip module is held around its middle).</li>
+<li>A magazine can have <code>Grab</code>, where the hand takes it during a reload (unmarked: low on its front).</li>
+<li>A receiver can have <code>Charge</code>, the charging handle or bolt worked after a reload from empty (unmarked: high on its
+right side).</li>
+</ul>
+</li>
+<li><p>A module can have <code>Laser</code>, where a laser's beam starts.</p>
+</li>
+<li><p>A scope marks its eyepiece with <code>Eyepiece</code> (the middle of its back window) and <code>EyepieceRim</code> (a point on that
+window's edge). When aiming, that window is what you look through, and the gun behind it isn't drawn.</p>
+</li>
+<li><p>The magazine goes in at <code>Socket_Magazine</code> and comes out along its -Y.</p>
+</li>
+</ul>
+<h2 id="directions-and-scale">Directions and scale</h2>
+<p>In Blender, the gun points along <strong>+Y</strong>, <strong>+Z</strong> is up and <strong>+X</strong> is the right side. Units are meters, so a rifle's
+receiver is about 0.4 m long. A part's origin is where it attaches:</p>
+<ul>
+<li>a barrel's origin is its back end, at the receiver, and it runs forward along +Y;</li>
+<li>a magazine's origin is its top, where it enters the receiver, and it hangs down;</li>
+<li>a stock's origin is the receiver's back, and it runs back along −Y;</li>
+<li>an optic's origin is the bottom of its mount;</li>
+<li>a module's origin is under the front of the receiver.</li>
+</ul>
+<p>Where a part sits in the file doesn't matter, so we lay parts out side by side to work on. Rotation and scale DO
+matter, so apply them (<strong>Ctrl + A &gt; Rotation &amp; Scale</strong>) when you're done. Want to see a part in place? Move it onto its
+socket while you work, since its position is ignored on export.</p>
+<h2 id="setup-once">Setup (once)</h2>
+<ol>
+<li>Install Blender 4.2 or newer.</li>
+<li>In Blender, go to <strong>Edit &gt; Preferences &gt; Add-ons</strong>. Choose <strong>Install from Disk</strong>, pick
+<code>tools/blender/lastfleet_weapons.py</code>, and tick <strong>Last Fleet Weapon Parts</strong>.</li>
+<li>In the 3D view, press <strong>N</strong> to open the sidebar. The tools are on the <strong>Last Fleet</strong> tab, under <strong>Weapon parts</strong>.</li>
+</ol>
+<h2 id="editing-a-frame">Editing a frame</h2>
+<p>So you've got a frame to rework? Here's the flow:</p>
+<ol>
+<li><strong>Open it.</strong> Start an empty file (delete the default cube, camera and light) and use <strong>File &gt; Import &gt; glTF 2.0</strong>
+to open <code>content/weapons/&lt;model&gt;.gltf</code>, for example <code>auto_rifle.gltf</code>. Save the <code>.blend</code> in
+<code>content/raw/weapons/</code> (it goes through Git LFS) so the next person starts from your file.</li>
+<li><strong>Kit materials.</strong> Press <strong>Kit materials</strong>. It adds any of the materials above that the file is missing, and shrinks
+the imported markers from the meter-wide size Blender shows them at down to 3 cm.</li>
+<li><strong>Model.</strong> Edit the parts in Edit mode, or replace them: delete a part, model a new one, give it the old part's name
+and move its origin to the attach point (<strong>Object &gt; Set Origin</strong>). Use as many materials as you like. Meshes
+parented under a part are part of it.</li>
+<li><strong>Markers.</strong> To add a socket, a <code>Muzzle</code> or a <code>Sight</code>, select the part it belongs to, put the 3D cursor where it
+goes (Shift + right-click), and press its button. It gets parented to the part for you. Blender's <code>.001</code> suffixes
+don't matter, so every barrel can have its own <code>Muzzle</code>.</li>
+<li><strong>Check.</strong> Press <strong>Check</strong>. It lists problems in the status bar and the Info editor:
+<ul>
+<li>a name that isn't a part;</li>
+<li>a barrel with no <code>Muzzle</code>, or an optic with no <code>Sight</code>;</li>
+<li>a receiver with no barrel or optic socket;</li>
+<li>a marker that isn't parented to a part;</li>
+<li>a misnamed material (see above).</li>
+</ul>
+</li>
+<li><strong>Export.</strong> Set <strong>Id</strong> to the file name (<code>auto_rifle</code>, or <code>shared</code> for the shared parts; it defaults to the
+<code>.blend</code> name), set <strong>Folder</strong> to <code>content/weapons/</code>, and press <strong>Export</strong>. It runs the check first, then writes one
+self-contained <code>.gltf</code> with every part, including hidden ones.</li>
+<li><strong>Try it.</strong> Run the tests (<code>dotnet test tests/LastFleet.Client.Tests</code>). They put every frame together and check its
+sockets, muzzles and aim points, and that aiming looks through the sight. Then play the game: the gun in your hands,
+the soldiers' guns and the weapons on the floor all use these models. Commit the <code>.blend</code> and the <code>.gltf</code> together.</li>
+</ol>
+<h2 id="adding-a-part">Adding a part</h2>
+<p>Let's say you want an eighth barrel on the auto rifle. Add an object named, for example, <code>Barrel_7_Long</code> to
+<code>auto_rifle.gltf</code>, with its origin at its back end, pointing along +Y, and a <code>Muzzle</code> empty at its front. Export.
+That's it! Rolled auto rifles now pick from eight barrels.</p>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>The shipped <code>auto_rifle.gltf</code> is forged</strong>, so for that one you'd add the barrel to its recipe instead.</li>
+<li><strong>Shared parts lose to a frame's own.</strong> For a part every frame can use, put it in <code>shared.gltf</code>, but remember that a
+frame with its own parts for that slot ignores the shared ones.</li>
+</ul>
+<p>To make a part in the loot data use it, set that part's <code>model</code> to <code>Barrel_7_Long</code>, or to <code>Long</code> to use that shape on
+every frame that has one. You can do this in Studio's Armory, where the field opens a 3D picker of the slot's models,
+or by hand.</p>
+<p><strong>See it right away in Studio.</strong> If LastFleet Studio is open in Armory mode when you export, it picks up the change.
+Studio reads the repository's <code>content/weapons</code> and reloads a file as soon as it's written (the status line tells you,
+or tells you why it couldn't load it).</p>
+<ul>
+<li><strong>Part models</strong> on the 3D panel shows every model for a frame's slot on a turntable, along with the data parts that
+use it.</li>
+<li><strong>The rolled gun</strong> shows the previewed gun put together.</li>
+</ul>
+<h2 id="the-rules">The rules</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each top-level object is a part, named <code>Receiver</code>, <code>Barrel_…</code>, <code>Magazine_…</code>, <code>Stock_…</code>, <code>Module_…</code>, <code>Grip_…</code>, <code>Muzzle_…</code> or <code>Optic_&lt;Iron, RedDot, Holographic or Scope&gt;…</code>.</td>
+<td>The name says which slot it fills.</td>
+</tr>
+<tr>
+<td>A frame's file has a <code>Receiver</code> with at least <code>Socket_Barrel</code> and <code>Socket_Optic</code>.</td>
+<td>Every gun has a barrel and a sight.</td>
+</tr>
+<tr>
+<td>Every barrel has a <code>Muzzle</code>, and every optic has a <code>Sight</code>.</td>
+<td>The flash and the aim come from them.</td>
+</tr>
+<tr>
+<td>Markers are empties parented to their part. Meshes can be parented too.</td>
+<td>A part is the object plus everything under it.</td>
+</tr>
+<tr>
+<td>A paint slot is <code>Paint_&lt;Slot&gt;</code>. <code>Body</code>, <code>BodyDark</code>, <code>BodyShade</code>, <code>Accent</code>, <code>Reticle</code> and <code>Lamp</code> belong to the game.</td>
+<td>The data colors paint slots, and the game colors the rest.</td>
+</tr>
+<tr>
+<td>Only meshes and empties. Modifiers are applied on export; armatures, curves and text aren't exported.</td>
+<td>The game reads triangles and empties.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

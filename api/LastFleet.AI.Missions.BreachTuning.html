@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BreachTuning | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BreachTuning | The Last Fleet ">
+      
+      <meta name="description" content="How windows onto space break and what a breach does (content/defs/breaches.json, docs/plans/structure-first.md, Phase 10), the same for every mission: how much a window takes before it&#39;s blown out and when its cracks show, how hard and how far the air rushing out pulls, what it does to anyone beside it and what it drags out, and how long the compartment&#39;s doors take to seal, the shutter to close and the compartment to repressurize; and how it looks (the shutter&#39;s drop, the mist streaming out, the lamps over sealed doors). Whether a breach is for good is the mission recipe&#39;s (its breaches block).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Missions_BreachTuning.md&amp;value=---%0Auid%3A%20LastFleet.AI.Missions.BreachTuning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Missions.BreachTuning">
+
+
+
+  <h1 id="LastFleet_AI_Missions_BreachTuning" data-uid="LastFleet.AI.Missions.BreachTuning" class="text-break">
+Class BreachTuning  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>How windows onto space break and what a breach does (content/defs/breaches.json, docs/plans/structure-first.md,
+Phase 10), the same for every mission: how much a window takes before it's blown out and when its cracks show, how
+hard and how far the air rushing out pulls, what it does to anyone beside it and what it drags out, and how long the
+compartment's doors take to seal, the shutter to close and the compartment to repressurize; and how it looks (the
+shutter's drop, the mist streaming out, the lamps over sealed doors). Whether a breach is for good is the mission
+recipe's (its <code>breaches</code> block).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record BreachTuning : IEquatable&lt;BreachTuning&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BreachTuning</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning__ctor_" data-uid="LastFleet.AI.Missions.BreachTuning.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="LastFleet.AI.Missions.BreachTuning.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  BreachTuning(float, float, float, float, float, float, float, float, float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How windows onto space break and what a breach does (content/defs/breaches.json, docs/plans/structure-first.md,
+Phase 10), the same for every mission: how much a window takes before it's blown out and when its cracks show, how
+hard and how far the air rushing out pulls, what it does to anyone beside it and what it drags out, and how long the
+compartment's doors take to seal, the shutter to close and the compartment to repressurize; and how it looks (the
+shutter's drop, the mist streaming out, the lamps over sealed doors). Whether a breach is for good is the mission
+recipe's (its <code>breaches</code> block).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BreachTuning(float Toughness, float FirstCracks, float SecondCracks, float PullStrength, float PullReach, float CoreRadius, float CoreDamage, float RemoveWithin, float SealSeconds, float ShutterSeconds, float RepressurizeSeconds, float ShutterDropSeconds = 1.6, float MistPerSecond = 90, float LampFlashes = 1.5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Toughness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much damage a window takes before it's blown out (a grenade's blast does up to about 150).</p>
+</dd>
+    <dt><code>FirstCracks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The share of its toughness taken when its first cracks show, 0 to 1.</p>
+</dd>
+    <dt><code>SecondCracks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The share taken when its cracks spread, 0 to 1, after the first.</p>
+</dd>
+    <dt><code>PullStrength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How fast the air drags someone at the breach itself, meters per second (running is 5, sprinting 9).</p>
+</dd>
+    <dt><code>PullReach</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How far from the breach it pulls, meters.</p>
+</dd>
+    <dt><code>CoreRadius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How near the breach someone is caught in it and hurt, meters.</p>
+</dd>
+    <dt><code>CoreDamage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much anyone caught in it is hurt each second.</p>
+</dd>
+    <dt><code>RemoveWithin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How near the breach a dropped weapon or item is pulled out through it, meters.</p>
+</dd>
+    <dt><code>SealSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long after the breach its compartment's doors seal, seconds.</p>
+</dd>
+    <dt><code>ShutterSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long after the breach its shutter closes over it (if it's not for good), seconds.</p>
+</dd>
+    <dt><code>RepressurizeSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long after the shutter closes the compartment's doors unseal, seconds.</p>
+</dd>
+    <dt><code>ShutterDropSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How long the shutter takes to slide down over the window, seconds (drawn only).</p>
+</dd>
+    <dt><code>MistPerSecond</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How many motes of mist and frost stream out through a breach each second, while it vents.</p>
+</dd>
+    <dt><code>LampFlashes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How many times a second the lamp over a sealed door flashes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_FileName" data-uid="LastFleet.AI.Missions.BreachTuning.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file's name in content/defs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FileName = &quot;breaches.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_CoreDamage_" data-uid="LastFleet.AI.Missions.BreachTuning.CoreDamage*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_CoreDamage" data-uid="LastFleet.AI.Missions.BreachTuning.CoreDamage">
+  CoreDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much anyone caught in it is hurt each second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CoreDamage { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_CoreRadius_" data-uid="LastFleet.AI.Missions.BreachTuning.CoreRadius*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_CoreRadius" data-uid="LastFleet.AI.Missions.BreachTuning.CoreRadius">
+  CoreRadius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How near the breach someone is caught in it and hurt, meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CoreRadius { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_Default_" data-uid="LastFleet.AI.Missions.BreachTuning.Default*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_Default" data-uid="LastFleet.AI.Missions.BreachTuning.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The code's numbers, used without the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BreachTuning Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_FirstCracks_" data-uid="LastFleet.AI.Missions.BreachTuning.FirstCracks*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_FirstCracks" data-uid="LastFleet.AI.Missions.BreachTuning.FirstCracks">
+  FirstCracks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The share of its toughness taken when its first cracks show, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FirstCracks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_LampFlashes_" data-uid="LastFleet.AI.Missions.BreachTuning.LampFlashes*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_LampFlashes" data-uid="LastFleet.AI.Missions.BreachTuning.LampFlashes">
+  LampFlashes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many times a second the lamp over a sealed door flashes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float LampFlashes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_MistPerSecond_" data-uid="LastFleet.AI.Missions.BreachTuning.MistPerSecond*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_MistPerSecond" data-uid="LastFleet.AI.Missions.BreachTuning.MistPerSecond">
+  MistPerSecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many motes of mist and frost stream out through a breach each second, while it vents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MistPerSecond { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_PullReach_" data-uid="LastFleet.AI.Missions.BreachTuning.PullReach*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_PullReach" data-uid="LastFleet.AI.Missions.BreachTuning.PullReach">
+  PullReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far from the breach it pulls, meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PullReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_PullStrength_" data-uid="LastFleet.AI.Missions.BreachTuning.PullStrength*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_PullStrength" data-uid="LastFleet.AI.Missions.BreachTuning.PullStrength">
+  PullStrength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How fast the air drags someone at the breach itself, meters per second (running is 5, sprinting 9).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PullStrength { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_RemoveWithin_" data-uid="LastFleet.AI.Missions.BreachTuning.RemoveWithin*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_RemoveWithin" data-uid="LastFleet.AI.Missions.BreachTuning.RemoveWithin">
+  RemoveWithin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How near the breach a dropped weapon or item is pulled out through it, meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RemoveWithin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_RepressurizeSeconds_" data-uid="LastFleet.AI.Missions.BreachTuning.RepressurizeSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_RepressurizeSeconds" data-uid="LastFleet.AI.Missions.BreachTuning.RepressurizeSeconds">
+  RepressurizeSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long after the shutter closes the compartment's doors unseal, seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RepressurizeSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_SealSeconds_" data-uid="LastFleet.AI.Missions.BreachTuning.SealSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_SealSeconds" data-uid="LastFleet.AI.Missions.BreachTuning.SealSeconds">
+  SealSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long after the breach its compartment's doors seal, seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SealSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_SecondCracks_" data-uid="LastFleet.AI.Missions.BreachTuning.SecondCracks*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_SecondCracks" data-uid="LastFleet.AI.Missions.BreachTuning.SecondCracks">
+  SecondCracks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The share taken when its cracks spread, 0 to 1, after the first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SecondCracks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_ShutterDropSeconds_" data-uid="LastFleet.AI.Missions.BreachTuning.ShutterDropSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_ShutterDropSeconds" data-uid="LastFleet.AI.Missions.BreachTuning.ShutterDropSeconds">
+  ShutterDropSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the shutter takes to slide down over the window, seconds (drawn only).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ShutterDropSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_ShutterSeconds_" data-uid="LastFleet.AI.Missions.BreachTuning.ShutterSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_ShutterSeconds" data-uid="LastFleet.AI.Missions.BreachTuning.ShutterSeconds">
+  ShutterSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long after the breach its shutter closes over it (if it's not for good), seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ShutterSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_Toughness_" data-uid="LastFleet.AI.Missions.BreachTuning.Toughness*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_Toughness" data-uid="LastFleet.AI.Missions.BreachTuning.Toughness">
+  Toughness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much damage a window takes before it's blown out (a grenade's blast does up to about 150).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Toughness { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_Load_" data-uid="LastFleet.AI.Missions.BreachTuning.Load*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_Load_System_String_" data-uid="LastFleet.AI.Missions.BreachTuning.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads <code class="paramref">path</code>, or <a class="xref" href="LastFleet.AI.Missions.BreachTuning.html#LastFleet_AI_Missions_BreachTuning_Default">Default</a> if there's no such file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BreachTuning Load(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file has problems. The message names every one.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_AI_Missions_BreachTuning_Parse_" data-uid="LastFleet.AI.Missions.BreachTuning.Parse*"></a>
+
+  <h3 id="LastFleet_AI_Missions_BreachTuning_Parse_System_String_System_String_" data-uid="LastFleet.AI.Missions.BreachTuning.Parse(System.String,System.String)">
+  Parse(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/BreachTuning.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads breaches.json's text. Anything left out takes <a class="xref" href="LastFleet.AI.Missions.BreachTuning.html#LastFleet_AI_Missions_BreachTuning_Default">Default</a>'s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BreachTuning Parse(string json, string source = &quot;breaches.json&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>It has problems. The message names every one.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

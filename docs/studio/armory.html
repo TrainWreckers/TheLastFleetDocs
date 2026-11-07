@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Armory | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Armory | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-armory">Studio: Armory</h1>
+
+<p>Armory mode is where the guns live. Every gun the game rolls is a <em>frame</em> (a pulse rifle, a shotgun...) made by a
+<em>maker</em>, built from one <em>part</em> in each slot, with a rarity and maybe an affix or two on top. Armory mode edits all of
+those, plus the <em>trait rules</em> (the numbers behind each trait) and <em>impact</em> (what a round's push does to whatever it
+hits).</p>
+<p>Why tune guns here and not in the JSON? Because a gun is the sum of a lot of small numbers, and it's hard to know what
+&quot;rate of fire 150, burst of 3, falloff from 22 m&quot; feels like. Armory mode rolls a real gun from the data as it stands,
+shows its numbers in play next to what they were before your change, spins it in 3D, and puts it in your hands on the
+range. All without saving a thing!</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Armory</strong> along the top, or start Studio in it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode armory
+</code></pre>
+<p>Add <code>--select pulse_rifle</code> (or any frame, maker or part id) to open with it picked.</p>
+<p><img src="images/armory/01-armory-mode.png" alt="Armory mode as it opens, with the lists on the left, the 3D panel top right and the Preview below it"></p>
+<p>Here's the tour:</p>
+<ul>
+<li><strong>On the left</strong> are the lists: <strong>Frames</strong> (<code>archetypes.json</code>), <strong>Makers</strong> (<code>manufacturers.json</code>), <strong>Parts</strong>
+(<code>parts.json</code>), <strong>Affixes</strong> (<code>affixes.json</code>), and at the very bottom <strong>Trait rules</strong> (<code>traits.json</code>) and <strong>Impact</strong>
+(<code>impact.json</code>).</li>
+<li><strong>In the middle</strong> is the editor for what you've picked.</li>
+<li><strong>Top right</strong> is the 3D panel. <strong>The rolled gun</strong> spins the previewed gun, put together from its part models the way
+the game does it. <strong>Part models</strong> browses every model in a frame's file instead.</li>
+<li><strong>Bottom right</strong> is the <strong>Preview</strong>: a gun rolled from the current data. Pick its <strong>Frame</strong>, <strong>Maker</strong> and <strong>Rarity</strong>
+(or leave them on <strong>Any</strong>), its <strong>Item level</strong> and <strong>Seed</strong>. Under that is its card and its numbers in play.</li>
+</ul>
+<p>New to Studio? <a href="getting-started.html">getting-started.md</a> covers editing, saving and undoing.</p>
+<h2 id="tune-a-frames-damage-over-distance">Tune a frame's damage over distance</h2>
+<p>So the pulse rifle falls off too early? Let's push its range out and see what that does.</p>
+<ol>
+<li><p>Pick <strong>pulse_rifle</strong> under <strong>Frames</strong>. The Preview follows whatever frame you're editing, so it switches to a Pulse
+Rifle.</p>
+<p>Above the fields is <strong>Damage over distance (falloff)</strong>: damage (as a fraction of full) over meters. There's a line
+for a gun with range stat 0, one for range 100, and one for the <strong>rolled</strong> gun in the Preview. Damage is full out to
+where the line starts falling, drops in a straight line to its lowest, then stays flat.</p>
+<p><img src="images/armory/02-frame-picked.png" alt="The pulse_rifle frame picked, with its damage over distance curve above its fields"></p>
+</li>
+<li><p>Drag the <strong>range 0</strong> key (the dot where that line starts falling) to the right. That's <code>falloffStart</code> for a gun with
+range 0. The other keys work the same way: the range 100 key moves the start for range 100, and the end key moves
+sideways for <code>falloffSpan</code> and up or down for <code>falloffMinimumMultiplier</code>.</p>
+</li>
+<li><p>Hover over the curve to read it. At 34 m, our pulse rifle now does 18.4 a hit at range 0, and its full 21 at range
+100.</p>
+<p><img src="images/armory/03-falloff-dragged.png" alt="The range 0 key dragged right, with the tooltip reading damage at 34 meters"></p>
+</li>
+<li><p>Now let's speed it up too. Drag <code>roundsPerMinute</code> (under <code>frameStats</code>) from 150 to about 169.</p>
+</li>
+<li><p>Scroll down the Preview to <strong>In play</strong>. <strong>Now</strong> is the rolled gun with your changes, <strong>Saved</strong> is the same roll with
+the data on disk. Anything that got better is green: rounds a minute 150 to 169, damage a second 50 to 57, and the
+falloff now 34 to 52 m instead of 31 to 49 m. Anything worse would be red.</p>
+<p><img src="images/armory/04-in-play-numbers.png" alt="The In play table with Rounds a minute, Damage a second, Sustained and Falloff in green"></p>
+</li>
+</ol>
+<p>Like what you see? <strong>Ctrl+S</strong>. Or try it out first...</p>
+<h2 id="try-a-gun-on-the-range">Try a gun on the range</h2>
+<p>Numbers are one thing, but how does it feel? Let's take that faster pulse rifle out for a spin.</p>
+<ol>
+<li><p>In the Preview, click <strong>Try it on the range</strong>.</p>
+<p>You're dropped onto the game's range with the previewed gun in your hands, edits and all, playing just like the
+game. The card top left has its numbers: our 169 rounds a minute and 57 damage a second are right there.</p>
+<p><img src="images/armory/05-on-the-range.png" alt="On the range holding the Rattler pulse rifle, with its card showing 169 rounds a minute"></p>
+</li>
+<li><p>Shoot! The card counts your shots and how many hit the targets.</p>
+<p><img src="images/armory/06-shots-counted.png" alt="The range card counting 2 shots after firing"></p>
+</li>
+<li><p>Press <strong>Esc</strong> to come back to Studio, right where you left off.</p>
+</li>
+</ol>
+<p>Not happy with how it handles? Tweak a number, hit <strong>Try it on the range</strong> again. Too easy! When you're done
+experimenting, <strong>Ctrl+Z</strong> takes the changes back (or <strong>Ctrl+S</strong> keeps them).</p>
+<h2 id="check-a-gun-in-3d">Check a gun in 3D</h2>
+<p>The 3D panel shows the gun exactly the way the game puts it together, so it's the place to catch a part sitting in the
+wrong spot or a sight that doesn't line up.</p>
+<ol>
+<li><p>Pick <strong>marksman_rifle</strong> under <strong>Frames</strong>. The Preview and the 3D panel switch to a Marksman Rifle.</p>
+</li>
+<li><p>Untick <strong>Turn</strong> to stop the turntable, then drag the gun to turn it yourself. The mouse wheel brings it closer.</p>
+</li>
+<li><p><strong>Hand points</strong> marks where hands go on it: the pistol grip (<strong>Grip.R</strong>), the <strong>Fore grip</strong>, the magazine's
+<strong>Grab</strong> and <strong>Well</strong>, the <strong>Charge</strong> handle, and the <strong>Muzzle</strong>. These come from the parts' markers in Blender (see
+<a href="../blender/weapons.html">weapons.md</a>), so if a hand point is off, it's the model that needs fixing.</p>
+</li>
+<li><p>On the left, <strong>Through the sight</strong> shows what you'd see aimed: here the marksman rifle's scope reticle. A sight with
+a second zoom shows that one beside it.</p>
+<p><img src="images/armory/07-rolled-gun.png" alt="A marksman rifle in 3D with its hand points marked, and its scope reticle under Through the sight"></p>
+</li>
+<li><p>Now pick <strong>Part models</strong> at the top. This lists every model in the frame's file (here <code>marksman_rifle.gltf</code>) for one
+slot. Pick <strong>Barrel</strong> in <strong>Slot</strong>, then click <strong>Barrel_5_Coil</strong>. It spins on its own, and the panel says which data
+parts use it (<strong>Named by: part.barrel.halcyon.coil_01</strong>) and what markers it has.</p>
+<p><img src="images/armory/08-part-models.png" alt="Part models showing the marksman rifle's barrels, with Barrel_5_Coil picked and named by the halcyon coil part"></p>
+</li>
+</ol>
+<p>The models come straight from <code>content/weapons</code>. Export from Blender and Studio reloads the file right away, so you can
+keep the 3D panel open while you work on a model. <strong>Recipe</strong>, next to the list, opens the part's recipe from
+<code>content/weapons/forge.json</code>.</p>
+<h2 id="pick-the-model-a-part-shows-as">Pick the model a part shows as</h2>
+<p>Parts are the pieces each gun is built from, one per slot. Each one changes the gun's stats (its <code>mods</code>) and shows as a
+model from its frame's file.</p>
+<ol>
+<li><p>Pick <strong>part.barrel.halcyon.coil_01</strong> under <strong>Parts</strong>. It's a barrel (<code>slot</code>), only made by Halcyon
+(<code>manufacturer</code>), starts at <code>military</code> rarity, and its <code>model</code> is <code>Coil</code>.</p>
+</li>
+<li><p>Click the model button (<strong>Coil +</strong>). The picker opens below it, with every barrel model for each frame, each with
+its icon. Type in <strong>filter by name</strong> to narrow them down.</p>
+</li>
+<li><p>Rest the mouse on a model and it spins in 3D on the right, with its paint slots and markers in the tooltip. Click
+one to pick it. <strong>(the game's choice)</strong> at the top leaves it to the game.</p>
+<p><img src="images/armory/09-model-picker.png" alt="The model picker open on the coil barrel part, showing Barrel_5_Coil in 3D"></p>
+</li>
+<li><p>Click the model button again (now <strong>Coil -</strong>) to close the picker.</p>
+</li>
+</ol>
+<p>Heads up: right now Studio marks a part's short model name (like <code>Coil</code>, the end of <code>Barrel_5_Coil</code>) as <strong>not found</strong>
+in red, even though the game finds it just fine. The <strong>Part models</strong> panel is the one to trust here: it shows the model
+<strong>Named by</strong> the part.</p>
+<h2 id="give-a-maker-a-new-gun-name">Give a maker a new gun name</h2>
+<p>Makers are who builds the guns. Each has a paint <code>color</code>, a <code>bias</code> on every gun's stats, a <code>signature</code> trait, and the
+names its guns go by.</p>
+<ol>
+<li><p>Pick <strong>kessler</strong> under <strong>Makers</strong>. The Preview switches to <strong>Kessler Armory</strong>, and its card shows the maker's
+signature (<strong>Steady hand</strong>) and its bias (<strong>Kessler Armory: Stability +6, Recoil dir. +7</strong>).</p>
+</li>
+<li><p>Open <strong>models</strong>. There's a row for each frame Kessler builds: the frame on the right, and the names players see on
+the left. A frame with no row here is one this maker doesn't build.</p>
+<p><img src="images/armory/10-maker.png" alt="The kessler maker, with its signature, bias and model names per frame, and a Kessler marksman rifle in the Preview"></p>
+</li>
+<li><p>Under <code>marksman_rifle</code>, click <strong>+ add</strong>. A new empty name shows up. Click it and type <code>Longwatch MR-12</code>.</p>
+<p>The Preview rolls again, and this seed now comes out as the <strong>Longwatch MR-12</strong>!</p>
+<p><img src="images/armory/11-maker-new-name.png" alt="Longwatch MR-12 added to Kessler's marksman rifle names, and the Preview's gun named Longwatch MR-12"></p>
+</li>
+<li><p><strong>Ctrl+S</strong> to keep it, or <strong>Ctrl+Z</strong> to take it back.</p>
+</li>
+</ol>
+<p>These are only names. The gun's look comes from the frame's models and the maker's color.</p>
+<h2 id="make-a-trait-stronger">Make a trait stronger</h2>
+<p>Kessler's signature is <em>Steady hand</em>: more damage while crouched. What a trait does is code, but how strong it is lives
+in the <strong>Trait rules</strong>.</p>
+<ol>
+<li><p>With the Preview still on a Kessler gun, scroll down the left list and pick <strong>Trait rules</strong>. Every trait is here
+with its numbers: <code>steadyHand</code>, <code>restoration</code>, <code>scrapwork</code>, <code>hunger</code>, <code>tolling</code> and the rest.</p>
+</li>
+<li><p>Drag <code>steadyHand</code>'s <code>crouchedDamage</code> up from 1.12 to about 1.27. The Preview's card follows: <strong>Steady hand: +27%
+damage while crouched</strong>.</p>
+<p><img src="images/armory/14-trait-rules.png" alt="Trait rules with steadyHand's crouchedDamage at 1.27, and the Preview card reading +27 percent damage while crouched"></p>
+</li>
+</ol>
+<p><strong>Affixes</strong>, just above, work the same way as parts: each has a <code>kind</code> (prefix or suffix), the rarity it starts at, its
+<code>mods</code>, and any traits it brings.</p>
+<h2 id="tune-what-a-rounds-push-does">Tune what a round's push does</h2>
+<p>What happens when a round hits someone? It pushes them. Hard enough and they slide off their feet, harder still and
+they're knocked down, and a killing round throws the body. <strong>Impact</strong> sets those thresholds for everyone.</p>
+<ol>
+<li><p>Scroll to the bottom of the left list and pick <strong>Impact</strong>. Pushes are in meters a second. Each frame's own <code>impact</code>
+and <code>impactRange</code> say how hard and how far its rounds push.</p>
+</li>
+<li><p>Rest the mouse on <code>knockdownPush</code>: at this push or above, the body is knocked down (no moving or firing, the downed
+pose).</p>
+<p><img src="images/armory/12-impact.png" alt="The Impact settings, with the tooltip for knockdownPush"></p>
+</li>
+<li><p>Want knockdowns rarer? Drag <code>knockdownPush</code> up a little, from 6 to about 7. Keep it under <code>maxPush</code> (9), or
+nothing could ever knock anyone down! The scales below it (<code>playerScale</code>, <code>soldierScale</code>, <code>swarmScale</code>) say how much
+each kind of body is pushed. Players aren't pushed at all (0).</p>
+<p><img src="images/armory/13-impact-tuned.png" alt="knockdownPush at 7.05, with impact.json in the not saved list"></p>
+</li>
+<li><p>The status bar lists every file you've changed. <strong>Ctrl+S</strong> saves them all.</p>
+</li>
+</ol>
+<p>Impact doesn't show in the Preview, so this is one to try in the game: save, then start a mission and shoot someone.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li><a href="reference.html">The reference</a> covers every field. Armory is described at the top, and the Preview, the falloff
+curve, the 3D panel, the model picker and the range under <a href="reference.html#seeing-a-change">seeing a change</a>.</li>
+<li><a href="loot.html">loot.md</a>: the loot tables, rarities and relics that decide which of these guns drop.</li>
+<li><a href="../blender/weapons.html">weapons.md</a>: making the part models, and the markers the hand points come from.</li>
+<li><a href="../adding-content.html#guns-and-loot-contentdefsloot">adding-content.md</a>: what to set when you add a frame, maker,
+part or affix.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

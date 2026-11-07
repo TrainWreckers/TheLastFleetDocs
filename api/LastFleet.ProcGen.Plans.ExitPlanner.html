@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExitPlanner | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExitPlanner | The Last Fleet ">
+      
+      <meta name="description" content="Finds a plan level&#39;s ways on and off (docs/plans/structure-first.md, Phase 4): airlock vestibules, small rooms on the hull that open only onto a corridor, so the squad boards into a hallway rather than a store; and rooms on the hull for the squad to be taken off from.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Plans_ExitPlanner.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Plans.ExitPlanner%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans.ExitPlanner">
+
+
+
+  <h1 id="LastFleet_ProcGen_Plans_ExitPlanner" data-uid="LastFleet.ProcGen.Plans.ExitPlanner" class="text-break">
+Class ExitPlanner  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Plans.html">Plans</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Finds a plan level's ways on and off (docs/plans/structure-first.md, Phase 4): airlock vestibules, small rooms on
+the hull that open only onto a corridor, so the squad boards into a hallway rather than a store; and rooms on the
+hull for the squad to be taken off from.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ExitPlanner</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ExitPlanner</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_LeastChamberClearance" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.LeastChamberClearance">
+  LeastChamberClearance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest cells a vestibule's door is from a hull side beside it for the airlock to go on that side: its chamber
+runs 5.6 m into the room, past a door in the cell next to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LeastChamberClearance = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_LeastHangar" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.LeastHangar">
+  LeastHangar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest cells a hangar is across either way for the dropship to land in it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LeastHangar = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_LeastVestibule" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.LeastVestibule">
+  LeastVestibule
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest cells a vestibule is across either way, to hold the airlock's chamber and the squad.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LeastVestibule = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_MostVestibule" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.MostVestibule">
+  MostVestibule
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most cells a vestibule is across either way: any bigger and it's a room, not a vestibule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostVestibule = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_ExitPlanner_Dock_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Dock*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_Dock_LastFleet_ProcGen_Plans_PlanLevel_LastFleet_ProcGen_Plans_PlanPiece_System_Nullable_LastFleet_ProcGen_Layouts_Side__" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Dock(LastFleet.ProcGen.Plans.PlanLevel,LastFleet.ProcGen.Plans.PlanPiece,System.Nullable{LastFleet.ProcGen.Layouts.Side})">
+  Dock(PlanLevel, PlanPiece, Side?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns where the dropship docks at <code class="paramref">piece</code>: on <code class="paramref">side</code>, a side wholly on the
+hull, its middle cell; else, with no side given, the hull wall of one of its cells with no doorway in it, the one
+nearest the middle of all of them; null if it has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlanDock? Dock(PlanLevel level, PlanPiece piece, Side? side = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+    <dt><code>piece</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanPiece.html">PlanPiece</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDock.html">PlanDock</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ExitPlanner_FreeHullSide_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.FreeHullSide*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_FreeHullSide_LastFleet_ProcGen_Plans_PlanLevel_LastFleet_ProcGen_Plans_PlanPiece_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.FreeHullSide(LastFleet.ProcGen.Plans.PlanLevel,LastFleet.ProcGen.Plans.PlanPiece)">
+  FreeHullSide(PlanLevel, PlanPiece)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a side of <code class="paramref">piece</code>, a rectangle, wholly on the hull with none of its doorways on it, for
+a pod bay; null if it has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Side? FreeHullSide(PlanLevel level, PlanPiece piece)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+    <dt><code>piece</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanPiece.html">PlanPiece</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ExitPlanner_Hangars_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Hangars*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_Hangars_LastFleet_ProcGen_Plans_PlanLevel_LastFleet_ProcGen_Data_ProcGenData_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Hangars(LastFleet.ProcGen.Plans.PlanLevel,LastFleet.ProcGen.Data.ProcGenData)">
+  Hangars(PlanLevel, ProcGenData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hangars of <code class="paramref">level</code> the dropship can land in: rectangles at least
+<a class="xref" href="LastFleet.ProcGen.Plans.ExitPlanner.html#LastFleet_ProcGen_Plans_ExitPlanner_LeastHangar">LeastHangar</a> cells a side whose archetype is one squads are taken off from (the extraction role's).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;ExitPoint&gt; Hangars(PlanLevel level, ProcGenData data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.ExitPoint.html">ExitPoint</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ExitPlanner_OnTheHull_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.OnTheHull*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_OnTheHull_LastFleet_ProcGen_Plans_PlanLevel_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.OnTheHull(LastFleet.ProcGen.Plans.PlanLevel)">
+  OnTheHull(PlanLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rooms of <code class="paramref">level</code> with at least one cell against the hull.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;int&gt; OnTheHull(PlanLevel level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_ExitPlanner_Vestibules_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Vestibules*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_ExitPlanner_Vestibules_LastFleet_ProcGen_Plans_PlanLevel_" data-uid="LastFleet.ProcGen.Plans.ExitPlanner.Vestibules(LastFleet.ProcGen.Plans.PlanLevel)">
+  Vestibules(PlanLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/ExitPlanner.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rooms of <code class="paramref">level</code> that can be an airlock's vestibule, smallest first: rectangles
+<a class="xref" href="LastFleet.ProcGen.Plans.ExitPlanner.html#LastFleet_ProcGen_Plans_ExitPlanner_LeastVestibule">LeastVestibule</a> to <a class="xref" href="LastFleet.ProcGen.Plans.ExitPlanner.html#LastFleet_ProcGen_Plans_ExitPlanner_MostVestibule">MostVestibule</a> cells a side, not a district's anchor, with one door,
+onto a corridor, and a whole side on the hull (the one across from the door if it can be).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;ExitPoint&gt; Vestibules(PlanLevel level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.ExitPoint.html">ExitPoint</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

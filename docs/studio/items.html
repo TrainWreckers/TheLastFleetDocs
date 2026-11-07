@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Items | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Items | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-items">Studio: Items</h1>
+
+<p>Guns aren't the only thing lying around a station. There are medkits and ammo packs, armor plates and stims, raw
+materials for the fleet's refinery, and the fleet's own supplies: fuel, food, water and the rest. Items mode is where
+all of that lives, along with what each item does when you use it, how the fleet burns through its supplies, and what
+the refinery and the armory bench make out of the raw stuff.</p>
+<p>Why bother with a mode for it? Because items touch everything. A medkit is an item, an effect, an entry in four item
+tables and part of every player's starting kit. Items mode shows you all of those links, lets you jump between them,
+and rolls the tables 10,000 times after every change so you can see what a supply pile actually gives.</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Items</strong> along the top, or start Studio in it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode items --select medkit
+</code></pre>
+<p>Use <code>--select supplies:water</code> to open on an entry whose id is in more than one list (water is both an item and a
+supply).</p>
+<p><img src="images/items/01-items-mode.png" alt="Items mode with the medkit picked, its Used by links, and What a table gives on the right"></p>
+<p>Here's what you're looking at:</p>
+<ul>
+<li><strong>On the left</strong>, top to bottom: <strong>Items</strong> (<code>items.json</code>), <strong>Effects</strong> (<code>effects.json</code>), <strong>Supplies</strong>
+(<code>supplies.json</code>), <strong>Item tables</strong> (also <code>items.json</code>), and further down the crafting lists from <code>crafting.json</code>:
+<strong>Grades</strong>, <strong>Refinery tiers</strong>, <strong>Recipes</strong> and <strong>Fabrication</strong>.</li>
+<li><strong>In the middle</strong> is the editor. Above an item's fields is <strong>Used by</strong>: the tables it's found in (and how often),
+the recipes that refine it, and what the game's own rules do with it. Each one is a button that takes you there.</li>
+<li><strong>On the right</strong>, <strong>What a table gives</strong> rolls a table 10,000 times at the <strong>Deck</strong> you pick, and again after every
+change. Under it, <strong>The items in play</strong> lists every item the way the game has it right now: its stack, how long it
+takes to use, and what it gives.</li>
+</ul>
+<p>New to Studio? <a href="getting-started.html">getting-started.md</a> covers editing, saving and undoing.</p>
+<h2 id="make-a-medkit-heal-more">Make a medkit heal more</h2>
+<p>So the medkit feels weak? An item doesn't heal on its own: it runs an <em>effect</em>. Here's the flow:</p>
+<ol>
+<li><p>Pick <strong>medkit</strong> under <strong>Items</strong>. It's <code>consumable</code>, so it has a <code>useSeconds</code> (1.4) and an <code>effect</code> (<code>patch_up</code>).
+Click <strong>open</strong> next to the effect.</p>
+</li>
+<li><p>That takes you to <strong>patch_up</strong> under <strong>Effects</strong>. Its <code>trigger</code> is <code>use</code> (it runs when the item is used from a quick
+slot), and <strong>Used by</strong> lists the items that run it. Open <strong>actions</strong> and then <strong>heal</strong>: one action, healing by an
+<code>amount</code> of 60.</p>
+<p><img src="images/items/02-effect.png" alt="The patch_up effect with its heal action opened, healing 60"></p>
+</li>
+<li><p>Drag <code>amount</code> up. <strong>The items in play</strong> follows along: at about 87, the medkit's <strong>Gives</strong> column reads
+<strong>87 health</strong>.</p>
+<p><img src="images/items/03-heal-more.png" alt="The heal amount at 86.75, and the medkit giving 87 health in The items in play"></p>
+</li>
+</ol>
+<p>Want it to do something else too? An effect runs its actions in order, so:</p>
+<ol start="4">
+<li><p>Click <strong>+ add</strong> under the actions. A copy of the last one shows up. Open it, then open its <code>do</code> list. Every kind of
+action is here: <code>heal</code>, <code>giveArmor</code>, <code>shield</code>, <code>changeStat</code>, <code>refillAmmo</code>, <code>callPod</code>, <code>placeDevice</code>, <code>sound</code> and
+<code>flash</code>.</p>
+<p><img src="images/items/04-action-kinds.png" alt="The do list open on the new action, offering every kind of action"></p>
+</li>
+<li><p>Pick <code>giveArmor</code>. Its fields swap to the new kind's: an <code>amount</code> and a <code>max</code>. Drag <code>amount</code> down to something
+modest. Now the medkit gives <strong>87 health; 13 armor</strong>.</p>
+<p><img src="images/items/05-second-action.png" alt="patch_up with a heal and a giveArmor action, and the medkit giving 87 health and 13 armor"></p>
+</li>
+</ol>
+<p>Happy with it? <strong>Ctrl+S</strong>. Otherwise <strong>Ctrl+Z</strong> a few times, until the status bar says <strong>Saved.</strong> again.</p>
+<p>An effect only fires an action when it would actually do something (healing only when you're hurt, and so on). A
+<code>passive</code> effect (one that works while the item is held, like the shield cell's) can only shield and change stats.</p>
+<h2 id="change-what-a-supply-pile-holds">Change what a supply pile holds</h2>
+<p>Every supply pile, footlocker, case and cargo crate in a level rolls from an <em>item table</em>. A mission names the tables
+its level uses. Let's look at the pile.</p>
+<ol>
+<li><p>Pick <strong>station.pile</strong> under <strong>Item tables</strong>. Its shares are drawn above its fields, and <strong>What a table gives</strong> on
+the right switches to it too.</p>
+</li>
+<li><p>Open <strong>entries</strong>, then the first one, <strong>scrap</strong>. Each entry has an <code>item</code> (with <strong>open</strong> to jump to it), a <code>weight</code>
+(how often it's picked against the others), a <code>count</code> ([fewest, most]) and <code>perDeck</code> (how many more for each deck
+deeper in).</p>
+<p><img src="images/items/06-item-table.png" alt="The station.pile table with its scrap entry opened: weight 14, count 3 to 6, perDeck 1"></p>
+</li>
+<li><p>Drag <strong>Deck</strong> on the right up to 3. Scrap now comes in stacks of 6 to 9, and the supplies 5 to 7, while medkits stay
+at 1 or 2. That's <code>perDeck</code> at work: only entries with one grow as you go deeper.</p>
+<p><img src="images/items/07-deeper-deck.png" alt="What a table gives at deck 3, with scrap at 6 to 9 a pick"></p>
+</li>
+<li><p>Drag scrap's <code>weight</code> up from 14 to about 20. Scrap goes from 11.6% of the picks to 16.1%, and everything else
+gives up a little.</p>
+<p><img src="images/items/08-more-scrap.png" alt="Scrap's weight at 19.85, and Scrap metal at 16.1 percent of the picks"></p>
+</li>
+</ol>
+<p><strong>Ctrl+S</strong> to keep it, or <strong>Ctrl+Z</strong> to put it back. A brand new table is <strong>+ New item table</strong>: give it an id and
+entries, then name it in a mission (see <a href="missions.html">missions.md</a>).</p>
+<h2 id="follow-scrap-to-the-refinery">Follow scrap to the refinery</h2>
+<p>Raw materials like scrap are what the fleet's refinery turns into graded material, and the armory bench turns that into
+guns. How do you find your way around all that? Follow the links!</p>
+<ol>
+<li><p>Click <strong>open</strong> next to the scrap entry's <code>item</code> (or pick <strong>scrap</strong> under <strong>Items</strong>). It's <code>refinable</code>, and its
+<strong>Used by</strong> says it's <strong>Found in</strong> the footlocker (9%) and the pile (11%), and <strong>Refined by</strong> two recipes:
+<code>mk1_scrap</code> and <code>mk2_ore</code>, 10 a batch.</p>
+<p><img src="images/items/09-scrap-used-by.png" alt="The scrap item, refinable, found in two tables and refined by two recipes"></p>
+</li>
+<li><p>Click <strong>mk1_scrap (10 a batch)</strong>. That's a <em>recipe</em>: a batch takes its <code>inputs</code> (10 scrap) and <code>gives</code> so many (1)
+of a <code>grade</code> (<code>mk1</code>).</p>
+<p><img src="images/items/10-recipe.png" alt="The mk1_scrap recipe: 10 scrap gives 1 of grade mk1"></p>
+</li>
+<li><p>Want the recipe to need circuitry too? Open <strong>+ add inputs...</strong>. It only offers raw materials (the items marked
+<code>refinable</code>) that the recipe doesn't already take. Pick <strong>circuitry</strong>, and it's added at 10.</p>
+<p><img src="images/items/11-recipe-input-added.png" alt="The mk1_scrap recipe now taking 10 scrap and 10 circuitry"></p>
+</li>
+<li><p><strong>Ctrl+Z</strong> that one away (it was just to show you!) and click <strong>open</strong> next to <code>grade</code>. Grades go lowest first, and
+each one's <code>itemLevel</code> is the item level of whatever's fabricated from it. Mk I makes item level 2.</p>
+<p><img src="images/items/12-grade.png" alt="The mk1 grade, Mk I, at item level 2"></p>
+</li>
+</ol>
+<h2 id="tune-the-refinery-and-the-bench">Tune the refinery and the bench</h2>
+<p>Scroll down the left list to the rest of <code>crafting.json</code>.</p>
+<ol>
+<li><p>Pick <strong>plant</strong> under <strong>Refinery tiers</strong>. A fleet starts at the first tier (<strong>field</strong>) and upgrades at the needs
+board. Each tier has the <code>cost</code> of the upgrade in the fleet's supplies (30 alloy and 10 electronics here), the
+<code>grades</code> it can make (Mk I and Mk II), and how many <code>batches</code> it refines a jump.</p>
+<p><img src="images/items/13-refinery-tier.png" alt="The plant refinery tier: costs 30 alloy and 10 electronics, makes mk1 and mk2, 3 batches a jump"></p>
+</li>
+<li><p>Pick <strong>weapon_mk1</strong> under <strong>Fabrication</strong>. This is what the armory bench on the ship makes: a <code>weapon</code> rolled from a
+loot <code>table</code> (<code>loot.station.cache</code>), at its grade's item level, for a <code>cost</code> of 3 Mk I. The others, like
+<strong>sight_mk1</strong>, make a <code>part</code> of one <code>slot</code> instead.</p>
+<p><img src="images/items/14-fabrication.png" alt="The weapon_mk1 fabrication: a weapon from loot.station.cache for 3 Mk I"></p>
+</li>
+</ol>
+<p>Every number here is a drag away, and <strong>Ctrl+S</strong> saves <code>crafting.json</code> like any other file. Want to see the whole chain
+in one picture, from where things are found to what the bench makes? That's what Flow mode is for (see
+<a href="flow.html">flow.md</a>).</p>
+<h2 id="make-fuel-run-out-faster">Make fuel run out faster</h2>
+<p>The fleet's supplies get used up every jump. How fast, and what happens when they run short, is in <strong>Supplies</strong>.</p>
+<ol>
+<li><p>Pick <strong>fuel</strong> under <strong>Supplies</strong>. At the top, <strong>For a new fleet</strong> sums it up: a jump takes 28 fuel (7 ships, 4,000
+people), and a new fleet starts with 224. Below that, the stations that mostly hold it.</p>
+</li>
+<li><p>Open <strong>use</strong>, then <strong>ship</strong>. A jump costs fuel in parts that add up, each one <code>per</code> something (<code>jump</code>, <code>ship</code>,
+<code>damagedShip</code>, <code>people</code>, <code>shipAlive</code>, <code>contact</code>) with an <code>amount</code>. Fuel is 4 per ship.</p>
+<p><img src="images/items/15-supply.png" alt="The fuel supply's use, 4 per ship, with For a new fleet showing 28 a jump"></p>
+</li>
+<li><p>Drag <code>amount</code> up by one, to 5. <strong>For a new fleet</strong> now says a jump takes 35, and a new fleet starts with 280 (it
+starts with 8 jumps' worth unless <code>startJumps</code> says otherwise).</p>
+<p><img src="images/items/16-supply-tuned.png" alt="Fuel at 5 per ship, with a jump now taking 35 and a new fleet starting with 280"></p>
+</li>
+</ol>
+<p>Other supplies have more to them. Food, water and the rest also have <code>short</code> (what happens when you run short:
+<code>peopleLost</code>, <code>morale</code>, <code>shipWorn</code>, a <code>message</code>) and <code>stocked</code> (what having enough does: <code>morale</code>, <code>repairShips</code>,
+<code>produce</code>). Picking a different kind of row swaps its fields, the same as an effect's actions.</p>
+<p><strong>Ctrl+S</strong> to keep it, or <strong>Ctrl+Z</strong> to take it back.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li><a href="reference.html#items-what-lies-about">The reference</a> covers every field of Items mode.</li>
+<li><a href="loot.html">loot.md</a>: the loot tables the armory bench fabricates guns from.</li>
+<li><a href="armory.html">armory.md</a>: the guns and parts themselves.</li>
+<li><a href="../adding-content.html">adding-content.md</a>: what to set when you add an item (and why new items go at the end of the
+list).</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

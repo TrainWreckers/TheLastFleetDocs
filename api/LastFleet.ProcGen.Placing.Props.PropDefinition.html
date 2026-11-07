@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PropDefinition | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PropDefinition | The Last Fleet ">
+      
+      <meta name="description" content="A prop that rules place (props.json): its gameplay kind, its size, and for furniture how it&#39;s built, either as a box in its color or from its model ().">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Placing_Props_PropDefinition.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Placing.Props.PropDefinition%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition">
+
+
+
+  <h1 id="LastFleet_ProcGen_Placing_Props_PropDefinition" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition" class="text-break">
+Class PropDefinition  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Placing.html">Placing</a>.<a class="xref" href="LastFleet.ProcGen.Placing.Props.html">Props</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A prop that rules place (<code>props.json</code>): its gameplay kind, its size, and for furniture how it's built, either
+as a box in its color or from its model (<a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_Model">Model</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record PropDefinition : IEquatable&lt;PropDefinition&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PropDefinition</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html">PropDefinition</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition__ctor_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition__ctor_System_String_System_String_LastFleet_ProcGen_Placing_Props_PropKind_System_Numerics_Vector3_System_Numerics_Vector3_LastFleet_ProcGen_Placing_Props_PropBreaks_System_String_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.#ctor(System.String,System.String,LastFleet.ProcGen.Placing.Props.PropKind,System.Numerics.Vector3,System.Numerics.Vector3,LastFleet.ProcGen.Placing.Props.PropBreaks,System.String)">
+  PropDefinition(string, string, PropKind, Vector3, Vector3, PropBreaks, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A prop that rules place (<code>props.json</code>): its gameplay kind, its size, and for furniture how it's built, either
+as a box in its color or from its model (<a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_Model">Model</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropDefinition(string Id, string Description, PropKind Kind, Vector3 Size, Vector3 Color, PropBreaks Breaks, string Name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The id rules refer to it by: lowercase letters, digits and underscores.</p>
+</dd>
+    <dt><code>Description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A description for designers.</p>
+</dd>
+    <dt><code>Kind</code> <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropKind.html">PropKind</a></dt>
+    <dd><p>Its gameplay kind.</p>
+</dd>
+    <dt><code>Size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Its box size in meters: width (X), height (Y) and depth (Z). The back is the side that goes against a wall. For a
+tank, the size of the template's largest tank kind is used, whatever is given here. For furniture with a model, the
+model's size is used (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Size">Size</a>).</p>
+</dd>
+    <dt><code>Color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>The furniture's color, in linear space.</p>
+</dd>
+    <dt><code>Breaks</code> <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropBreaks.html">PropBreaks</a></dt>
+    <dd><p>What material the furniture breaks as when shot apart.</p>
+</dd>
+    <dt><code>Name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name its level part is built under. Defaults to its id in title case.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_BreakPrefix" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.BreakPrefix">
+  BreakPrefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name prefix for a piece that can be shot apart (<a class="xref" href="LastFleet.Content.Encounters.BreakableLayout.html#LastFleet_Content_Encounters_BreakableLayout_Prefix">Prefix</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string BreakPrefix = &quot;Break_&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_TopHeight" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.TopHeight">
+  TopHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum height furniture can be and still have items put on it, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float TopHeight = 1.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Attach_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Attach*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Attach" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Attach">
+  Attach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furniture placed with it at its model's attach points (chairs around a table).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Attachment&gt; Attach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Attachment.html">Attachment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Breaks_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Breaks*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Breaks" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Breaks">
+  Breaks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What material the furniture breaks as when shot apart.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropBreaks Breaks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Props.PropBreaks.html">PropBreaks</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Color_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Color*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Color" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Color">
+  Color
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furniture's color, in linear space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Color { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_CountedByMission_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.CountedByMission*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_CountedByMission" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.CountedByMission">
+  CountedByMission
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if the mission sets its count instead of a rule: one keycard per lock, and the template's tanks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CountedByMission { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Description_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Description*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Description" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A description for designers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_HasTop_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.HasTop*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_HasTop" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.HasTop">
+  HasTop
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if items can go on the center of its top. That's furniture lower than <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_TopHeight">TopHeight</a> with no model
+(a model marks its item spots with sockets instead, <a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Sockets">Sockets</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasTop { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Id_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Id*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Id" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id rules refer to it by: lowercase letters, digits and underscores.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Kind_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Kind*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Kind" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Kind">
+  Kind
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its gameplay kind.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropKind Kind { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Props.PropKind.html">PropKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Marker_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Marker*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Marker" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Marker">
+  Marker
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mission spot this piece stands in for, if any (an objective terminal, an extraction pad). A built room
+furnished with it gets that marker at the piece (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionMarker Marker { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.MissionMarker.html">MissionMarker</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_MarkerAhead_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.MarkerAhead*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_MarkerAhead" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.MarkerAhead">
+  MarkerAhead
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far in front of the piece its marker goes, in meters (0 for its center). This is where someone stands to use
+it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MarkerAhead { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Model_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Model*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Model" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Model">
+  Model
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its model, resolved from the game's prop models. Null for a box, or when the data was loaded without models.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FurnitureModel? Model { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html">FurnitureModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_ModelName_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.ModelName*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_ModelName" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.ModelName">
+  ModelName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furniture's model name (<code>file/Object</code>, in content/props), or null for a box in <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_Color">Color</a>. It's
+kept even when the data was loaded without the models (in that case <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_Model">Model</a> is null).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ModelName { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Name_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Name*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Name" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name its level part is built under. Defaults to its id in title case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoAttachments_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoAttachments*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoAttachments" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoAttachments">
+  NoAttachments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>No attachments. A shared instance, so props without attachments compare equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;Attachment&gt; NoAttachments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Attachment.html">Attachment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoPaint_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoPaint*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoPaint" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoPaint">
+  NoPaint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>No paint: every slot keeps the file's color. A shared instance, so props without paint compare equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyDictionary&lt;string, Vector3&gt; NoPaint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoSockets_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoSockets*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_NoSockets" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.NoSockets">
+  NoSockets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>No socket groups with loot. A shared instance, so props without any compare equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;SocketLoot&gt; NoSockets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Paint_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Paint*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Paint" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Paint">
+  Paint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The colors for its model's paint slots, by slot name. A slot that isn't listed keeps the color from the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, Vector3&gt; Paint { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_PartName_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.PartName*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_PartName" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.PartName">
+  PartName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of its part in the level: its <a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_Name">Name</a>, prefixed with <code>Break_</code> if it breaks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PartName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Sill_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Sill*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Sill" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Sill">
+  Sill
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A window's sill: how high over the floor its glass starts, in meters, up to its top (its size's height). 0 for
+anything else.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Sill { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Size_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Size*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Size" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its box size in meters: width (X), height (Y) and depth (Z). The back is the side that goes against a wall. For a
+tank, the size of the template's largest tank kind is used, whatever is given here. For furniture with a model, the
+model's size is used (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Size">Size</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Size { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_Sockets_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Sockets*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_Sockets" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.Sockets">
+  Sockets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The loot its model's socket groups hold, by group (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a>). Groups not listed here are left for
+the rules to put things on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;SocketLoot&gt; Sockets { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.SocketLoot.html">SocketLoot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Props_PropDefinition_TitleCase_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.TitleCase*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Props_PropDefinition_TitleCase_System_String_" data-uid="LastFleet.ProcGen.Placing.Props.PropDefinition.TitleCase(System.String)">
+  TitleCase(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Props/PropDefinition.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an id in title case, for use as a part name. For example <code>glass_partition</code> becomes
+<code>Glass_Partition</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string TitleCase(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

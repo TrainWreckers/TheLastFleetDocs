@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LaneGraph | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LaneGraph | The Last Fleet ">
+      
+      <meta name="description" content="The graph of places a level&#39;s networks can run (). That covers a band along every room&#39;s walls above the doorway lintels, a higher lane along them (under the ceiling, or up a tall room&#39;s wall), a standoff lane offset from the wall to get past whatever already runs along it, straight spans across open ceilings from wall to wall, risers between these and up tall rooms&#39; walls, crossings through walls and floors rooms share (including next to a doorway) and through doorway lintels, and the empty cells enclosed by rooms (service cells).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Networks_LaneGraph.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Networks.LaneGraph%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Networks.LaneGraph">
+
+
+
+  <h1 id="LastFleet_ProcGen_Networks_LaneGraph" data-uid="LastFleet.ProcGen.Networks.LaneGraph" class="text-break">
+Class LaneGraph  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Networks.html">Networks</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The graph of places a level's networks can run (<a class="xref" href="LastFleet.ProcGen.Networks.LaneKind.html">LaneKind</a>). That covers a band along every room's walls
+above the doorway lintels, a higher lane along them (under the ceiling, or up a tall room's wall), a standoff lane
+offset from the wall to get past whatever already runs along it, straight spans across open ceilings from wall to
+wall, risers between these and up tall rooms' walls, crossings through walls and floors rooms share (including next
+to a doorway) and through doorway lintels, and the empty cells enclosed by rooms (service cells).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LaneGraph</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LaneGraph</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Networks_LaneGraph_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each lane is a straight edge between two nodes along one of the level's axes. A lane with a fitting in it
+(<a class="xref" href="LastFleet.ProcGen.Networks.ILaneObstacles.html">ILaneObstacles</a>) is dropped, and a lane along a wall that's blocked by the room's own structure (a
+hall's rib) becomes a crossing through it.
+</p>
+<p>
+Nodes and edges are numbered in the order they're found (room by room, story by story, cell by cell, side by side,
+then the service cells and the floors). That order is the same on every machine, and the router breaks ties using
+those numbers. No lane crosses a doorway's opening (every lane goes over its lintel or through it, and none goes up a
+wall where there's a doorway), a hull wall (only walls between two rooms, or between a room and a service cell, are
+crossed), or the space reserved for standing and props (every horizontal lane is above <a class="xref" href="LastFleet.ProcGen.Networks.LaneGraph.html#LastFleet_ProcGen_Networks_LaneGraph_BandHeight">BandHeight</a>,
+higher than any prop).
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_BandHeight" data-uid="LastFleet.ProcGen.Networks.LaneGraph.BandHeight">
+  BandHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The height of the band along the walls above a story's floor, in meters: just above the doorway lintels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float BandHeight = 3.2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_CeilingEdgeHeight" data-uid="LastFleet.ProcGen.Networks.LaneGraph.CeilingEdgeHeight">
+  CeilingEdgeHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The height of the upper lanes above a story's floor, in meters. That's the lanes along the walls under the
+ceiling, the standoff lanes, the spans across the ceiling, and the crossings through walls and lintels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float CeilingEdgeHeight = 3.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Clearance" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Clearance">
+  Clearance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much clear space a lane needs on every side, in meters: half the widest pipe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Clearance = 0.09</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Inset" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Inset">
+  Inset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far in from a wall's line (the middle of the wall) a lane along it runs, in meters, so it sits just off the
+inner face.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Inset = 0.42000002</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_StandoffInset" data-uid="LastFleet.ProcGen.Networks.LaneGraph.StandoffInset">
+  StandoffInset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far in from a wall's line its standoff lane runs, in meters (<a class="xref" href="LastFleet.ProcGen.Networks.LaneKind.html#LastFleet_ProcGen_Networks_LaneKind_Standoff">Standoff</a>), so it clears a
+duct or a room's pipes along the wall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float StandoffInset = 0.90000004</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Edges_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Edges*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Edges" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Edges">
+  Edges
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its edges, by index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;LaneEdge&gt; Edges { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Networks.LaneEdge.html">LaneEdge</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Nodes_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Nodes*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Nodes" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Nodes">
+  Nodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its nodes, by index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;LaneNode&gt; Nodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Networks.LaneNode.html">LaneNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_ServiceCells_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.ServiceCells*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_ServiceCells" data-uid="LastFleet.ProcGen.Networks.LaneGraph.ServiceCells">
+  ServiceCells
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The empty cells enclosed by rooms, as (X, story, Z), that service lanes run through.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;(int X, int Level, int Z)&gt; ServiceCells { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.level">Level</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.z">Z</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Attach_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Attach*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Attach_System_Numerics_Vector3_System_Int32_System_Func_System_Int32_System_Numerics_Vector3_System_Boolean__" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Attach(System.Numerics.Vector3,System.Int32,System.Func{System.Int32,System.Numerics.Vector3,System.Boolean})">
+  Attach(Vector3, int, Func&lt;int, Vector3, bool&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a node on the wall lane of room <code class="paramref">room</code> closest to <code class="paramref">point</code> (on its
+story), splitting the lane there. Only lanes that <code class="paramref">accept</code> allows (given the edge and the point
+on it) are used. Returns null if the room has no such lane left clear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Attach(Vector3 point, int room, Func&lt;int, Vector3, bool&gt;? accept = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>room</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>accept</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Blocks_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Blocks*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Blocks_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Blocks(System.Numerics.Vector3,System.Numerics.Vector3)">
+  Blocks(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if any of the graph's obstacles is in the box from <code class="paramref">min</code> to <code class="paramref">max</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Blocks(Vector3 min, Vector3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Build_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Build*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Build_LastFleet_ProcGen_Layouts_LevelLayout_LastFleet_ProcGen_Networks_ILaneObstacles_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Build(LastFleet.ProcGen.Layouts.LevelLayout,LastFleet.ProcGen.Networks.ILaneObstacles)">
+  Build(LevelLayout, ILaneObstacles?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the lanes for <code class="paramref">layout</code>, kept clear of <code class="paramref">obstacles</code>. If no obstacles are
+given, nothing is in the way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LaneGraph Build(LevelLayout layout, ILaneObstacles? obstacles = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="LastFleet.ProcGen.Layouts.LevelLayout.html">LevelLayout</a></dt>
+    <dd></dd>
+    <dt><code>obstacles</code> <a class="xref" href="LastFleet.ProcGen.Networks.ILaneObstacles.html">ILaneObstacles</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Networks.LaneGraph.html">LaneGraph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_EdgesAt_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.EdgesAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_EdgesAt_System_Int32_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.EdgesAt(System.Int32)">
+  EdgesAt(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the indices of the edges at node <code class="paramref">node</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;int&gt; EdgesAt(int node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Forget_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Forget*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Forget" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Forget">
+  Forget()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drops the reference to the obstacles it was built around (the level's geometry, which can be large). Call this
+once no more endpoints will be attached. After that, <a class="xref" href="LastFleet.ProcGen.Networks.LaneGraph.html#LastFleet_ProcGen_Networks_LaneGraph_Blocks_System_Numerics_Vector3_System_Numerics_Vector3_">Blocks(Vector3, Vector3)</a> always returns false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Forget()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Other_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Other*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Other_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Other(System.Int32,System.Int32)">
+  Other(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the node at the other end of edge <code class="paramref">edge</code> from <code class="paramref">node</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Other(int edge, int node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>edge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Networks_LaneGraph_Parts_" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Parts*"></a>
+
+  <h3 id="LastFleet_ProcGen_Networks_LaneGraph_Parts" data-uid="LastFleet.ProcGen.Networks.LaneGraph.Parts">
+  Parts()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Networks/LaneGraph.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns which connected component each node is in. Nodes connected by lanes get the same number, which is the
+lowest node index among them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int[] Parts()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

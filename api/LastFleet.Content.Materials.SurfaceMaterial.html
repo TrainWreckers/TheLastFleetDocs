@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SurfaceMaterial | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SurfaceMaterial | The Last Fleet ">
+      
+      <meta name="description" content="A material in the library (content/defs/materials.json, see ). It describes how a surface reacts to light. The color comes from the model; the material says whether it&#39;s paint or bare metal, rough or polished.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Content_Materials_SurfaceMaterial.md&amp;value=---%0Auid%3A%20LastFleet.Content.Materials.SurfaceMaterial%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Content.Materials.SurfaceMaterial">
+
+
+
+  <h1 id="LastFleet_Content_Materials_SurfaceMaterial" data-uid="LastFleet.Content.Materials.SurfaceMaterial" class="text-break">
+Class SurfaceMaterial  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Content.html">Content</a>.<a class="xref" href="LastFleet.Content.Materials.html">Materials</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Content.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A material in the library (content/defs/materials.json, see <a class="xref" href="LastFleet.Content.Materials.MaterialLibrary.html">MaterialLibrary</a>). It describes how a
+surface reacts to light. The color comes from the model; the material says whether it's paint or bare metal, rough
+or polished.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record SurfaceMaterial : IEquatable&lt;SurfaceMaterial&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SurfaceMaterial</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Content.Materials.SurfaceMaterial.html">SurfaceMaterial</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial__ctor_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.#ctor*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial__ctor_System_String_System_String_System_Single_System_Single_System_Boolean_System_Single_System_Boolean_System_Nullable_System_Numerics_Vector3__LastFleet_Content_Materials_SightWindow_System_Boolean_System_Boolean_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.#ctor(System.String,System.String,System.Single,System.Single,System.Boolean,System.Single,System.Boolean,System.Nullable{System.Numerics.Vector3},LastFleet.Content.Materials.SightWindow,System.Boolean,System.Boolean)">
+  SurfaceMaterial(string, string, float, float, bool, float, bool, Vector3?, SightWindow, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A material in the library (content/defs/materials.json, see <a class="xref" href="LastFleet.Content.Materials.MaterialLibrary.html">MaterialLibrary</a>). It describes how a
+surface reacts to light. The color comes from the model; the material says whether it's paint or bare metal, rough
+or polished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SurfaceMaterial(string Id, string Name, float Roughness, float Metalness, bool Smooth = false, float Grime = 0, bool Emissive = false, Vector3? Color = null, SightWindow Sight = SightWindow.None, bool Space = false, bool Outside = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The id models use to refer to it (<code>painted_metal</code>).</p>
+</dd>
+    <dt><code>Name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The display name in Studio and Blender (&quot;Painted metal&quot;).</p>
+</dd>
+    <dt><code>Roughness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>0 is a mirror, 1 is chalk. Controls how wide and dim the highlights are.</p>
+</dd>
+    <dt><code>Metalness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>0 for paint, plastic, rubber and glass. 1 for bare metal, which has no diffuse light and tints its reflections with
+its color.</p>
+</dd>
+    <dt><code>Smooth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, highlights follow a smoothed surface while the lighting stays faceted.</p>
+</dd>
+    <dt><code>Grime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much station grime it picks up, 0 to 1.</p>
+</dd>
+    <dt><code>Emissive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, the color is light it gives off instead of a surface lit by other lights.</p>
+</dd>
+    <dt><code>Color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>?</dt>
+    <dd><p>A fixed color that overrides the model's color, or null to use the model's.</p>
+</dd>
+    <dt><code>Sight</code> <a class="xref" href="LastFleet.Content.Materials.SightWindow.html">SightWindow</a></dt>
+    <dd><p>Marks sight glass (a red dot or holographic sight). The glass is clear except for the reticle, which is drawn in the
+model's color where the eye looks along the aim, like a real one projected at infinity (<a class="xref" href="LastFleet.Content.Materials.SightWindow.html">SightWindow</a>).
+None for any other surface.</p>
+</dd>
+    <dt><code>Space</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A window onto space: drawn as the sector's sky seen through it (<a class="xref" href="LastFleet.Content.Skies.SkyLibrary.html">SkyLibrary</a>), whatever its color,
+and never what's behind it.</p>
+</dd>
+    <dt><code>Outside</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>On the outside of a ship or station, out in space: lit by the sector's sun (<a class="xref" href="LastFleet.Content.Skies.SkyLibrary.html">SkyLibrary</a>), not by a
+room's sky fill, and seen through no haze but the room's the view comes from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Color_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Color*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Color" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Color">
+  Color
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A fixed color that overrides the model's color, or null to use the model's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3? Color { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Emissive_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Emissive*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Emissive" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Emissive">
+  Emissive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, the color is light it gives off instead of a surface lit by other lights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Emissive { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Grime_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Grime*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Grime" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Grime">
+  Grime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much station grime it picks up, 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Grime { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Id_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Id*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Id" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id models use to refer to it (<code>painted_metal</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Metalness_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Metalness*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Metalness" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Metalness">
+  Metalness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>0 for paint, plastic, rubber and glass. 1 for bare metal, which has no diffuse light and tints its reflections with
+its color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Metalness { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Name_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Name*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Name" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The display name in Studio and Blender (&quot;Painted metal&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Outside_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Outside*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Outside" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Outside">
+  Outside
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>On the outside of a ship or station, out in space: lit by the sector's sun (<a class="xref" href="LastFleet.Content.Skies.SkyLibrary.html">SkyLibrary</a>), not by a
+room's sky fill, and seen through no haze but the room's the view comes from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Outside { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Roughness_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Roughness*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Roughness" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Roughness">
+  Roughness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>0 is a mirror, 1 is chalk. Controls how wide and dim the highlights are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Roughness { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Sight_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Sight*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Sight" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Sight">
+  Sight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks sight glass (a red dot or holographic sight). The glass is clear except for the reticle, which is drawn in the
+model's color where the eye looks along the aim, like a real one projected at infinity (<a class="xref" href="LastFleet.Content.Materials.SightWindow.html">SightWindow</a>).
+None for any other surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SightWindow Sight { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Materials.SightWindow.html">SightWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Smooth_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Smooth*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Smooth" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Smooth">
+  Smooth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, highlights follow a smoothed surface while the lighting stays faceted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Smooth { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Content_Materials_SurfaceMaterial_Space_" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Space*"></a>
+
+  <h3 id="LastFleet_Content_Materials_SurfaceMaterial_Space" data-uid="LastFleet.Content.Materials.SurfaceMaterial.Space">
+  Space
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Content/Materials/SurfaceMaterial.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A window onto space: drawn as the sector's sky seen through it (<a class="xref" href="LastFleet.Content.Skies.SkyLibrary.html">SkyLibrary</a>), whatever its color,
+and never what's behind it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Space { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

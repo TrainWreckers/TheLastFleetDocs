@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct ShadowView | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct ShadowView | The Last Fleet ">
+      
+      <meta name="description" content="A shadow map for this frame. Its tile in the frame&#39;s atlas matches its index in the frame&#39;s list. The level part of the map is cached at  and only redrawn when  is set (first use, or something in its room changed, like a prop broke or a door opened). It&#39;s drawn from the level index ranges [First .. First + Count]. Characters move, so they&#39;re drawn on top every frame when  is set.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Rendering_Lighting_ShadowView.md&amp;value=---%0Auid%3A%20LastFleet.Rendering.Lighting.ShadowView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Rendering.Lighting.ShadowView">
+
+
+
+  <h1 id="LastFleet_Rendering_Lighting_ShadowView" data-uid="LastFleet.Rendering.Lighting.ShadowView" class="text-break">
+Struct ShadowView  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Rendering.html">Rendering</a>.<a class="xref" href="LastFleet.Rendering.Lighting.html">Lighting</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A shadow map for this frame. Its tile in the frame's atlas matches its index in the frame's list. The level part of
+the map is cached at <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_CacheSlot">CacheSlot</a> and only redrawn when <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_Refresh">Refresh</a> is set (first use, or
+something in its room changed, like a prop broke or a door opened). It's drawn from the level index ranges
+<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_ShadowRanges">ShadowRanges</a>[First .. First + Count]. Characters move, so they're drawn on top every
+frame when <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_Characters">Characters</a> is set.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly record struct ShadowView : IEquatable&lt;ShadowView&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html">ShadowView</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView__ctor_" data-uid="LastFleet.Rendering.Lighting.ShadowView.#ctor*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView__ctor_System_Numerics_Matrix4x4_System_Int32_System_Int32_System_Int32_System_Boolean_System_Boolean_" data-uid="LastFleet.Rendering.Lighting.ShadowView.#ctor(System.Numerics.Matrix4x4,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+  ShadowView(Matrix4x4, int, int, int, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A shadow map for this frame. Its tile in the frame's atlas matches its index in the frame's list. The level part of
+the map is cached at <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_CacheSlot">CacheSlot</a> and only redrawn when <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_Refresh">Refresh</a> is set (first use, or
+something in its room changed, like a prop broke or a door opened). It's drawn from the level index ranges
+<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_ShadowRanges">ShadowRanges</a>[First .. First + Count]. Characters move, so they're drawn on top every
+frame when <a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html#LastFleet_Rendering_Lighting_ShadowView_Characters">Characters</a> is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShadowView(Matrix4x4 ViewProjection, int First, int Count, int CacheSlot = 0, bool Refresh = true, bool Characters = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ViewProjection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd><p>The light's view-projection (depth 0 near, 1 far).</p>
+</dd>
+    <dt><code>First</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index of its first level index range.</p>
+</dd>
+    <dt><code>Count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of ranges.</p>
+</dd>
+    <dt><code>CacheSlot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Its slot in the cache, 0 to <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_ShadowCacheSlots">ShadowCacheSlots</a> - 1.</p>
+</dd>
+    <dt><code>Refresh</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, draws the level into its cache slot this frame.</p>
+</dd>
+    <dt><code>Characters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, draws the characters over it this frame (someone is in the light's range).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_CacheSlot_" data-uid="LastFleet.Rendering.Lighting.ShadowView.CacheSlot*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_CacheSlot" data-uid="LastFleet.Rendering.Lighting.ShadowView.CacheSlot">
+  CacheSlot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its slot in the cache, 0 to <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_ShadowCacheSlots">ShadowCacheSlots</a> - 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CacheSlot { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_Characters_" data-uid="LastFleet.Rendering.Lighting.ShadowView.Characters*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_Characters" data-uid="LastFleet.Rendering.Lighting.ShadowView.Characters">
+  Characters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, draws the characters over it this frame (someone is in the light's range).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Characters { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_Count_" data-uid="LastFleet.Rendering.Lighting.ShadowView.Count*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_Count" data-uid="LastFleet.Rendering.Lighting.ShadowView.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of ranges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_First_" data-uid="LastFleet.Rendering.Lighting.ShadowView.First*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_First" data-uid="LastFleet.Rendering.Lighting.ShadowView.First">
+  First
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Index of its first level index range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int First { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_Refresh_" data-uid="LastFleet.Rendering.Lighting.ShadowView.Refresh*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_Refresh" data-uid="LastFleet.Rendering.Lighting.ShadowView.Refresh">
+  Refresh
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, draws the level into its cache slot this frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Refresh { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_Lighting_ShadowView_ViewProjection_" data-uid="LastFleet.Rendering.Lighting.ShadowView.ViewProjection*"></a>
+
+  <h3 id="LastFleet_Rendering_Lighting_ShadowView_ViewProjection" data-uid="LastFleet.Rendering.Lighting.ShadowView.ViewProjection">
+  ViewProjection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/Lighting/ShadowView.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The light's view-projection (depth 0 near, 1 far).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 ViewProjection { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

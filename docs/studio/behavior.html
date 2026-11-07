@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Behavior | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Behavior | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-behavior">Studio: Behavior</h1>
+
+<p>How do you make an enemy smarter, or meaner, or just <em>different</em>, without a programmer in the loop? You do it here.
+<strong>Behavior</strong> mode is where enemies get their brains: the <em>behavior tree</em> that decides what a soldier does each moment,
+the <em>scoring</em> that picks an intent in a fight, the squad <em>personalities</em>, the soldiers' difficulty
+(<code>content/defs/ai/tuning.json</code>) and the enemy <em>variants</em> (<code>enemies.json</code>) that the levels, the mission and the director
+spawn.</p>
+<p>The best part? You never tune blind. The whole mode sits on top of a <em>sandbox</em>: the game's grey-box range, with real
+soldiers fighting in it, using your data the moment you change it (saved or not).</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Behavior</strong> on the mode bar at the top, or start Studio straight in it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode behavior
+</code></pre>
+<p><img src="images/behavior/01-behavior-mode.png" alt="Behavior mode as it opens: the Sandbox tab on the left over the grey-box range"></p>
+<p>Here's the tour:</p>
+<ul>
+<li><strong>The panel</strong> on the left has four tabs: <strong>Sandbox</strong> (what a click in the world puts in, and the fight's controls),
+<strong>Behaviors</strong> (the tree editor and the scoring graph), <strong>Enemies</strong> (the variants) and <strong>Tuning</strong> (the difficulty).
+Drag its right edge to make it wider. The Behaviors tab is a lot happier with room to breathe!</li>
+<li><strong>The world</strong> behind it is the sandbox, seen from a free camera. Hold the right mouse button to look around, and fly
+with W, A, S and D. The rings on the floor are cover points (more on those below).</li>
+<li><strong>The soldier panel</strong> pops up on the right when you click a soldier.</li>
+</ul>
+<h2 id="put-a-squad-in-and-read-a-soldiers-mind">Put a squad in and read a soldier's mind</h2>
+<p>So you want to see why a soldier does what it does? Drop a squad in and ask it.</p>
+<ol>
+<li>On the <strong>Sandbox</strong> tab, leave <strong>A click in the world puts in</strong> on <strong>A squad</strong>. The settings under it are for the
+squad: its <strong>Squad size</strong>, the <strong>Enemy</strong> variant, what it <strong>Thinks as</strong>, whether it's <strong>Hunting the target</strong>, and its
+<strong>Personality</strong> (<code>By share (as in the game)</code> picks one the way a level does).</li>
+<li>Click the floor across the range. The squad appears and goes <strong>Hunting</strong> the target. Over each soldier is what it's
+doing, with its squad's personality and its role underneath (<code>Steady Suppressor</code>, <code>Steady Rifleman</code>).</li>
+<li>Tick <strong>Paused</strong> under <strong>Running</strong> so they hold still for you.</li>
+</ol>
+<p><img src="images/behavior/02-squad-hunting.png" alt="A squad of soldiers hunting the target in the sandbox, paused"></p>
+<ol start="4">
+<li>Click a soldier. The <strong>Soldier</strong> panel opens on the right and &quot;reads its mind&quot;: its squad, personality and role,
+what it's doing and why (<code>Hold, because nothing pressing</code>), its inputs (health, the target, range), each intent's
+score (with the stickiness, <code>+0.10</code>, on the one it's already doing), and what every personality would choose in its
+place right now.</li>
+</ol>
+<p><img src="images/behavior/03-soldier-mind.png" alt="The soldier's mind: its scores for hold, advance, push and fall back, and what each personality would do"></p>
+<p>Nothing here is saved, it's just for watching. <strong>Clear the soldiers and the horde</strong> empties the range when you're
+done.</p>
+<h2 id="test-cover">Test cover</h2>
+<p>Soldiers pick their cover from <em>cover points</em>, so if a crate gets ignored in a level, this is where to find out why.</p>
+<ol>
+<li>Pick <strong>Cover</strong> next to <strong>A click in the world puts in</strong>. Leave it on <strong>Low (crouch behind)</strong>, and keep <strong>Show the
+cover points soldiers choose from</strong> ticked.</li>
+<li>Click the floor. A box goes down with its broad side to the target, and yellow rings show up around it: those are
+the spots a soldier can crouch behind it. The panel now has the box's exact <strong>Base</strong>, <strong>Width, height, depth</strong> and
+<strong>Turn</strong>, so you can line it up exactly.</li>
+</ol>
+<p><img src="images/behavior/04-cover-low.png" alt="A low cover box placed in the range, ringed with yellow cover points"></p>
+<ol start="3">
+<li>Click <strong>Make it high</strong>. The box grows to 2 m and the rings turn blue: now a soldier stands behind it and leans out.</li>
+</ol>
+<p><img src="images/behavior/05-cover-high.png" alt="The same box made high, its cover points now blue"></p>
+<p>Soldiers treat these boxes just like the level's own walls and crates, as soon as you let go. They're only for trying
+out the AI though, so they're never saved.</p>
+<h2 id="read-and-edit-the-behavior-tree">Read and edit the behavior tree</h2>
+<p>A behavior's <em>tree</em> runs from its root every tick. Flow nodes run their children top to bottom, conditions check
+things, and actions do things. If you've used Unreal's behavior trees, you'll feel right at home.</p>
+<ol>
+<li>Click the <strong>Behaviors</strong> tab, and drag the panel's right edge across so the canvas has room. Pick the behavior in the
+box at the top left (<code>Soldier (soldier.json)</code>). Next to it is what it <strong>Needs</strong> of a body (fire, reload, throw,
+crouch, lean, blindFire), and the toolbar has <strong>+ New behavior</strong>, <strong>Duplicate</strong>, <strong>Delete</strong>, <strong>Tree</strong> or
+<strong>Scoring</strong>, <strong>Tidy</strong> and <strong>Fit</strong>.</li>
+</ol>
+<p><img src="images/behavior/06-tree-editor.png" alt="The tree editor: the soldier's behavior tree on the canvas, and the panel on the right"></p>
+<ol start="2">
+<li>Click the <strong>Bound forward</strong> action. The panel on the right says what it does in plain words, then its settings:
+the <strong>action</strong> (picked from a list, never typed), a <strong>Note</strong>, its <strong>id</strong>, and <strong>Make it the root</strong>, <strong>Take it from
+its parent</strong>, <strong>Duplicate</strong> and <strong>Delete</strong>.</li>
+</ol>
+<p><img src="images/behavior/07-tree-node.png" alt="The Bound forward node selected, with what it does and its settings"></p>
+<ol start="3">
+<li>Click the <strong>Note</strong> field, type <code>Leapfrog: back soldier first</code> and press Enter. The note shows up on the node
+itself, and the status bar says <code>1 file not saved (Ctrl+S): soldier.json</code>. Notes are just for designers; the game
+never reads them.</li>
+</ol>
+<p><img src="images/behavior/08-tree-note.png" alt="The note on the Bound forward node, and soldier.json not saved"></p>
+<ol start="4">
+<li>Now see it live. Pick a soldier in the sandbox (see above) and come back to this tab. The view on the right follows
+that soldier, and tells you who it is and what it's thinking as (<code>Soldier 28: Soldier, thinking as Soldier</code>).</li>
+</ol>
+<p><img src="images/behavior/09-tree-following.png" alt="The tree editor following the picked soldier, shown on the right"></p>
+<p>Every edit reaches the soldiers right away, before you save. Ctrl+S keeps it, Ctrl+Z undoes it (the status bar says
+<code>Undid a change to soldier.json</code>). Wiring new nodes in (right-click for the palette, drag from a pin) is covered in the
+<a href="reference.html#the-tree-editor">tree editor</a> reference.</p>
+<h2 id="score-an-intent">Score an intent</h2>
+<p><strong>Choose intent</strong> is the one action that weighs things up. It scores four intents (hold, advance, push, fall back) and
+the soldier does the best one. That's utility AI, and its numbers live in the <em>scoring graph</em>.</p>
+<ol>
+<li>Still on <strong>Behaviors</strong>, pick <strong>Scoring</strong> on the toolbar. It reads left to right: the <strong>inputs</strong> (<code>ownHealth</code>,
+<code>range</code>, <code>suppressed</code>...), then the conditions, terms and factors with their curves drawn, then the four intents,
+then the personalities.</li>
+</ol>
+<p><img src="images/behavior/10-scoring-graph.png" alt="The scoring graph: inputs on the left, terms and factors in the middle, the intents and personalities on the right"></p>
+<ol start="2">
+<li>Click the <strong>outOfRange</strong> term. Its curve is drawn large on the right, along with what it does in plain words: it
+adds to ADVANCE's score, 0 at 20 m or less, rising evenly to its weight (0.35) at 30 m and beyond. Under the curve
+are the <strong>reason shown</strong> over a soldier's head when this term wins, and <strong>adds at most</strong> (its weight).</li>
+</ol>
+<p><img src="images/behavior/11-scoring-term.png" alt="The outOfRange term selected, its curve drawn large"></p>
+<ol start="3">
+<li>Pick a soldier in the sandbox, and the graph lights up with <em>its</em> numbers: the inputs show its values (<code>range 21.82</code>, <code>role suppressor</code>), each term shows what it adds right now, the conditions say whether they hold, and the
+intents show their scores (HOLD 0.50, ADVANCE 0.34).</li>
+</ol>
+<p><img src="images/behavior/12-scoring-live.png" alt="The scoring graph showing the picked soldier's live numbers"></p>
+<ol start="4">
+<li>Click the <strong>Cautious</strong> personality on the right. A squad's personality scales each intent's score, sets how many go
+around the side (<strong>go around the side</strong>), and how far apart they keep (<strong>keep within (m)</strong>). Here you can see why a
+cautious squad holds and falls back: hold ×1.2, fall back ×1.4, push ×0.6. <strong>how often (weight)</strong> is its share of the
+squads.</li>
+</ol>
+<p><img src="images/behavior/13-personality.png" alt="The Cautious personality: its weight, cohesion, flankers and score multipliers"></p>
+<p>Edits here save with Ctrl+S and undo with Ctrl+Z, like the tree. Click a curve's key and its exact input and value
+show up under the curve, ready to edit. Adding terms, wiring them in and shaping curves are all in the
+<a href="reference.html#the-scoring-graph">scoring graph</a> reference.</p>
+<h2 id="tune-how-hard-a-side-is">Tune how hard a side is</h2>
+<p>Difficulty comes from reactions, aim and coordination, never from health. No bullet sponges here! These are the same
+values as the game's F3 AI overlay, as data.</p>
+<ol>
+<li>Click the <strong>Tuning</strong> tab. <strong>Shared</strong> is what every side's soldiers fight with, grouped into Awareness, Lethality,
+Tactics and the rest. Hover over any value to see what it does.</li>
+</ol>
+<p><img src="images/behavior/14-tuning-shared.png" alt="The Tuning tab on Shared: every value, grouped"></p>
+<ol start="2">
+<li>Pick <strong>Station</strong> next to <strong>Editing</strong> (the garrison). Every value now has a checkbox in front of it.</li>
+<li>Tick <strong>Settled aim error (deg)</strong>, then click its number, type <code>2.5</code> and press Enter. It turns amber: that's
+Station changing it for itself. <strong>Station (1)</strong> counts the values it changes, and <code>tuning.json</code> is flagged as not
+saved.</li>
+</ol>
+<p><img src="images/behavior/15-tuning-station.png" alt="Station's settled aim error changed to 2.50, in amber"></p>
+<ol start="4">
+<li>Tick <strong>Only what this side changes</strong> to see just the values this side overrides.</li>
+</ol>
+<p><img src="images/behavior/16-tuning-only-changes.png" alt="Only what Station changes: the one amber value"></p>
+<p>Spawn a station squad in the Sandbox to feel the difference. To undo it all, <strong>Share every value</strong> puts the side back
+on the shared values. Ctrl+S writes <code>tuning.json</code>, and the game reads it
+when it starts.</p>
+<h2 id="look-at-an-enemy-variant">Look at an enemy variant</h2>
+<p>A squad is all one <em>variant</em>: what it looks like, what it carries, where it spawns and how it thinks.</p>
+<ol>
+<li>Click the <strong>Enemies</strong> tab and pick <code>lancer</code>. Its <strong>behavior</strong> and <strong>faction</strong> are picked from lists, then its body:
+<strong>health</strong>, <strong>damageScale</strong>, <strong>grenades</strong>, <strong>runSpeed</strong>, <strong>sprintSpeed</strong> and <strong>dropsLoot</strong>. Under <strong>weapons</strong> is how
+often it carries each frame (the Armory's frames), and <strong>+ add frame...</strong> adds another.</li>
+</ol>
+<p><img src="images/behavior/17-enemy-lancer.png" alt="The Choir Lancer variant: its behavior, body, faction, numbers and weapons"></p>
+<ol start="2">
+<li>Scroll down. <strong>spawns</strong> is how often a squad from each source is this variant (the lancer only comes with the
+choir), and <strong>clips</strong> are the body's clips it plays its own versions of (none here, so <strong>set</strong> to add some).</li>
+</ol>
+<p><img src="images/behavior/18-enemy-spawns.png" alt="The lancer's spawns and clips"></p>
+<p>Want a brand new enemy? That's <strong>+ New enemy</strong> at the top of the list, and the
+<a href="reference.html#enemy-variants">enemy variants</a> reference walks through it. Then pick it under <strong>Enemy</strong> on the Sandbox
+tab to watch it fight, and look at it in Bodies mode under <strong>Variant</strong>.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The full reference is <a href="reference.html#behavior-how-enemies-fight">Behavior: how enemies fight</a>: the
+<a href="reference.html#the-behavior-tree">behavior tree</a>, <a href="reference.html#tuning-how-hard-each-side-is">tuning</a>,
+<a href="reference.html#scoring-choosing-an-intent">scoring</a> and <a href="reference.html#personalities">personalities</a>,
+the <a href="reference.html#the-tree-editor">tree editor</a>, <a href="reference.html#enemy-variants">enemy variants</a> and
+<a href="reference.html#the-sandbox">the sandbox</a>.</li>
+<li>To see a variant's model and clips on a turntable, head to <a href="bodies.html">bodies.md</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

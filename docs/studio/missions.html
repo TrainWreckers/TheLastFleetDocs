@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Missions | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Missions | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-missions">Studio: Missions</h1>
+
+<p>Every level in the game is generated from a <em>mission template</em>, one file each in <code>content/defs/missions</code>. A template
+says how many decks there are, how the way through is grown, how many soldiers and rooms and loops, which room
+archetypes it draws from, what the loot rolls from, and a whole lot more.</p>
+<p>Reading those numbers tells you very little about what a level actually feels like. So Missions mode generates a level
+from the template right there, draws it from above, and regenerates it after every change. You can click through it
+room by room, ask it why a room is what it is, and then make a dozen more seeds and count them. Under the templates are
+the things every mission shares: how windows break (<code>breaches.json</code>), how rooms' doors behave (<code>doors.json</code>) and what
+the fleet finds to raid on the star map (<code>campaign.json</code>).</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Missions</strong> on the mode bar at the top, or start Studio straight into it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode missions
+</code></pre>
+<p>Add <code>--seed &lt;n&gt;</code> to open on a particular seed. The first level takes a few seconds to make (&quot;Making the level...&quot;), so
+give it a moment.</p>
+<p><img src="images/missions/01-missions-opens.png" alt="Missions mode as it opens: the templates, the grown_raid template and seed 1's level"></p>
+<p>There are three panels:</p>
+<ul>
+<li><strong>The list</strong> (left): the mission templates (<code>grown_raid</code>, <code>ship_raid</code>, <code>station_raid</code>), then <strong>Every mission</strong>:
+<strong>Breaches</strong>, <strong>Doors</strong> and <strong>Campaign</strong>. <strong>+ New mission (a copy)</strong> starts a new template from the selected one.</li>
+<li><strong>The level and the template</strong> (middle): at the top, the level's <strong>Seed</strong> (with <strong>-</strong>, <strong>+</strong>, <strong>Next</strong> and
+<strong>Random</strong>) and the <strong>Lobby settings</strong> a lobby would apply. Below that, every field of the template, in plain words.
+Rest the mouse on one to see what it does. At the very bottom are the <strong>Checks</strong>.</li>
+<li><strong>The map</strong> (right): the level from above. The two lines above it sum the level up (rooms, soldiers, weapons, piles,
+containers, crates, keycards, how long it took to make), and say how linear it is: the share of rooms on a loop
+against what the template wanted, and the share of dead ends. Then the buttons: the stories, <strong>Map</strong>, <strong>Types</strong> and
+<strong>Recipe</strong>, <strong>Fit</strong>, <strong>Show...</strong> and <strong>Play it</strong>.</li>
+</ul>
+<h2 id="walk-through-a-level">Walk through a level</h2>
+<p>Is this template any good? One level won't tell you, but it's where you start. Here's the flow:</p>
+<ol>
+<li><p>Pick <code>grown_raid</code> in the list.</p>
+</li>
+<li><p>Press <strong>Next</strong> to go to the next seed. The level is made again and the lines above the map update: seed 2 has 155
+rooms, 80 soldiers, 66% of its rooms on a loop (wanted 65%) and 10% dead ends (at most 10%). Phew!</p>
+<p><img src="images/missions/02-next-seed.png" alt="Seed 2 of grown_raid, drawn from above"></p>
+</li>
+<li><p>This template's levels are two stories tall. Pick <strong>Story 2</strong> to see the upper floors. Rooms on other stories are
+drawn as outlines, so you can tell what's under what.</p>
+<p><img src="images/missions/03-story-2.png" alt="Story 2 of the same level: the tall rooms, with story 1 in outline"></p>
+</li>
+<li><p>Go back to <strong>Story 1</strong> and turn the mouse wheel over the map to zoom in. Once you're close, each room is labeled
+with what it's for and its deck (<code>E d2</code> is a room on deck 2), and the marks are easy to read: red dots are
+soldiers, orange triangles weapons, the yellow diamond a keycard, the purple rings hull breaches. Drag to move the
+map, and <strong>Fit</strong> brings it all back on screen.</p>
+</li>
+</ol>
+<h2 id="ask-a-room-why-its-there">Ask a room why it's there</h2>
+<p>Generated levels make a lot of decisions. When one looks wrong, you want to know <em>why</em> it happened, not just <em>what</em>
+happened. So click on it!</p>
+<ol>
+<li><p>Click a room on the map. It gets a yellow outline, and the panel under the map says what it is: its archetype, its
+size, how many stories, its deck and the deck's theme, and what's in it.</p>
+<p>It also says why it got its type. This one was typed <code>maintenance_bay</code>, &quot;drawn by weight from those the rules left&quot;,
+and lists what else it could have been and how likely (kit 70%, cargo_hold 2%...), and why each other type was
+ruled out.</p>
+<p><img src="images/missions/04-room-picked.png" alt="A room picked: built_maintenance_bay on deck 2, and why it got that type"></p>
+</li>
+<li><p>Scroll down the panel. Under <strong>Placement rules here</strong> is how each placement rule did in this room, as &quot;placed out
+of wanted&quot;. This room wanted a tank and got none, and it says why the spots it tried didn't work: &quot;the mission's
+condition 81, something there 38, a spawn or item there 8&quot;. The <strong>Rule</strong> button next to each one opens that rule in
+Levels mode.</p>
+<p><img src="images/missions/05-placement-rules.png" alt="The room's placement rules: ammo_crates 1 of 1, tanks 0 of 1 with its reasons, supplies 1 of 1"></p>
+</li>
+<li><p>Now click a mark instead, like a weapon's orange triangle. The panel shows the weapon that was rolled (here a
+<em>Bailiff HC-44 of the Hunt</em>, a hand cannon from <code>loot.station.stash</code> at item level 3). Below it, you can pick the
+table everything of its kind in this mission rolls from (that changes the template's <code>loot</code>), and there's an
+<strong>Edit</strong> button for the table itself.</p>
+<p><img src="images/missions/06-weapon-picked.png" alt="A weapon mark picked: what it rolled, and the table hidden weapons roll from"></p>
+</li>
+<li><p>Press <strong>Close</strong>, then pick <strong>Types</strong> above the map. Now the rooms are drawn as they're connected, from the
+insertion on, each colored by the type it was given (the kit's own rooms grey, each archetype its own color, gates
+in red). Rest the mouse on one to see why it got its type, and click it to see it below.</p>
+<p><img src="images/missions/07-types-hover.png" alt="The Types view: rooms colored by type, with the reason for one in a tooltip"></p>
+</li>
+</ol>
+<h2 id="change-how-a-level-grows">Change how a level grows</h2>
+<p>A template like <code>grown_raid</code> grows its level in steps: first the main path, then the keycards, the side rooms, the
+loot rooms, then loops and typing. That's its <em>recipe</em>, and you can see each step as it goes. It's a great way to see
+exactly where something went sideways!</p>
+<ol>
+<li><p>Pick <strong>Recipe</strong> above the map. The steps show as nodes, left to right: <strong>Main path</strong>, <strong>Keycards</strong>, <strong>Side
+rooms</strong>, <strong>Loot rooms</strong>, then <strong>Loops</strong>, <strong>Type rooms</strong> and <strong>The level</strong>. Each says what it adds and on which
+decks. The first one is picked, so you see its fields below (5 to 7 rooms a deck, half of them on the last deck) and
+the mission's graph after it: 27 rooms and no keycards yet.</p>
+<p><img src="images/missions/08-recipe.png" alt="The recipe: the steps as nodes, the main path picked, and the graph after it"></p>
+</li>
+<li><p>Click <strong>3. Side rooms</strong>. Now you see its fields (<code>count</code> 4 to 6, <code>deeperChance</code> 0.35) and the graph after three
+steps: 54 rooms and both keycards.</p>
+<p><img src="images/missions/09-recipe-side-rooms.png" alt="The side rooms step picked, and the graph after it"></p>
+</li>
+<li><p>Want more loot rooms? Press <strong>+ loot rooms</strong>. A new step, <strong>4. Loot rooms</strong>, goes in after the picked one, and the
+level is made again. The line above the map tells the story: 163 rooms now, and 28 weapons instead of 18. The
+template shows <strong>(not saved)</strong> and the list marks it with a <code>*</code>.</p>
+<p><img src="images/missions/10-loot-step-added.png" alt="A new loot rooms step added after the side rooms, and the level made again"></p>
+</li>
+</ol>
+<p><strong>&lt; Earlier</strong> and <strong>Later &gt;</strong> move the picked step, and <strong>Remove the step</strong> takes it out (the main path and the keycard
+stay). Keep it with <strong>Ctrl+S</strong>, or take it back with <strong>Ctrl+Z</strong>.</p>
+<h2 id="count-a-dozen-levels">Count a dozen levels</h2>
+<p>One good level doesn't mean much. What about the next eleven? That's what the <strong>Checks</strong> are for.</p>
+<ol>
+<li>Scroll the template all the way down to <strong>Checks</strong>. The first line says whether every table the template names
+exists (&quot;Every table it names is there.&quot;).</li>
+<li>Pick <strong>12</strong> (or <strong>100</strong> or <strong>1000</strong>, if you've got the time) and press <strong>Make 12 levels and count</strong>. A bar shows
+how far it's got, and <strong>Stop</strong> keeps what's been made so far.</li>
+<li>When it's done, you get a table: a row for each seed, starting from the one shown, with its rooms, soldiers, guns,
+piles, boxes, crates, keys, loop and dead end percentages and one-way shortcuts. Above them are the fewest, the
+average and the most. The green line says every level meets the template's loop rules.</li>
+</ol>
+<p><img src="images/missions/11-checks-counted.png" alt="The checks for 12 seeds: each level counted, with the fewest, average and most"></p>
+<p>Drag the bar between the template and the map to make the template wider, and the table gets roomier.</p>
+<h2 id="look-over-a-ship-raid">Look over a ship raid</h2>
+<p><code>ship_raid</code> works differently from <code>grown_raid</code>. It's <em>laid out by a plan</em>: the level is the inside of a ship whose
+shape comes from Levels mode's <strong>Plans</strong>, with the mission read into it.</p>
+<ol>
+<li>Pick <code>ship_raid</code> in the list and <strong>Map</strong> above the map. The template has a <strong>laid out by a plan</strong> section at the
+top: its plans, the exits it boards by, how many zones, how long the way through must be, the room tags keycards go
+in, the objective, the exits it's taken off by, its escape pods, and more further down.</li>
+<li>Tick <strong>Threat</strong> above the map. Each room is shaded by how hard it's defended, cool to red. The red end is where the
+last zones are.</li>
+<li>Click a room. The panel names its threat (this one is 1.10), along with what's in it and its placement rules.</li>
+</ol>
+<p><img src="images/missions/12-ship-threat.png" alt="The ship raid's level, shaded by threat, with a room's threat in the panel"></p>
+<h2 id="tune-what-every-mission-shares">Tune what every mission shares</h2>
+<p>Some things are the same in every mission: how windows onto space break, how doors behave, and what the fleet finds to
+raid on the star map. They're under <strong>Every mission</strong> in the list.</p>
+<ol>
+<li><p>Click <strong>Breaches</strong>. Here's how a window takes damage (<code>toughness</code>, and the shares of it at which its <code>cracks</code> show
+and spread), the <code>pull</code> of a breach, its <code>timers</code> and its <code>look</code>. The line under the fields sums it up: &quot;A window
+takes 600 (about 4 grenades). Blown out, its doors seal after 8 s; its shutter closes at 20 s; the doors unseal 6 s
+later.&quot;</p>
+<p><img src="images/missions/13-breaches.png" alt="Breaches: the window, the pull, the timers and the look, with the summary under them"></p>
+</li>
+<li><p>Drag <strong>toughness</strong> to the right to make windows tougher. The summary follows along: at 756 it takes about 5
+grenades.</p>
+<p><img src="images/missions/14-tougher-window.png" alt="Toughness raised to 756: about 5 grenades now"></p>
+</li>
+<li><p>Click <strong>Doors</strong>. Sliding doors (<code>auto</code>), doors opened by hand (<code>byHand</code>) and how the swarm batters them (<code>swarm</code>),
+summed up in a line again. Which rooms get hand-opened doors is up to each archetype's <code>roomDoor</code>, in Levels mode.</p>
+<p><img src="images/missions/15-doors.png" alt="Doors: sliding, by hand and the swarm, with the summary"></p>
+</li>
+<li><p>Click <strong>Campaign</strong>, and open <strong>targets</strong>. Each target has its <code>id</code>, the <code>name</code> the star map gives a ship of it, the
+<code>mission</code> it's raided with, the <code>plan</code> a ship raid is laid out by, its <code>weight</code> and the sector it turns up <code>from</code>.
+Under them is the share of each sector's systems each target gets.</p>
+</li>
+<li><p>Open <strong>carrier</strong> and drag its <strong>weight</strong> up. The shares redraw right away: at a weight of about 1.06, carriers go
+from 14% to 19% of sector 2's systems.</p>
+<p><img src="images/missions/16-campaign-carrier.png" alt="The carrier's weight raised, and its share of the sectors going up"></p>
+</li>
+</ol>
+<p>These three files show as not saved like any other. <strong>Ctrl+S</strong> writes them, and <strong>File &gt; Revert to saved</strong> throws the
+change away.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The reference for this mode is <a href="reference.html#missions-the-procedural-levels">Missions: the procedural levels</a>.</li>
+<li>What levels are built from (the archetypes, rules, props, networks, typing and plans; the <strong>Rule</strong> buttons jump
+there) is in <a href="levels.html">levels.md</a>.</li>
+<li>The loot tables a mission rolls from are edited in Loot and Items mode, and you can see how they all connect in
+<a href="flow.html">flow.md</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

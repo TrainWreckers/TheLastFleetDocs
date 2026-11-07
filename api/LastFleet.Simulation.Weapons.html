@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Simulation.Weapons | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Simulation.Weapons | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Weapons">
+
+  <h1 id="LastFleet_Simulation_Weapons" data-uid="LastFleet.Simulation.Weapons" class="text-break">Namespace LastFleet.Simulation.Weapons</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.DestructionLog.html">DestructionLog</a></dt>
+      <dd><p>The props that broke this tick. Cleared every tick. The client uses it to hide the props and spawn debris.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.ExplosionLog.html">ExplosionLog</a></dt>
+      <dd><p>The explosions that went off this tick. Cleared every tick, like the <a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a>. The client draws them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.HandActions.html">HandActions</a></dt>
+      <dd><p>Works out what a character's hands are doing (<a class="xref" href="LastFleet.Simulation.Components.Characters.HandAction.html">HandAction</a>) from its state. It checks, in this order:
+using an item, throwing a grenade, reloading, and a shot just fired. This is only for drawing the body; it doesn't
+read or change anything the simulation depends on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a></dt>
+      <dd><p>What this tick's shots hit: one record per shot, in firing order. Cleared every tick, so read it after
+<a class="xref" href="LastFleet.Ecs.GameWorld.html#LastFleet_Ecs_GameWorld_Step">Step()</a> returns. The client draws hit markers, impacts and tracers from it, and co-op will
+send it to clients.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html">ImpactRules</a></dt>
+      <dd><p>How a round's push (a frame's <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html#LastFleet_Simulation_Weapons_WeaponArchetype_Impact">Impact</a>) moves what it hits, read from the loot data
+(<code>content/defs/loot/impact.json</code>). <a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html#LastFleet_Simulation_Weapons_ImpactRules_Default">Default</a> holds the values the game ships with. Pushes are in
+meters a second: the speed a round gives a body, before the body's friction takes it back.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.ShotLog.html">ShotLog</a></dt>
+      <dd><p>The shots fired during the current tick. Cleared at the start of each weapon update, so read it after
+<a class="xref" href="LastFleet.Ecs.GameWorld.html#LastFleet_Ecs_GameWorld_Step">Step()</a> returns. Hit detection will consume it once physics exists.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.SoldierUse.html">SoldierUse</a></dt>
+      <dd><p>How a frame changes the way a soldier fights with it (the frame's &quot;soldier&quot; data).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html">WeaponArchetype</a></dt>
+      <dd><p>The fixed traits of a weapon frame, the things that make an auto rifle an auto rifle. The stats on a
+<a class="xref" href="LastFleet.Simulation.Weapons.WeaponProfile.html">WeaponProfile</a> scale these values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetypes.html">WeaponArchetypes</a></dt>
+      <dd><p>The weapon frames. Each one is an archetype from the loot data (archetypes.json) with its model file, how it fires,
+its fire rate, magazine, damage, spread and so on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponHandling.html">WeaponHandling</a></dt>
+      <dd><p>The gunplay model, Destiny style: trigger modes and exact cadence, magazines and reloads, aim down sights,
+spread and bloom, and recoil that kicks the view and partly recovers. One call advances one weapon by one tick.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponStatsResolver.html">WeaponStatsResolver</a></dt>
+      <dd><p>Turns a designer-facing <a class="xref" href="LastFleet.Simulation.Weapons.WeaponProfile.html">WeaponProfile</a> into the physical <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponStats.html">WeaponStats</a> the simulation
+uses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html">WeaponTraitRules</a></dt>
+      <dd><p>The tuning numbers behind <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html">WeaponTraits</a>, read from the loot data
+(<code>content/defs/loot/traits.json</code>). <a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html#LastFleet_Simulation_Weapons_WeaponTraitRules_Default">Default</a> holds the values the game ships with. Each trait
+should be noticeable in a fight but never decide one on its own.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.BreakRecord.html">BreakRecord</a></dt>
+      <dd><p>A prop that broke this tick.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.DamageProfile.html">DamageProfile</a></dt>
+      <dd><p>How much a shot hurts, and pushes, at a given distance and hit location.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.ExplosionRecord.html">ExplosionRecord</a></dt>
+      <dd><p>One explosion and what it did.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.HitRecord.html">HitRecord</a></dt>
+      <dd><p>Where one shot ended and what it did.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.ShotRecord.html">ShotRecord</a></dt>
+      <dd><p>One fired round, ready for hit detection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.TriggerGroup.html">TriggerGroup</a></dt>
+      <dd><p>What a gun's trigger group (its trigger part) does to how it fires: the modes it can be switched between and the
+one it starts in, and its rate of fire and burst against the frame's. The default (no modes) leaves the frame's own
+fire mode, rate and burst, as a gun rolled before triggers were parts has.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponProfile.html">WeaponProfile</a></dt>
+      <dd><p>A weapon as designers and the loot generator see it: an archetype plus Destiny-style 0–100 stats, and three scales
+on the frame's own values that weapon parts can nudge (for example a coil barrel hits harder, a drum holds more, a
+scope zooms further). Parts and affixes adjust these, never the raw physical values.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.SoldierRole.html">SoldierRole</a></dt>
+      <dd><p>The squad role a frame gives the soldier carrying it, if the squad has that role to fill.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponFiring.html">WeaponFiring</a></dt>
+      <dd><p>How a frame's rounds travel. Each value is a firing code path in the game, picked by the frame's &quot;firing&quot; data.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

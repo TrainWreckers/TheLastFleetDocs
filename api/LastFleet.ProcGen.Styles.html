@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Styles | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Styles | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Styles">
+
+  <h1 id="LastFleet_ProcGen_Styles" data-uid="LastFleet.ProcGen.Styles" class="text-break">Namespace LastFleet.ProcGen.Styles</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a></dt>
+      <dd><p>How a room's structure is built and how it looks. The generator builds the walls, floors and the rest from the room's
+structure markers using its style (<span class="xref">LastFleet.ProcGen.Styles.StyleBuilder</span>), and dresses it the same way (ceilings, trims, ducts,
+lights), so designers never have to model a wall. Styles are designer data in content/defs/procgen/styles.json. A
+style can inherit anything it doesn't set from another style (its <code>base</code>), and ultimately from
+<a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_Station">Station</a>.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.DuctStyle.html">DuctStyle</a></dt>
+      <dd><p>A duct under the ceiling along one long wall of a room (not a corridor's or a narrow room's).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.HallLook.html">HallLook</a></dt>
+      <dd><p>How a hall built in a style looks (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a>): what stands along it, what kind of floor it
+has, the floor's light, and accent lighting along the walls and on the structure. The walls and floor plate use the
+style's <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_Wall">Wall</a> and <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_Floor">Floor</a>, and the ceiling panels use the style's
+<a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_Lights">Lights</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.LightStyle.html">LightStyle</a></dt>
+      <dd><p>A room's ceiling light panels: whether it has any, how many are dead or flicker, and how bright they are.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.PipeStyle.html">PipeStyle</a></dt>
+      <dd><p>Pipes under the ceiling along the long wall opposite the duct, one under and out from the other.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.StyleColor.html">StyleColor</a></dt>
+      <dd><p>A color in a style: either a fixed color or the room's deck or role color, multiplied by <a class="xref" href="LastFleet.ProcGen.Styles.StyleColor.html#LastFleet_ProcGen_Styles_StyleColor_Shade">Shade</a> (0.5 is
+half as bright).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.SurfaceLook.html">SurfaceLook</a></dt>
+      <dd><p>How a surface looks: its color (linear RGB) and its material (an id in content/defs/materials.json).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.TrimStyle.html">TrimStyle</a></dt>
+      <dd><p>A band round a room's walls on its ground story, broken at its doorways: a baseboard, a stripe.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.ColorSource.html">ColorSource</a></dt>
+      <dd><p>Where a style gets its color from (<a class="xref" href="LastFleet.ProcGen.Styles.StyleColor.html">StyleColor</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.HallAccents.html">HallAccents</a></dt>
+      <dd><p>Extra lights a hall built in a style can have besides its floor light (<a class="xref" href="LastFleet.ProcGen.Styles.HallLook.html#LastFleet_ProcGen_Styles_HallLook_Accents">Accents</a>). Flags, so
+any combination works. Each piece is its own light, and it's broken up wherever there's a doorway.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.HallFloor.html">HallFloor</a></dt>
+      <dd><p>The kind of floor a hall has (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a>), and how it's lit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Styles.HallStructure.html">HallStructure</a></dt>
+      <dd><p>What stands along a hall (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricHall.html">ParametricHall</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

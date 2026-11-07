@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WeaponHandling | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WeaponHandling | The Last Fleet ">
+      
+      <meta name="description" content="The gunplay model, Destiny style: trigger modes and exact cadence, magazines and reloads, aim down sights, spread and bloom, and recoil that kicks the view and partly recovers. One call advances one weapon by one tick.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Weapons_WeaponHandling.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Weapons.WeaponHandling%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Weapons.WeaponHandling">
+
+
+
+  <h1 id="LastFleet_Simulation_Weapons_WeaponHandling" data-uid="LastFleet.Simulation.Weapons.WeaponHandling" class="text-break">
+Class WeaponHandling  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Weapons.html">Weapons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The gunplay model, Destiny style: trigger modes and exact cadence, magazines and reloads, aim down sights,
+spread and bloom, and recoil that kicks the view and partly recovers. One call advances one weapon by one tick.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class WeaponHandling</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WeaponHandling</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Weapons_WeaponHandling_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Spread and recoil variation come from the weapon's seed and shot index, never from shared random state, so
+host and clients compute identical shots and the function allocates nothing.
+</p>
+<p>
+It's pure apart from writing to the <a class="xref" href="LastFleet.Simulation.Weapons.ShotLog.html">ShotLog</a>, so it can be tested without a world.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponHandling_MovingSpreadFullSpeed" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.MovingSpreadFullSpeed">
+  MovingSpreadFullSpeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Horizontal speed at which the full moving-spread penalty applies, in m/s. This is the default run speed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float MovingSpreadFullSpeed = 7</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponHandling_CurrentSpreadDegrees_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.CurrentSpreadDegrees*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponHandling_CurrentSpreadDegrees_LastFleet_Simulation_Components_Arms_WeaponState__LastFleet_Simulation_Components_Arms_WeaponStats__LastFleet_Simulation_Components_Characters_MovementState__" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.CurrentSpreadDegrees(LastFleet.Simulation.Components.Arms.WeaponState@,LastFleet.Simulation.Components.Arms.WeaponStats@,LastFleet.Simulation.Components.Characters.MovementState@)">
+  CurrentSpreadDegrees(in WeaponState, in WeaponStats, in MovementState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cone half-angle for the next shot, in degrees: hip or aimed spread, plus bloom and movement
+penalties. A fully aimed first shot while standing still gets only the aimed spread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CurrentSpreadDegrees(in WeaponState state, in WeaponStats stats, in MovementState movement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponState.html">WeaponState</a></dt>
+    <dd></dd>
+    <dt><code>stats</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponStats.html">WeaponStats</a></dt>
+    <dd></dd>
+    <dt><code>movement</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.MovementState.html">MovementState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponHandling_EasedAim_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.EasedAim*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponHandling_EasedAim_System_Single_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.EasedAim(System.Single)">
+  EasedAim(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns aim progress eased in and out for presentation, so the zoom and sights settle instead of stopping dead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float EasedAim(float aim)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>aim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponHandling_SwitchFireMode_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.SwitchFireMode*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponHandling_SwitchFireMode_LastFleet_Simulation_Components_Arms_WeaponState__LastFleet_Simulation_Components_Arms_WeaponStats__LastFleet_Simulation_Components_Characters_PlayerCommand__" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.SwitchFireMode(LastFleet.Simulation.Components.Arms.WeaponState@,LastFleet.Simulation.Components.Arms.WeaponStats@,LastFleet.Simulation.Components.Characters.PlayerCommand@)">
+  SwitchFireMode(ref WeaponState, ref WeaponStats, in PlayerCommand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switches the gun to its trigger group's next fire mode on a press of <a class="xref" href="LastFleet.Simulation.Components.Characters.CommandButtons.html#LastFleet_Simulation_Components_Characters_CommandButtons_SwitchFireMode">SwitchFireMode</a>
+(it does nothing for a trigger with one mode). A burst under way ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SwitchFireMode(ref WeaponState state, ref WeaponStats stats, in PlayerCommand command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponState.html">WeaponState</a></dt>
+    <dd></dd>
+    <dt><code>stats</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponStats.html">WeaponStats</a></dt>
+    <dd></dd>
+    <dt><code>command</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerCommand.html">PlayerCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the mode changed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponHandling_Update_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.Update*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponHandling_Update_LastFleet_Simulation_Components_Arms_WeaponState__LastFleet_Simulation_Components_Arms_WeaponStats__LastFleet_Simulation_Components_Characters_ViewAngles__LastFleet_Simulation_Components_Characters_MovementState__LastFleet_Simulation_Components_Characters_PlayerCommand__System_Numerics_Vector3_System_Int32_System_Int64_System_Single_LastFleet_Simulation_Weapons_ShotLog_LastFleet_Simulation_Weapons_WeaponTraitRules_System_Single_" data-uid="LastFleet.Simulation.Weapons.WeaponHandling.Update(LastFleet.Simulation.Components.Arms.WeaponState@,LastFleet.Simulation.Components.Arms.WeaponStats@,LastFleet.Simulation.Components.Characters.ViewAngles@,LastFleet.Simulation.Components.Characters.MovementState@,LastFleet.Simulation.Components.Characters.PlayerCommand@,System.Numerics.Vector3,System.Int32,System.Int64,System.Single,LastFleet.Simulation.Weapons.ShotLog,LastFleet.Simulation.Weapons.WeaponTraitRules,System.Single)">
+  Update(ref WeaponState, in WeaponStats, ref ViewAngles, in MovementState, in PlayerCommand, Vector3, int, long, float, ShotLog, WeaponTraitRules?, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponHandling.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Advances a weapon by one tick and logs any shots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Update(ref WeaponState state, in WeaponStats stats, ref ViewAngles view, in MovementState movement, in PlayerCommand command, Vector3 eyePosition, int shooterId, long tick, float deltaSeconds, ShotLog log, WeaponTraitRules? rules = null, float reloadSpeedChange = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponState.html">WeaponState</a></dt>
+    <dd><p>Weapon state, updated.</p>
+</dd>
+    <dt><code>stats</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponStats.html">WeaponStats</a></dt>
+    <dd><p>Weapon stats.</p>
+</dd>
+    <dt><code>view</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.ViewAngles.html">ViewAngles</a></dt>
+    <dd><p>The shooter's view; recoil kicks and recovers it.</p>
+</dd>
+    <dt><code>movement</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.MovementState.html">MovementState</a></dt>
+    <dd><p>The shooter's movement state, after this tick's movement update.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerCommand.html">PlayerCommand</a></dt>
+    <dd><p>This tick's input.</p>
+</dd>
+    <dt><code>eyePosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>World-space origin for shots.</p>
+</dd>
+    <dt><code>shooterId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Entity ID written into each shot.</p>
+</dd>
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Current tick.</p>
+</dd>
+    <dt><code>deltaSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Tick length.</p>
+</dd>
+    <dt><code>log</code> <a class="xref" href="LastFleet.Simulation.Weapons.ShotLog.html">ShotLog</a></dt>
+    <dd><p>Receives the shots.</p>
+</dd>
+    <dt><code>rules</code> <a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html">WeaponTraitRules</a></dt>
+    <dd><p>The tuning numbers for weapon traits. Uses <a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html#LastFleet_Simulation_Weapons_WeaponTraitRules_Default">Default</a> when null.</p>
+</dd>
+    <dt><code>reloadSpeedChange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much faster the shooter reloads, as a fraction (see <a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerEffects.html">PlayerEffects</a>).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of shots fired this tick.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

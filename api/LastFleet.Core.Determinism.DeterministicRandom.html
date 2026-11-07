@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DeterministicRandom | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DeterministicRandom | The Last Fleet ">
+      
+      <meta name="description" content="A seeded pseudo-random generator (xoshiro256**) that produces the same sequence on every machine.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Core_Determinism_DeterministicRandom.md&amp;value=---%0Auid%3A%20LastFleet.Core.Determinism.DeterministicRandom%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Core.Determinism.DeterministicRandom">
+
+
+
+  <h1 id="LastFleet_Core_Determinism_DeterministicRandom" data-uid="LastFleet.Core.Determinism.DeterministicRandom" class="text-break">
+Class DeterministicRandom  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Core.html">Core</a>.<a class="xref" href="LastFleet.Core.Determinism.html">Determinism</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A seeded pseudo-random generator (xoshiro256**) that produces the same sequence on every machine.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DeterministicRandom</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DeterministicRandom</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Core_Determinism_DeterministicRandom_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Simulation, procedural generation and loot code must use this type, never <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.random">Random</a>:
+the BCL generator's algorithm is an implementation detail that can change between .NET versions, and
+co-op peers regenerate levels and weapons from seeds alone.
+</p>
+<p>
+Give every independent consumer its own stream with <a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html#LastFleet_Core_Determinism_DeterministicRandom_ForStream_System_UInt64_System_String_">ForStream(ulong, string)</a>. A stream
+depends only on the run seed and its name, so adding a roll in one generation pass never shifts the
+results of another.
+</p>
+<p>Not thread-safe. Use one instance per thread or job.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom__ctor_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.#ctor*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom__ctor_System_UInt64_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.#ctor(System.UInt64)">
+  DeterministicRandom(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a generator from a 64-bit seed. Every seed, including zero, is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeterministicRandom(ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_State_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.State*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_State" data-uid="LastFleet.Core.Determinism.DeterministicRandom.State">
+  State
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The full internal state. Restoring it with <a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html#LastFleet_Core_Determinism_DeterministicRandom_FromState_LastFleet_Core_Determinism_RandomState_">FromState(RandomState)</a> continues the exact same sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RandomState State { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Core.Determinism.RandomState.html">RandomState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_Chance_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.Chance*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_Chance_System_Single_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.Chance(System.Single)">
+  Chance(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true with the given probability, clamped to [0, 1].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Chance(float probability)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>probability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_ForStream_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.ForStream*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_ForStream_System_UInt64_System_String_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.ForStream(System.UInt64,System.String)">
+  ForStream(ulong, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the generator for a named stream of a run seed, for example <code>ForStream(runSeed, &quot;procgen.layout&quot;)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DeterministicRandom ForStream(ulong seed, string stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html">DeterministicRandom</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_ForStream_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.ForStream*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_ForStream_System_UInt64_System_UInt64_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.ForStream(System.UInt64,System.UInt64)">
+  ForStream(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the generator for a numbered stream of a run seed. The result does not depend on any other generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DeterministicRandom ForStream(ulong seed, ulong stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html">DeterministicRandom</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_FromState_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.FromState*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_FromState_LastFleet_Core_Determinism_RandomState_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.FromState(LastFleet.Core.Determinism.RandomState)">
+  FromState(RandomState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restores a generator from a state captured with <a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html#LastFleet_Core_Determinism_DeterministicRandom_State">State</a>, for saves and rollback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DeterministicRandom FromState(RandomState state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="LastFleet.Core.Determinism.RandomState.html">RandomState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Core.Determinism.DeterministicRandom.html">DeterministicRandom</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The state is all zeros, which xoshiro cannot leave.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextBool_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextBool*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextBool" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextBool">
+  NextBool()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a fair coin flip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NextBool()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextDouble_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextDouble*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextDouble" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextDouble">
+  NextDouble()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a uniform double in [0, 1). Uses 53 random bits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double NextDouble()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextFloat_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextFloat*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextFloat" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextFloat">
+  NextFloat()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a uniform float in [0, 1). Uses 24 random bits, so every result is exactly representable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NextFloat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextFloat_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextFloat*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextFloat_System_Single_System_Single_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextFloat(System.Single,System.Single)">
+  NextFloat(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a uniform float in [<code class="paramref">minInclusive</code>, <code class="paramref">maxExclusive</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NextFloat(float minInclusive, float maxExclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>maxExclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextInt_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextInt*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextInt_System_Int32_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextInt(System.Int32)">
+  NextInt(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a uniform integer in [0, <code class="paramref">maxExclusive</code>), without modulo bias.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NextInt(int maxExclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxExclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextInt_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextInt*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextInt_System_Int32_System_Int32_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextInt(System.Int32,System.Int32)">
+  NextInt(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a uniform integer in [<code class="paramref">minInclusive</code>, <code class="paramref">maxExclusive</code>), without modulo
+bias.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NextInt(int minInclusive, int maxExclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>maxExclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextUInt32_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextUInt32*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextUInt32" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextUInt32">
+  NextUInt32()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next uniformly distributed 32-bit value. Uses the high bits, which are the strongest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint NextUInt32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_NextUInt64_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextUInt64*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_NextUInt64" data-uid="LastFleet.Core.Determinism.DeterministicRandom.NextUInt64">
+  NextUInt64()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next uniformly distributed 64-bit value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong NextUInt64()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Core_Determinism_DeterministicRandom_Shuffle_" data-uid="LastFleet.Core.Determinism.DeterministicRandom.Shuffle*"></a>
+
+  <h3 id="LastFleet_Core_Determinism_DeterministicRandom_Shuffle__1_System_Span___0__" data-uid="LastFleet.Core.Determinism.DeterministicRandom.Shuffle``1(System.Span{``0})">
+  Shuffle&lt;T&gt;(Span&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Core/Determinism/DeterministicRandom.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shuffles <code class="paramref">items</code> in place (Fisher-Yates). The result depends only on this generator's state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Shuffle&lt;T&gt;(Span&lt;T&gt; items)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

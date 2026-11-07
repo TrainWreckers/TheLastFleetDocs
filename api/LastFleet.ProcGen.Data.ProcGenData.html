@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProcGenData | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProcGenData | The Last Fleet ">
+      
+      <meta name="description" content="The designer data levels are generated from, read from content/defs/procgen: the content&#39;s tags (), surface styles (), room archetypes (), the props () and rules that place them (), the networks that join a level&#39;s things (), where its loot goes (), how its rooms are typed (), and the plans structure-first levels are built from () with the rooms of their districts ().">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Data_ProcGenData.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Data.ProcGenData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Data.ProcGenData">
+
+
+
+  <h1 id="LastFleet_ProcGen_Data_ProcGenData" data-uid="LastFleet.ProcGen.Data.ProcGenData" class="text-break">
+Class ProcGenData  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The designer data levels are generated from, read from <code>content/defs/procgen</code>: the content's tags
+(<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_TagsFileName">TagsFileName</a>), surface styles (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_StylesFileName">StylesFileName</a>), room archetypes
+(<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_ArchetypesFileName">ArchetypesFileName</a>), the props (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_PropsFileName">PropsFileName</a>) and rules that place them
+(<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_RulesFileName">RulesFileName</a>), the networks that join a level's things (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_NetworksFileName">NetworksFileName</a>), where
+its loot goes (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_LootFileName">LootFileName</a>), how its rooms are typed (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_TypingFileName">TypingFileName</a>), and the plans
+structure-first levels are built from (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_PlansFileName">PlansFileName</a>) with the rooms of their districts
+(<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_DistrictsFileName">DistrictsFileName</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ProcGenData</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProcGenData</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Data_ProcGenData_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable once read, so one instance serves every level generated from the same content.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_ArchetypesFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.ArchetypesFileName">
+  ArchetypesFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the room archetypes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ArchetypesFileName = &quot;archetypes.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_DistrictsFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.DistrictsFileName">
+  DistrictsFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the district programs: what rooms each district of a plan is made of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DistrictsFileName = &quot;districts.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_LootFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.LootFileName">
+  LootFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the loot assignments: which rooms get caches, stashes, which tables, and better items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string LootFileName = &quot;loot.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_NetworksFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.NetworksFileName">
+  NetworksFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the networks: what a network's route pays, how far it may run, and how its pipe looks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string NetworksFileName = &quot;networks.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_PlansFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.PlansFileName">
+  PlansFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the level plans: the parts a ship's or a station's envelope is built from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PlansFileName = &quot;plans.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_PropsFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.PropsFileName">
+  PropsFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the props rules place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PropsFileName = &quot;props.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_RulesFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.RulesFileName">
+  RulesFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the placement rules: how built rooms are furnished, and how a level's rooms are filled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RulesFileName = &quot;rules.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_StylesFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.StylesFileName">
+  StylesFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the surface styles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string StylesFileName = &quot;styles.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_TagsFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.TagsFileName">
+  TagsFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the content's tags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string TagsFileName = &quot;tags.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_TypingFileName" data-uid="LastFleet.ProcGen.Data.ProcGenData.TypingFileName">
+  TypingFileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file of the room typing: how often a room is the kit's own, and the rules a level's room mix keeps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string TypingFileName = &quot;typing.json&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Archetypes_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Archetypes*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Archetypes" data-uid="LastFleet.ProcGen.Data.ProcGenData.Archetypes">
+  Archetypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The room archetypes by id, in id order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, RoomArchetype&gt; Archetypes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LastFleet.ProcGen.Rooms.RoomArchetype.html">RoomArchetype</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Default_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Default*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Default" data-uid="LastFleet.ProcGen.Data.ProcGenData.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data with nothing of the content's: the built-in tags, styles, props, rules, networks, loot and typing, and
+no archetypes or plans.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProcGenData Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Districts_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Districts*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Districts" data-uid="LastFleet.ProcGen.Data.ProcGenData.Districts">
+  Districts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The district programs by id, in id order: what rooms each district of a plan is made of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, DistrictProgram&gt; Districts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LastFleet.ProcGen.Plans.DistrictProgram.html">DistrictProgram</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Loot_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Loot*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Loot" data-uid="LastFleet.ProcGen.Data.ProcGenData.Loot">
+  Loot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where a level's loot goes: the assignments by tag, and each deck's stashes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LootData Loot { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Looting.LootData.html">LootData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Models_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Models*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Models" data-uid="LastFleet.ProcGen.Data.ProcGenData.Models">
+  Models
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The models its furniture was resolved from (<a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html#LastFleet_ProcGen_Data_ProcGenData_WithModels_LastFleet_Content_Models_ModelLibrary_">WithModels(ModelLibrary)</a>); null if read without them, when a
+furniture's model is only named (<a class="xref" href="LastFleet.ProcGen.Placing.Props.PropDefinition.html#LastFleet_ProcGen_Placing_Props_PropDefinition_ModelName">ModelName</a>) and it is built as a box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelLibrary? Models { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Models.ModelLibrary.html">ModelLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Networks_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Networks*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Networks" data-uid="LastFleet.ProcGen.Data.ProcGenData.Networks">
+  Networks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The networks by id, in id order; every one the generator lays (<a class="xref" href="LastFleet.ProcGen.Networks.NetworkSpec.html#LastFleet_ProcGen_Networks_NetworkSpec_Required">Required</a>) is there.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, NetworkSpec&gt; Networks { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LastFleet.ProcGen.Networks.NetworkSpec.html">NetworkSpec</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Placements_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Placements*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Placements" data-uid="LastFleet.ProcGen.Data.ProcGenData.Placements">
+  Placements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The props, how built rooms are furnished, and the rules a level's rooms are filled by.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlacementData Placements { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Rules.PlacementData.html">PlacementData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Plans_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Plans*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Plans" data-uid="LastFleet.ProcGen.Data.ProcGenData.Plans">
+  Plans
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level plans by id, in id order: what structure-first levels are built from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, LevelPlan&gt; Plans { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Styles_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Styles*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Styles" data-uid="LastFleet.ProcGen.Data.ProcGenData.Styles">
+  Styles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The surface styles by id, every one resolved; <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html#LastFleet_ProcGen_Styles_SurfaceStyle_StationId">StationId</a> is always there.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, SurfaceStyle&gt; Styles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Tags_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Tags*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Tags" data-uid="LastFleet.ProcGen.Data.ProcGenData.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every tag rules may use: the built-in ones and the content's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TagRegistry Tags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Tags.TagRegistry.html">TagRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Typing_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Typing*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Typing" data-uid="LastFleet.ProcGen.Data.ProcGenData.Typing">
+  Typing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How a level's rooms are typed: the kit's share, and the rules its room mix keeps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TypingData Typing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Typing.TypingData.html">TypingData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Load_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Load*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Load_System_String_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the data files in <code class="paramref">folder</code>; a file that is not there leaves its part empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProcGenData Load(string folder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>folder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception">DirectoryNotFoundException</a></dt>
+    <dd><p>There is no such folder.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A file is not valid; the message names it and says what is wrong.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Network_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Network*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Network_System_String_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Network(System.String)">
+  Network(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The network called <code class="paramref">id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkSpec Network(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Networks.NetworkSpec.html">NetworkSpec</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>There is no such network.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Parse_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Parse*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Parse_System_Collections_Generic_IEnumerable_System_ValueTuple_System_String_System_String___LastFleet_Content_Models_ModelLibrary_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Parse(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}},LastFleet.Content.Models.ModelLibrary)">
+  Parse(IEnumerable&lt;(string Name, string Text)&gt;, ModelLibrary?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data from <code class="paramref">files</code>, each a file's name (no folder) and its text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProcGenData Parse(IEnumerable&lt;(string Name, string Text)&gt; files, ModelLibrary? models = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>files</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.source">Source</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.json">Json</a>)&gt;</dt>
+    <dd><p>Each file's name (no folder) and its text.</p>
+</dd>
+    <dt><code>models</code> <a class="xref" href="LastFleet.Content.Models.ModelLibrary.html">ModelLibrary</a></dt>
+    <dd><p>The prop models furniture names; its models are only named without them.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A file is not valid, or is not one the generator reads; the message lists every problem, by file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Plan_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Plan*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Plan_System_String_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Plan(System.String)">
+  Plan(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The plan called <code class="paramref">id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LevelPlan Plan(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>There is no such plan.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_Style_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Style*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_Style_System_String_" data-uid="LastFleet.ProcGen.Data.ProcGenData.Style(System.String)">
+  Style(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The style called <code class="paramref">id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SurfaceStyle Style(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>There is no such style.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Data_ProcGenData_WithModels_" data-uid="LastFleet.ProcGen.Data.ProcGenData.WithModels*"></a>
+
+  <h3 id="LastFleet_ProcGen_Data_ProcGenData_WithModels_LastFleet_Content_Models_ModelLibrary_" data-uid="LastFleet.ProcGen.Data.ProcGenData.WithModels(LastFleet.Content.Models.ModelLibrary)">
+  WithModels(ModelLibrary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Data/ProcGenData.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same data with its furniture's models resolved from <code class="paramref">models</code> (read once for each library):
+itself if it was read with them, or names none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProcGenData WithModels(ModelLibrary models)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>models</code> <a class="xref" href="LastFleet.Content.Models.ModelLibrary.html">ModelLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A model is not in the library or will not do as furniture; the message lists every problem.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

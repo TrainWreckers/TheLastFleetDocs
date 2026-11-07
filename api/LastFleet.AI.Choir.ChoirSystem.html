@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ChoirSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ChoirSystem | The Last Fleet ">
+      
+      <meta name="description" content="The Choir&#39;s bigger bodies (): characters with a simple mind of their own, not a soldier&#39;s. Each goes for the nearest of anyone not of the Choir (players and soldiers alike), by the navigation grid or straight at them once in the open, and attacks after a wind-up that warns: Strippers close in and strike everyone and everything in front of them (cover and breakable walls included, going through what stands between them and their target); Spitters keep their distance and lob acid that leaves a burning pool (, ).">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Choir_ChoirSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Choir.ChoirSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Choir.ChoirSystem">
+
+
+
+  <h1 id="LastFleet_AI_Choir_ChoirSystem" data-uid="LastFleet.AI.Choir.ChoirSystem" class="text-break">
+Class ChoirSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Choir.html">Choir</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Choir's bigger bodies (<a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirUnit.html">ChoirUnit</a>): characters with a simple mind of their own, not a soldier's.
+Each goes for the nearest of anyone not of the Choir (players and soldiers alike), by the navigation grid or straight
+at them once in the open, and attacks after a wind-up that warns: Strippers close in and strike everyone and
+everything in front of them (cover and breakable walls included, going through what stands between them and their
+target); Spitters keep their distance and lob acid that leaves a burning pool (<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html">AcidGlob</a>,
+<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html">AcidPool</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ChoirSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ChoirSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Choir_ChoirSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A late system, after the horde: it writes each body's command for the next tick (as the soldiers' AI acts on the
+last tick's world), and its blows and acid are logged as hits after this tick's shots cleared the log. Deterministic;
+allocation-free after the first ticks.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Choir_ChoirSystem__ctor_" data-uid="LastFleet.AI.Choir.ChoirSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Choir_ChoirSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Navigation_NavGrid_LastFleet_Simulation_Weapons_HitLog_LastFleet_Simulation_Weapons_DestructionLog_LastFleet_AI_Choir_ChoirTuning_" data-uid="LastFleet.AI.Choir.ChoirSystem.#ctor(LastFleet.Simulation.Physics.ICollisionWorld,LastFleet.AI.Navigation.NavGrid,LastFleet.Simulation.Weapons.HitLog,LastFleet.Simulation.Weapons.DestructionLog,LastFleet.AI.Choir.ChoirTuning)">
+  ChoirSystem(ICollisionWorld, NavGrid, HitLog, DestructionLog, ChoirTuning?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Choir's bigger bodies (<a class="xref" href="LastFleet.Simulation.Components.Choir.ChoirUnit.html">ChoirUnit</a>): characters with a simple mind of their own, not a soldier's.
+Each goes for the nearest of anyone not of the Choir (players and soldiers alike), by the navigation grid or straight
+at them once in the open, and attacks after a wind-up that warns: Strippers close in and strike everyone and
+everything in front of them (cover and breakable walls included, going through what stands between them and their
+target); Spitters keep their distance and lob acid that leaves a burning pool (<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidGlob.html">AcidGlob</a>,
+<a class="xref" href="LastFleet.Simulation.Components.Choir.AcidPool.html">AcidPool</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ChoirSystem(ICollisionWorld world, NavGrid grid, HitLog hits, DestructionLog breaks, ChoirTuning? tuning = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+    <dt><code>grid</code> <a class="xref" href="LastFleet.AI.Navigation.NavGrid.html">NavGrid</a></dt>
+    <dd></dd>
+    <dt><code>hits</code> <a class="xref" href="LastFleet.Simulation.Weapons.HitLog.html">HitLog</a></dt>
+    <dd></dd>
+    <dt><code>breaks</code> <a class="xref" href="LastFleet.Simulation.Weapons.DestructionLog.html">DestructionLog</a></dt>
+    <dd></dd>
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Choir.ChoirTuning.html">ChoirTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Choir_ChoirSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Navigation_NavGrid_LastFleet_Simulation_Weapons_HitLog_LastFleet_Simulation_Weapons_DestructionLog_LastFleet_AI_Choir_ChoirTuning__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A late system, after the horde: it writes each body's command for the next tick (as the soldiers' AI acts on the
+last tick's world), and its blows and acid are logged as hits after this tick's shots cleared the log. Deterministic;
+allocation-free after the first ticks.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Choir_ChoirSystem_Tuning_" data-uid="LastFleet.AI.Choir.ChoirSystem.Tuning*"></a>
+
+  <h3 id="LastFleet_AI_Choir_ChoirSystem_Tuning" data-uid="LastFleet.AI.Choir.ChoirSystem.Tuning">
+  Tuning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How they fight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ChoirTuning Tuning { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Choir.ChoirTuning.html">ChoirTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Choir_ChoirSystem_Clear_" data-uid="LastFleet.AI.Choir.ChoirSystem.Clear*"></a>
+
+  <h3 id="LastFleet_AI_Choir_ChoirSystem_Clear_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Choir.ChoirSystem.Clear(Friflo.Engine.ECS.EntityStore)">
+  Clear(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes every glob and pool (a restarted fight, or the horde cleared away).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clear(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Choir_ChoirSystem_Initialize_" data-uid="LastFleet.AI.Choir.ChoirSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Choir_ChoirSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Choir.ChoirSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Choir_ChoirSystem_Update_" data-uid="LastFleet.AI.Choir.ChoirSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Choir_ChoirSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Choir.ChoirSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Choir/ChoirSystem.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

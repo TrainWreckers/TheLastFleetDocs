@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImpactRules | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImpactRules | The Last Fleet ">
+      
+      <meta name="description" content="How a round&#39;s push (a frame&#39;s ) moves what it hits, read from the loot data (content/defs/loot/impact.json).  holds the values the game ships with. Pushes are in meters a second: the speed a round gives a body, before the body&#39;s friction takes it back.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Weapons_ImpactRules.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Weapons.ImpactRules%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Weapons.ImpactRules">
+
+
+
+  <h1 id="LastFleet_Simulation_Weapons_ImpactRules" data-uid="LastFleet.Simulation.Weapons.ImpactRules" class="text-break">
+Class ImpactRules  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Weapons.html">Weapons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>How a round's push (a frame's <a class="xref" href="LastFleet.Simulation.Weapons.WeaponArchetype.html#LastFleet_Simulation_Weapons_WeaponArchetype_Impact">Impact</a>) moves what it hits, read from the loot data
+(<code>content/defs/loot/impact.json</code>). <a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html#LastFleet_Simulation_Weapons_ImpactRules_Default">Default</a> holds the values the game ships with. Pushes are in
+meters a second: the speed a round gives a body, before the body's friction takes it back.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record ImpactRules : IEquatable&lt;ImpactRules&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ImpactRules</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html">ImpactRules</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Weapons_ImpactRules_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A round is one hit: its pellets' pushes on a body are added up before anything here is decided (see
+<a class="xref" href="LastFleet.Simulation.Systems.ShotResolutionSystem.html">ShotResolutionSystem</a>).</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_Default_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.Default*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_Default" data-uid="LastFleet.Simulation.Weapons.ImpactRules.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shipped tuning, used when the data doesn't override it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImpactRules Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html">ImpactRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_FlingPush_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.FlingPush*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_FlingPush" data-uid="LastFleet.Simulation.Weapons.ImpactRules.FlingPush">
+  FlingPush
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A killing round pushing at least this throws the body: it slides along the floor as it falls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FlingPush { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_FlingSeconds_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.FlingSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_FlingSeconds" data-uid="LastFleet.Simulation.Weapons.ImpactRules.FlingSeconds">
+  FlingSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a thrown body slides, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FlingSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_KnockdownPush_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.KnockdownPush*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_KnockdownPush" data-uid="LastFleet.Simulation.Weapons.ImpactRules.KnockdownPush">
+  KnockdownPush
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A round pushing at least this knocks a body down: it can't move or fire for <a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html#LastFleet_Simulation_Weapons_ImpactRules_KnockdownSeconds">KnockdownSeconds</a>,
+shown as the downed pose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float KnockdownPush { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_KnockdownSeconds_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.KnockdownSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_KnockdownSeconds" data-uid="LastFleet.Simulation.Weapons.ImpactRules.KnockdownSeconds">
+  KnockdownSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a knockdown lasts, in seconds, the slide included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float KnockdownSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_MaxPush_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.MaxPush*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_MaxPush" data-uid="LastFleet.Simulation.Weapons.ImpactRules.MaxPush">
+  MaxPush
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most a body can be pushed by one round, in meters a second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaxPush { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_MinPush_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.MinPush*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_MinPush" data-uid="LastFleet.Simulation.Weapons.ImpactRules.MinPush">
+  MinPush
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A round pushing less than this only nudges (the body keeps its footing and its friction takes the push back at
+once); at least this and the body is knocked off its feet for <a class="xref" href="LastFleet.Simulation.Weapons.ImpactRules.html#LastFleet_Simulation_Weapons_ImpactRules_PushSeconds">PushSeconds</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MinPush { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_PlayerScale_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PlayerScale*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_PlayerScale" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PlayerScale">
+  PlayerScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes on players are this times a round's (0: players are never pushed, which keeps their own movement on
+their client from being corrected under them).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PlayerScale { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_PushFriction_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PushFriction*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_PushFriction" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PushFriction">
+  PushFriction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The friction a pushed body slides on, per second (on its feet it's 14: it stops at once).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PushFriction { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_PushSeconds_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PushSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_PushSeconds" data-uid="LastFleet.Simulation.Weapons.ImpactRules.PushSeconds">
+  PushSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a pushed body slides before it has its footing again, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float PushSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_SoldierScale_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SoldierScale*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_SoldierScale" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SoldierScale">
+  SoldierScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes on soldiers are this times a round's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SoldierScale { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_SwarmScale_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmScale*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_SwarmScale" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmScale">
+  SwarmScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes on the horde's swarmlings are this times a round's (they are light).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SwarmScale { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_SwarmStaggerDamage_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmStaggerDamage*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_SwarmStaggerDamage" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmStaggerDamage">
+  SwarmStaggerDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A round doing at least this much damage to a swarmling staggers it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SwarmStaggerDamage { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_ImpactRules_SwarmStaggerSeconds_" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmStaggerSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_ImpactRules_SwarmStaggerSeconds" data-uid="LastFleet.Simulation.Weapons.ImpactRules.SwarmStaggerSeconds">
+  SwarmStaggerSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/ImpactRules.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a staggered swarmling reels, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SwarmStaggerSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

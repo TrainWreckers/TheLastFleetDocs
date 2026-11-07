@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LifeSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LifeSystem | The Last Fleet ">
+      
+      <meta name="description" content="Handles health over time: regeneration, being downed, death and respawn. A dead character&#39;s input is ignored and its collision body is removed, so others can walk through the corpse. Players with a  respawn after  with the stock kit (). The weapons they found and everything in their inventory are left where they died, for them or a teammate to pick up. Soldiers stay dead.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Systems_LifeSystem.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Systems.LifeSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Systems.LifeSystem">
+
+
+
+  <h1 id="LastFleet_Simulation_Systems_LifeSystem" data-uid="LastFleet.Simulation.Systems.LifeSystem" class="text-break">
+Class LifeSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Systems.html">Systems</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Handles health over time: regeneration, being downed, death and respawn. A dead character's input is ignored and
+its collision body is removed, so others can walk through the corpse. Players with a <a class="xref" href="LastFleet.Simulation.Components.Characters.SpawnPoint.html">SpawnPoint</a>
+respawn after <a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_RespawnSeconds">RespawnSeconds</a> with the stock kit (<a class="xref" href="LastFleet.Simulation.SimulationSetup.html#LastFleet_Simulation_SimulationSetup_DefaultLoadout_System_UInt64_">DefaultLoadout(ulong)</a>). The
+weapons they found and everything in their inventory are left where they died, for them or a teammate to pick up.
+Soldiers stay dead.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LifeSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LifeSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Systems_LifeSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A player (with <a class="xref" href="LastFleet.Simulation.Components.Characters.Rescue.html">Rescue</a>) who hits zero health while a teammate is still up gets downed instead. They
+bleed out over <a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_BleedOutSeconds">BleedOutSeconds</a>, can only look, fire a sidearm, reload and ping
+(<a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_DownedCommand_LastFleet_Simulation_Components_Characters_PlayerCommand__LastFleet_Simulation_Components_Arms_Loadout__">DownedCommand(in PlayerCommand, in Loadout)</a>), and only die if nobody revives them in time (<a class="xref" href="LastFleet.Simulation.Systems.RescueSystem.html">RescueSystem</a>). A player
+on their own dies right away, as before.
+</p>
+<p>
+Runs first among the gameplay systems, but after any system that writes commands (the AI), so it can cancel them.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem__ctor_" data-uid="LastFleet.Simulation.Systems.LifeSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_" data-uid="LastFleet.Simulation.Systems.LifeSystem.#ctor(LastFleet.Simulation.Physics.ICollisionWorld)">
+  LifeSystem(ICollisionWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles health over time: regeneration, being downed, death and respawn. A dead character's input is ignored and
+its collision body is removed, so others can walk through the corpse. Players with a <a class="xref" href="LastFleet.Simulation.Components.Characters.SpawnPoint.html">SpawnPoint</a>
+respawn after <a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_RespawnSeconds">RespawnSeconds</a> with the stock kit (<a class="xref" href="LastFleet.Simulation.SimulationSetup.html#LastFleet_Simulation_SimulationSetup_DefaultLoadout_System_UInt64_">DefaultLoadout(ulong)</a>). The
+weapons they found and everything in their inventory are left where they died, for them or a teammate to pick up.
+Soldiers stay dead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LifeSystem(ICollisionWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_Simulation_Systems_LifeSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A player (with <a class="xref" href="LastFleet.Simulation.Components.Characters.Rescue.html">Rescue</a>) who hits zero health while a teammate is still up gets downed instead. They
+bleed out over <a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_BleedOutSeconds">BleedOutSeconds</a>, can only look, fire a sidearm, reload and ping
+(<a class="xref" href="LastFleet.Simulation.Systems.LifeSystem.html#LastFleet_Simulation_Systems_LifeSystem_DownedCommand_LastFleet_Simulation_Components_Characters_PlayerCommand__LastFleet_Simulation_Components_Arms_Loadout__">DownedCommand(in PlayerCommand, in Loadout)</a>), and only die if nobody revives them in time (<a class="xref" href="LastFleet.Simulation.Systems.RescueSystem.html">RescueSystem</a>). A player
+on their own dies right away, as before.
+</p>
+<p>
+Runs first among the gameplay systems, but after any system that writes commands (the AI), so it can cancel them.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_BleedOutSeconds" data-uid="LastFleet.Simulation.Systems.LifeSystem.BleedOutSeconds">
+  BleedOutSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a downed player lasts without a revive, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float BleedOutSeconds = 30</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_RespawnSeconds" data-uid="LastFleet.Simulation.Systems.LifeSystem.RespawnSeconds">
+  RespawnSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time from a player's death to their respawn, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float RespawnSeconds = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_SpawnProtectionSeconds" data-uid="LastFleet.Simulation.Systems.LifeSystem.SpawnProtectionSeconds">
+  SpawnProtectionSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds of spawn protection after a respawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SpawnProtectionSeconds = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem_DownedCommand_" data-uid="LastFleet.Simulation.Systems.LifeSystem.DownedCommand*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_DownedCommand_LastFleet_Simulation_Components_Characters_PlayerCommand__LastFleet_Simulation_Components_Arms_Loadout__" data-uid="LastFleet.Simulation.Systems.LifeSystem.DownedCommand(LastFleet.Simulation.Components.Characters.PlayerCommand@,LastFleet.Simulation.Components.Arms.Loadout@)">
+  DownedCommand(in PlayerCommand, in Loadout)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Filters a command down to what a downed player can still do: look, fire and reload a sidearm (the hand cannon,
+if carried), and ping. They stay low and can't move or aim down sights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlayerCommand DownedCommand(in PlayerCommand command, in Loadout loadout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerCommand.html">PlayerCommand</a></dt>
+    <dd></dd>
+    <dt><code>loadout</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.Loadout.html">Loadout</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Characters.PlayerCommand.html">PlayerCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem_DropFoundWeapons_" data-uid="LastFleet.Simulation.Systems.LifeSystem.DropFoundWeapons*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_DropFoundWeapons_Friflo_Engine_ECS_EntityStore_Friflo_Engine_ECS_Entity_System_Numerics_Vector3_LastFleet_Simulation_Components_Arms_Loadout__" data-uid="LastFleet.Simulation.Systems.LifeSystem.DropFoundWeapons(Friflo.Engine.ECS.EntityStore,Friflo.Engine.ECS.Entity,System.Numerics.Vector3,LastFleet.Simulation.Components.Arms.Loadout@)">
+  DropFoundWeapons(EntityStore, Entity, Vector3, in Loadout)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drops the weapons <code class="paramref">player</code> found (rolled loot, not the stock kit) around
+<code class="paramref">where</code> with their ammo, and gives the player a full stock kit. The only way to keep finds from
+one mission to the next is to get out alive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DropFoundWeapons(EntityStore store, Entity player, Vector3 where, in Loadout carried)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd><p>The world's entities.</p>
+</dd>
+    <dt><code>player</code> <span class="xref">Entity</span></dt>
+    <dd><p>The player.</p>
+</dd>
+    <dt><code>where</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Where they died.</p>
+</dd>
+    <dt><code>carried</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.Loadout.html">Loadout</a></dt>
+    <dd><p>What they were carrying when they died (<a class="xref" href="LastFleet.Simulation.SimulationSetup.html#LastFleet_Simulation_SimulationSetup_CurrentLoadout_Friflo_Engine_ECS_Entity_">CurrentLoadout(Entity)</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem_Initialize_" data-uid="LastFleet.Simulation.Systems.LifeSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.Simulation.Systems.LifeSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem_RespawnNow_" data-uid="LastFleet.Simulation.Systems.LifeSystem.RespawnNow*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_RespawnNow_Friflo_Engine_ECS_Entity_LastFleet_Simulation_Physics_ICollisionWorld_" data-uid="LastFleet.Simulation.Systems.LifeSystem.RespawnNow(Friflo.Engine.ECS.Entity,LastFleet.Simulation.Physics.ICollisionWorld)">
+  RespawnNow(Entity, ICollisionWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Immediately puts a character (alive or dead) back at its <a class="xref" href="LastFleet.Simulation.Components.Characters.SpawnPoint.html">SpawnPoint</a>, healed and re-armed, as if it
+had just respawned. Used when restarting a fight. Its collision body is removed so it gets recreated at the
+spawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RespawnNow(Entity entity, ICollisionWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <span class="xref">Entity</span></dt>
+    <dd></dd>
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Systems_LifeSystem_Update_" data-uid="LastFleet.Simulation.Systems.LifeSystem.Update*"></a>
+
+  <h3 id="LastFleet_Simulation_Systems_LifeSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.Simulation.Systems.LifeSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Systems/LifeSystem.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

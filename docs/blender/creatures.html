@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Modeling and animating creatures in Blender | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modeling and animating creatures in Blender | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="modeling-and-animating-creatures-in-blender">Modeling and animating creatures in Blender</h1>
+
+<p>The horde's bodies are models made and animated in Blender. The game draws hundreds of them at once on the GPU, each
+on its own frame of its own animation. The swarmling is the first one: <code>content/models/swarmling.gltf</code>.</p>
+<p>So you want to edit or replace it? This page walks you through it in Blender. Reshaping the body or reworking the
+animations doesn't need any code changes!</p>
+<p>The file you start from is the grey-box swarmling: a few faceted pieces, each skinned to one bone, with simple keyed
+animations. <code>tools/blender/generate_swarmling.py</code> made it. Replace it however you like, but don't run that script again
+over your work, because it'd put the starter model back.</p>
+<h2 id="setting-up">Setting up</h2>
+<ol>
+<li>Install the add-on: Edit &gt; Preferences &gt; Add-ons &gt; Install from Disk, and pick <code>tools/blender/lastfleet_creatures.py</code>.
+Enable <strong>Last Fleet Creatures</strong>. Its tools are in the 3D view's sidebar (N), on the <strong>Last Fleet</strong> tab, in the
+<strong>Creature</strong> panel.</li>
+<li>Open the model with the panel's <strong>Open</strong> button, not File &gt; Import. Why? It sets the scene to <strong>30 frames a
+second</strong> first, which is the rate the game plays animations at. If you import the model into Blender's default
+24 fps scene, its keys end up between frames, and exporting it would cut the end off each animation.</li>
+<li><strong>Folder</strong> is where Export writes to (<code>content/models</code>), and <strong>Creature</strong> is the file name (<code>swarmling</code>). Open fills
+in both for you.</li>
+</ol>
+<h2 id="what-the-game-reads">What the game reads</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The rig</td>
+<td>One armature. The bones can be anything. The starter's are named Root, Hips, Chest, Head, Abdomen, the legs (FrontLeg.L.Upper and so on) and the blades (Arm.L, Blade.L).</td>
+</tr>
+<tr>
+<td>The near body</td>
+<td>Meshes skinned to the armature (an Armature modifier, vertex groups named after bones, at most four bones per vertex), with any name that doesn't end in <code>_LOD1</code></td>
+</tr>
+<tr>
+<td>The far body</td>
+<td>Meshes named <code>&lt;anything&gt;_LOD1</code>. They're drawn beyond 22 m, and for shadows. Give it about a third of the triangles. If there isn't one, the near body gets drawn at every distance.</td>
+</tr>
+<tr>
+<td>Animations</td>
+<td>Actions, found by name (see below). Each one is a frame range starting at 0, with keys on whole frames at 30 fps</td>
+</tr>
+<tr>
+<td>Shading</td>
+<td>Flat: each face is lit by its own normal. Smooth shading and custom normals are ignored.</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>A material's Base Color. A material named <strong>Glow</strong> glows in the Choir's violet and dims as the creature dies.</td>
+</tr>
+<tr>
+<td>Surface materials</td>
+<td>How each material reacts to light, picked with the Last Fleet Materials add-on (<a href="materials.html">materials.md</a>). The swarmling's chitin is plastic and its Glow is emissive.</td>
+</tr>
+<tr>
+<td>Size and facing</td>
+<td>Meters. The creature faces <strong>+Y</strong> (the game's forward), <strong>+Z</strong> is up, and its feet are on the origin.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hit volumes.</strong> Here's the catch: where a shot hits is decided in code, not by the mesh (<code>Swarmling</code> in
+<code>src/LastFleet.Simulation</code>).</p>
+<ul>
+<li>The body is a low capsule 0.72 m tall.</li>
+<li>The head is a sphere with a 0.17 m radius, 0.42 m forward and 0.6 m up. A shot there counts as a precision hit.</li>
+</ul>
+<p>So keep the head and body roughly where they are, or ask a programmer to change the numbers to match.</p>
+<h2 id="the-animations">The animations</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Played</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Run</code></td>
+<td>A loop, while it runs</td>
+<td>One stride. The game plays one loop every 1.1 m covered, so the feet keep pace with the ground at any speed. Make it run in place, since the game moves the body.</td>
+</tr>
+<tr>
+<td><code>Idle</code></td>
+<td>A loop, standing</td>
+<td></td>
+</tr>
+<tr>
+<td><code>WindUp</code></td>
+<td>Once, before the bite</td>
+<td>0.3 s, the same as the game's wind-up. This is the telegraph players react to, so make it big and readable!</td>
+</tr>
+<tr>
+<td><code>Bite</code></td>
+<td>Once, when the wind-up ends</td>
+<td>Starts from the WindUp's last pose.</td>
+</tr>
+<tr>
+<td><code>Stagger</code></td>
+<td>Once, when a heavy hit knocks it back</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Death</code></td>
+<td>Once, when it dies</td>
+<td>It holds the last pose, then the game darkens it and sinks it into the floor.</td>
+</tr>
+</tbody>
+</table>
+<p>The game fades from one animation to the next over 0.12 s. A couple of gotchas:</p>
+<ul>
+<li><strong>Loops have to end where they start.</strong> Key the last frame the same as the first.</li>
+<li><strong>Step through them.</strong> Use the <strong>Play action</strong> buttons in the panel to watch each one.</li>
+</ul>
+<h2 id="checking-and-exporting">Checking and exporting</h2>
+<p><strong>Check</strong> reports anything the game wouldn't read:</p>
+<ul>
+<li>no armature, or more than one;</li>
+<li>a mesh with no Armature modifier;</li>
+<li>unweighted vertices, or ones with more than four bones;</li>
+<li>a missing action;</li>
+<li>a scene not at 30 fps;</li>
+<li>an action starting or ending between frames.</li>
+</ul>
+<p><strong>Export</strong> runs the check first, then writes one <code>.gltf</code> with the buffers inside it (no <code>.bin</code>) and every action
+included. Commit that file. The game bakes it when the first level loads and keeps it, so restart the game to see your
+change.</p>
+<p>To see it in the game, run <code>LastFleet --horde 30</code> (or use F3 &gt; AI &gt; Horde of 30) and let them come to you... they will.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

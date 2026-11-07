@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.Simulation.Effects | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.Simulation.Effects | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Effects">
+
+  <h1 id="LastFleet_Simulation_Effects" data-uid="LastFleet.Simulation.Effects" class="text-break">Namespace LastFleet.Simulation.Effects</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.CallPodAction.html">CallPodAction</a></dt>
+      <dd><p>Drops a cargo pod (<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>) in front of the player, but only while a mission is
+still going (<code>&quot;do&quot;: &quot;callPod&quot;</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.ChangeStatAction.html">ChangeStatAction</a></dt>
+      <dd><p>Changes <code class="paramref">Stat</code> by <code class="paramref">By</code>, as a fraction of the stat (0.25 is a quarter more).
+When used, it lasts <code class="paramref">Seconds</code>. As a passive, it lasts while its item is held and
+<code class="paramref">Seconds</code> is 0.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectAction.html">EffectAction</a></dt>
+      <dd><p>One thing an effect does (one entry in its &quot;actions&quot; list in effects.json, picked by its &quot;do&quot;). Each kind is its
+own record holding the values it needs, and <a class="xref" href="LastFleet.Simulation.Effects.EffectRunner.html">EffectRunner</a> carries them out.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectCueLog.html">EffectCueLog</a></dt>
+      <dd><p>The effect cues raised this tick (<a class="xref" href="LastFleet.Simulation.Effects.EffectCueRecord.html">EffectCueRecord</a>). It's cleared every tick, like the explosions,
+and the client plays them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html">EffectDefinition</a></dt>
+      <dd><p>What an item does (content/defs/loot/effects.json): when it happens (<a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html#LastFleet_Simulation_Effects_EffectDefinition_Trigger">Trigger</a>) and what it does
+(<a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html#LastFleet_Simulation_Effects_EffectDefinition_Actions">Actions</a>, in order). A consumable item names one of these.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectRegistry.html">EffectRegistry</a></dt>
+      <dd><p>The effects currently in play (<a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html">EffectDefinition</a>). Once the loot data's effects.json is put in play
+with <a class="xref" href="LastFleet.Simulation.Effects.EffectRegistry.html#LastFleet_Simulation_Effects_EffectRegistry_Use_System_Collections_Generic_IReadOnlyList_LastFleet_Simulation_Effects_EffectDefinition__">Use(IReadOnlyList&lt;EffectDefinition&gt;?)</a>, those are used. Otherwise it's the shipped ones (<a class="xref" href="LastFleet.Simulation.Effects.EffectRegistry.html#LastFleet_Simulation_Effects_EffectRegistry_Shipped">Shipped</a>), which match the
+repository's data. Items refer to effects by id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectRunner.html">EffectRunner</a></dt>
+      <dd><p>Runs an effect (<a class="xref" href="LastFleet.Simulation.Effects.EffectDefinition.html">EffectDefinition</a>) on a player. It can check whether using the effect now would do
+anything, and it applies the effect's actions in order. Anything that needs the world (like dropping a pod) is
+handed back for the caller to do.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.FlashAction.html">FlashAction</a></dt>
+      <dd><p>A burst of light at the player's position. Its color is <code class="paramref">Color</code> (each channel 0 to 1) times
+<code class="paramref">Brightness</code>, it reaches <code class="paramref">Radius</code> meters, and it fades over
+<code class="paramref">Seconds</code>. It's purely visual.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.GiveArmorAction.html">GiveArmorAction</a></dt>
+      <dd><p>Gives <code class="paramref">Amount</code> armor, up to <code class="paramref">Max</code>. If the player already has more than
+<code class="paramref">Max</code>, nothing is taken away. Armor absorbs damage after the shield and before health, and it
+doesn't regenerate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.HealAction.html">HealAction</a></dt>
+      <dd><p>Heals <code class="paramref">Amount</code> health, up to max health (<code>&quot;do&quot;: &quot;heal&quot;</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.PlaceDeviceAction.html">PlaceDeviceAction</a></dt>
+      <dd><p>Places a device in front of the player, on the wall ahead or on the floor. This is the breaching charge.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.RefillAmmoAction.html">RefillAmmoAction</a></dt>
+      <dd><p>Adds <code class="paramref">Magazines</code> magazines' worth of ammo to every weapon's reserve (<code>&quot;do&quot;: &quot;refillAmmo&quot;</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.ShieldAction.html">ShieldAction</a></dt>
+      <dd><p>A shield of <code class="paramref">Amount</code> that absorbs damage first. It regenerates at <code class="paramref">PerSecond</code>
+after <code class="paramref">DelaySeconds</code> without taking damage.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.SoundAction.html">SoundAction</a></dt>
+      <dd><p>Plays the sound <code class="paramref">Cue</code> (a cue in content/defs/sounds.json) at the player's position, for everyone
+nearby.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectCueRecord.html">EffectCueRecord</a></dt>
+      <dd><p>A sound or flash an effect made (<a class="xref" href="LastFleet.Simulation.Effects.SoundAction.html">SoundAction</a>, <a class="xref" href="LastFleet.Simulation.Effects.FlashAction.html">FlashAction</a>), for the presentation to
+play. It records when and where, and which action of which effect. The effect is its index in
+<a class="xref" href="LastFleet.Simulation.Effects.EffectRegistry.html">EffectRegistry</a>, which is the same on host and clients.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectRequest.html">EffectRequest</a></dt>
+      <dd><p>Something an effect needs done in the world, which the caller of <a class="xref" href="LastFleet.Simulation.Effects.EffectRunner.html#LastFleet_Simulation_Effects_EffectRunner_Apply_LastFleet_Simulation_Effects_EffectDefinition_Friflo_Engine_ECS_Entity_LastFleet_Simulation_Components_Arms_Loadout__LastFleet_Simulation_Components_Arms_WeaponStats__LastFleet_Simulation_Components_Arms_WeaponState__System_Collections_Generic_ICollection_LastFleet_Simulation_Effects_EffectRequest__">Apply(EffectDefinition, Entity, ref Loadout, in WeaponStats, ref WeaponState, ICollection&lt;EffectRequest&gt;)</a> handles:
+dropping a pod or a device, or playing a sound or a flash. <code class="paramref">Index</code> is the action's index in the
+effect's action list.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.EffectTrigger.html">EffectTrigger</a></dt>
+      <dd><p>When an effect happens (the &quot;trigger&quot; field in effects.json).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.Simulation.Effects.PlayerStat.html">PlayerStat</a></dt>
+      <dd><p>The stats a stat change (<a class="xref" href="LastFleet.Simulation.Effects.ChangeStatAction.html">ChangeStatAction</a>) can modify. Each is changed by a fraction of its value.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

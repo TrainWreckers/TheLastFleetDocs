@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Loot | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Loot | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-loot">Studio: Loot</h1>
+
+<p>Every gun in The Last Fleet is rolled. When a soldier drops its rifle or you crack open a cache, the game picks a frame,
+a maker and a <em>rarity</em> from a <em>loot table</em>, then builds the gun from parts. Loot mode is where we tune those odds: how
+rare each tier is, what each source drops, which makers it favors, and where the hand-made <em>relics</em> come from.</p>
+<p>Why does this need a tool? Because odds are hard to feel from a JSON file! Is a weight of 26 a lot? What does a
+<code>perLevel</code> of 0.04 do ten decks down? The <em>Loot Lab</em> answers that by rolling thousands of drops with the game's own
+code, and rolling them again every time you change something.</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Loot is the first mode tab along the top, and it's where Studio opens by default. From the command line:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode loot --select loot.station.soldier
+</code></pre>
+<p>Here's the mode with the station soldier's table picked and the Lab rolled:</p>
+<p><img src="images/loot/01-loot-mode.png" alt="Loot mode with the loot.station.soldier table in the editor and the Loot Lab showing 10,000 rolls"></p>
+<ul>
+<li><strong>On the left</strong> are the three lists Loot mode edits: <strong>Rarities</strong> (<code>rarities.json</code>), <strong>Loot tables</strong>
+(<code>tables.json</code>) and <strong>Relics</strong> (<code>relics.json</code>), each with its own <strong>+ New</strong> button.</li>
+<li><strong>In the middle</strong> is the editor for whatever you've picked.</li>
+<li><strong>On the right</strong> is the <strong>Loot Lab</strong>. Pick a table, an <strong>Item level</strong>, and roll 1,000 or 10,000 drops. It shows the
+rarity shares, <strong>Makers and frames</strong>, every stat's spread and the power curve. <strong>Roll one</strong> shows a single gun in
+full.</li>
+</ul>
+<p>New to Studio? Start with <a href="getting-started.html">getting-started.md</a> for the basics of editing, saving and
+undoing.</p>
+<h2 id="make-a-table-favor-a-maker">Make a table favor a maker</h2>
+<p>So you want station soldiers to drop more Vashti Labs guns? A loot table can bias the makers it rolls, without touching
+the makers themselves. Here's the flow:</p>
+<ol>
+<li><p>Pick <code>loot.station.soldier</code> under <strong>Loot tables</strong>. Its <code>manufacturers</code> map is at the top: <code>kessler</code> at 2 (twice as
+likely) and <code>rustline</code> at 0.5 (half as likely). Under that, its <code>entries</code> are the frames it drops, each with a
+<code>weight</code>.</p>
+</li>
+<li><p>In the Lab, pick <code>loot.station.soldier</code>, click <strong>Roll 10,000</strong>, then open <strong>Makers and frames</strong>. Kessler Armory is
+63% of the drops, and Vashti Labs just 4.3%.</p>
+<p><img src="images/loot/02-makers-and-frames.png" alt="The Loot Lab's Makers and frames for the soldier table, with Kessler Armory at 63 percent"></p>
+</li>
+<li><p>Open <strong>+ add maker...</strong> under the map. It only offers the makers the table doesn't have yet. Pick <code>vashti</code>.</p>
+<p><img src="images/loot/03-add-maker.png" alt="The add maker list open, offering choir, halcyon and vashti"></p>
+</li>
+<li><p><code>vashti</code> shows up in the map. Drag its number up. At about 1.4, the Lab (which re-rolled on its own) has Vashti
+Labs at 5.8%, with everyone else giving up a little.</p>
+<p><img src="images/loot/04-maker-favored.png" alt="vashti at 1.395 in the manufacturers map, and Vashti Labs at 5.8 percent in the Lab"></p>
+</li>
+</ol>
+<p>The table's <code>entries</code> work the same way, just for frames. Expand one and its <code>archetype</code> is picked from a list of every
+frame. Swap the first entry from <code>pulse_rifle</code> to <code>machine_gun</code> and the Lab's frame shares follow right away:</p>
+<p><img src="images/loot/05-entry-swapped.png" alt="The first entry switched to machine_gun, and Machine Gun at 45.9 percent in the Lab"></p>
+<p>Heads up! A gun is rebuilt from its seed, its table and its item level, so changing a table that's already shipped
+changes guns players are carrying. Happy with it? <strong>Ctrl+S</strong>. Just experimenting? <strong>Ctrl+Z</strong> until the status bar
+says <strong>Saved.</strong> again.</p>
+<h2 id="make-a-new-rarity">Make a new rarity</h2>
+<p>Want a tier rarer than Prototype? Rarities live in <code>rarities.json</code>, lowest first, and the order in the file is the
+order of the tiers.</p>
+<ol>
+<li><p>Pick the tier you want to copy (we'll use <strong>prototype</strong>), then click <strong>+ New rarity</strong>. A copy called <code>new</code> shows up
+at the end of the list, and it's already in the Lab: <strong>New</strong>, at 2.6% of the soldier table's drops.</p>
+<p><img src="images/loot/06-new-rarity.png" alt="A new rarity copied from prototype, already showing in the Loot Lab as New"></p>
+</li>
+<li><p>Click the <code>id</code> field, select it all and type <code>elite</code>. Do the same with <code>name</code>: <code>Elite</code>. The name is what players
+see.</p>
+</li>
+<li><p>Click the color swatch next to <code>color</code>. The color picker opens, and you can drag around in it or type a hex code
+into the field at the bottom (we used <code>#FF4F7A</code>). Click anywhere else to close it.</p>
+<p><img src="images/loot/07-color-picker.png" alt="The color picker open on the elite rarity's color, set to FF4F7A"></p>
+</li>
+<li><p>Now tune it. Each field has a tooltip, but here's the gist:</p>
+<ul>
+<li><code>weight</code> is how often it comes up against the other tiers. We dragged it down to about 1.1.</li>
+<li><code>perLevel</code> is how its chance changes with item level. Above 0 it gets likelier deeper in.</li>
+<li><code>affixes</code> is how many affixes roll on it, as [fewest, most].</li>
+<li><code>statBonus</code> is added to all five 0 to 100 stats.</li>
+<li><code>mods</code> roll onto every gun of the tier. Expand <strong>mods</strong> and its <code>damage</code> mod: <code>mul</code> is the damage band,
+[lowest, highest]. Each tier's band should sit above the last one, so a rarer gun hits harder.</li>
+</ul>
+<p>The Lab has Elite at 1.3% now, in its own color:</p>
+<p><img src="images/loot/08-elite-tuned.png" alt="The elite rarity tuned, with its damage mod opened and Elite at 1.3 percent in the Lab"></p>
+</li>
+<li><p><strong>Ctrl+S</strong> to keep it.</p>
+</li>
+</ol>
+<p>A rarity that's never picked isn't much use, so check the tables too. A table's <code>rarity</code> map can favor (or snub) your
+new tier, just like the <code>manufacturers</code> map above.</p>
+<h2 id="check-the-odds-deeper-in">Check the odds deeper in</h2>
+<p>Does Elite stay rare all game, or does it take over later on? That's what <strong>Item level</strong> in the Lab is for. Deeper
+decks drop higher item levels, and every tier's <code>perLevel</code> moves its odds as the level goes up.</p>
+<ol>
+<li><p>With <code>loot.station.soldier</code> picked in the Lab, drag <strong>Item level</strong> to 17.</p>
+</li>
+<li><p>Click <strong>Roll 10,000</strong> (moving the slider doesn't re-roll on its own).</p>
+<p>Standard has dropped from 62% to 31%, Refined is now the most common, and Elite (with its <code>perLevel</code> of 0.12) has
+gone from 1.3% to 3.2%.</p>
+<p><img src="images/loot/09-item-level.png" alt="The Lab at item level 17, with Standard at 30.8 percent and Elite at 3.2 percent"></p>
+</li>
+<li><p>Scroll down the Lab. Under the stats table is the <strong>Power</strong> curve: how the guns' power spreads across the batch.
+Under that, set a <strong>Seed</strong> and click <strong>Roll one</strong> to see a single gun in full: its name, rarity, frame and maker,
+its stats, its traits, what its rarity and maker added, and every part with what it changes. <strong>Next seed</strong> rolls
+another.</p>
+<p><img src="images/loot/10-roll-one.png" alt="Roll one showing a Standard Pulse Rifle from Kessler Armory, with its stats, trait and parts"></p>
+</li>
+</ol>
+<p>Nothing here changes the data, so there's nothing to save. It's just a better look at what you've got!</p>
+<h2 id="make-a-relic-drop-more-often">Make a relic drop more often</h2>
+<p><em>Relics</em> are the hand-made uniques. They have fixed parts, roll at their best, and carry traits of their own on top of
+their maker's signature. They never drop by chance: only a loot table entry that names them can drop one.</p>
+<ol>
+<li><p>Pick <strong>relic.sixth_bell</strong> under <strong>Relics</strong>. It has a <code>name</code>, its frame (<code>archetype</code>) and <code>manufacturer</code>, a line of
+<code>flavor</code> text, its <code>traits</code>, its eight <code>parts</code> (one per slot) and its <code>affixes</code>. Each of those is picked from a list
+of what exists, with <strong>x</strong> to remove one and <strong>+ add...</strong> for another.</p>
+<p><img src="images/loot/11-relic.png" alt="The Sixth Bell relic in the editor, with its traits, parts and affixes"></p>
+</li>
+<li><p>Now where does it drop from? Pick <code>loot.relics</code> under <strong>Loot tables</strong>. Its entries name a <code>relic</code> instead of a frame:
+the Sixth Bell and Lanternfall, one each.</p>
+<p><img src="images/loot/12-relics-table.png" alt="The loot.relics table, with an entry naming relic.sixth_bell"></p>
+</li>
+<li><p>And who rolls <code>loot.relics</code>? Pick <code>loot.station.cache</code>. Its last entry names a whole <code>table</code> (<code>loot.relics</code>), at a
+<code>weight</code> of 0.15, and only from item level 2 up (<code>minLevel</code>). In the Lab, pick <code>loot.station.cache</code> and
+<strong>Roll 10,000</strong>: relics are 0.9% of a cache's drops.</p>
+<p><img src="images/loot/13-cache-relic-entry.png" alt="The cache table's loot.relics entry opened, with Relic at 0.9 percent in the Lab"></p>
+</li>
+<li><p>Drag that entry's <code>weight</code> up to about 1.1. Relics jump to 5.7%, and the status bar lists both files you've changed
+so far.</p>
+<p><img src="images/loot/14-relics-more-often.png" alt="The loot.relics entry at weight 1.14, with Relic at 5.7 percent in the Lab"></p>
+</li>
+</ol>
+<p>Making a brand new relic is the same flow as a rarity: <strong>+ New relic</strong>, give it an id and a name, set its frame, maker,
+parts and traits, then add an entry naming it to <code>loot.relics</code> (or any table you like).</p>
+<h2 id="when-the-data-doesnt-build">When the data doesn't build</h2>
+<p>What happens if you rename something another file points at? Let's find out. Pick <strong>relic.sixth_bell</strong> and take the
+last letter off its <code>id</code>.</p>
+<p>Studio rebuilds the loot data after every change, and this time it can't. The bottom of the window says so in red, with
+the game's own error message: <code>loot.relics</code> names a relic that doesn't exist anymore. The previews keep showing the
+last version that built.</p>
+<p><img src="images/loot/15-broken-data.png" alt="The status bar showing the data does not build, because loot.relics names an unknown relic"></p>
+<p>The game would refuse the data like this, so fix it before you save. Here that's just <strong>Ctrl+Z</strong>, and the message goes
+away. Too easy!</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li><a href="reference.html">The reference</a> covers every field. Loot mode is described at the top, and the Loot Lab under
+<a href="reference.html#seeing-a-change">seeing a change</a>.</li>
+<li><a href="armory.html">armory.md</a>: the frames, makers and parts the tables roll from.</li>
+<li><a href="items.html">items.md</a>: crafting, where the armory fabricates guns from these same loot tables.</li>
+<li><a href="../adding-content.html#guns-and-loot-contentdefsloot">adding-content.md</a>: what to set when you add a rarity, table or
+relic.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

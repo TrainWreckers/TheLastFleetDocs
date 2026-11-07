@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WeaponPart | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WeaponPart | The Last Fleet ">
+      
+      <meta name="description" content="A weapon part in a slot&#39;s pool.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Loot_Definitions_WeaponPart.md&amp;value=---%0Auid%3A%20LastFleet.Loot.Definitions.WeaponPart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Loot.Definitions.WeaponPart">
+
+
+
+  <h1 id="LastFleet_Loot_Definitions_WeaponPart" data-uid="LastFleet.Loot.Definitions.WeaponPart" class="text-break">
+Class WeaponPart  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Loot.html">Loot</a>.<a class="xref" href="LastFleet.Loot.Definitions.html">Definitions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Loot.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A weapon part in a slot's pool.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record WeaponPart : IEquatable&lt;WeaponPart&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WeaponPart</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html">WeaponPart</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart__ctor_" data-uid="LastFleet.Loot.Definitions.WeaponPart.#ctor*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart__ctor_System_String_System_String_LastFleet_Loot_Definitions_WeaponPartSlot_System_String_System_Int32_System_Double_System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_LastFleet_Loot_Definitions_StatRange__System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Numerics_Vector3__System_String_LastFleet_Simulation_Components_Arms_WeaponTraits_System_Int32_System_Single_System_Nullable_LastFleet_Simulation_Weapons_TriggerGroup__System_Single_" data-uid="LastFleet.Loot.Definitions.WeaponPart.#ctor(System.String,System.String,LastFleet.Loot.Definitions.WeaponPartSlot,System.String,System.Int32,System.Double,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{LastFleet.Loot.Definitions.StatRange},System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Numerics.Vector3},System.String,LastFleet.Simulation.Components.Arms.WeaponTraits,System.Int32,System.Single,System.Nullable{LastFleet.Simulation.Weapons.TriggerGroup},System.Single)">
+  WeaponPart(string, string, WeaponPartSlot, string?, int, double, IReadOnlyList&lt;string&gt;, IReadOnlyList&lt;StatRange&gt;, string?, IReadOnlyDictionary&lt;string, Vector3&gt;?, string?, WeaponTraits, int, float, TriggerGroup?, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A weapon part in a slot's pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponPart(string Id, string Name, WeaponPartSlot Slot, string? Manufacturer, int Rarity, double Weight, IReadOnlyList&lt;string&gt; Archetypes, IReadOnlyList&lt;StatRange&gt; Mods, string? Model = null, IReadOnlyDictionary&lt;string, Vector3&gt;? Paint = null, string? Reticle = null, WeaponTraits Traits = WeaponTraits.None, int Since = 0, float SecondZoom = 1, TriggerGroup? Trigger = null, float EyeRelief = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Data id, such as <code>part.barrel.kessler.long_01</code>.</p>
+</dd>
+    <dt><code>Name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name shown to the player.</p>
+</dd>
+    <dt><code>Slot</code> <a class="xref" href="LastFleet.Loot.Definitions.WeaponPartSlot.html">WeaponPartSlot</a></dt>
+    <dd><p>The slot it fills.</p>
+</dd>
+    <dt><code>Manufacturer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The manufacturer whose guns it can go on, or null for any.</p>
+</dd>
+    <dt><code>Rarity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lowest rarity rank it can appear at.</p>
+</dd>
+    <dt><code>Weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Pick weight.</p>
+</dd>
+    <dt><code>Archetypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The archetype ids it fits. Empty means all.</p>
+</dd>
+    <dt><code>Mods</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.StatRange.html">StatRange</a>&gt;</dt>
+    <dd><p>The stat changes it applies.</p>
+</dd>
+    <dt><code>Model</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The model it uses. Either a name in the frame's part file (<code>Barrel_2_Heavy</code>), or just the shape those names end
+with (<code>Heavy</code>) so one part picks its look on every frame. <code>None</code> means nothing is shown in the slot. For an
+optic it's the sight type (<code>Iron</code>, <code>RedDot</code>, <code>Holographic</code>, <code>Scope</code>). Null picks one based on
+the id.</p>
+</dd>
+    <dt><code>Paint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd><p>Colors for the model's paint slots (materials named <code>Paint_&lt;Slot&gt;</code>), keyed by slot. Slots not listed
+keep the model's own color. Null for none.</p>
+</dd>
+    <dt><code>Reticle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An optic's reticle (<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_Reticles">Reticles</a>). Red dot and holographic sights use <code>dot</code>, <code>ring</code> or
+<code>chevron</code>; scopes use <code>duplex</code>, <code>mildot</code> or <code>chevron</code>. Null uses the sight's default.</p>
+</dd>
+    <dt><code>Traits</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html">WeaponTraits</a></dt>
+    <dd><p>Extra effects beyond its stat changes, for example a suppressor's <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html#LastFleet_Simulation_Components_Arms_WeaponTraits_Suppressed">Suppressed</a>.</p>
+</dd>
+    <dt><code>Since</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The loot data generation the part was added in (0 for parts that existed before generations). A weapon only rolls
+from parts of its own generation or earlier (<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html#LastFleet_Simulation_Components_Arms_WeaponIdentity_Generation">Generation</a>),
+so adding a part to a pool doesn't change any weapon a player already has.</p>
+</dd>
+    <dt><code>SecondZoom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>An optic's second zoom level, toggled with a key. It's the multiplier on the gun's zoom (2 for a variable scope, 3
+for a magnifier behind a red dot). 1 means there's only one zoom.</p>
+</dd>
+    <dt><code>Trigger</code> <a class="xref" href="LastFleet.Simulation.Weapons.TriggerGroup.html">TriggerGroup</a>?</dt>
+    <dd><p>A trigger part's fire modes (the first is the one a gun starts in), rate and burst. Null for every other slot.</p>
+</dd>
+    <dt><code>EyeRelief</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>A scope's: how far its eyepiece sits from the eye when aimed, in meters; nearer, its window fills more of the view.
+0 for the default (<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_DefaultEyeRelief">DefaultEyeRelief</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_DefaultEyeRelief" data-uid="LastFleet.Loot.Definitions.WeaponPart.DefaultEyeRelief">
+  DefaultEyeRelief
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far a scope's eyepiece sits from the eye when aimed, in meters, unless its part says.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float DefaultEyeRelief = 0.065</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Archetypes_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Archetypes*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Archetypes" data-uid="LastFleet.Loot.Definitions.WeaponPart.Archetypes">
+  Archetypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The archetype ids it fits. Empty means all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Archetypes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_EyeRelief_" data-uid="LastFleet.Loot.Definitions.WeaponPart.EyeRelief*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_EyeRelief" data-uid="LastFleet.Loot.Definitions.WeaponPart.EyeRelief">
+  EyeRelief
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A scope's: how far its eyepiece sits from the eye when aimed, in meters; nearer, its window fills more of the view.
+0 for the default (<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_DefaultEyeRelief">DefaultEyeRelief</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EyeRelief { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_EyeReliefRange_" data-uid="LastFleet.Loot.Definitions.WeaponPart.EyeReliefRange*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_EyeReliefRange" data-uid="LastFleet.Loot.Definitions.WeaponPart.EyeReliefRange">
+  EyeReliefRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The nearest and farthest a part may set its eyepiece (<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_EyeRelief">EyeRelief</a>), in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (float Min, float Max) EyeReliefRange { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Id_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Id*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Id" data-uid="LastFleet.Loot.Definitions.WeaponPart.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Data id, such as <code>part.barrel.kessler.long_01</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Manufacturer_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Manufacturer*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Manufacturer" data-uid="LastFleet.Loot.Definitions.WeaponPart.Manufacturer">
+  Manufacturer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The manufacturer whose guns it can go on, or null for any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Manufacturer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Model_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Model*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Model" data-uid="LastFleet.Loot.Definitions.WeaponPart.Model">
+  Model
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model it uses. Either a name in the frame's part file (<code>Barrel_2_Heavy</code>), or just the shape those names end
+with (<code>Heavy</code>) so one part picks its look on every frame. <code>None</code> means nothing is shown in the slot. For an
+optic it's the sight type (<code>Iron</code>, <code>RedDot</code>, <code>Holographic</code>, <code>Scope</code>). Null picks one based on
+the id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Model { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Mods_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Mods*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Mods" data-uid="LastFleet.Loot.Definitions.WeaponPart.Mods">
+  Mods
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stat changes it applies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;StatRange&gt; Mods { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Loot.Definitions.StatRange.html">StatRange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Name_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Name*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Name" data-uid="LastFleet.Loot.Definitions.WeaponPart.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name shown to the player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Paint_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Paint*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Paint" data-uid="LastFleet.Loot.Definitions.WeaponPart.Paint">
+  Paint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Colors for the model's paint slots (materials named <code>Paint_&lt;Slot&gt;</code>), keyed by slot. Slots not listed
+keep the model's own color. Null for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;string, Vector3&gt;? Paint { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Rarity_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Rarity*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Rarity" data-uid="LastFleet.Loot.Definitions.WeaponPart.Rarity">
+  Rarity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lowest rarity rank it can appear at.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Rarity { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Reticle_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Reticle*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Reticle" data-uid="LastFleet.Loot.Definitions.WeaponPart.Reticle">
+  Reticle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optic's reticle (<a class="xref" href="LastFleet.Loot.Definitions.WeaponPart.html#LastFleet_Loot_Definitions_WeaponPart_Reticles">Reticles</a>). Red dot and holographic sights use <code>dot</code>, <code>ring</code> or
+<code>chevron</code>; scopes use <code>duplex</code>, <code>mildot</code> or <code>chevron</code>. Null uses the sight's default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Reticle { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Reticles_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Reticles*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Reticles" data-uid="LastFleet.Loot.Definitions.WeaponPart.Reticles">
+  Reticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reticle names an optic can use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;string&gt; Reticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_SecondZoom_" data-uid="LastFleet.Loot.Definitions.WeaponPart.SecondZoom*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_SecondZoom" data-uid="LastFleet.Loot.Definitions.WeaponPart.SecondZoom">
+  SecondZoom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optic's second zoom level, toggled with a key. It's the multiplier on the gun's zoom (2 for a variable scope, 3
+for a magnifier behind a red dot). 1 means there's only one zoom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SecondZoom { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Since_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Since*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Since" data-uid="LastFleet.Loot.Definitions.WeaponPart.Since">
+  Since
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The loot data generation the part was added in (0 for parts that existed before generations). A weapon only rolls
+from parts of its own generation or earlier (<a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponIdentity.html#LastFleet_Simulation_Components_Arms_WeaponIdentity_Generation">Generation</a>),
+so adding a part to a pool doesn't change any weapon a player already has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Since { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Slot_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Slot*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Slot" data-uid="LastFleet.Loot.Definitions.WeaponPart.Slot">
+  Slot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The slot it fills.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponPartSlot Slot { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.WeaponPartSlot.html">WeaponPartSlot</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Traits_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Traits*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Traits" data-uid="LastFleet.Loot.Definitions.WeaponPart.Traits">
+  Traits
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extra effects beyond its stat changes, for example a suppressor's <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html#LastFleet_Simulation_Components_Arms_WeaponTraits_Suppressed">Suppressed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponTraits Traits { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html">WeaponTraits</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Trigger_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Trigger*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Trigger" data-uid="LastFleet.Loot.Definitions.WeaponPart.Trigger">
+  Trigger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A trigger part's fire modes (the first is the one a gun starts in), rate and burst. Null for every other slot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TriggerGroup? Trigger { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.TriggerGroup.html">TriggerGroup</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Weight_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Weight*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Weight" data-uid="LastFleet.Loot.Definitions.WeaponPart.Weight">
+  Weight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pick weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Weight { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Fits_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Fits*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Fits_LastFleet_Loot_Definitions_LootArchetype_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Fits(LastFleet.Loot.Definitions.LootArchetype)">
+  Fits(LootArchetype)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True if it fits <code class="paramref">archetype</code>: listed for it (or for every frame), and, a trigger, with only modes
+the frame allows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Fits(LootArchetype archetype)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>archetype</code> <a class="xref" href="LastFleet.Loot.Definitions.LootArchetype.html">LootArchetype</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Loot_Definitions_WeaponPart_Fits_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Fits*"></a>
+
+  <h3 id="LastFleet_Loot_Definitions_WeaponPart_Fits_System_String_" data-uid="LastFleet.Loot.Definitions.WeaponPart.Fits(System.String)">
+  Fits(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Loot/Definitions/WeaponPart.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the part fits <code class="paramref">archetype</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Fits(string archetype)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>archetype</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

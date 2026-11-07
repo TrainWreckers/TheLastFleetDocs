@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Animation graphs | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Animation graphs | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="animation-graphs">Animation graphs</h1>
+
+<p>A soldier is running, crouching, leaning out of cover and reloading, sometimes all at once. Which clip plays? That's
+the job of a body type's <strong>animation graph</strong>: it decides how its rig's clips get blended into a pose, based on what the
+body is doing. If you've used Unreal's anim graphs, this'll feel familiar.</p>
+<p>The graph is a file, <code>content/anim/&lt;id&gt;.json</code> (the humanoid's is <code>humanoid.json</code>), shared by every model on the rig. It
+sits next to the clips it plays (<code>content/anim/&lt;rig&gt;.gltf</code>; see <a href="blender/rigs.html">rigs.md</a>), and it's part of
+the plan in plans/animation.md. Soldiers and the Choir's lancers use it: each enemy variant names
+its <code>body</code> (the graph) and its <code>model</code> in <code>content/defs/ai/enemies.json</code>.</p>
+<p>The game and the graph only talk through two things:</p>
+<ul>
+<li><strong>Parameters</strong>: numbers the game sets for each body every frame from its state (how fast it's moving and which way,
+crouched, leaning, dead).</li>
+<li><strong>Actions</strong>: what the graph plays when the game says the body does something (a reload, a throw).</li>
+</ul>
+<p>That's it! The behavior that decided to crouch never names an animation, and the graph never knows why the body
+crouched. The code that sets the parameters is the body type's <strong>bridge</strong> (the humanoid's is <code>HumanoidBridge</code>). If the
+graph doesn't declare a parameter, it just doesn't get set.</p>
+<h2 id="the-file">The file</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code>, <code>name</code></td>
+<td>The graph's id (the file name) and its display name.</td>
+</tr>
+<tr>
+<td><code>rig</code></td>
+<td>The rig it poses. Its clips and masks have to belong to that rig.</td>
+</tr>
+<tr>
+<td><code>clips</code></td>
+<td>The file with the rig's clips, in <code>content/anim</code> (<code>humanoid.gltf</code>).</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td>Each one has a <code>name</code>, a <code>default</code> (0 if not given) and a description (<code>about</code>). Flags are numbers: 1 is on, 0 is off. <code>min</code> and <code>max</code> (default 0 and 1) and <code>flag</code> are only for Studio's sliders and checkboxes; the graph accepts any number.</td>
+</tr>
+<tr>
+<td><code>targets</code></td>
+<td>The points its IK reaches for, each with a <code>name</code> and <code>about</code>. The game supplies them while the graph plays (for example, the humanoid's <code>leftGrip</code> is where the gun's fore grip is).</td>
+</tr>
+<tr>
+<td><code>capabilities</code></td>
+<td>What a body of this type can visibly do: <code>fire</code>, <code>reload</code>, <code>throw</code>, <code>crouch</code>, <code>lean</code>, <code>blindFire</code> (the humanoid has all of them). An enemy variant's behavior can only need these. A behavior's needs come from its tree (Hold cover needs crouch, lean and blind fire; Throw grenade needs throw). If a variant's behavior needs more than its body can do, it gets flagged (in Studio's Enemies tab and in the game's log). <code>fire</code>, <code>reload</code> and <code>throw</code> also need a graph action with the same name.</td>
+</tr>
+<tr>
+<td><code>actions</code></td>
+<td>One-off things the body does on top of everything else, played into the graph's <code>slot</code> node (below). Each has a <code>name</code> (the game's name: <code>reload</code>, <code>throw</code>, <code>fire</code>, <code>use</code>), the rig <code>clip</code> it plays, the <code>mask</code> it covers (the whole body if not given), <code>fadeIn</code> and <code>fadeOut</code> (seconds, default 0.1), <code>about</code>, and <code>events</code>. Events are moments in the action, each with a <code>name</code> and an <code>at</code> value from 0 to 1 giving how far through the action it happens. For example, the humanoid's throw has <code>release</code> at 0.55, when the grenade leaves the hand. Because it's a fraction, the event stays in the right place however long the action lasts and whichever clip a grip plays for it.</td>
+</tr>
+<tr>
+<td><code>groundSpeed</code></td>
+<td>The parameter that holds the body's speed over the ground, in meters per second. Clips played by stride use it.</td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td>The node at the top of the tree. Its output is the pose the body is drawn in.</td>
+</tr>
+<tr>
+<td><code>pos</code>, <code>loose</code></td>
+<td>Only Studio uses these; the game ignores them. <code>pos</code> (on the graph or any node) is where the node sits on the graph editor's canvas. <code>loose</code> holds nodes that aren't plugged into anything, each as <code>{ &quot;node&quot;: ... }</code>, until you plug them in or delete them.</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>value</strong> in a node is either a number (<code>0.5</code>) or the name of a parameter (<code>&quot;leanLeft&quot;</code>).</p>
+<h2 id="nodes">Nodes</h2>
+<p>A graph is a tree of nodes, with poses flowing up from the leaves to the <code>root</code>. Each node is an object with exactly
+one of these keys.</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Keys</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clip</code></td>
+<td><code>clip</code> (its name), <code>loop</code> (uses the rig's setting if not given), <code>time</code>, <code>stride</code>, <code>rate</code>, <code>normalized</code>, <code>events</code></td>
+<td>Plays a clip. <code>time</code> says where the clip's time comes from. <code>&quot;clock&quot;</code> is the default: it starts from the beginning each time the clip starts playing, then runs with real time, multiplied by <code>rate</code>. <code>&quot;stride&quot;</code> uses the ground covered: one loop every <code>stride</code> meters, so the feet keep pace. <code>&quot;end&quot;</code> holds the last frame. A value means seconds into the clip, or with <code>normalized</code>, a fraction from 0 to 1 regardless of its length.</td>
+</tr>
+<tr>
+<td><code>blend1d</code></td>
+<td><code>blend1d</code> (a value: the axis), <code>points</code> (each with an <code>at</code> number and a <code>node</code>, in order along the axis), <code>sync</code></td>
+<td>Blends the two points on either side of the value, weighted by how close it is to each. For example idle at 0, walking at 1.8, running at 4.5, by speed.</td>
+</tr>
+<tr>
+<td><code>blend2d</code></td>
+<td><code>blend2d</code> (two values: across and up), <code>points</code> (each with an <code>at</code> of <code>[across, up]</code> and a <code>node</code>), <code>sync</code></td>
+<td>Blends points on a plane, for example a stride in each direction, by which way the body is moving. Between two neighboring points, only those two count.</td>
+</tr>
+<tr>
+<td><code>select</code></td>
+<td><code>select</code> (its states, each with a <code>node</code> and a <code>when</code>), <code>fade</code> (seconds, default 0.2)</td>
+<td>Plays the first state whose <code>when</code> is true, fading from the previous one when it changes. The last state can leave out <code>when</code>, so it's picked when none of the others are. <code>when</code> can be <code>dead</code> (flag on), <code>!dead</code> (flag off), <code>speed &gt; 2</code> or <code>speed &lt; 2</code>.</td>
+</tr>
+<tr>
+<td><code>layer</code></td>
+<td><code>layer</code> (the node underneath), <code>over</code>, <code>mask</code>, <code>weight</code> (a value, default 1), <code>fade</code></td>
+<td>Plays <code>over</code> on top of the node underneath, only on the rig's <code>mask</code>. For example, a reload from the spine up on top of running legs. The weight eases toward its value over <code>fade</code> seconds. While the weight is 0, the <code>over</code> node isn't played at all (a clip on its clock restarts the next time).</td>
+</tr>
+<tr>
+<td><code>slot</code></td>
+<td><code>slot</code> (the node underneath)</td>
+<td>Where the body's <strong>actions</strong> play, like Unreal's slot node with montages played into it. On top of the node underneath, it plays the clip of the action the body is doing, on the action's mask, from the clip's start to its end as the action goes from 0 to 1. So the clip lasts exactly as long as the action: a reload gets stretched to the gun's reload time. An action fades in when it starts and fades out when it's done. If another action replaces it, the current one fades out first and then the next one fades in. A graph has only one slot.</td>
+</tr>
+<tr>
+<td><code>additive</code></td>
+<td><code>additive</code> (the node underneath), <code>add</code>, <code>reference</code>, <code>weight</code>, <code>mask</code></td>
+<td>Takes the difference between <code>add</code> and <code>reference</code> (for example leaning out, compared to standing) and adds it on top of the node underneath, scaled by <code>weight</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ik-nodes">IK nodes</h3>
+<p>Clips get the pose close, but they don't know the floor is uneven or where your gun's fore grip ended up. That's
+where IK comes in. IK nodes bend the pose underneath them after it's been blended. They use the rig's <strong>chains</strong>
+(<code>content/rigs/&lt;id&gt;.json</code>). A chain is a run of bones from root to tip, plus its <em>pole</em>, which is the direction its
+middle joint bends.</p>
+<p>IK nodes ask the game where things are in the world, so when there's no world (Studio's preview, a test) they do
+nothing.</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Keys</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reach</code></td>
+<td><code>reach</code> (the node underneath), <code>chain</code> (three bones: two plus the tip), <code>target</code>, <code>socket</code>, <code>weight</code>, <code>fade</code>, <code>swing</code></td>
+<td>Bends the chain so its tip, or the rig's <code>socket</code> on it, lands on the <code>target</code>. The middle joint bends the way the clip had it, or toward the chain's pole. The tip keeps its rotation (a hand stays the way it was held). The weight eases over <code>fade</code> seconds. If the target is out of reach, the bone the chain hangs from (a shoulder) turns toward it, up to <code>swing</code> radians (default 0).</td>
+</tr>
+<tr>
+<td><code>look</code></td>
+<td><code>look</code> (the node underneath), <code>chain</code>, <code>pitch</code>, <code>yaw</code>, <code>shares</code>, <code>weight</code></td>
+<td>Turns each bone in the chain up by <code>pitch</code> and left by <code>yaw</code> (in radians), each by its share (<code>shares</code>, root first; split evenly if not given). This is how the spine and head bend toward the aim and carry the arms and gun with them.</td>
+</tr>
+<tr>
+<td><code>ground</code></td>
+<td><code>ground</code> (the node underneath), <code>chains</code> (the legs, three bones each, all hanging from one pelvis), <code>weight</code>, <code>range</code>, <code>ease</code></td>
+<td>Checks how high the ground is under each foot and moves the foot up or down by that much from where the clip had it on flat ground (at most <code>range</code> meters, default 0.4). The pelvis drops by the lowest foot's amount so the legs can reach. Each foot's height follows the ground at one meter every <code>ease</code> seconds (default 0.25). Works with two feet or up to eight.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sync">Sync</h3>
+<p>Ever seen a character's feet shuffle weirdly as it speeds up from a walk to a run? That's two strides out of step. A
+blend with <code>sync</code> keeps the strides under it in step. They share one phase, advanced by the ground covered divided by
+their blended stride, so a walk blending into a run keeps the feet together. A stride clip outside a synced blend keeps
+its own count of the ground.</p>
+<h3 id="events">Events</h3>
+<p><strong>Events</strong> are moments on a clip: <code>&quot;events&quot;: [{ &quot;at&quot;: 0.53, &quot;name&quot;: &quot;footstep&quot; }]</code>, in seconds into the clip. You place
+them in Studio on the clip timeline under the Bodies preview, by dragging them to the right frame. An action's events
+fire the same way when the action passes them (every time it's done), and they're reported with the action's clip.</p>
+<p>An event (on a clip or an action) can also say what it does, like Unreal's notifies. It can have:</p>
+<ul>
+<li><code>sound</code>: a cue in <code>content/defs/sounds.json</code>, played where the event happens;</li>
+<li><code>gain</code>: how loud (default 1);</li>
+<li><code>effect</code>: <code>dust</code> kicked up, <code>sparks</code>;</li>
+<li><code>socket</code>: the rig socket it happens at, like <code>Grip.L</code> (the feet if not given).</li>
+</ul>
+<p>So a footstep looks like <code>{ &quot;at&quot;: 0.333, &quot;name&quot;: &quot;footstep&quot;, &quot;sound&quot;: &quot;step&quot;, &quot;gain&quot;: 1.2, &quot;effect&quot;: &quot;dust&quot; }</code>. The game
+plays and shows these for every body drawn from the model.</p>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>Blended strides don't double up.</strong> When several blended strides pass the same event, it only counts once, and a
+stride weighted at less than a quarter of the pose is left out.</li>
+<li><strong>Events replace distance footsteps.</strong> A body whose events play <code>step</code> makes footstep sounds from those events
+instead of from the distance it walks (<a href="sound.html">sound.md</a>).</li>
+<li><strong>Studio catches typos.</strong> It flags a sound that isn't a cue, or an effect the game doesn't show.</li>
+</ul>
+<p>Each frame, a body reports the events it passed along with how much of its pose that clip made up (so a footstep from a
+walk that's half blended away is half as heavy).</p>
+<h2 id="clips-chosen-by-who-plays-it">Clips chosen by who plays it</h2>
+<p>The graph is one template for every body of its type. But a soldier holding a hand cannon shouldn't hold it like a
+rifle, right? So whoever plays the graph can swap the clips it names, without needing a graph of their own. This works
+like Unreal's per-weapon animation layers (Lyra gives each weapon its own).</p>
+<ul>
+<li><strong>The gun's grip.</strong> Each weapon frame has a <code>grip</code> (<code>content/defs/loot/archetypes.json</code>; in Studio: Armory &gt;
+Frames, the frame's grip). <code>rifle</code> is the default and plays the rig's own clips. <code>pistol</code> (the hand cannon) plays the rig's
+<code>Pistol_</code> clips instead, wherever the rig has one: <code>Pistol_Idle</code> for <code>Idle</code>, <code>Pistol_Reload</code> for <code>Reload</code>,
+<code>Pistol_Fire</code> for <code>Fire</code>, and the rig's normal clips for everything else (the strides). A new grip is just clips, not
+code. Name them <code>&lt;Grip&gt;_&lt;Clip&gt;</code> on the rig (<code>Heavy_Idle</code>) and frames can pick it (Studio offers every grip the rig has
+clips for).</li>
+<li><strong>The enemy variant.</strong> A variant's <code>clips</code> (<code>content/defs/ai/enemies.json</code>; in Studio: Behavior &gt; Enemies) swaps in
+its own clips for the body's: <code>&quot;Idle&quot;: &quot;Lancer_Idle&quot;</code>. The grip is applied first, then the variant. So to change how a
+variant holds a pistol, swap <code>Pistol_Idle</code>, not <code>Idle</code>. A clip name the rig doesn't have is never played (Studio
+warns you).</li>
+</ul>
+<p>The choice is made once per grip and variant and then kept (<code>AnimPlayer.Choose</code>, a <code>ClipChoice</code> set on the body's
+<code>AnimInstance.Clips</code>), so it costs nothing per frame! Studio's Bodies mode plays it the same way the game does: the gun
+picked under <strong>Holding</strong> plays its grip's clips, a <strong>Variant</strong> plays its own, and the parameters panel lists which clips
+are being played in place of the graph's.</p>
+<h2 id="the-humanoids-graph">The humanoid's graph</h2>
+<p>Want to see how it all fits together? Here's the one we ship. At the top, a select picks between dead, downed and
+alive. Alive is built from these pieces:</p>
+<ul>
+<li>The legs' <strong>locomotion</strong>: a select between crouched and standing. Each is a <code>blend1d</code> by speed, from standing still
+to a synced <code>blend2d</code> of the four strides by movement direction.</li>
+<li>The <strong>arms holding the gun</strong> the way <code>Idle</code> holds it, layered on top. So a grip's own <code>Idle</code> (a pistol held out) is
+also how the arms hold the gun while walking and running. The rig's strides already hold a rifle the same way its
+Idle does, so for a rifle this changes nothing.</li>
+<li>Blind fire, <strong>layered</strong> on top from the spine up.</li>
+<li>The <strong>slot</strong> where actions play (a reload, a throw, a shot's kick).</li>
+<li><strong>Leaning</strong>, added on top of all of it.</li>
+</ul>
+<p>Then IK runs: the feet are set on the floor, the spine and head bend toward the aim, and the hands go on the gun (its
+grips are markers on its receiver, see <a href="blender/weapons.html">weapons.md</a>).</p>
+<p>Other players' guns hang from their right hands, pointed along their aim, and the left hand reaches for the fore grip.
+Your own gun, in first person, is wherever the view holds it, and both hands reach for it. If the fore grip is out of
+reach, the left hand slides back along the gun toward the magazine well, and the shoulders swing forward to reach.</p>
+<h2 id="your-own-body">Your own body</h2>
+<p>Look down in first person and you'll see your own body: the player model (<code>content/characters/player.gltf</code>), under
+your eye, playing the same graph as everyone else. The camera is still the simulation's eye; the body is moved to sit
+under it.</p>
+<p>The head (the rig's <code>firstPersonHides</code> mask) isn't drawn, otherwise you'd be staring at the inside of your own face. The
+body and gun are drawn in front of the world, so neither one clips through a wall you're standing against.
+<code>--floating-gun</code> shows just the gun, the old way.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Set from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>speed</code></td>
+<td>The simulation's horizontal speed.</td>
+</tr>
+<tr>
+<td><code>moveForward</code>, <code>moveRight</code></td>
+<td>The direction the body's feet move from frame to frame, in the body's own axes (a unit direction; kept when it stops).</td>
+</tr>
+<tr>
+<td><code>crouched</code></td>
+<td>Crouching or sliding.</td>
+</tr>
+<tr>
+<td><code>leanLeft</code>, <code>leanRight</code></td>
+<td>How far it leans around cover (the simulation's <code>Lean</code>, fully out at 0.45 m).</td>
+</tr>
+<tr>
+<td><code>blindFire</code></td>
+<td>Firing blind over cover.</td>
+</tr>
+<tr>
+<td><code>downed</code></td>
+<td>Down and waiting for a revive.</td>
+</tr>
+<tr>
+<td><code>dead</code>, <code>deadSeconds</code></td>
+<td>Dead, and for how long.</td>
+</tr>
+<tr>
+<td><code>aimPitch</code></td>
+<td>How far up the view is aiming (radians). It's 0 while firing blind, so the head stays down.</td>
+</tr>
+<tr>
+<td><code>leftHandOnGun</code></td>
+<td>1 unless reloading, throwing, using an item or downed. Otherwise the left hand lets go of the fore grip so the clip can move it. A gun whose frame has step-by-step reload (<code>content/defs/reloads.json</code>) keeps it at 1 during the reload, and the hand follows the steps instead of the clip.</td>
+</tr>
+<tr>
+<td><code>rightHandOnGun</code></td>
+<td>1 for your own body in first person: the gun is where the view holds it, on the aim, and the right hand reaches for its grip (<code>rightGrip</code>). Other players' guns hang from their right hands.</td>
+</tr>
+</tbody>
+</table>
+<p>Whatever the hands are doing plays the graph <strong>action</strong> with that name, at how far through it is: <code>reload</code> during the
+reload (stretched to the weapon's reload time), <code>throw</code> during the throw, <code>fire</code> for 0.3 s after each shot (restarting
+with every shot), and <code>use</code> while an item is being used (the humanoid has no <code>use</code> action, so only its left hand lets
+go). The humanoid's actions are <code>reload</code>, <code>throw</code> and <code>fire</code>, all on the upper body. A gun's grip can play its own clip
+for one of them (<code>Pistol_Reload</code>).</p>
+<p>The host sends what other players' hands are doing (reloading, throwing, using an item, firing) as one byte with each
+character, so a client that joins sees every body the same way the host does. One byte, too easy!</p>
+<h2 id="seeing-it">Seeing it</h2>
+<p>Studio's <strong>Bodies</strong> mode (<a href="studio/reference.html#bodies-animation-on-a-turntable-the-graph-and-the-rig">the Studio reference</a>) plays a
+graph on a model on a turntable, with its parameters as sliders, and can draw the bones and IK targets. Its <strong>Graph</strong>
+tab lets you wire the graph's nodes on a canvas, like Unreal's anim graph, with poses flowing left to right into the
+Output Pose. Every change plays right away, with the parameters as sliders beside it. Its <strong>Rig</strong> tab edits the rig,
+and <strong>Reloads</strong> edits the reloads' steps. Studio reloads the files when they change on disk.</p>
+<h2 id="checking">Checking</h2>
+<p>The game reads a graph when it loads the body and reports every problem it finds:</p>
+<ul>
+<li>a clip or mask the rig doesn't have;</li>
+<li>a parameter or target that's used but not declared;</li>
+<li>a node with no kind, or two kinds;</li>
+<li>a blend whose points are out of order, or that has only one point;</li>
+<li>a stride clip with no stride;</li>
+<li>a state after one that has no <code>when</code>;</li>
+<li>a reach or leg that isn't a chain of three bones;</li>
+<li>legs that don't hang from one pelvis.</li>
+</ul>
+<p><code>dotnet test tests/LastFleet.Content.Tests</code> checks the shipped graph and plays it (<code>AnimGraphTests</code>).</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

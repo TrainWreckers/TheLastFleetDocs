@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RoomFinish | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RoomFinish | The Last Fleet ">
+      
+      <meta name="description" content="The finishing details of a built room () beyond its footprint: its surface style, its furnishing, how much its corners are cut, and whether pillars hold up its ceiling.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Modules_RoomFinish.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Modules.RoomFinish%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Modules.RoomFinish">
+
+
+
+  <h1 id="LastFleet_ProcGen_Modules_RoomFinish" data-uid="LastFleet.ProcGen.Modules.RoomFinish" class="text-break">
+Class RoomFinish  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Modules.html">Modules</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The finishing details of a built room (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) beyond its footprint: its surface style, its
+furnishing, how much its corners are cut, and whether pillars hold up its ceiling.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record RoomFinish : IEquatable&lt;RoomFinish&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RoomFinish</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.RoomFinish.html">RoomFinish</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish__ctor_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish__ctor_LastFleet_ProcGen_Styles_SurfaceStyle_LastFleet_ProcGen_Placing_Furniture_Furnishing_System_Single_System_Boolean_LastFleet_ProcGen_Rooms_VerticalSpec_System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Placing_Furniture_Furnishing__" data-uid="LastFleet.ProcGen.Modules.RoomFinish.#ctor(LastFleet.ProcGen.Styles.SurfaceStyle,LastFleet.ProcGen.Placing.Furniture.Furnishing,System.Single,System.Boolean,LastFleet.ProcGen.Rooms.VerticalSpec,System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Placing.Furniture.Furnishing})">
+  RoomFinish(SurfaceStyle?, Furnishing?, float, bool, VerticalSpec?, IReadOnlyList&lt;Furnishing&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The finishing details of a built room (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html">ParametricRoom</a>) beyond its footprint: its surface style, its
+furnishing, how much its corners are cut, and whether pillars hold up its ceiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomFinish(SurfaceStyle? Look = null, Furnishing? Furniture = null, float Chamfer = 0, bool Pillars = false, VerticalSpec? Vertical = null, IReadOnlyList&lt;Furnishing&gt;? Furnishings = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Look</code> <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a></dt>
+    <dd><p>The surface style for its floor and walls. Null uses the station's style.</p>
+</dd>
+    <dt><code>Furniture</code> <a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a></dt>
+    <dd><p>The furnishing to use. If null, one is picked from <code class="paramref">Furnishings</code> using the room's seed.</p>
+</dd>
+    <dt><code>Chamfer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>How much to cut its corners at 45°, in meters (<a class="xref" href="LastFleet.ProcGen.Levels.CornerChamfer.html#LastFleet_ProcGen_Levels_CornerChamfer_Sizes">Sizes</a>). Only applies to corners
+that have the room on one side only and no doorway on either wall.</p>
+</dd>
+    <dt><code>Pillars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, a floor-to-ceiling pillar stands at every interior cell corner (where four of its cells meet), as long as
+it doesn't block the path between its doorways.</p>
+</dd>
+    <dt><code>Vertical</code> <a class="xref" href="LastFleet.ProcGen.Rooms.VerticalSpec.html">VerticalSpec</a></dt>
+    <dd><p>Its upper stories, if it's a tall room (<span class="xref">LastFleet.ProcGen.Modules.TallRoom</span>): whether each story has a floor, the stairs up to each
+floor, railings and doorways. A floor whose stairs don't fit anywhere is dropped. If none of its floors can be
+reached, the room is built one story tall.</p>
+</dd>
+    <dt><code>Furnishings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a>&gt;</dt>
+    <dd><p>The furnishings to pick from, in order, when no furnishing is given. Null uses the built-in ones
+(<a class="xref" href="LastFleet.ProcGen.Placing.Rules.BuiltInPlacements.html">BuiltInPlacements</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Bays_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Bays*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Bays" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Bays">
+  Bays
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The walls it has a ship entrance in (<a class="xref" href="LastFleet.ProcGen.Modules.ShipBay.html">ShipBay</a>), a hangar's sides on the hull, in its own frame; none if
+null. Two across from each other make a hangar a dropship flies straight through.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Side&gt;? Bays { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Chamfer_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Chamfer*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Chamfer" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Chamfer">
+  Chamfer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much to cut its corners at 45°, in meters (<a class="xref" href="LastFleet.ProcGen.Levels.CornerChamfer.html#LastFleet_ProcGen_Levels_CornerChamfer_Sizes">Sizes</a>). Only applies to corners
+that have the room on one side only and no doorway on either wall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Chamfer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Choices_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Choices*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Choices" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Choices">
+  Choices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furnishings to pick from when no furnishing is given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Furnishing&gt; Choices { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Dock_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Dock*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Dock" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Dock">
+  Dock
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For an extraction the dropship docks at, the wall of one of its cells on the hull where the airlock's outer hatch
+goes, in its own frame; none if null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanDock? Dock { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDock.html">PlanDock</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Doors_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Doors*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Doors" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Doors">
+  Doors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its doorways, if set. The room gets exactly these, in its own frame (a corridor's two ends, a closet's single
+door, the doorway one story up a stairwell). If null, it gets one on each side of its outline, picked from its
+seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ModuleConnector&gt;? Doors { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Frames_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Frames*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Frames" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Frames">
+  Frames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For a stretch of hall two or more cells across, what stands along it (its style's hall look: frames, arches,
+columns or pillars, <a class="xref" href="LastFleet.ProcGen.Styles.HallLook.html#LastFleet_ProcGen_Styles_HallLook_Structure">Structure</a>); none if null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HallLook? Frames { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Styles.HallLook.html">HallLook</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Furnishings_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Furnishings*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Furnishings" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Furnishings">
+  Furnishings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furnishings to pick from, in order, when no furnishing is given. Null uses the built-in ones
+(<a class="xref" href="LastFleet.ProcGen.Placing.Rules.BuiltInPlacements.html">BuiltInPlacements</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Furnishing&gt;? Furnishings { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Furniture_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Furniture*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Furniture" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Furniture">
+  Furniture
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The furnishing to use. If null, one is picked from <code class="paramref">Furnishings</code> using the room's seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Furnishing? Furniture { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.Furnishing.html">Furnishing</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Hull_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Hull*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Hull" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Hull">
+  Hull
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For an insertion, the side the hull is on, where its airlock goes, in its own frame. If null, it's the first side
+with no doorway (<a class="xref" href="LastFleet.ProcGen.Levels.Airlocks.Airlock.html#LastFleet_ProcGen_Levels_Airlocks_Airlock_HullSide_System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Modules_ModuleConnector__">HullSide(IReadOnlyList&lt;ModuleConnector&gt;)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Side? Hull { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Layouts.Side.html">Side</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Look_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Look*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Look" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Look">
+  Look
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The surface style for its floor and walls. Null uses the station's style.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SurfaceStyle? Look { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Pillars_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Pillars*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Pillars" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Pillars">
+  Pillars
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, a floor-to-ceiling pillar stands at every interior cell corner (where four of its cells meet), as long as
+it doesn't block the path between its doorways.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Pillars { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Plain_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Plain*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Plain" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Plain">
+  Plain
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default finish: station style, furniture picked from the seed, square corners and no pillars.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RoomFinish Plain { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Modules.RoomFinish.html">RoomFinish</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Modules_RoomFinish_Vertical_" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Vertical*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_RoomFinish_Vertical" data-uid="LastFleet.ProcGen.Modules.RoomFinish.Vertical">
+  Vertical
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/RoomFinish.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its upper stories, if it's a tall room (<span class="xref">LastFleet.ProcGen.Modules.TallRoom</span>): whether each story has a floor, the stairs up to each
+floor, railings and doorways. A floor whose stairs don't fit anywhere is dropped. If none of its floors can be
+reached, the room is built one story tall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VerticalSpec? Vertical { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Rooms.VerticalSpec.html">VerticalSpec</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

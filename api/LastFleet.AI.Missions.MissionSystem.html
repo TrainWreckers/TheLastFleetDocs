@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MissionSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MissionSystem | The Last Fleet ">
+      
+      <meta name="description" content="A boarding action (design doc, &amp;quot;Boarding action: a ship in the fight&amp;quot;): the warship the squad is on is in a fight with the fleet. The fleet&#39;s guns hit it on a cadence (each hit counted in , so everyone aboard feels it); a hit hurts those near it, and sometimes starts a fire or blows a window. Fires spread room to room and burn out, unless the ship&#39;s fire suppression is running: its sprinklers put them out, until a hit knocks it out (repaired at its controls in damage control) or its power goes (cutting the reactor kills it). While its batteries fire, the fleet takes damage. The squad silences the batteries and cuts the reactor by holding Interact at each, then takes the bridge; a battery or the reactor lost with its room to a breach is out for good.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Missions_MissionSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Missions.MissionSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Missions.MissionSystem">
+
+
+
+  <h1 id="LastFleet_AI_Missions_MissionSystem" data-uid="LastFleet.AI.Missions.MissionSystem" class="text-break">
+Class MissionSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Patrols.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A boarding action (design doc, &quot;Boarding action: a ship in the fight&quot;): the warship the squad is on is in a fight
+with the fleet. The fleet's guns hit it on a cadence (each hit counted in <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_HitCount">HitCount</a>, so
+everyone aboard feels it); a hit hurts those near it, and sometimes starts a fire or blows a window. Fires spread
+room to room and burn out, unless the ship's fire suppression is running: its sprinklers put them out, until a hit
+knocks it out (repaired at its controls in damage control) or its power goes (cutting the reactor kills it). While its
+batteries fire, the fleet takes damage. The squad silences the batteries and cuts the reactor by holding Interact at
+each, then takes the bridge; a battery or the reactor lost with its room to a breach is out for good.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MissionSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MissionSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Missions_MissionSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Keycards are taken by walking over them, by anyone standing (not downed); the squad shares them. A locked door
+opens when someone standing comes near it with its keycard held. Holding Interact at the terminal starts the hack,
+which runs while anyone standing is in the terminal's room and pauses while nobody is. Once the hack is done, the
+mission succeeds when everyone still alive is standing at the extraction point together for a moment. It fails when
+nobody is standing: everyone down or dead at once (alone, dying is enough).
+</p>
+<p>
+Reinforcement waves grow with the number of players. A wave's soldiers wait as <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Pending">Pending</a>
+until a spawn closet can take them: one by the arena or extraction first, nearest the terminal, whose door is shut,
+with nobody inside and nobody standing within <a class="xref" href="LastFleet.AI.Missions.MissionTuning.html#LastFleet_AI_Missions_MissionTuning_SpawnClearance">SpawnClearance</a>. They appear inside, out
+of sight, its door opens, they hunt towards the terminal, and the door shuts once the closet is empty again. A
+level without closets uses its fallback points, but never one anyone can see or is near.
+</p>
+<p>
+Runs with the command systems, after the soldiers' AI, so this tick's commands (Interact) are read as given. The
+mission's state is one <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a> entity; keycards are <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionKey.html">MissionKey</a> entities, locks
+<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionLock.html">MissionLock</a> and closet doors <a class="xref" href="LastFleet.Simulation.Components.Missions.ClosetDoor.html">ClosetDoor</a> entities. <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_">Spawn(GameWorld, MissionPlan)</a> creates them and
+<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Restart_LastFleet_Ecs_GameWorld_">Restart(GameWorld)</a> renews them. Doors through bulkheads are <a class="xref" href="LastFleet.Simulation.Components.Missions.SealableDoor.html">SealableDoor</a> entities (gates' beside
+their locks), shut while <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Seal_System_Int32_">Seal(int)</a> has their compartment sealed. A world without them (the range, the outpost) has no mission, and this system
+does nothing. Allocation-free except on the ticks soldiers spawn.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem__ctor_" data-uid="LastFleet.AI.Missions.MissionSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Missions_MissionTuning_" data-uid="LastFleet.AI.Missions.MissionSystem.#ctor(LastFleet.Simulation.Physics.ICollisionWorld,LastFleet.AI.Missions.MissionTuning)">
+  MissionSystem(ICollisionWorld, MissionTuning?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mission (design doc, &quot;Mission structure&quot;): infiltrate, take the objective, survive the escalation, extract.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionSystem(ICollisionWorld world, MissionTuning? tuning = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Simulation.Physics.ICollisionWorld.html">ICollisionWorld</a></dt>
+    <dd></dd>
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Missions.MissionTuning.html">MissionTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Missions_MissionSystem__ctor_LastFleet_Simulation_Physics_ICollisionWorld_LastFleet_AI_Missions_MissionTuning__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Keycards are taken by walking over them, by anyone standing (not downed); the squad shares them. A locked door
+opens when someone standing comes near it with its keycard held. Holding Interact at the terminal starts the hack,
+which runs while anyone standing is in the terminal's room and pauses while nobody is. Once the hack is done, the
+mission succeeds when everyone still alive is standing at the extraction point together for a moment. It fails when
+nobody is standing: everyone down or dead at once (alone, dying is enough).
+</p>
+<p>
+Reinforcement waves grow with the number of players. A wave's soldiers wait as <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Pending">Pending</a>
+until a spawn closet can take them: one by the arena or extraction first, nearest the terminal, whose door is shut,
+with nobody inside and nobody standing within <a class="xref" href="LastFleet.AI.Missions.MissionTuning.html#LastFleet_AI_Missions_MissionTuning_SpawnClearance">SpawnClearance</a>. They appear inside, out
+of sight, its door opens, they hunt towards the terminal, and the door shuts once the closet is empty again. A
+level without closets uses its fallback points, but never one anyone can see or is near.
+</p>
+<p>
+Runs with the command systems, after the soldiers' AI, so this tick's commands (Interact) are read as given. The
+mission's state is one <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html">MissionState</a> entity; keycards are <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionKey.html">MissionKey</a> entities, locks
+<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionLock.html">MissionLock</a> and closet doors <a class="xref" href="LastFleet.Simulation.Components.Missions.ClosetDoor.html">ClosetDoor</a> entities. <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_">Spawn(GameWorld, MissionPlan)</a> creates them and
+<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Restart_LastFleet_Ecs_GameWorld_">Restart(GameWorld)</a> renews them. Doors through bulkheads are <a class="xref" href="LastFleet.Simulation.Components.Missions.SealableDoor.html">SealableDoor</a> entities (gates' beside
+their locks), shut while <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Seal_System_Int32_">Seal(int)</a> has their compartment sealed. A world without them (the range, the outpost) has no mission, and this system
+does nothing. Allocation-free except on the ticks soldiers spawn.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_HatchSight" data-uid="LastFleet.AI.Missions.MissionSystem.HatchSight">
+  HatchSight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The airlock's outer hatch, as looked at to leave early: a column up from its middle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly (float Height, float Radius) HatchSight</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_PatrolSquadBase" data-uid="LastFleet.AI.Missions.MissionSystem.PatrolSquadBase">
+  PatrolSquadBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Director's patrols are numbered from here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int PatrolSquadBase = 2000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_ReactorWork" data-uid="LastFleet.AI.Missions.MissionSystem.ReactorWork">
+  ReactorWork
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Boarding.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_WorkOn">WorkOn</a> that means the reactor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const byte ReactorWork = 9</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_ReinforcementSquadBase" data-uid="LastFleet.AI.Missions.MissionSystem.ReinforcementSquadBase">
+  ReinforcementSquadBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reinforcement squads are numbered from here, one per wave, apart from the level's own squads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ReinforcementSquadBase = 1000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_SourceFavor" data-uid="LastFleet.AI.Missions.MissionSystem.SourceFavor">
+  SourceFavor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Patrols.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much nearer a source closet (<a class="xref" href="LastFleet.AI.Missions.ClosetPlan.html#LastFleet_AI_Missions_ClosetPlan_Source">Source</a>) counts when picking where a patrol comes from:
+one twice as far as an ordinary closet still wins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SourceFavor = 0.25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_TerminalSight" data-uid="LastFleet.AI.Missions.MissionSystem.TerminalSight">
+  TerminalSight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The terminal, as looked at to start the hack: a column up from its marker, its height and radius.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly (float Height, float Radius) TerminalSight</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.single,system.single-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Boarding_" data-uid="LastFleet.AI.Missions.MissionSystem.Boarding*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Boarding" data-uid="LastFleet.AI.Missions.MissionSystem.Boarding">
+  Boarding
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many players are still loading the level, set by the host each tick before the world steps (its clients
+that have joined but not yet sent a command). The insertion doesn't cycle while any are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Boarding { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Breaches_" data-uid="LastFleet.AI.Missions.MissionSystem.Breaches*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Breaches" data-uid="LastFleet.AI.Missions.MissionSystem.Breaches">
+  Breaches
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How windows onto space break and what a breach does (breaches.json); set before <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_">Spawn(GameWorld, MissionPlan)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BreachTuning Breaches { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Doors_" data-uid="LastFleet.AI.Missions.MissionSystem.Doors*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Doors" data-uid="LastFleet.AI.Missions.MissionSystem.Doors">
+  Doors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How rooms' own doors behave (doors.json); set before <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_">Spawn(GameWorld, MissionPlan)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomDoorTuning Doors { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.RoomDoorTuning.html">RoomDoorTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_EarlyAllowed_" data-uid="LastFleet.AI.Missions.MissionSystem.EarlyAllowed*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_EarlyAllowed" data-uid="LastFleet.AI.Missions.MissionSystem.EarlyAllowed">
+  EarlyAllowed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the squad may leave early on the docked dropship (the mission template's).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EarlyAllowed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_HoldWaves_" data-uid="LastFleet.AI.Missions.MissionSystem.HoldWaves*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_HoldWaves" data-uid="LastFleet.AI.Missions.MissionSystem.HoldWaves">
+  HoldWaves
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set by the Director while the squad is hard pressed: waves wait (up to
+<a class="xref" href="LastFleet.AI.Missions.MissionTuning.html#LastFleet_AI_Missions_MissionTuning_WaveHoldSeconds">WaveHoldSeconds</a>) before they come in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HoldWaves { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_LostCompartments_" data-uid="LastFleet.AI.Missions.MissionSystem.LostCompartments*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_LostCompartments" data-uid="LastFleet.AI.Missions.MissionSystem.LostCompartments">
+  LostCompartments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The compartments lost for good to breaches so far (none without windows).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;int&gt; LostCompartments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_LostRooms_" data-uid="LastFleet.AI.Missions.MissionSystem.LostRooms*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_LostRooms" data-uid="LastFleet.AI.Missions.MissionSystem.LostRooms">
+  LostRooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rooms lost for good to breaches so far, each sealed alone by its own doors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;int&gt; LostRooms { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Plan_" data-uid="LastFleet.AI.Missions.MissionSystem.Plan*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Plan" data-uid="LastFleet.AI.Missions.MissionSystem.Plan">
+  Plan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mission being played, once <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_">Spawn(GameWorld, MissionPlan)</a> has set it up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionPlan? Plan { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.MissionPlan.html">MissionPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Required_" data-uid="LastFleet.AI.Missions.MissionSystem.Required*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Required" data-uid="LastFleet.AI.Missions.MissionSystem.Required">
+  Required
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What the fleet needs of this mission to count leaving early a success (<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Required">Required</a>),
+kept for a restart; set it with <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Require_LastFleet_Ecs_GameWorld_LastFleet_Simulation_Components_Cargo_FleetHaul__System_Int32_">Require(GameWorld, in FleetHaul, int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FleetHaul Required { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Components.Cargo.FleetHaul.html">FleetHaul</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_RequiredTotal_" data-uid="LastFleet.AI.Missions.MissionSystem.RequiredTotal*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_RequiredTotal" data-uid="LastFleet.AI.Missions.MissionSystem.RequiredTotal">
+  RequiredTotal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The least of the fleet's supplies in all leaving early must bring.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RequiredTotal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Rooms_" data-uid="LastFleet.AI.Missions.MissionSystem.Rooms*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Rooms" data-uid="LastFleet.AI.Missions.MissionSystem.Rooms">
+  Rooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level's rooms, to tell which one a player stands in: a self-destruct seals compartments ahead of its countdown
+only with them (and the plan's walk).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomMap? Rooms { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Tactics.RoomMap.html">RoomMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_SealedCount_" data-uid="LastFleet.AI.Missions.MissionSystem.SealedCount*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_SealedCount" data-uid="LastFleet.AI.Missions.MissionSystem.SealedCount">
+  SealedCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many compartments are sealed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SealedCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Threat_" data-uid="LastFleet.AI.Missions.MissionSystem.Threat*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Threat" data-uid="LastFleet.AI.Missions.MissionSystem.Threat">
+  Threat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Patrols.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How hard the level's rooms are defended, if its plan says (<a class="xref" href="LastFleet.AI.Missions.MissionPlan.html#LastFleet_AI_Missions_MissionPlan_Threat">Threat</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreatPlan? Threat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.ThreatPlan.html">ThreatPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Tuning_" data-uid="LastFleet.AI.Missions.MissionSystem.Tuning*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Tuning" data-uid="LastFleet.AI.Missions.MissionSystem.Tuning">
+  Tuning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MissionTuning Tuning { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Missions.MissionTuning.html">MissionTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_AtDoor_" data-uid="LastFleet.AI.Missions.MissionSystem.AtDoor*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_AtDoor_System_Numerics_Vector3_System_Numerics_Vector3_System_Single_" data-uid="LastFleet.AI.Missions.MissionSystem.AtDoor(System.Numerics.Vector3,System.Numerics.Vector3,System.Single)">
+  AtDoor(Vector3, Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L1539"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <code class="paramref">feet</code> stand at the door whose middle is <code class="paramref">middle</code>: within
+<code class="paramref">radius</code> across, and on its own floor, below its middle. A deck above has its feet higher than
+the middle of the door below, so a door is never opened from the deck over it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AtDoor(Vector3 feet, Vector3 middle, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>middle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_CanSealRoom_" data-uid="LastFleet.AI.Missions.MissionSystem.CanSealRoom*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_CanSealRoom_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.CanSealRoom(System.Int32)">
+  CanSealRoom(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether room <code class="paramref">room</code> can be sealed alone, by its own doors: it has some, and none is wrecked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanSealRoom(int room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Initialize_" data-uid="LastFleet.AI.Missions.MissionSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Missions.MissionSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_IsRoomSealed_" data-uid="LastFleet.AI.Missions.MissionSystem.IsRoomSealed*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_IsRoomSealed_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.IsRoomSealed(System.Int32)">
+  IsRoomSealed(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether room <code class="paramref">room</code> is sealed by its own doors (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_SealRoom_System_Int32_">SealRoom(int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRoomSealed(int room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_IsSealed_" data-uid="LastFleet.AI.Missions.MissionSystem.IsSealed*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_IsSealed_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.IsSealed(System.Int32)">
+  IsSealed(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether compartment <code class="paramref">compartment</code> is sealed (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Seal_System_Int32_">Seal(int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSealed(int compartment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>compartment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Require_" data-uid="LastFleet.AI.Missions.MissionSystem.Require*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Require_LastFleet_Ecs_GameWorld_LastFleet_Simulation_Components_Cargo_FleetHaul__System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.Require(LastFleet.Ecs.GameWorld,LastFleet.Simulation.Components.Cargo.FleetHaul@,System.Int32)">
+  Require(GameWorld, in FleetHaul, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fleet's requisition for this mission, into the mission's state now and after any restart.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Require(GameWorld world, in FleetHaul required, int total)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+    <dt><code>required</code> <a class="xref" href="LastFleet.Simulation.Components.Cargo.FleetHaul.html">FleetHaul</a></dt>
+    <dd></dd>
+    <dt><code>total</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Restart_" data-uid="LastFleet.AI.Missions.MissionSystem.Restart*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Restart_LastFleet_Ecs_GameWorld_" data-uid="LastFleet.AI.Missions.MissionSystem.Restart(LastFleet.Ecs.GameWorld)">
+  Restart(GameWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts the mission again: fresh state and keycards. Locked doors and closet doors shut with the level's props
+(<code>DestructionSystem.RestoreAll</code>), and the fight's restart clears soldiers, reinforcements included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Restart(GameWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Seal_" data-uid="LastFleet.AI.Missions.MissionSystem.Seal*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Seal_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.Seal(System.Int32)">
+  Seal(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seals compartment <code class="paramref">compartment</code> off: every door through its bulkheads shuts, gates too, and
+stays shut until both its sides are unsealed. Soldiers and the horde path round it as round any shut door.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Seal(int compartment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>compartment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it wasn't sealed already and has doors to shut.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_SealRoom_" data-uid="LastFleet.AI.Missions.MissionSystem.SealRoom*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_SealRoom_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.SealRoom(System.Int32)">
+  SealRoom(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seals room <code class="paramref">room</code> off by its own doors: each shuts, and stays shut until the room is unsealed.
+Soldiers and the horde path round it as round any shut door.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SealRoom(int room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it wasn't sealed already and has doors to shut.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_SendPatrol_" data-uid="LastFleet.AI.Missions.MissionSystem.SendPatrol*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_SendPatrol_System_Int32_System_Numerics_Vector3_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.SendPatrol(System.Int32,System.Numerics.Vector3,System.Int32)">
+  SendPatrol(int, Vector3, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Patrols.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Director's patrol: up to <code class="paramref">count</code> soldiers out of the usable spawn closet nearest
+<code class="paramref">goal</code>, in a zone the squad has opened, hunting towards it. A source closet (on a service way, by a
+security office) is favored (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_SourceFavor">SourceFavor</a>), and none is used whose compartment is sealed or that has
+no way to the goal but through a sealed one. Nothing comes when no closet will do (all in view, near someone,
+busy, sealed off, or behind a shut gate), a source room (<a class="xref" href="LastFleet.AI.Missions.MissionPlan.html#LastFleet_AI_Missions_MissionPlan_PatrolRooms">PatrolRooms</a>) nobody is in,
+near or can see into does instead, the nearest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SendPatrol(int count, Vector3 goal, int squad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>goal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>squad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many soldiers came.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Spawn_" data-uid="LastFleet.AI.Missions.MissionSystem.Spawn*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Spawn_LastFleet_Ecs_GameWorld_LastFleet_AI_Missions_MissionPlan_" data-uid="LastFleet.AI.Missions.MissionSystem.Spawn(LastFleet.Ecs.GameWorld,LastFleet.AI.Missions.MissionPlan)">
+  Spawn(GameWorld, MissionPlan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets up <code class="paramref">plan</code> in <code class="paramref">world</code>: the mission state, keycards, locked doors, spawn
+closet doors and hull breaches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spawn(GameWorld world, MissionPlan plan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+    <dt><code>plan</code> <a class="xref" href="LastFleet.AI.Missions.MissionPlan.html">MissionPlan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_ThreatAt_" data-uid="LastFleet.AI.Missions.MissionSystem.ThreatAt*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_ThreatAt_System_Numerics_Vector3_" data-uid="LastFleet.AI.Missions.MissionSystem.ThreatAt(System.Numerics.Vector3)">
+  ThreatAt(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.Patrols.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The threat where <code class="paramref">point</code> is (<a class="xref" href="LastFleet.AI.Missions.ThreatPlan.html#LastFleet_AI_Missions_ThreatPlan_Of_System_Int32_">Of(int)</a>), from the room it's in; 1 for a level
+without threat or rooms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ThreatAt(Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Unseal_" data-uid="LastFleet.AI.Missions.MissionSystem.Unseal*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Unseal_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.Unseal(System.Int32)">
+  Unseal(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unseals compartment <code class="paramref">compartment</code>: each door through its bulkheads that no other sealed
+compartment holds shut is as it was before (a pressure door open, a gate open if it was).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Unseal(int compartment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>compartment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it was sealed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_UnsealAll_" data-uid="LastFleet.AI.Missions.MissionSystem.UnsealAll*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_UnsealAll" data-uid="LastFleet.AI.Missions.MissionSystem.UnsealAll">
+  UnsealAll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unseals every compartment (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_Unseal_System_Int32_">Unseal(int)</a>) and every room (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_UnsealRoom_System_Int32_">UnsealRoom(int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnsealAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_UnsealRoom_" data-uid="LastFleet.AI.Missions.MissionSystem.UnsealRoom*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_UnsealRoom_System_Int32_" data-uid="LastFleet.AI.Missions.MissionSystem.UnsealRoom(System.Int32)">
+  UnsealRoom(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unseals room <code class="paramref">room</code>: each of its doors is as it was before (one opened by hand left open).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UnsealRoom(int room)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>room</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if it was sealed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Missions_MissionSystem_Update_" data-uid="LastFleet.AI.Missions.MissionSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Missions_MissionSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Missions.MissionSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Missions/MissionSystem.cs/#L568"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

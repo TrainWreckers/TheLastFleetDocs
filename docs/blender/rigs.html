@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Modeling and animating characters on a rig in Blender | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modeling and animating characters on a rig in Blender | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="modeling-and-animating-characters-on-a-rig-in-blender">Modeling and animating characters on a rig in Blender</h1>
+
+<p>Soldiers, the Choir's lancers and the players are modeled and animated in Blender on <strong>rigs</strong>. A rig is a skeleton the
+game knows about, stored as data in <code>content/rigs/</code> (the humanoid is the first one: <code>humanoid.json</code>).</p>
+<p>Why bother with rigs? Every model on a rig shares the rig's animations (its <strong>clips</strong>). So a new soldier only needs a
+model, not a new set of animations, and a new kind of body (a rat, a hound, a spider) is a new rig file, not engine
+code! This is part of the plan in ../plans/animation.md.</p>
+<p>Soldiers and the Choir's lancers are drawn animated from these files. Each enemy variant names its model in
+<code>content/defs/ai/enemies.json</code> (<code>&quot;model&quot;: &quot;lancer&quot;</code> for <code>lancer.gltf</code>). <code>--box-soldiers</code> draws them from boxes, the
+old way. How the game blends the clips is set by the rig's animation graph, which is a separate file: see
+<a href="../animation-graphs.html">animation-graphs.md</a>.</p>
+<h2 id="the-source-files">The source files</h2>
+<p>Start from these in Blender (5.2 or later). They're in <code>content/raw/characters/</code> and go through Git LFS (if a <code>.blend</code>
+opens as a few lines of text, run <code>git lfs pull</code> once):</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+<th>Exported to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>soldier.blend</code></td>
+<td>The grey-box soldier: its meshes skinned to the humanoid armature.</td>
+<td><code>content/characters/soldier.gltf</code></td>
+</tr>
+<tr>
+<td><code>lancer.blend</code></td>
+<td>The Choir Lancer on the same rig.</td>
+<td><code>content/characters/lancer.gltf</code></td>
+</tr>
+<tr>
+<td><code>player.blend</code></td>
+<td>The players' body (yours in first person, with the head hidden by the rig's <code>firstPersonHides</code>).</td>
+<td><code>content/characters/player.gltf</code></td>
+</tr>
+<tr>
+<td><code>humanoid_clips.blend</code></td>
+<td>The rig's clips: the armature with every action (Idle, Walk_F, Reload...), plus the soldier on it so you can watch them.</td>
+<td><code>content/anim/humanoid.gltf</code></td>
+</tr>
+</tbody>
+</table>
+<p>The naming tells you what a file is:</p>
+<ul>
+<li><strong><code>&lt;model&gt;.blend</code></strong> is a model, exported as <code>content/characters/&lt;model&gt;.gltf</code>.</li>
+<li><strong><code>&lt;rig&gt;_clips.blend</code></strong> holds a rig's clips, exported as <code>content/anim/&lt;rig&gt;.gltf</code> and shared by every model on that
+rig.</li>
+</ul>
+<p>Each file knows its rig (<strong>Rig file</strong>, stored relative to the <code>.blend</code>, so it works wherever the repository is). The
+game reads the <code>.gltf</code> files, and the <code>.blend</code> files are the source for them. So change the <code>.blend</code> and export it.
+Never edit the <code>.gltf</code> by hand!</p>
+<p>They started out as the starter files that <code>tools/blender/generate_soldier.py</code> writes (see below), but now they're the
+source, so edit them however you like. The script won't overwrite them unless you tell it to (<code>--force</code>).</p>
+<h2 id="setting-up">Setting up</h2>
+<ol>
+<li><p>Install the add-on: Edit &gt; Preferences &gt; Add-ons &gt; Install from Disk, and pick <code>tools/blender/lastfleet_rigs.py</code>.
+Enable <strong>Last Fleet Rigs</strong>. Its tools are in the 3D view's sidebar (N), on the <strong>Last Fleet</strong> tab, in the <strong>Rig</strong>
+panel.</p>
+</li>
+<li><p>Set <strong>Rig file</strong> to the rig the body is built on: <code>content/rigs/humanoid.json</code> in the repository. The add-on reads
+it for everything below, and writes its output next to it (<code>content/characters</code>, <code>content/anim</code>).</p>
+</li>
+<li><p><strong>Starting fresh?</strong> <strong>Build rig</strong> makes the rig's armature with its bones named and placed as the file says, and
+sets the scene to 30 frames a second, which is the rate the game plays animations at. <strong>Working on the soldier?</strong>
+Set the scene to 30 fps (Output Properties &gt; Frame Rate) before File &gt; Import &gt; glTF, or the keys land between
+frames.</p>
+</li>
+<li><p><strong>Guides</strong> adds back the things that help you fit the model, for example after an import:</p>
+<ul>
+<li>the <strong>sockets</strong>: small spheres on their bones that mark where the camera sits and where the hands hold the gun;</li>
+<li>the <strong>body</strong> the simulation shoots at: wire capsules for the collision shape and the narrower shape shots hit,
+small spheres for the eye standing and crouched, and the head sphere that shots hit over each eye.</li>
+</ul>
+<p>Guides are never exported.</p>
+</li>
+</ol>
+<h2 id="what-the-game-reads">What the game reads</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The rig</td>
+<td>One armature with exactly the rig's bones, under the parents the rig gives. A model's bones can be <strong>longer or shorter</strong> than the rig's (longer arms, longer legs with a shorter spine). The game keeps each model's own build when the rig's clips play on it (see below). Each bone has to <strong>point</strong> the same way as the rig's, within 5°, without being turned or rolled (the clips rotate it from there). The root stays on the origin, and the <strong>eye</strong> stays where the rig has it at rest, within 5 cm up or down and 10 cm sideways (because that's where shots hit the head).</td>
+</tr>
+<tr>
+<td>The body</td>
+<td>Meshes skinned to the armature: an Armature modifier and vertex groups named after its bones, at most four bones per vertex. The style is low-poly parts, each weighted fully to one bone.</td>
+</tr>
+<tr>
+<td>Its size</td>
+<td>Meters. The body faces <strong>+Y</strong>, <strong>+Z</strong> is up, and its feet are on the origin. Fit it to the guides: the simulation's capsule (0.35 m radius, 1.8 m tall) and the head sphere around the eye (1.65 m up when standing). Shots hit those shapes, not the mesh. A designer fits them to the bodies in Studio (Bodies, Rig tab: the rig's <code>body</code>).</td>
+</tr>
+<tr>
+<td>Shading</td>
+<td>Flat: each face is lit by its own normal.</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>A material's Base Color. Materials named <code>Paint_&lt;Slot&gt;</code> (<code>Paint_Uniform</code>, <code>Paint_Armor</code>) can be recolored per variant, the same as weapon and prop paint slots.</td>
+</tr>
+<tr>
+<td>Surface materials</td>
+<td>How each material reacts to light (cloth, painted metal, glass, a visor, a glowing signal). You pick it with the Last Fleet Materials add-on, and it's exported as the material's custom property (<a href="materials.html">materials.md</a>).</td>
+</tr>
+<tr>
+<td>The clips</td>
+<td>Actions on the armature, named the same as the rig's clips (the panel lists them).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-humanoids-bones">The humanoid's bones</h3>
+<p>Root (on the ground; it never moves), Hips, Spine, Chest, Neck, Head; Shoulder, UpperArm, LowerArm and Hand on each
+side; UpperLeg, LowerLeg and Foot on each side. Left is <code>.L</code> (Blender's -X) and right is <code>.R</code>. The rest pose is a T
+pose.</p>
+<h3 id="the-humanoids-clips">The humanoid's clips</h3>
+<table>
+<thead>
+<tr>
+<th>Clip</th>
+<th>Played</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Idle</code></td>
+<td>A loop</td>
+<td>Standing, with the gun held ready.</td>
+</tr>
+<tr>
+<td><code>Walk_F</code>, <code>Walk_B</code>, <code>Walk_L</code>, <code>Walk_R</code></td>
+<td>Loops</td>
+<td>One stride forward, backward, and to each side while facing ahead. The game blends them by the direction of movement, and plays them as fast as the body covers ground, so the feet keep pace.</td>
+</tr>
+<tr>
+<td><code>Run_F</code>, <code>Run_B</code>, <code>Run_L</code>, <code>Run_R</code></td>
+<td>Loops</td>
+<td>The same, running.</td>
+</tr>
+<tr>
+<td><code>Crouch</code>, <code>CrouchWalk_F</code> (<code>_B</code>, <code>_L</code>, <code>_R</code>)</td>
+<td>Loops</td>
+<td>Crouched, standing still and moving. The crouched eye is 1.1 m up.</td>
+</tr>
+<tr>
+<td><code>Fire</code></td>
+<td>Once, upper body</td>
+<td>The kick from one shot.</td>
+</tr>
+<tr>
+<td><code>Reload</code></td>
+<td>Once, upper body</td>
+<td>Played on top of whatever the legs are doing, so it can run and reload at the same time.</td>
+</tr>
+<tr>
+<td><code>Throw</code></td>
+<td>Once, upper body</td>
+<td>A grenade.</td>
+</tr>
+<tr>
+<td><code>LeanLeft</code>, <code>LeanRight</code></td>
+<td>Held at the last frame</td>
+<td>Leaning all the way out around cover. The game blends toward it based on how far the body leans.</td>
+</tr>
+<tr>
+<td><code>BlindFire</code></td>
+<td>Held at the last frame</td>
+<td>The gun held up over cover, with the head kept down.</td>
+</tr>
+<tr>
+<td><code>Downed</code></td>
+<td>A loop</td>
+<td>On the deck, hurt, with the sidearm still up.</td>
+</tr>
+<tr>
+<td><code>Death</code></td>
+<td>Once</td>
+<td>Falling dead. It stays in its last pose.</td>
+</tr>
+<tr>
+<td><code>Pistol_Idle</code>, <code>Pistol_Fire</code>, <code>Pistol_Reload</code></td>
+<td>Same as their rifle clips</td>
+<td>For a pistol (the <code>pistol</code> grip): held out in both hands, the kick flipping up, the magazine being changed. The arms in <code>Pistol_Idle</code> are also how a pistol is held while walking and running.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clips for a grip.</strong> A gun's frame says how it's held (its <code>grip</code>, see <a href="../animation-graphs.html#clips-chosen-by-who-plays-it">animation-graphs.md</a>).
+A grip plays the rig's clips named after it, <code>&lt;Grip&gt;_&lt;Clip&gt;</code>, instead of the rig's normal ones, and falls back to the
+normal ones where it has none. So you only make the clips that need to be different (the hold, the kick, the reload),
+list them in the rig file, and export the clips.</p>
+<p><strong>Keep the eye where the simulation has it.</strong> This one bites people, so here's why it matters. A clip the rig marks as
+<code>&quot;eye&quot;: &quot;standing&quot;</code> (Idle, the walks and runs, Fire, Reload, Throw) or <code>&quot;crouched&quot;</code> (the crouches) has to keep the
+<code>Eye</code> socket within 5 cm up or down and 10 cm sideways of the eye guide (1.65 m standing, 1.1 m crouched, as far
+forward as the socket is at rest). That's where the simulation puts the head sphere, so a head drawn higher or further
+forward gets shot straight through.</p>
+<p>A bob and a sway are fine. A stride that leans the head well forward, or a crouch that keeps it high, isn't. The fix?
+Move the hips (down for a deeper crouch, back under a lean) to bring the eye to the guide. Check measures it, and
+Studio's Bodies mode shows it (<strong>Hit shapes</strong>).</p>
+<p><strong>In place.</strong> The simulation moves the body; a clip never does. Root is never keyed away from the origin (Check
+rejects that), and the hips stay over the feet, so a stride is walked on the spot. <strong>Loops end where they start</strong>:
+key the last frame the same as the first. Use the panel's clip buttons to step through each one.</p>
+<h3 id="models-of-other-builds-retargeting">Models of other builds (retargeting)</h3>
+<p>The clips are animated on the rig's armature, with its bones where the rig puts them. But what if a model is built
+differently: longer arms, longer legs and a shorter spine, or a stockier frame? The game keeps each model's build while
+the clips play, the same way Unreal's translation retargeting does. Each bone in the rig has a <strong>translation</strong> setting
+(<code>content/rigs/&lt;id&gt;.json</code>):</p>
+<ul>
+<li><code>skeleton</code> (the default): the bone keeps the model's own offset from its parent, and the clip only rotates it. A
+longer forearm stays longer in every clip.</li>
+<li><code>scaled</code>: uses the clip's offset, scaled by how much longer the model's bone is than the rig's. The humanoid's hips
+use this, so a model with higher hips bobs and drops them by the same amount relative to its size.</li>
+<li><code>animation</code>: uses the clip's offset unchanged (the humanoid's root, which never moves).</li>
+</ul>
+<p>The sockets move with the model's own bones, so a longer arm carries its grip further out.</p>
+<p>There are two things a model can't change:</p>
+<ul>
+<li><strong>Which way its bones point.</strong> The clips rotate each bone from its rest pose, so a bone pointing another way bends
+another way.</li>
+<li><strong>Where its eye is.</strong> Shots hit the head where the rig has it.</li>
+</ul>
+<p>So keep the head where the guides put it, and change the body below it and the limbs around it. Studio's Bodies mode
+can show two models side by side on the same parameters (<strong>Compare</strong>), and its Rig tab sets each bone's translation.</p>
+<h2 id="checking-and-exporting">Checking and exporting</h2>
+<p><strong>Check</strong> reports anything the game wouldn't read:</p>
+<ul>
+<li>no armature, or more than one;</li>
+<li>a bone that's missing, extra, or under the wrong parent;</li>
+<li>a model's bone pointing away from the rig's (by more than 5°), its root off the origin, or its eye away from the
+rig's;</li>
+<li>a bone in a clips armature moved from where the rig puts it;</li>
+<li>a mesh with no Armature modifier, unweighted vertices, or vertices with more than four bones;</li>
+<li>a missing clip, a scene that isn't at 30 fps, or a clip starting or ending between frames;</li>
+<li>a clip keying a bone the rig doesn't have, or moving the root;</li>
+<li>a loop that ends away from where it started, or a clip that keeps the eye away from the simulation's.</li>
+</ul>
+<p>There are two export buttons:</p>
+<ul>
+<li><strong>Export model</strong> writes the meshes and the armature, with no animation, to <code>content/characters/&lt;Model&gt;.gltf</code>.</li>
+<li><strong>Export clips</strong> writes the armature and every action, with no meshes, to <code>content/anim/&lt;rig&gt;.gltf</code>
+(<code>humanoid.gltf</code>). These are the clips every model on the rig plays.</li>
+</ul>
+<p>Both run the check first, and write one <code>.gltf</code> with its buffers inside it (no <code>.bin</code>). Save the <code>.blend</code> in
+<code>content/raw/characters/</code> and commit it together with the <code>.gltf</code> (the <code>.blend</code> goes through Git LFS).</p>
+<p>Got a pile of files to export? You can do every source file at once, the same way the buttons do (each one checked
+first, and nothing written if there's a problem): <code>python3 tools/blender/export_characters.py content</code> (or
+<code>blender --background --python tools/blender/export_characters.py -- content</code>). Name files to export only those
+(<code>... content soldier humanoid_clips</code>). <code>dotnet test tests/LastFleet.Content.Tests</code> checks the shipped soldier and clips against the rig.</p>
+<h2 id="adding-clips-to-the-rig">Adding clips to the rig</h2>
+<p>List the new clip in the rig file (<code>content/rigs/&lt;id&gt;.json</code>, <code>clips</code>), then make it in <code>&lt;rig&gt;_clips.blend</code> and export
+(Check names any clip the rig lists that the file is missing).</p>
+<p>Some clips can be posed by the generator (its <code>CLIPS</code> list in <code>tools/blender/generate_soldier.py</code>, which includes the
+pistol's). For those, <code>python3 tools/blender/generate_soldier.py content --add-clips</code> adds every listed clip that
+<code>humanoid_clips.blend</code> is missing, posed the same way as the starter clips, leaves the existing actions alone, and
+exports the file. Too easy!</p>
+<h2 id="making-the-starter-files-again">Making the starter files again</h2>
+<p><code>python3 tools/blender/generate_soldier.py content</code> (with Blender's Python module, <code>pip install bpy</code>), or
+<code>blender --background --python tools/blender/generate_soldier.py -- content</code>, builds the rig from its file, the
+grey-box soldier, the lancer, the player, and every clip.</p>
+<p>The clips are posed with simple IK: feet planted, hands on a rifle's grips, and the hips moved so the eye is where the
+simulation has it, on average, through each clip the rig marks with an eye. It saves them as the source files above
+and exports them. Name a model (<code>... content lancer</code>) to make only that model's file.</p>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>It stops if the files already exist</strong>, which they will once anyone has worked on them.</li>
+<li><strong><code>--force</code> writes the starter files back over them.</strong> Be sure you mean it!</li>
+</ul>
+<h2 id="a-new-model-for-an-enemy">A new model for an enemy</h2>
+<p>One model on a rig can be the look for any number of enemies. Here's the flow:</p>
+<ol>
+<li>Model it on the rig as above (start from a copy of <code>soldier.blend</code>, saved as
+<code>content/raw/characters/&lt;model&gt;.blend</code>).</li>
+<li>Export it to <code>content/characters/&lt;model&gt;.gltf</code>.</li>
+<li>Set it as the variant's <code>model</code> in <code>content/defs/ai/enemies.json</code> (in Studio: Behavior &gt; Enemies), along with its
+<code>body</code> (the body type, <code>humanoid</code>).</li>
+</ol>
+<p>Studio's Bodies mode shows it playing its clips (<code>--mode bodies --body humanoid:&lt;model&gt;</code>). The clips belong to the rig
+and are shared, so the new model doesn't need any of its own.</p>
+<h2 id="a-new-kind-of-body">A new kind of body</h2>
+<p>A rig is just a file! Copy <code>content/rigs/humanoid.json</code> to <code>&lt;id&gt;.json</code> and change it, either in a text editor or in
+Studio's Bodies mode, Rig tab (which draws the skeleton as you edit). It holds:</p>
+<ul>
+<li>its bones (a parent comes before its children; head and tail in the rest pose, in the game's axes: +Y up,
+-Z forward, +X to the body's right);</li>
+<li>its sockets;</li>
+<li>its IK chains (a run of bones from root to tip, the direction its middle joint bends, and what it reaches for:
+<code>grip</code>, <code>ground</code> or <code>look</code>);</li>
+<li>its masks (from these bones down, <code>except</code> the ones listed);</li>
+<li>the mask hidden in first person;</li>
+<li>the body the simulation shoots at;</li>
+<li>its clips.</li>
+</ul>
+<p><strong>Build rig</strong> then makes its armature. The game checks every rig when it reads it and reports every problem.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

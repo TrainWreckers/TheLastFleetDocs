@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>The horde | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="The horde | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="the-horde">The horde</h1>
+
+<p>So you want to tune the Choir's swarmlings, or teach them something new? This page walks through how they work. The
+code is in <code>src/LastFleet.AI/Horde</code>, and how it all fits into the simulation is covered in
+<a href="architecture.html#the-horde">architecture.md</a>.</p>
+<h2 id="trying-it">Trying it</h2>
+<p>The quickest way to get a feel for them is to throw a few hundred at yourself:</p>
+<ul>
+<li><p><code>--horde 300</code> calls a horde of 300 when the level starts. With <code>--headless &lt;ticks&gt;</code> it prints how many are alive and
+how long a tick took. Add <code>--breach &lt;i&gt;</code> to have the horde blow open the station's hull breach i and come through it
+(add <code>--smoke</code> and <code>--camera</code> to watch one). Use <code>--breach near</code> for the nearest breach it can reach you from, or
+<code>--breach here</code> to have it come into the room you're in.</p>
+</li>
+<li><p>F3, AI section. First pick where the hordes come from:</p>
+<ul>
+<li>wherever the horde likes;</li>
+<li><strong>in my room</strong>: on the floor 4 to 10 m from you along the path, all at once, whether you can see them or not;</li>
+<li><strong>through the nearest breach</strong>: the one nearest to you along the path, blown open if it's shut, or your room if
+none can reach you.</li>
+</ul>
+<p>Then use <strong>Horde of 30</strong>, <strong>Horde of 300</strong>, <strong>Lancers</strong> (a squad of three), <strong>Stripper</strong>, <strong>Spitter</strong> and <strong>Clear
+horde</strong> (which also clears the Choir's bigger bodies and their acid). The section also shows how many are alive and how
+many are still coming, and the run's pacing. <code>HordeSystem</code> has its own line in the system timings.</p>
+</li>
+</ul>
+<h2 id="packs">Packs</h2>
+<p>What happens when a horde shows up while the squad is still sneaking around (the run's hordes before the hack)? It
+doesn't come straight down the field at you. That horde is a <em>pack</em>.</p>
+<p>A pack roams together at a walk (38% of its speed), heading for a spot 8 to 18 m away that it can walk to. The path is
+found from the spot outward, and each body steps to the next cell closer. Then it picks the next spot, and it gives up
+on one it hasn't reached within 14 s.</p>
+<p>Every body looks and listens a few times a second, and ANY of these sets off the whole pack (<code>Swarmling.Pack</code>;
+<code>HordeSystem.Packs</code>):</p>
+<ul>
+<li>someone within 3.5 m;</li>
+<li>a player's gun fired within 28 m (through walls), or a fight there; a suppressed gun only within 7 m;</li>
+<li>someone in the open within 16 m ahead of it or to the side;</li>
+<li>a hit on any of its bodies.</li>
+</ul>
+<p>From then on it hunts like any other horde. Start the hack (or the extraction) and every pack comes for the squad!
+The hack's own hordes, and hordes called by hand, hunt from the start. F3's AI section can call any horde as a roaming
+pack too (there's a checkbox next to where it comes from).</p>
+<h2 id="tuning">Tuning</h2>
+<p>Every number lives in <code>HordeTuning</code>. It's a record, so tests and tools can make their own copy with <code>with</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Speed</code>, <code>SpeedSpread</code></td>
+<td>5.6 m/s, ±12%</td>
+<td>Running speed. A bit faster than a player runs, and each body gets its own</td>
+</tr>
+<tr>
+<td><code>Acceleration</code></td>
+<td>28 m/s²</td>
+<td>How quickly they turn and get up to speed</td>
+</tr>
+<tr>
+<td><code>Health</code></td>
+<td>30</td>
+<td>Two auto rifle body hits, or one to the head</td>
+</tr>
+<tr>
+<td><code>RoamSpeedScale</code>, <code>RoamMin</code>, <code>RoamMax</code>, <code>RoamGoalSeconds</code></td>
+<td>0.38, 8 m, 18 m, 14 s</td>
+<td>A roaming pack's walking speed, how far away it picks its next spot, and how long it keeps trying</td>
+</tr>
+<tr>
+<td><code>TouchRange</code>, <code>HearRange</code>, <code>SightRange</code>, <code>LoudSeconds</code></td>
+<td>3.5 m, 28 m, 16 m, 0.6 s</td>
+<td>What a roaming pack notices: anyone within the first range, a gun fired within the second (within the last <code>LoudSeconds</code>), anyone in the open within the third</td>
+</tr>
+<tr>
+<td><code>SuppressedHearRange</code></td>
+<td>7 m</td>
+<td>How far a roaming pack hears a suppressed gun (about a room's width)</td>
+</tr>
+<tr>
+<td><code>DirectRange</code></td>
+<td>8 m</td>
+<td>Closer than this and in the open, they run straight at the player instead of following the field</td>
+</tr>
+<tr>
+<td><code>Spacing</code>, <code>SeparationStrength</code></td>
+<td>0.7 m, 9</td>
+<td>How far apart they stay, and how hard they push apart</td>
+</tr>
+<tr>
+<td><code>AttackRange</code>, <code>BiteReach</code></td>
+<td>1.35 m, 1.9 m</td>
+<td>A lunge starts within the first. The bite lands if the player is still within the second</td>
+</tr>
+<tr>
+<td><code>WindUp</code></td>
+<td>0.3 s</td>
+<td>The telegraph: rooted, rearing, shrieking</td>
+</tr>
+<tr>
+<td><code>BiteDamage</code>, <code>BiteBleed</code></td>
+<td>7, 1.5 s</td>
+<td>A bite's damage, or the bleed-out time it takes from a downed player</td>
+</tr>
+<tr>
+<td><code>AttackCooldown</code></td>
+<td>0.9 s</td>
+<td>Time between one body's lunges</td>
+</tr>
+<tr>
+<td><code>CorpseSeconds</code></td>
+<td>3 s</td>
+<td>How long the dead stay on the floor</td>
+</tr>
+<tr>
+<td><code>FieldTicks</code></td>
+<td>12</td>
+<td>How often the field is rebuilt</td>
+</tr>
+<tr>
+<td><code>StandingCost</code></td>
+<td>3 m</td>
+<td>Standing players count as this much further away than downed ones</td>
+</tr>
+<tr>
+<td><code>SoldierCost</code></td>
+<td>10 m</td>
+<td>Soldiers in a fight count as this much further away than downed players</td>
+</tr>
+<tr>
+<td><code>SpawnMin</code>, <code>SpawnMax</code></td>
+<td>25 m, 55 m</td>
+<td>Where hordes spawn, measured along the path to the nearest player</td>
+</tr>
+<tr>
+<td><code>SpawnPerTick</code>, <code>SpawnPerPlace</code></td>
+<td>6, 18</td>
+<td>How fast they spawn, and how many come from one place before moving to the next</td>
+</tr>
+<tr>
+<td><code>MaxAlive</code></td>
+<td>300</td>
+<td>The most that can be alive at once</td>
+</tr>
+<tr>
+<td><code>FirstHorde</code>, <code>HordeInterval</code></td>
+<td>50 s, 75 s</td>
+<td>While infiltrating: when the first horde comes, and how often after that (only while the Director is building up). A run's pacing (<code>RunPacing</code>) decides whether hordes come during infiltration at all, from which deck, and how much sooner</td>
+</tr>
+<tr>
+<td><code>HordeBase</code> + <code>HordePerPlayer</code></td>
+<td>8 + 5 per player</td>
+<td>An infiltration horde</td>
+</tr>
+<tr>
+<td><code>WaveBase</code> + <code>WavePerPlayer</code></td>
+<td>14 + 7 per player</td>
+<td>The horde that comes with each hack wave</td>
+</tr>
+<tr>
+<td><code>ExtractBase</code> + <code>ExtractPerPlayer</code></td>
+<td>20 + 8 per player</td>
+<td>The horde at the start of the extraction</td>
+</tr>
+<tr>
+<td><code>TrickleBase</code>, <code>TrickleInterval</code></td>
+<td>2 + 1 per player, 10 s</td>
+<td>The trickle during the hack and the extraction</td>
+</tr>
+<tr>
+<td><code>StripperEvery</code>, <code>SpitterEvery</code></td>
+<td>40, 30</td>
+<td>A horde brings one Stripper for every this many bodies called, and the same for Spitters</td>
+</tr>
+<tr>
+<td><code>MaxStrippers</code>, <code>MaxSpitters</code></td>
+<td>3, 4</td>
+<td>The most that can be around at once</td>
+</tr>
+<tr>
+<td><code>LancersFromWave</code></td>
+<td>2</td>
+<td>Choir Lancers come with every hack wave from this one on, and at the extraction</td>
+</tr>
+<tr>
+<td><code>LancerBase</code></td>
+<td>2 + 1 for every two players</td>
+<td>A Lancer squad</td>
+</tr>
+<tr>
+<td><code>BreachChance</code>, <code>BreachCooldown</code></td>
+<td>0.5, 25 s</td>
+<td>The chance an infiltration horde blows a hull breach open (hack waves and the extraction always try), and the minimum time between two breaches</td>
+</tr>
+<tr>
+<td><code>BreachMin</code></td>
+<td>18 m</td>
+<td>A breach is only used if it's at least this far from the players along the path (and at most <code>SpawnMax</code>)</td>
+</tr>
+<tr>
+<td><code>BreachClear</code></td>
+<td>6 m</td>
+<td>Nobody can be this close to where a breach's horde lands</td>
+</tr>
+<tr>
+<td><code>OpenBreachShare</code></td>
+<td>0.7</td>
+<td>How often a horde with no breach to blow comes through an open one in reach instead</td>
+</tr>
+<tr>
+<td><code>BreachDelay</code>, <code>BreachInterval</code></td>
+<td>1 s, 0.07 s</td>
+<td>Time from the blast to the first body coming out, and from one body to the next</td>
+</tr>
+<tr>
+<td><code>BreachPerPlace</code></td>
+<td>40</td>
+<td>How many bodies come through one breach before the next place is picked</td>
+</tr>
+<tr>
+<td><code>ClimberShare</code></td>
+<td>0.3</td>
+<td>The share that climbs walls and crawls across ceilings</td>
+</tr>
+<tr>
+<td><code>ClimbSpeed</code>, <code>CeilingSpeedScale</code></td>
+<td>3.2 m/s, 0.85</td>
+<td>Speed up a wall, and speed along a ceiling as a fraction of running speed</td>
+</tr>
+<tr>
+<td><code>ClimbMinRange</code></td>
+<td>10 m</td>
+<td>Climbers only go up when their target is at least this far away</td>
+</tr>
+<tr>
+<td><code>DropMin</code>, <code>DropMax</code></td>
+<td>1.8 m, 4.5 m</td>
+<td>A climber lets go within <code>DropMax</code> of its target, but never closer than <code>DropMin</code> (it drops off to the side)</td>
+</tr>
+<tr>
+<td><code>CeilingMin</code>, <code>CeilingMax</code></td>
+<td>2.4 m, 7.6 m</td>
+<td>The range of ceiling heights above the floor it can hang from</td>
+</tr>
+</tbody>
+</table>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>Hit volumes are constants</strong> on <code>Swarmling</code> (<code>Height</code>, <code>Radius</code>, <code>HeadRadius</code>, <code>HeadForward</code>, <code>HeadUp</code>). The model
+(content/models/swarmling.gltf) is lined up with them, so change both together.</li>
+<li><strong>Staggering isn't here.</strong> 20 damage or more staggers a swarmling for 0.35 s, but that's <code>swarmStaggerDamage</code> and
+<code>swarmStaggerSeconds</code> in <code>content/defs/loot/impact.json</code> (Studio's Armory &gt; Impact).</li>
+</ul>
+<h2 id="strippers-and-spitters">Strippers and Spitters</h2>
+<p>These are the Choir's bigger bodies. <code>ChoirSystem</code> runs them, and every number is in <code>ChoirTuning</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StripperReach</code>, <code>StripperWindUp</code></td>
+<td>2.1 m, 0.65 s</td>
+<td>A Stripper winds up its blow when it's this close, for this long</td>
+</tr>
+<tr>
+<td><code>StripperDamage</code>, <code>StripperPropDamage</code></td>
+<td>32, 220</td>
+<td>The blow's damage to everyone in front of it, and to the props there</td>
+</tr>
+<tr>
+<td><code>StripperCooldown</code></td>
+<td>1.8 s</td>
+<td>Time between blows</td>
+</tr>
+<tr>
+<td><code>SpitterNear</code>, <code>SpitterFar</code>, <code>SpitterRange</code></td>
+<td>9 m, 22 m, 26 m</td>
+<td>A Spitter stays between the first two distances, and throws at targets within the third</td>
+</tr>
+<tr>
+<td><code>SpitterWindUp</code>, <code>SpitterCooldown</code></td>
+<td>0.7 s, 3.4 s</td>
+<td>How long it rears up to throw, and the time between throws</td>
+</tr>
+<tr>
+<td><code>GlobDamage</code></td>
+<td>12</td>
+<td>Damage from a glob that hits someone square on</td>
+</tr>
+<tr>
+<td><code>PoolRadius</code>, <code>PoolSeconds</code>, <code>PoolDamage</code></td>
+<td>2.2 m, 6 s, 5</td>
+<td>The pool it leaves behind, and the damage it does every half second to anyone standing in it</td>
+</tr>
+</tbody>
+</table>
+<p>Their sizes, speeds and health are in <code>ChoirBodies</code> (Simulation), which clients also use to build their copies.</p>
+<h2 id="the-model">The model</h2>
+<p>The swarmling is <code>content/models/swarmling.gltf</code>, made and animated in Blender (the guide is
+<a href="blender/creatures.html">creatures.md</a>). Its head and body have to stay where the hit volumes are (see above).</p>
+<p><code>SwarmAnimator</code> picks which animation it plays:</p>
+<ul>
+<li><code>StrideMeters</code> (1.1 m) is how far one loop of Run carries it, so the feet keep up with the ground.</li>
+<li><code>NearDistance</code> (22 m) is where the far body takes over.</li>
+<li><code>DrawDistance</code> (90 m) is where it stops being drawn.</li>
+</ul>
+<h2 id="sounds">Sounds</h2>
+<p><code>swarm_screech</code> (the wind-up), <code>swarm_bite</code>, <code>swarm_death</code> and <code>swarm_skitter</code> (a loop for the crowd near you) are cues
+in <code>content/defs/sounds.json</code>, just like any other. See <a href="sound.html">sound.md</a> to replace the placeholders.</p>
+<h2 id="over-the-network">Over the network</h2>
+<p>A horde can be hundreds strong, so its updates get their own byte budget per snapshot. <code>SwarmView</code> (on
+the host, one per client) and <code>SwarmReplica</code> (on the client) send and draw it. How it works is in
+<a href="architecture.html#the-horde">architecture.md</a>. The numbers to tune are on <code>SwarmView</code>:</p>
+<ul>
+<li><code>Range</code> (70 m): which bodies get sent.</li>
+<li><code>TargetBytes</code> (360): the client's budget from one snapshot to the next, which the horde's updates are sized to fit.
+Each update costs about 8 bytes, there are 2 to 16 updates per snapshot, and there are 20 snapshots a second.</li>
+<li><code>ExtrapolateSeconds</code> (0.5 s): how far a client keeps moving a body past its last update.</li>
+<li>The tolerances that decide which bodies get updated first: 6 cm at the client's feet, plus 8 mm for every meter
+further away.</li>
+</ul>
+<p><code>HordeSoakTests</code> measures these on stations 3 to 10. It checks bandwidth and, on average across the stations, how far
+from its real position the horde is drawn. That second one is over budget for now. It's a networking task on the
+roadmap, so the check reports the number and is skipped until it's met. It also checks, on each station, how close each
+client draws the horde to where the host knows it drew it.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

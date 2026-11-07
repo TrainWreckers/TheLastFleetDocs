@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Refinery | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Refinery | The Last Fleet ">
+      
+      <meta name="description" content="The fleet&#39;s refinery and the armory&#39;s fabricator, driven by the loot data (grades, refinery tiers, recipes, fabrication). Raw materials brought back go into the fleet&#39;s stores (). Each jump the refinery turns them into graded material, as many batches as its tier allows, in the grades it can make. Upgrading the refinery costs fleet supplies. The fabricator spends graded material on a weapon or a part at the grade&#39;s item level.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Client_Fleet_Refinery.md&amp;value=---%0Auid%3A%20LastFleet.Client.Fleet.Refinery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Client.Fleet.Refinery">
+
+
+
+  <h1 id="LastFleet_Client_Fleet_Refinery" data-uid="LastFleet.Client.Fleet.Refinery" class="text-break">
+Class Refinery  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<span class="xref">Client</span>.<a class="xref" href="LastFleet.Client.Fleet.html">Fleet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The fleet's refinery and the armory's fabricator, driven by the loot data (grades, refinery tiers, recipes,
+fabrication). Raw materials brought back go into the fleet's stores (<a class="xref" href="LastFleet.AI.Fleet.FleetSim.html#LastFleet_AI_Fleet_FleetSim_Deliver_LastFleet_AI_Fleet_FleetState_LastFleet_Simulation_Components_Cargo_FleetHaul__">Deliver(FleetState, in FleetHaul)</a>). Each jump the
+refinery turns them into graded material, as many batches as its tier allows, in the grades it can make. Upgrading
+the refinery costs fleet supplies. The fabricator spends graded material on a weapon or a part at the grade's item
+level.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Refinery</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Refinery</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_CanAfford_" data-uid="LastFleet.Client.Fleet.Refinery.CanAfford*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_CanAfford_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_Definitions_RefineryTier_" data-uid="LastFleet.Client.Fleet.Refinery.CanAfford(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.Definitions.RefineryTier)">
+  CanAfford(FleetState, RefineryTier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the fleet's stores have enough to pay for upgrading to <code class="paramref">tier</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanAfford(FleetState fleet, RefineryTier tier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>tier</code> <a class="xref" href="LastFleet.Loot.Definitions.RefineryTier.html">RefineryTier</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_CanFabricate_" data-uid="LastFleet.Client.Fleet.Refinery.CanFabricate*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_CanFabricate_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_Definitions_Fabrication_" data-uid="LastFleet.Client.Fleet.Refinery.CanFabricate(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.Definitions.Fabrication)">
+  CanFabricate(FleetState, Fabrication)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if the fleet has the graded material that <code class="paramref">fabrication</code> costs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanFabricate(FleetState fleet, Fabrication fabrication)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>fabrication</code> <a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_Fabricate_" data-uid="LastFleet.Client.Fleet.Refinery.Fabricate*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_Fabricate_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_LastFleet_Loot_Definitions_Fabrication_" data-uid="LastFleet.Client.Fleet.Refinery.Fabricate(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog,LastFleet.Loot.Definitions.Fabrication)">
+  Fabricate(FleetState, LootCatalog, Fabrication)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fabricates <code class="paramref">fabrication</code>, paying with graded material. Returns a weapon, or a part as a pile.
+Returns null if the fleet doesn't have enough. The result is determined by the fleet's seed and how many items
+it has fabricated so far.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (RolledWeapon? Weapon, ItemPile Part)? Fabricate(FleetState fleet, LootCatalog catalog, Fabrication fabrication)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+    <dt><code>fabrication</code> <a class="xref" href="LastFleet.Loot.Definitions.Fabrication.html">Fabrication</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="LastFleet.Loot.Rolling.RolledWeapon.html">RolledWeapon</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.loot.rolling.rolledweapon,lastfleet.simulation.components.gear.itempile-.weapon">Weapon</a>, <a class="xref" href="LastFleet.Simulation.Components.Gear.ItemPile.html">ItemPile</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.loot.rolling.rolledweapon,lastfleet.simulation.components.gear.itempile-.part">Part</a>)?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_Next_" data-uid="LastFleet.Client.Fleet.Refinery.Next*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_Next_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_" data-uid="LastFleet.Client.Fleet.Refinery.Next(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog)">
+  Next(FleetState, LootCatalog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the tier an upgrade would reach, or null if already at the top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RefineryTier? Next(FleetState fleet, LootCatalog catalog)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.RefineryTier.html">RefineryTier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_Refine_" data-uid="LastFleet.Client.Fleet.Refinery.Refine*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_Refine_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_" data-uid="LastFleet.Client.Fleet.Refinery.Refine(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog)">
+  Refine(FleetState, LootCatalog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs one jump's refining: as many batches as the tier allows, best grade first, each recipe as many times as the
+raw materials allow. Returns one line for each thing that was made.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; Refine(FleetState fleet, LootCatalog catalog)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_Tier_" data-uid="LastFleet.Client.Fleet.Refinery.Tier*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_Tier_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_" data-uid="LastFleet.Client.Fleet.Refinery.Tier(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog)">
+  Tier(FleetState, LootCatalog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the fleet's refinery tier from the data (the first tier if there's no data for it), or null if there are
+no tiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RefineryTier? Tier(FleetState fleet, LootCatalog catalog)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Loot.Definitions.RefineryTier.html">RefineryTier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Client_Fleet_Refinery_Upgrade_" data-uid="LastFleet.Client.Fleet.Refinery.Upgrade*"></a>
+
+  <h3 id="LastFleet_Client_Fleet_Refinery_Upgrade_LastFleet_AI_Fleet_FleetState_LastFleet_Loot_LootCatalog_" data-uid="LastFleet.Client.Fleet.Refinery.Upgrade(LastFleet.AI.Fleet.FleetState,LastFleet.Loot.LootCatalog)">
+  Upgrade(FleetState, LootCatalog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Client/Fleet/Refinery.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Upgrades the refinery one tier, paying from the fleet's stores. Returns false if it's already at the top or the
+fleet can't afford it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Upgrade(FleetState fleet, LootCatalog catalog)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+    <dt><code>catalog</code> <a class="xref" href="LastFleet.Loot.LootCatalog.html">LootCatalog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

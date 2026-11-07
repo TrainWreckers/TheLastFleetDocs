@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WeaponTraitRules | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WeaponTraitRules | The Last Fleet ">
+      
+      <meta name="description" content="The tuning numbers behind , read from the loot data (content/defs/loot/traits.json).  holds the values the game ships with. Each trait should be noticeable in a fight but never decide one on its own.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Simulation_Weapons_WeaponTraitRules.md&amp;value=---%0Auid%3A%20LastFleet.Simulation.Weapons.WeaponTraitRules%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules">
+
+
+
+  <h1 id="LastFleet_Simulation_Weapons_WeaponTraitRules" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules" class="text-break">
+Class WeaponTraitRules  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Simulation.html">Simulation</a>.<a class="xref" href="LastFleet.Simulation.Weapons.html">Weapons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Simulation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The tuning numbers behind <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponTraits.html">WeaponTraits</a>, read from the loot data
+(<code>content/defs/loot/traits.json</code>). <a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html#LastFleet_Simulation_Weapons_WeaponTraitRules_Default">Default</a> holds the values the game ships with. Each trait
+should be noticeable in a fight but never decide one on its own.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record WeaponTraitRules : IEquatable&lt;WeaponTraitRules&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WeaponTraitRules</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html">WeaponTraitRules</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Simulation_Weapons_WeaponTraitRules_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>One instance is shared by the whole world. The host and a client's prediction must use the same instance, since
+jams are decided on both.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_ArcReach_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.ArcReach*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_ArcReach" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.ArcReach">
+  ArcReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Arc: how far a hit can jump to the next enemy, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ArcReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_ArcShare_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.ArcShare*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_ArcShare" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.ArcShare">
+  ArcShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Arc: fraction of the hit's damage that the jump deals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ArcShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_CorrosionSeconds_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CorrosionSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_CorrosionSeconds" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CorrosionSeconds">
+  CorrosionSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corrosive: how long a hit keeps damaging the target, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CorrosionSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_CorrosionShare_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CorrosionShare*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_CorrosionShare" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CorrosionShare">
+  CorrosionShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corrosive: damage per second, as a fraction of the weapon's damage per hit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CorrosionShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_CrouchedDamage_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CrouchedDamage*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_CrouchedDamage" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.CrouchedDamage">
+  CrouchedDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Steady hand: damage multiplier while crouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CrouchedDamage { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_Default_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.Default*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_Default" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shipped tuning, used when the data doesn't override it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponTraitRules Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Simulation.Weapons.WeaponTraitRules.html">WeaponTraitRules</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerMaxKills_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerMaxKills*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerMaxKills" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerMaxKills">
+  HungerMaxKills
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hunger: maximum number of banked kills.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HungerMaxKills { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerPerKill_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerPerKill*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerPerKill" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerPerKill">
+  HungerPerKill
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hunger: extra damage per banked kill.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HungerPerKill { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerSeconds_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerSeconds" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerSeconds">
+  HungerSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hunger: seconds without a kill before the banked kills reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HungerSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerShotCost_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerShotCost*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_HungerShotCost" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.HungerShotCost">
+  HungerShotCost
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hunger: health each shot costs. It never takes the last point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HungerShotCost { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_JamChance_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.JamChance*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_JamChance" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.JamChance">
+  JamChance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scrapwork: chance per shot that the weapon jams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float JamChance { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_JamSeconds_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.JamSeconds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_JamSeconds" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.JamSeconds">
+  JamSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scrapwork: how long a jam takes to clear, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float JamSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_KillHeal_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.KillHeal*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_KillHeal" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.KillHeal">
+  KillHeal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restoration: health restored per kill.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float KillHeal { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_LifestealShare_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.LifestealShare*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_LifestealShare" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.LifestealShare">
+  LifestealShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lifesteal: fraction of a hit's damage that heals the shooter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float LifestealShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_TollingRounds_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.TollingRounds*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_TollingRounds" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.TollingRounds">
+  TollingRounds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tolling: rounds a precision kill puts back in the magazine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TollingRounds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_VigilDamage_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.VigilDamage*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_VigilDamage" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.VigilDamage">
+  VigilDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vigil: damage multiplier while holding the objective.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float VigilDamage { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_VigilReach_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.VigilReach*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_VigilReach" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.VigilReach">
+  VigilReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vigil: how close to the terminal counts as holding it, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float VigilReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Simulation_Weapons_WeaponTraitRules_DamageMultiplier_" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.DamageMultiplier*"></a>
+
+  <h3 id="LastFleet_Simulation_Weapons_WeaponTraitRules_DamageMultiplier_LastFleet_Simulation_Components_Arms_WeaponStats__LastFleet_Simulation_Components_Arms_WeaponState__LastFleet_Simulation_Components_Characters_MovementState__" data-uid="LastFleet.Simulation.Weapons.WeaponTraitRules.DamageMultiplier(LastFleet.Simulation.Components.Arms.WeaponStats@,LastFleet.Simulation.Components.Arms.WeaponState@,LastFleet.Simulation.Components.Characters.MovementState@)">
+  DamageMultiplier(in WeaponStats, in WeaponState, in MovementState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Simulation/Weapons/WeaponTraitRules.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the damage multiplier a weapon's traits give its next shot: steady hand while crouched, hunger from
+banked kills, and vigil while holding the objective.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DamageMultiplier(in WeaponStats stats, in WeaponState state, in MovementState movement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponStats.html">WeaponStats</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="LastFleet.Simulation.Components.Arms.WeaponState.html">WeaponState</a></dt>
+    <dd></dd>
+    <dt><code>movement</code> <a class="xref" href="LastFleet.Simulation.Components.Characters.MovementState.html">MovementState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

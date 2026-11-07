@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LobbyHost | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LobbyHost | The Last Fleet ">
+      
+      <meta name="description" content="The host&#39;s lobby, where the squad gathers between missions. On its own it only holds the host. Once it&#39;s opened on a connection with , friends can join, mark themselves ready, and see the mission the host has set up and what everyone is carrying.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Networking_Lobby_LobbyHost.md&amp;value=---%0Auid%3A%20LastFleet.Networking.Lobby.LobbyHost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Networking.Lobby.LobbyHost">
+
+
+
+  <h1 id="LastFleet_Networking_Lobby_LobbyHost" data-uid="LastFleet.Networking.Lobby.LobbyHost" class="text-break">
+Class LobbyHost  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Networking.html">Networking</a>.<a class="xref" href="LastFleet.Networking.Lobby.html">Lobby</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Networking.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The host's lobby, where the squad gathers between missions. On its own it only holds the host. Once it's opened on
+a connection with <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Open_LastFleet_Networking_Transport_ITransport_">Open(ITransport)</a>, friends can join, mark themselves ready, and see the mission the host has set
+up and what everyone is carrying.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LobbyHost : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LobbyHost</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Networking_Lobby_LobbyHost_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The connection stays open between missions. <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_BeginMission_System_String_System_Boolean_">BeginMission(string, bool)</a> gives each mission's
+<a class="xref" href="LastFleet.Networking.Session.NetHost.html">NetHost</a> a <a class="xref" href="LastFleet.Networking.Lobby.RelayTransport.html">RelayTransport</a> on top of it, and the lobby forwards mission messages
+to it until <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_EndMission_System_String_">EndMission(string)</a>. Call <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Update">Update()</a> every frame, and before each mission tick's
+<code>NetHost.Receive</code>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost__ctor_" data-uid="LastFleet.Networking.Lobby.LobbyHost.#ctor*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost__ctor_System_String_System_String_" data-uid="LastFleet.Networking.Lobby.LobbyHost.#ctor(System.String,System.String)">
+  LobbyHost(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a lobby with only the host in it. Call <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Open_LastFleet_Networking_Transport_ITransport_">Open(ITransport)</a> to take clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LobbyHost(string hostName, string level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hostName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The host's name, which is first in the member list.</p>
+</dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The level name of the mission that's set up to start with.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_ContentFingerprint_" data-uid="LastFleet.Networking.Lobby.LobbyHost.ContentFingerprint*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_ContentFingerprint" data-uid="LastFleet.Networking.Lobby.LobbyHost.ContentFingerprint">
+  ContentFingerprint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The host's content fingerprint (<code>ContentFingerprint</code> from LastFleet.Content). A client whose hello has a
+different one is turned away. The default is 0, for a host and clients that don't check content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong ContentFingerprint { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_FleetRequests_" data-uid="LastFleet.Networking.Lobby.LobbyHost.FleetRequests*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_FleetRequests" data-uid="LastFleet.Networking.Lobby.LobbyHost.FleetRequests">
+  FleetRequests
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What joined players have asked the host to do with the fleet, oldest first. The caller dequeues them, checks
+each against the fleet, carries it out, and calls <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_PublishFleet_LastFleet_AI_Fleet_FleetState_">PublishFleet(FleetState)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Queue&lt;FleetAsk&gt; FleetRequests { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1">Queue</a>&lt;<a class="xref" href="LastFleet.Networking.Lobby.FleetAsk.html">FleetAsk</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_InMission_" data-uid="LastFleet.Networking.Lobby.LobbyHost.InMission*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_InMission" data-uid="LastFleet.Networking.Lobby.LobbyHost.InMission">
+  InMission
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True from <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_BeginMission_System_String_System_Boolean_">BeginMission(string, bool)</a> until <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_EndMission_System_String_">EndMission(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InMission { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_IsOpen_" data-uid="LastFleet.Networking.Lobby.LobbyHost.IsOpen*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_IsOpen" data-uid="LastFleet.Networking.Lobby.LobbyHost.IsOpen">
+  IsOpen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True while friends can join.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOpen { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Level_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Level*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Level" data-uid="LastFleet.Networking.Lobby.LobbyHost.Level">
+  Level
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level name of the mission that's set up next, or being played.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Level { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Log_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Log*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Log" data-uid="LastFleet.Networking.Lobby.LobbyHost.Log">
+  Log
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Join and leave messages for the log. The caller dequeues them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Queue&lt;string&gt; Log { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1">Queue</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Members_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Members*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Members" data-uid="LastFleet.Networking.Lobby.LobbyHost.Members">
+  Members
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Everyone in the lobby, with the host first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;LobbyMember&gt; Members { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Networking.Lobby.LobbyMember.html">LobbyMember</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Notice_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Notice*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Notice" data-uid="LastFleet.Networking.Lobby.LobbyHost.Notice">
+  Notice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A message shown to everyone in the lobby, saying how the last mission went.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Notice { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Playing_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Playing*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Playing" data-uid="LastFleet.Networking.Lobby.LobbyHost.Playing">
+  Playing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level being played while <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_InMission">InMission</a> is true. This is either a mission or the hub between
+missions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Playing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_ReadyCount_" data-uid="LastFleet.Networking.Lobby.LobbyHost.ReadyCount*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_ReadyCount" data-uid="LastFleet.Networking.Lobby.LobbyHost.ReadyCount">
+  ReadyCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of clients who have said they're ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReadyCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Transport_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Transport*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Transport" data-uid="LastFleet.Networking.Lobby.LobbyHost.Transport">
+  Transport
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lobby's connection while it's open, otherwise null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITransport? Transport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Networking.Transport.ITransport.html">ITransport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_BeginMission_" data-uid="LastFleet.Networking.Lobby.LobbyHost.BeginMission*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_BeginMission_System_String_System_Boolean_" data-uid="LastFleet.Networking.Lobby.LobbyHost.BeginMission(System.String,System.Boolean)">
+  BeginMission(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts <code class="paramref">level</code> for everyone in the lobby. Returns the connection for the mission's host, which
+is a relay on top of the lobby's connection with every member already connected. Returns null if the lobby
+isn't open.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RelayTransport? BeginMission(string level, bool keepSetUp = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The level to play.</p>
+</dd>
+    <dt><code>keepSetUp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to leave <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Level">Level</a> as it is. Used for the hub between missions, which is played but isn't the
+mission that's set up.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Networking.Lobby.RelayTransport.html">RelayTransport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Close_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Close*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Close" data-uid="LastFleet.Networking.Lobby.LobbyHost.Close">
+  Close()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes the lobby and disconnects everyone who joined. A mission that's running carries on with just the host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Dispose_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Dispose*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Dispose" data-uid="LastFleet.Networking.Lobby.LobbyHost.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_EndMission_" data-uid="LastFleet.Networking.Lobby.LobbyHost.EndMission*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_EndMission_System_String_" data-uid="LastFleet.Networking.Lobby.LobbyHost.EndMission(System.String)">
+  EndMission(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ends the mission and sends everyone back to the lobby with <code class="paramref">outcome</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndMission(string outcome)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>outcome</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Open_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Open*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Open_LastFleet_Networking_Transport_ITransport_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Open(LastFleet.Networking.Transport.ITransport)">
+  Open(ITransport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lets friends join on <code class="paramref">transport</code>, which must be a hosting connection, until
+<a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Close">Close()</a> is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Open(ITransport transport)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transport</code> <a class="xref" href="LastFleet.Networking.Transport.ITransport.html">ITransport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_PublishFleet_" data-uid="LastFleet.Networking.Lobby.LobbyHost.PublishFleet*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_PublishFleet_LastFleet_AI_Fleet_FleetState_" data-uid="LastFleet.Networking.Lobby.LobbyHost.PublishFleet(LastFleet.AI.Fleet.FleetState)">
+  PublishFleet(FleetState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shares <code class="paramref">fleet</code> with everyone in the lobby: sent on the next <a class="xref" href="LastFleet.Networking.Lobby.LobbyHost.html#LastFleet_Networking_Lobby_LobbyHost_Update">Update()</a> if it changed,
+and to each friend as they join. Call it whenever the fleet changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PublishFleet(FleetState fleet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fleet</code> <a class="xref" href="LastFleet.AI.Fleet.FleetState.html">FleetState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_SetHostName_" data-uid="LastFleet.Networking.Lobby.LobbyHost.SetHostName*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_SetHostName_System_String_" data-uid="LastFleet.Networking.Lobby.LobbyHost.SetHostName(System.String)">
+  SetHostName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetHostName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_SetWeapons_" data-uid="LastFleet.Networking.Lobby.LobbyHost.SetWeapons*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_SetWeapons_System_String_System_Collections_Generic_IReadOnlyList_LastFleet_Networking_Lobby_LobbyWeapon__" data-uid="LastFleet.Networking.Lobby.LobbyHost.SetWeapons(System.String,System.Collections.Generic.IReadOnlyList{LastFleet.Networking.Lobby.LobbyWeapon})">
+  SetWeapons(string, IReadOnlyList&lt;LobbyWeapon&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the weapons the member named <code class="paramref">name</code> takes into the next mission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetWeapons(string name, IReadOnlyList&lt;LobbyWeapon&gt; weapons)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>weapons</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Networking.Lobby.LobbyWeapon.html">LobbyWeapon</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Networking_Lobby_LobbyHost_Update_" data-uid="LastFleet.Networking.Lobby.LobbyHost.Update*"></a>
+
+  <h3 id="LastFleet_Networking_Lobby_LobbyHost_Update" data-uid="LastFleet.Networking.Lobby.LobbyHost.Update">
+  Update()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Networking/Lobby/LobbyHost.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes everything that has arrived: joins, leaves, ready flags, and mission messages, which get forwarded to
+the mission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

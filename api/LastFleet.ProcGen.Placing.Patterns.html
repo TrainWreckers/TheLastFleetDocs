@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Placing.Patterns | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Placing.Patterns | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Placing.Patterns">
+
+  <h1 id="LastFleet_ProcGen_Placing_Patterns" data-uid="LastFleet.ProcGen.Placing.Patterns" class="text-break">Namespace LastFleet.ProcGen.Placing.Patterns</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.FurniturePattern.html">FurniturePattern</a></dt>
+      <dd><p>A furniture pattern (a furnishing's <code>patterns</code> in <code>rules.json</code>): a small grid of half-meter cells, drawn
+as the room is seen from above, saying what has to be where (a wall behind, open floor in front, a desk beside) and
+what it places there. A room finds every spot and turn it fits, scores them, and keeps the best until it has as
+many as its count (<span class="xref">LastFleet.ProcGen.Placing.Patterns.PatternPlacer</span>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternFit.html">PatternFit</a></dt>
+      <dd><p>Whether a pattern fits at a cell turned one way, and why not (<a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternPreview.html#LastFleet_ProcGen_Placing_Patterns_PatternPreview_Probe_LastFleet_ProcGen_Placing_Patterns_FurniturePattern_System_Int32_System_Int32_">Probe(FurniturePattern, int, int)</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternPiece.html">PatternPiece</a></dt>
+      <dd><p>One piece a <a class="xref" href="LastFleet.ProcGen.Placing.Patterns.FurniturePattern.html">FurniturePattern</a> places: its prop, standing in the middle of its block of cells (and pushed
+back against any wall the block touches), facing the way it says.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternPlacement.html">PatternPlacement</a></dt>
+      <dd><p>What a room's furniture patterns placed (<span class="xref">LastFleet.ProcGen.Placing.Patterns.PatternPlacer</span>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternPreview.html">PatternPreview</a></dt>
+      <dd><p>A built room as its furnishing's patterns left it, for showing a designer what their patterns do: the room, its
+cells, what the patterns placed, how every pattern and rule did, and why a pattern does or doesn't fit at a cell.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternSymbols.html">PatternSymbols</a></dt>
+      <dd><p>The fixed symbols a pattern's cells are drawn with in <code>rules.json</code>. Letters are the pattern's own, given meaning
+by its key: a piece it places, or a prop that has to be there already.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.RoomCells.html">RoomCells</a></dt>
+      <dd><p>A room as furniture patterns see it: its floor in half-meter cells (the cells of its <span class="xref">LastFleet.ProcGen.Placing.Reach.ReachGrid</span>, with a
+ring of one more around them), each a wall, a doorway, floor or the walkway between its doorways, and what stands
+on it so far.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternCell.html">PatternCell</a></dt>
+      <dd><p>One cell of a <a class="xref" href="LastFleet.ProcGen.Placing.Patterns.FurniturePattern.html">FurniturePattern</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternTurn.html">PatternTurn</a></dt>
+      <dd><p>One way a pattern can lie in a room: turned clockwise by <a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternTurn.html#LastFleet_ProcGen_Placing_Patterns_PatternTurn_Quarters">Quarters</a> quarter turns as seen from above
+(none: its top row to the north), after being mirrored left to right if <a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternTurn.html#LastFleet_ProcGen_Placing_Patterns_PatternTurn_Mirrored">Mirrored</a>.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternCellKind.html">PatternCellKind</a></dt>
+      <dd><p>What one cell of a <a class="xref" href="LastFleet.ProcGen.Placing.Patterns.FurniturePattern.html">FurniturePattern</a> asks of the room, or puts in it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.PatternFacing.html">PatternFacing</a></dt>
+      <dd><p>The way one of a pattern's pieces faces, as the pattern is drawn: toward its bottom row, its top row, or either side.
+The pattern turns and mirrors as it's matched, and its pieces turn with it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Placing.Patterns.RoomCellKind.html">RoomCellKind</a></dt>
+      <dd><p>What one half-meter cell of a room is, as patterns see it (<a class="xref" href="LastFleet.ProcGen.Placing.Patterns.RoomCells.html">RoomCells</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

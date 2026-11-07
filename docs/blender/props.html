@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Modeling props in Blender | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modeling props in Blender | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="modeling-props-in-blender">Modeling props in Blender</h1>
+
+<p>Props are the things lying around and standing in the station: the loot on the floor and on desks, the supply cases
+and footlockers you open, the cargo crates you carry, the cargo pod with its drone, and the station's tanks, reservoir
+and airlock fittings. Their models are glTF files in <code>content/props/</code>. This page shows you how to edit them in
+Blender. The game reads the files when it starts, so reshaping a prop doesn't need any code changes!</p>
+<p>Every top-level object in every file in <code>content/props/</code> is a model the game's data can refer to, as <code>file/Object</code>
+(<code>items/Medkit</code>). A new file, or a new object in a file, shows up in LastFleet Studio's model picker with an icon drawn
+from it, without any code (<a href="../studio/reference.html">the Studio reference</a>). The props in the table below are the ones the game currently draws
+by name.</p>
+<p>The files you start from are the old grey-box props, exported box for box (<code>tools/greybox/generate_props.py</code> made
+them). Replace them however you like, just don't run that script again over your work, or it'll put the boxes back.</p>
+<p>What if a file is missing a prop while you work? The game still draws that prop from its old boxes, so nothing
+disappears. The station's fixtures are the exception: a station can't be built without them, so keep <code>station.gltf</code>'s
+props in place (the tests tell you which one is missing).</p>
+<h2 id="the-files-and-their-props">The files and their props</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Prop</th>
+<th>What it is</th>
+<th>Markers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>items.gltf</code></td>
+<td><code>Medkit</code>, <code>AmmoPack</code>, <code>PodBeacon</code></td>
+<td>Quick-slot items lying around</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Electronics</code>, <code>MedicalSupplies</code>, <code>Munitions</code>, <code>Alloy</code></td>
+<td>The fleet's supplies, in piles</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>WeaponPart</code></td>
+<td>The case for a loose weapon part</td>
+<td></td>
+</tr>
+<tr>
+<td><code>containers.gltf</code></td>
+<td><code>Case</code></td>
+<td>A supply case on a desk: its body, and the inside you see when it's open</td>
+<td><code>Hinge</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Case_Lid</code></td>
+<td>Its lid, with the origin on the hinge</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Footlocker</code></td>
+<td>Only the inside of a footlocker. Its body is part of the level (see below)</td>
+<td><code>Hinge</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Footlocker_Lid</code></td>
+<td>Its lid, with the origin on the hinge</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cargo.gltf</code></td>
+<td><code>Crate</code></td>
+<td>A cargo crate, carried in both arms</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Pod</code></td>
+<td>The cargo pod</td>
+<td><code>Socket_Lid</code>, <code>Clamp</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Pod_Lid</code></td>
+<td>The pod's lid: on top, or torn off beside an overrun pod</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Drone</code></td>
+<td>The cargo drone that takes the pod away</td>
+<td><code>Rotor</code> (one per rotor)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Drone_Rotor</code></td>
+<td>One rotor blade. The game spins one at each <code>Rotor</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>station.gltf</code></td>
+<td><code>Tank</code></td>
+<td>A supply tank against a room's wall (fuel or water)</td>
+<td><code>Hose</code>, <code>Gauge</code>, <code>Gauge_Top</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Reservoir</code></td>
+<td>The deep reservoir, deeper in than a hose can reach</td>
+<td><code>Valve</code>, <code>Riser</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Outlet</code></td>
+<td>The reservoir's outlet, set on a wall near the airlock</td>
+<td><code>Hose</code>, <code>Gauge</code>, <code>Gauge_Top</code>, <code>Pipe</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Valve</code></td>
+<td>A valve's flange, set on the reservoir and on walls along its pipe</td>
+<td><code>Wheel</code>, <code>Stand</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Intake</code></td>
+<td>The dropship's intake in the airlock's hull, where a hose connects</td>
+<td><code>Port</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Chute</code></td>
+<td>The dropship's cargo chute in the hull</td>
+<td><code>Chute</code></td>
+</tr>
+<tr>
+<td><code>furniture.gltf</code></td>
+<td><code>Mess_Table</code>, <code>Chair</code>, <code>Desk</code>, <code>Lab_Bench</code>, <code>Rack</code>, <code>Bunk</code>, <code>Locker</code>, and the rest</td>
+<td>What the generator furnishes rooms with, referred to in <code>props.json</code> (<code>furniture/Mess_Table</code>)</td>
+<td><code>Socket_&lt;Group&gt;_&lt;n&gt;</code>, <code>Attach_&lt;Group&gt;_&lt;n&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-the-game-uses-them">How the game uses them</h3>
+<ul>
+<li><strong>Items</strong> stand on their origin, at any yaw.</li>
+<li><strong>Lids</strong> hinge. A lid's origin is its hinge line, and the closed lid extends from it along the game's forward
+(Blender's +Y). The body's <code>Hinge</code> empty marks where that origin goes. To open a container, the game swings the lid up
+around its X axis by about 100°.</li>
+<li><strong>The footlocker's body</strong> is built into the level, so it's solid and soldiers walk around it. Heads up: if you change
+its size, the lid won't fit anymore. Ask a programmer to change the level's footlocker to match (<code>LockerHalfLength</code>
+and <code>LockerHalfWidth</code> in <code>ModuleReader</code>, and <code>Container.Height</code>).</li>
+<li><strong>The pod's lid</strong> sits at <code>Socket_Lid</code>. The drone comes down onto <code>Clamp</code> in the last 4 s of the defense, then lifts
+the pod away.</li>
+<li><strong>The crate</strong> is one model used for a crate standing around, held in a teammate's arms, and seen in your own arms in
+first person.</li>
+<li><strong>The station's fixtures</strong> and <strong>furniture</strong> have a bit more to them, so they get their own sections below.</li>
+</ul>
+<h3 id="the-stations-fixtures">The station's fixtures</h3>
+<p>The station's fixtures (<code>station.gltf</code>) are built into the level's mesh by the generator, not drawn as props.</p>
+<p><strong>Where they go.</strong> A tank stands where the data's tank kinds put it (Missions &gt; <code>tankKinds</code>: its model, its supplies,
+and its radius and height, which have to fit the model). The reservoir, its outlet and its valves go where the
+reservoir goes, and the intake and chute go in the airlock's hull. Each one faces into the room along Blender's +Y. A
+tank and the reservoir stand on their origin; for the others, the origin is where they meet their wall.</p>
+<p><strong>What's solid.</strong> They're solid the same way room furniture is: what's solid is set per model in
+<code>content/props/colliders.json</code>.</p>
+<ul>
+<li>The shipped fixtures are solid as they're drawn (<code>mesh</code>), so close their meshes, with every face facing out
+(Studio's Models mode names any holes).</li>
+<li>Given <code>authored</code>, a mesh named <code>..._NoCollision</code> is only drawn, one named <code>..._CollisionOnly</code> is only solid, any
+other is both, and anything solid has to be a box.</li>
+</ul>
+<p><strong>What the markers drive.</strong> The game draws a gauge's fill between <code>Gauge</code> and <code>Gauge_Top</code> (0.16 m wide), a valve's
+wheel turning at <code>Wheel</code>, and the hose from <code>Hose</code>. <code>Supply</code> is colored with whatever the tank holds, and <code>Light</code> is
+its coupling's glow (dark on a tank that's found empty).</p>
+<p>A couple of gotchas:</p>
+<ul>
+<li><strong>The reservoir's <code>Riser</code> has to be 3.2 m up</strong>, where its pipe runs under the ceilings.</li>
+<li><strong>Several kinds of tank can share the file</strong> (<code>Tank_Small</code>). Name each one in a tank kind.</li>
+<li><strong>Don't regenerate.</strong> The starting file came from <code>tools/greybox/generate_station_props.py</code>. Don't run it again over
+your work.</li>
+</ul>
+<h3 id="furniture">Furniture</h3>
+<p>Furniture (<code>furniture.gltf</code>) is stamped into the level's mesh wherever the placement rules put it (Studio's
+Levels &gt; Props names the model, and Levels &gt; Rules places it). It stands on its origin, facing into the room along
+Blender's +Y.</p>
+<p><strong>What's solid.</strong> What it's collided with is set per model in <code>content/props/colliders.json</code>, kept beside the models:</p>
+<ul>
+<li>furniture is solid as it's drawn (<code>mesh</code>) unless the file says otherwise;</li>
+<li>a barrel is a <code>cylinder</code>;</li>
+<li>a model given <code>authored</code> is solid the same way a station fixture is (<code>..._NoCollision</code>, <code>..._CollisionOnly</code>, solid
+meshes must be boxes).</li>
+</ul>
+<p>Whatever is solid is also what shots hit, so close the drawn mesh with its faces facing out. A piece that breaks (a
+chair, a glass kiosk) has one solid part (its authored box, or a box or cylinder around it), which disappears when it
+breaks, along with what's drawn.</p>
+<p><strong>Markers.</strong> Two kinds of empty mark it:</p>
+<ul>
+<li><strong><code>Socket_&lt;Group&gt;_&lt;n&gt;</code></strong> is where loot sits on it: <code>Socket_Top_1</code> to <code>Socket_Top_4</code> along a mess table's top,
+<code>Socket_Shelf2_1</code> on a rack's second shelf. The data gives each group a loot table, a chance and a count. Keep
+sockets near the front edge, below 1.5 m and 0.55 m apart, so a player can reach them from the floor and loot on
+one never overlaps another.</li>
+<li><strong><code>Attach_&lt;Group&gt;_&lt;n&gt;</code></strong> is where another piece stands: <code>Attach_Chair_1</code> is where a chair is tucked under a table.
+The empty's +Y points back toward the piece (the chair faces the table). The data says what stands there and how
+far it's pulled out.</li>
+</ul>
+<p>The add-on's <strong>Socket</strong> and <strong>Attach</strong> buttons add the next one for the <strong>Group</strong> you typed, at the 3D cursor.</p>
+<p><strong>It's forged.</strong> Just like the guns, <code>furniture.gltf</code> itself is <strong>forged</strong>. <code>content/props/forge.json</code> holds each
+piece's recipe (boxes, bevels, prisms, tubes, rails and vents in the kit's materials, its solid boxes, its markers),
+and <code>artifacts/bin/LastFleet.WeaponForge/release/LastFleet.WeaponForge content/props</code> writes the file from it, the same
+way as for guns. Edit a recipe there or in Studio (Levels &gt; Props, <strong>Its recipe</strong>).</p>
+<p>So what about a piece you model by hand? It goes in a file of its own (<code>furniture_hand.gltf</code>), because the forge
+rewrites ALL of <code>furniture.gltf</code>. The data refers to it as <code>furniture_hand/Sofa</code>.</p>
+<h2 id="directions-and-scale">Directions and scale</h2>
+<p>In Blender, <strong>+Y is the game's forward</strong>, <strong>+Z is up</strong> and <strong>+X is right</strong>. Units are meters. A prop's origin is the
+middle of its base, except for a lid (its hinge) and a rotor blade (its hub). Where a prop sits in the file doesn't
+matter, so we lay the props out side by side to work on. Rotation and scale DO matter, so apply them when you're
+done (<strong>Ctrl + A &gt; Rotation &amp; Scale</strong>).</p>
+<p>Props you walk around, stand next to or carry have to stay within the sizes the game's rules use. <strong>Check</strong> reports
+any that are too big:</p>
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>At most (X × Y × Z, meters)</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Items</td>
+<td>0.5 × 0.4 × 0.35</td>
+<td>They lie on desks and shelves</td>
+</tr>
+<tr>
+<td><code>Crate</code></td>
+<td>0.79 × 0.57 × 0.51</td>
+<td>It's carried in both arms and set down against walls (<code>CargoCrate</code>: 0.72 × 0.52 × 0.44)</td>
+</tr>
+<tr>
+<td><code>Pod</code></td>
+<td>1.08 × 1.08 × 1.08</td>
+<td>It's set down in front of a player, short of a wall (<code>CargoPod</code>: 0.9 × 0.9 × 0.9)</td>
+</tr>
+<tr>
+<td><code>Case</code></td>
+<td>0.6 × 0.4 × 0.3</td>
+<td>It sits on a desk</td>
+</tr>
+<tr>
+<td><code>Footlocker</code> and its lid</td>
+<td>1.0 × 0.55 × 0.5</td>
+<td>It has to fit the level's footlocker</td>
+</tr>
+</tbody>
+</table>
+<h2 id="colors">Colors</h2>
+<p>Most materials keep the Base Color you give them. A few are colored by the game:</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Color in the game</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Glint</code></td>
+<td>A warm glow: an item's tag, a closed container's latch, a crate's corner. It's what you spot in a dark room. On a weapon part's case it glows in the part's rarity color.</td>
+</tr>
+<tr>
+<td><code>Rarity</code></td>
+<td>A weapon part's rarity color, dimmer than <code>Glint</code>: the band on its case</td>
+</tr>
+<tr>
+<td><code>Supply</code></td>
+<td>The color of what a crate holds: fuel orange, water blue, food green, and so on</td>
+</tr>
+<tr>
+<td><code>Light</code></td>
+<td>A pod's or beacon's light. Amber while loading, blinking green while its drone is inbound, flashing red while it's being overrun, dull red once it's smashed.</td>
+</tr>
+<tr>
+<td><code>Paint_&lt;Slot&gt;</code></td>
+<td>A <strong>paint slot</strong>. Its color is picked in the game's data for each thing that uses the model (in Studio, a swatch under the model). Its Base Color is the default.</td>
+</tr>
+<tr>
+<td>anything else</td>
+<td>Its own Base Color, darkened on an overrun pod</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paint slots</strong> let one model be used for several things in different colors. Let's say you've got a supply case with
+<code>Paint_Body</code> and <code>Paint_Stripe</code>: it can be both a blue-striped medical case and an orange-striped fuel case!</p>
+<p>To add one, select a mesh (or, in Edit Mode, the faces), press <strong>Paint slot</strong>, and name the slot (<code>Body</code>, <code>Stripe</code>,
+<code>Trim</code>; letters, digits and underscores, starting with a letter). It adds the material <code>Paint_&lt;Slot&gt;</code> and puts it on
+the selected faces. Its Base Color is the color something gets if its data doesn't pick one.</p>
+<p>The names above are reserved, because the game colors them. <strong>Check</strong> reports any that are misused:</p>
+<ul>
+<li>a paint slot named after one of them (<code>Paint_Glint</code>);</li>
+<li>a gun's game color on a prop (<code>Body</code>, <code>Accent</code>; on a prop they keep their own color);</li>
+<li>a reserved name with different capitals (<code>glint</code>).</li>
+</ul>
+<p>Shading is flat: each face is lit by its own normal. Textures aren't used yet. How each material reacts to light
+(paint, bare metal, rubber, glass, a glow) is set by its surface material, which you pick with the Last Fleet Materials
+add-on. The kit materials come with theirs already set (<a href="materials.html">materials.md</a>).</p>
+<h2 id="setup-once">Setup (once)</h2>
+<ol>
+<li>Install Blender 4.2 or newer.</li>
+<li>In Blender, go to <strong>Edit &gt; Preferences &gt; Add-ons</strong>. Choose <strong>Install from Disk</strong>, pick
+<code>tools/blender/lastfleet_props.py</code>, and tick <strong>Last Fleet Props</strong>.</li>
+<li>In the 3D view, press <strong>N</strong> to open the sidebar. The tools are on the <strong>Last Fleet</strong> tab, under <strong>Props</strong>.</li>
+</ol>
+<h2 id="editing-a-file">Editing a file</h2>
+<p>So you've got a prop to rework? Here's the flow:</p>
+<ol>
+<li><p><strong>Open it.</strong> Start an empty file (delete the default cube, camera and light) and use <strong>File &gt; Import &gt; glTF 2.0</strong>
+to open <code>content/props/&lt;file&gt;.gltf</code>. Save the <code>.blend</code> as <code>content/raw/props/&lt;file&gt;.blend</code> (it goes through Git
+LFS), so the next person starts from your file.</p>
+</li>
+<li><p><strong>Kit materials.</strong> Press <strong>Kit materials</strong>. It adds any game-colored materials the file is missing, and shrinks
+the imported markers. <strong>Paint slot</strong> adds a paint slot (see above).</p>
+</li>
+<li><p><strong>Model.</strong> Edit the props in Edit mode, or replace them. To replace one, delete it, model a new one, give it the old
+prop's name and move its origin (<strong>Object &gt; Set Origin</strong>). Use as many materials as you like. Meshes parented under a
+prop are part of it.</p>
+</li>
+<li><p><strong>Markers.</strong> To add a <code>Hinge</code>, <code>Socket_Lid</code>, <code>Clamp</code> or <code>Rotor</code>, select the prop it belongs to, put the 3D cursor
+where it goes (Shift + right-click), and press its button. The add-on parents it to the prop for you. Blender's
+<code>.001</code> suffixes don't matter, so the drone's four rotor markers can be <code>Rotor</code>, <code>Rotor.001</code> and so on.</p>
+</li>
+<li><p><strong>Check.</strong> Press <strong>Check</strong>. It lists problems in the status bar and the Info editor:</p>
+<ul>
+<li>two props with the same name;</li>
+<li>a misnamed material (see above);</li>
+<li>a missing marker;</li>
+<li>a prop that's too big, or isn't standing on its origin;</li>
+<li>a marker that isn't parented to a prop;</li>
+<li>anything that isn't a mesh or an empty.</li>
+</ul>
+<p>It also warns about props the game draws that the file is missing (the game draws those from boxes). A prop it
+doesn't recognize is a new model: it has no size limit, and the data refers to it by name.</p>
+</li>
+<li><p><strong>Export.</strong> Set <strong>Id</strong> to the file name (<code>items</code>, <code>containers</code>, <code>cargo</code>, <code>station</code>, or a new one; it defaults to the
+<code>.blend</code> file's name) and <strong>Folder</strong> to <code>content/props/</code>, then press <strong>Export</strong>. It runs the check first, then writes
+one self-contained <code>.gltf</code>.</p>
+</li>
+<li><p><strong>Try it.</strong> Run the tests (<code>dotnet test tests/LastFleet.Client.Tests</code>). CI runs them too, so a file that breaks the
+rules fails the build. <code>PropModelTests</code> checks that every prop is there, the right size, with its markers. Then look
+at it in the game (below). Commit the <code>.blend</code> and the <code>.gltf</code> together.</p>
+</li>
+</ol>
+<h2 id="seeing-a-change-in-the-game">Seeing a change in the game</h2>
+<ul>
+<li><strong>The cargo pod and drone:</strong> <code>LastFleet --seed 7 --pod 3</code> starts a station raid with a loaded pod in front of you and
+its drone 3 s away. <code>--pod 0</code> gives you a pod that's still loading.</li>
+<li><strong>Items, cases, footlockers and crates:</strong> start any station raid (<code>LastFleet --seed 7</code>). Most of them are in the loot
+rooms. Hold F (Interact) at a container to see it open.</li>
+<li><strong>The crate in your arms:</strong> press F at a crate.</li>
+<li><strong>Tanks, the reservoir and the airlock's fittings:</strong> start any station raid. The airlock's intake and chute are by
+its hatch, where you start. Studio's Missions mode shows where a seed puts the tanks and the reservoir.</li>
+<li><strong>A beacon lying around:</strong> drop yours from the inventory (Tab).</li>
+</ul>
+<h2 id="the-rules">The rules</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each top-level object is a prop, named as in the table above, or with any name for a new one.</td>
+<td>The name says what it is. The data refers to it as <code>file/Object</code>.</td>
+</tr>
+<tr>
+<td>A paint slot is <code>Paint_&lt;Slot&gt;</code>. <code>Glint</code>, <code>Rarity</code>, <code>Supply</code> and <code>Light</code> belong to the game.</td>
+<td>The data colors paint slots, and the game colors the rest.</td>
+</tr>
+<tr>
+<td>Containers have a <code>Hinge</code>, the pod has a <code>Socket_Lid</code> and a <code>Clamp</code>, and the drone has a <code>Rotor</code> at each rotor.</td>
+<td>Lids hinge there, the drone lands there, and the rotors spin there.</td>
+</tr>
+<tr>
+<td>Markers are empties parented to their prop. Meshes can be parented too.</td>
+<td>A prop is the object plus everything under it.</td>
+</tr>
+<tr>
+<td>Only meshes and empties. Modifiers are applied on export; armatures, curves and text aren't exported.</td>
+<td>The game reads triangles and empties.</td>
+</tr>
+<tr>
+<td>Crates, pods, containers and items stay within their sizes.</td>
+<td>The game's rules (carrying, setting down, opening) depend on them.</td>
+</tr>
+<tr>
+<td>A station fixture is solid only in boxes, and has its markers.</td>
+<td>The level's collision is boxes, and the generator places the hose, gauge, valves and couplings at the markers.</td>
+</tr>
+<tr>
+<td>Furniture stands on its origin. Collided with as <code>authored</code> (colliders.json), it's solid only in boxes, and a piece that breaks has one solid box. Its drawn mesh is closed and faces out. Sockets and attach points are named <code>Socket_&lt;Group&gt;_&lt;n&gt;</code> and <code>Attach_&lt;Group&gt;_&lt;n&gt;</code>. Sockets are at least 0.55 m apart, and a piece stays at a few hundred triangles (1,100 at most).</td>
+<td>Level pieces collided with as boxes have to be boxes, and a breakable prop breaks through one solid part. Rays only hit faces from the front. The data uses the group names to give them loot and pieces.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

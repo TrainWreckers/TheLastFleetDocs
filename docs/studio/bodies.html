@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Bodies | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Bodies | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-bodies">Studio: Bodies</h1>
+
+<p>Ever had a soldier's feet skate across the floor, or a hand pop off the gun halfway through a reload, and had to start
+the whole game just to see it again? That's what <strong>Bodies</strong> mode is for. It puts a <em>body type</em> (an animation graph in
+<code>content/anim</code>) on a model of its rig (<code>content/characters</code>) and plays the rig's clips the same way the game blends
+them. You drive it with the graph's own parameters, so you can check a blend, a pop or a foot sliding in seconds.</p>
+<p>It's also where the body's data gets edited: the graph itself (its nodes on a canvas), the rig (<code>content/rigs</code>), the
+footstep events on each clip, the shapes shots actually hit, and the reloads' steps (<code>content/defs/reloads.json</code>).
+Everything except the Reloads tab saves with Ctrl+S and undoes with Ctrl+Z, like the rest of Studio. The preview's
+sliders are never saved. They're just for looking!</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Bodies</strong> on the mode bar at the top, or start Studio straight in it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode bodies
+</code></pre>
+<p><img src="images/bodies/01-bodies-mode.png" alt="Bodies mode as it opens: the soldier on the turntable, the parameters on the right, the clip timeline below"></p>
+<p>Here's the tour:</p>
+<ul>
+<li><strong>The bar</strong> along the top picks what you're looking at. From left to right: the <strong>Body type</strong> (<code>humanoid</code>), the
+<strong>Model</strong> it's drawn as (<code>soldier</code>), an enemy <strong>Variant</strong>, a model to <strong>Compare</strong> it with, and the gun it's
+<strong>Holding</strong> (<code>auto_rifle</code>). The row under it has the view's toggles: <strong>Turn</strong>, <strong>Body</strong>, <strong>Bones</strong>, <strong>IK targets</strong>,
+<strong>Hit shapes</strong>, <strong>Pause</strong>, <strong>Time</strong> and <strong>Step</strong>.</li>
+<li><strong>The tabs</strong>: <strong>Preview</strong> (what you see here), <strong>Graph</strong>, <strong>Rig</strong> and <strong>Reloads</strong>.</li>
+<li><strong>The turntable</strong> in the middle, with the <strong>clip timeline</strong> under it.</li>
+<li><strong>The parameters</strong> on the right: every parameter the graph declares, as a slider or a checkbox, then the graph's
+<strong>Actions</strong>, then the <strong>Events</strong> the clips have passed (footsteps).</li>
+</ul>
+<h2 id="check-a-run-on-the-turntable">Check a run on the turntable</h2>
+<p>So you want to know whether the run blend looks right? In the game, the client sets the graph's parameters from what
+the body is doing. Here, <em>you</em> set them.</p>
+<ol>
+<li>Double-click the <strong>speed</strong> slider on the right, type <code>4.5</code> and press Enter. The soldier breaks into a run, and the
+<strong>Events</strong> list starts filling up with <code>footstep (Run_F, 1.00)</code> as each foot lands.</li>
+</ol>
+<p><img src="images/bodies/02-running.png" alt="The soldier running at speed 4.5, with footstep events listed on the right"></p>
+<ol start="2">
+<li>Tick <strong>Bones</strong> and <strong>IK targets</strong> on the second row, and untick <strong>Body</strong> to hide the mesh. Now you see the skeleton
+itself. Bones in an IK chain are orange, and the yellow marks are what the IK reaches for: the floor under each
+foot. If a foot slides, this is where you'll see it.</li>
+</ol>
+<p><img src="images/bodies/03-bones-ik-targets.png" alt="The running skeleton with the body hidden: orange IK chains, yellow targets under the feet"></p>
+<p>Try the other sliders while you're here (hover over one to see what it means). <strong>Defaults</strong> puts every slider back.
+None of this is saved, so go nuts!</p>
+<h2 id="move-a-footstep-on-the-clip-timeline">Move a footstep on the clip timeline</h2>
+<p>Footsteps (and any other sound or effect a body makes as it moves) are <em>events</em> on the graph's clips. If a step sound
+plays a frame before the foot actually hits the floor, here's the flow:</p>
+<ol>
+<li>Pick the clip in the box above the timeline. Here it's <code>Run_F, 2 events</code>. The timeline shows its frames, the
+playhead, and each event as a diamond.</li>
+<li>Tick <strong>Clip alone</strong>. The body now poses in just that clip at the playhead (no blending, no IK), so you can see
+exactly where the event falls.</li>
+<li>Click the second <strong>footstep</strong> diamond. The body jumps to it, and the row under the timeline shows what the event
+does: the <strong>Sound</strong> it plays (<code>step</code>), its <strong>gain</strong>, the <strong>Effect</strong> it shows (<code>dust</code>) and <strong>At</strong>, where on the body
+it happens (<code>the feet</code>).</li>
+</ol>
+<p><img src="images/bodies/04-footstep-event.png" alt="Run_F with Clip alone ticked and its second footstep selected, showing its sound, gain, effect and where it happens"></p>
+<ol start="4">
+<li>Drag the diamond to the right. It snaps to frames (the clips are keyed at 30 a second), so here it lands on frame
+11, at 0.367 s. The status bar now says <code>1 file not saved (Ctrl+S): humanoid.json</code>, because events belong to the
+graph.</li>
+</ol>
+<p><img src="images/bodies/05-event-moved.png" alt="The footstep dragged one frame later, and the status bar showing humanoid.json isn't saved"></p>
+<p>Happy with it? Ctrl+S keeps it. Changed your mind? Ctrl+Z puts it back (the status bar says <code>Undid a change to humanoid.json</code>). Adding and removing events is covered in the
+<a href="reference.html#bodies-animation-on-a-turntable-the-graph-and-the-rig">reference</a>.</p>
+<h2 id="find-your-way-around-the-graph">Find your way around the graph</h2>
+<p>The <strong>Graph</strong> tab is the body's animation graph, wired up like Unreal's anim graph. Poses flow <strong>left to right</strong> into
+the <strong>Output Pose</strong>, which is what the body is drawn in.</p>
+<ol>
+<li>Click the <strong>Graph</strong> tab. On the left is the canvas, with the <strong>Output Pose</strong> fed by a <strong>Select</strong> between dead,
+downed and alive. On the right, the body plays the graph with the parameters under <strong>Try it</strong>, and under that is the
+selected node. Here it's the Select, with its three states, tried in order.</li>
+</ol>
+<p><img src="images/bodies/06-graph-tab.png" alt="The Graph tab: the canvas on the left, the body and its parameters on the right, and the Select node's states below"></p>
+<ol start="2">
+<li>Use the mouse wheel on the canvas to zoom, and follow the chain leftwards. Hover over a node to read what it does.</li>
+<li>Click the <strong>Reach Arm.L</strong> node. That's the IK that puts the left hand on the gun's fore grip. Its fields show up on
+the right: the <strong>Chain</strong> (<code>Arm.L</code>), the <strong>Target</strong> (<code>leftGrip</code>), the <strong>Socket</strong> (<code>Grip.L</code>), its <strong>Weight</strong>
+(the <code>leftHandOnGun</code> parameter), and its <strong>fade</strong> and <strong>swing</strong>.</li>
+</ol>
+<p><img src="images/bodies/07-graph-reach-node.png" alt="The Reach Arm.L node selected, with its chain, target, socket, weight, fade and swing"></p>
+<ol start="4">
+<li>Open <strong>The body's actions (played into the slot)</strong>, then <strong>actions</strong>, then <strong>throw</strong>. Each action has its game
+<strong>name</strong>, the rig <strong>clip</strong> it plays, the <strong>mask</strong> it covers (<code>upperBody</code>), its <strong>fadeIn</strong> and <strong>fadeOut</strong>, and its
+events.</li>
+</ol>
+<p><img src="images/bodies/08-graph-actions.png" alt="The throw action opened: its name, clip, mask, fade in and fade out"></p>
+<ol start="5">
+<li>Drag <strong>fadeIn</strong> to the right to make the throw ease in slower. Here it went from 0.100 to 0.315, and the status bar
+flags <code>humanoid.json</code> as not saved.</li>
+</ol>
+<p><img src="images/bodies/09-throw-fade-in.png" alt="The throw's fadeIn dragged to 0.315, with humanoid.json not saved"></p>
+<p>That's it! Ctrl+S to keep it, Ctrl+Z to undo it. Wiring nodes, wrapping one inside another and adding new ones are all
+covered in <a href="reference.html#the-graph-editor">the graph editor</a> reference.</p>
+<h2 id="play-a-reload-and-tune-its-steps">Play a reload and tune its steps</h2>
+<p>A reload is two things: the <strong>reload</strong> action (the arms' clip, played into the slot), and the reload's <em>steps</em> (where
+the left hand and the magazine go, and when). Let's watch one, then tweak it.</p>
+<ol>
+<li>Back on <strong>Preview</strong>, tick <strong>Pause</strong> so it holds still, then click <strong>Play reload</strong>. A <strong>reload</strong> slider shows up
+under the actions.</li>
+<li>Drag the slider to about <strong>0.39</strong>. The left hand has the magazine out and is holding it down by the hip.</li>
+</ol>
+<p><img src="images/bodies/10-reload-held.png" alt="The reload held at 0.39, the left hand down by the hip with the magazine"></p>
+<ol start="3">
+<li>Click the <strong>Reloads</strong> tab. Each reload is a table of steps for the frames it names (here <code>auto_rifle, pulse_rifle, smg, marksman_rifle, machine_gun</code>). <strong>to</strong> is where the hand goes, <strong>until</strong> is the share of the reload that step
+ends at, <strong>magazine</strong> is where the magazine is meanwhile, and <strong>from empty</strong> marks a step only done after the last
+round (the charging handle).</li>
+</ol>
+<p><img src="images/bodies/11-reloads-tab.png" alt="The Reloads tab: the magazine reload's steps, from grab to grip"></p>
+<ol start="4">
+<li>Drag the <strong>pouch</strong> step's <strong>until</strong> from 0.52 to 0.56, so the hand lingers at the pouch a little longer. Every
+change plays right away on the Preview tab's body.</li>
+</ol>
+<p><img src="images/bodies/12-reload-step-moved.png" alt="The pouch step's until moved to 0.56"></p>
+<p>One gotcha though: this tab isn't part of Ctrl+S or Ctrl+Z. It has its own <strong>Save</strong> to write <code>reloads.json</code>, and
+<strong>Read again</strong> to throw your changes away and read the file back in.</p>
+<h2 id="fit-the-shapes-shots-hit">Fit the shapes shots hit</h2>
+<p>Shots never hit the mesh. They hit the simulation's shapes: a <em>head sphere</em> around the eye and a <em>body capsule</em> under
+it. Those come from the humanoid rig's <code>body</code>, so if a helmet sticks out past the head sphere, this is where you fix it.</p>
+<ol>
+<li>Click the <strong>Rig</strong> tab. It's the rig file next to its skeleton: the bones (orange where they're in an IK chain), the
+sockets and eyes in yellow, and the shapes shots hit in red, standing and crouched side by side. The rig's numbers
+are under <strong>body</strong>: <code>headRadius</code>, <code>headAbove</code>, <code>crouchHeadAbove</code> and <code>hitRadius</code> are the ones for the shapes.</li>
+</ol>
+<p><img src="images/bodies/13-rig-tab.png" alt="The Rig tab: the rig's fields on the left, its skeleton and red hit shapes on the right"></p>
+<ol start="2">
+<li>Pick <code>upperBody</code> in the first box over the skeleton (<strong>Mask</strong>). Its bones turn green, so you can see what a mask
+covers before an action uses it.</li>
+</ol>
+<p><img src="images/bodies/14-rig-mask.png" alt="The upperBody mask picked, its bones drawn in green"></p>
+<ol start="3">
+<li>Drag <strong>headRadius</strong> to the right. Both head spheres grow as you drag (here to 0.270, which is way too big, but it
+shows up nicely).</li>
+</ol>
+<p><img src="images/bodies/15-rig-head-radius.png" alt="headRadius dragged to 0.270, both head spheres bigger"></p>
+<ol start="4">
+<li>Ctrl+Z that, and let's do it the hands-on way. Go back to <strong>Preview</strong> and tick <strong>Hit shapes</strong>. The shapes are drawn
+over the playing body, the eye from the animation is a cyan ring, and the game's eye is an orange diamond. Under the
+parameters, <strong>Hit shapes</strong> has the same numbers as sliders.</li>
+</ol>
+<p><img src="images/bodies/16-hit-shapes.png" alt="Hit shapes ticked on the Preview: the red head sphere and body capsule over the soldier"></p>
+<ol start="5">
+<li>Hover over the dot on the head sphere's edge. It turns orange and tells you to drag it in or out. Drag it out a
+little: the sphere grows, <strong>Head size</strong> turns red as the selected number (0.215 here), and <code>humanoid.json</code> is
+flagged as not saved.</li>
+</ol>
+<p><img src="images/bodies/17-head-sphere-resized.png" alt="The head sphere selected and dragged out to 0.215"></p>
+<p>Every change goes into the rig, so it applies to every humanoid (soldiers, lancers and players), and Studio's sandbox
+shoots at the new shape right away. Ctrl+S keeps it, Ctrl+Z undoes it. Heads up: the shapes are for the size of the
+head and helmet. If the drawn eye and the game's eye drift apart (<strong>Eye drawn ... cm up</strong> at the top of the
+parameters), fix the clip, not the shapes!</p>
+<h2 id="compare-models-and-enemy-variants">Compare models and enemy variants</h2>
+<p>Does a clip still look right on a lankier body? Put them side by side.</p>
+<ol>
+<li>Open the <strong>Compare</strong> box on the bar and pick <code>lancer</code>. The lancer stands next to the soldier, playing the same graph
+with the same sliders and the same gun. Each keeps its own build, so you see the clip on both bodies at once. Here
+both are <strong>crouched</strong>.</li>
+</ol>
+<p><img src="images/bodies/18-compare-lancer.png" alt="The soldier and the lancer side by side, both crouched"></p>
+<ol start="2">
+<li>Set <strong>Compare</strong> back to <code>none</code>, then open <strong>Variant</strong> and pick <code>lancer</code>. Now the body is the enemy variant itself:
+its model, playing its own clips (from Behavior &gt; Enemies) in place of the body's. The model box switches to
+<code>lancer</code> along with it, and the header on the right says <code>lancer.gltf</code>.</li>
+</ol>
+<p><img src="images/bodies/19-variant-lancer.png" alt="The lancer variant on the turntable, crouched"></p>
+<p>These are just for looking, so there's nothing to save. To change what a variant is drawn as, or which clips it swaps,
+head to the <strong>Enemies</strong> tab in Behavior mode.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The full reference for this mode is
+<a href="reference.html#bodies-animation-on-a-turntable-the-graph-and-the-rig">Bodies: animation on a turntable, the graph and the rig</a>,
+with <a href="reference.html#the-graph-editor">the graph editor</a>, <a href="reference.html#the-rig-editor">the rig editor</a>,
+<a href="reference.html#reloads">Reloads</a> and <a href="reference.html#fitting-the-shapes-shots-hit">fitting the shapes shots hit</a>.</li>
+<li>How the graph's nodes work is in <a href="../animation-graphs.html">animation-graphs.md</a>.</li>
+<li>The enemy variants and the behaviors they think with are in <a href="behavior.html">behavior.md</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

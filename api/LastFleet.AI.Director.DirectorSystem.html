@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DirectorSystem | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DirectorSystem | The Last Fleet ">
+      
+      <meta name="description" content="The Director (design doc, &amp;quot;AI director&amp;quot;). It reads how much pressure the squad is under and paces the fight around that, like Left 4 Dead&#39;s director.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Director_DirectorSystem.md&amp;value=---%0Auid%3A%20LastFleet.AI.Director.DirectorSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Director.DirectorSystem">
+
+
+
+  <h1 id="LastFleet_AI_Director_DirectorSystem" data-uid="LastFleet.AI.Director.DirectorSystem" class="text-break">
+Class DirectorSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.Hunt.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Director.html">Director</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Director (design doc, &quot;AI director&quot;). It reads how much pressure the squad is under and paces the fight around
+that, like Left 4 Dead's director.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DirectorSystem : ISimulationSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DirectorSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LastFleet.Ecs.ISimulationSystem.html">ISimulationSystem</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_AI_Director_DirectorSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each player's <a class="xref" href="LastFleet.AI.Components.Stress.html">Stress</a> goes up when they take damage or get downed, and fades once they're safe. The
+squad's stress is that of the most stressed player still standing. During build-up, a squad left alone too long
+gets a patrol from the nearest spawn closet (never one in view, near anyone, or behind a gate it hasn't opened),
+sized for the number of players. At a peak, nothing new gets sent. While relaxing, the hack's waves are delayed a
+little (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_HoldWaves">HoldWaves</a>).
+</p>
+<p>
+On top of that, the station's alert (<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Alert">Alert</a>) rises with time on the level and with noise,
+and barely drops. The higher the alert, the sooner, bigger and more numerous the patrols
+(<a class="xref" href="LastFleet.AI.Director.AlertTuning.html">AlertTuning</a>). Like in Alien: Isolation, the Director knows where the squad is but its soldiers
+don't: it sends them to look nearby, sweeping room to room, and pulls them back if they crowd the squad too long
+without a fight (<a class="xref" href="LastFleet.AI.Components.DirectorState.html">Hunt(ref DirectorState, float, bool, float)</a>).
+</p>
+<p>
+Runs with the command systems, after the <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html">MissionSystem</a>, whose closets it uses. Only a mission level
+has a <a class="xref" href="LastFleet.AI.Components.DirectorState.html">DirectorState</a> (<a class="xref" href="LastFleet.AI.Director.DirectorSystem.html#LastFleet_AI_Director_DirectorSystem_Spawn_LastFleet_Ecs_GameWorld_">Spawn(GameWorld)</a>); without one this does nothing. Deterministic, and doesn't
+allocate except on ticks where it adds a player's stress component or sends a patrol.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem__ctor_" data-uid="LastFleet.AI.Director.DirectorSystem.#ctor*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem__ctor_LastFleet_AI_Missions_MissionSystem_LastFleet_AI_Director_DirectorTuning_" data-uid="LastFleet.AI.Director.DirectorSystem.#ctor(LastFleet.AI.Missions.MissionSystem,LastFleet.AI.Director.DirectorTuning)">
+  DirectorSystem(MissionSystem, DirectorTuning?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Director (design doc, &quot;AI director&quot;). It reads how much pressure the squad is under and paces the fight around
+that, like Left 4 Dead's director.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectorSystem(MissionSystem mission, DirectorTuning? tuning = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mission</code> <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html">MissionSystem</a></dt>
+    <dd></dd>
+    <dt><code>tuning</code> <a class="xref" href="LastFleet.AI.Director.DirectorTuning.html">DirectorTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_AI_Director_DirectorSystem__ctor_LastFleet_AI_Missions_MissionSystem_LastFleet_AI_Director_DirectorTuning__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Each player's <a class="xref" href="LastFleet.AI.Components.Stress.html">Stress</a> goes up when they take damage or get downed, and fades once they're safe. The
+squad's stress is that of the most stressed player still standing. During build-up, a squad left alone too long
+gets a patrol from the nearest spawn closet (never one in view, near anyone, or behind a gate it hasn't opened),
+sized for the number of players. At a peak, nothing new gets sent. While relaxing, the hack's waves are delayed a
+little (<a class="xref" href="LastFleet.AI.Missions.MissionSystem.html#LastFleet_AI_Missions_MissionSystem_HoldWaves">HoldWaves</a>).
+</p>
+<p>
+On top of that, the station's alert (<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Alert">Alert</a>) rises with time on the level and with noise,
+and barely drops. The higher the alert, the sooner, bigger and more numerous the patrols
+(<a class="xref" href="LastFleet.AI.Director.AlertTuning.html">AlertTuning</a>). Like in Alien: Isolation, the Director knows where the squad is but its soldiers
+don't: it sends them to look nearby, sweeping room to room, and pulls them back if they crowd the squad too long
+without a fight (<a class="xref" href="LastFleet.AI.Components.DirectorState.html">Hunt(ref DirectorState, float, bool, float)</a>).
+</p>
+<p>
+Runs with the command systems, after the <a class="xref" href="LastFleet.AI.Missions.MissionSystem.html">MissionSystem</a>, whose closets it uses. Only a mission level
+has a <a class="xref" href="LastFleet.AI.Components.DirectorState.html">DirectorState</a> (<a class="xref" href="LastFleet.AI.Director.DirectorSystem.html#LastFleet_AI_Director_DirectorSystem_Spawn_LastFleet_Ecs_GameWorld_">Spawn(GameWorld)</a>); without one this does nothing. Deterministic, and doesn't
+allocate except on ticks where it adds a player's stress component or sends a patrol.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Alert_" data-uid="LastFleet.AI.Director.DirectorSystem.Alert*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Alert" data-uid="LastFleet.AI.Director.DirectorSystem.Alert">
+  Alert
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How the station's alert rises and what it affects (a mission template's &quot;alert&quot; section).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AlertTuning Alert { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Director.AlertTuning.html">AlertTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Rooms_" data-uid="LastFleet.AI.Director.DirectorSystem.Rooms*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Rooms" data-uid="LastFleet.AI.Director.DirectorSystem.Rooms">
+  Rooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.Hunt.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level's rooms and doorways, used for hunting room by room. Null for a hand-built level, where patrols head
+straight for the squad.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomMap? Rooms { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Tactics.RoomMap.html">RoomMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Tuning_" data-uid="LastFleet.AI.Director.DirectorSystem.Tuning*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Tuning" data-uid="LastFleet.AI.Director.DirectorSystem.Tuning">
+  Tuning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Director's tuning. A run's pacing speeds it up (<a class="xref" href="LastFleet.AI.Director.DirectorTuning.html#LastFleet_AI_Director_DirectorTuning_Escalated_System_Single_">Escalated(float)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectorTuning Tuning { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Director.DirectorTuning.html">DirectorTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Initialize_" data-uid="LastFleet.AI.Director.DirectorSystem.Initialize*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Initialize_Friflo_Engine_ECS_EntityStore_" data-uid="LastFleet.AI.Director.DirectorSystem.Initialize(Friflo.Engine.ECS.EntityStore)">
+  Initialize(EntityStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called once when the system joins a world. Build queries here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(EntityStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <span class="xref">EntityStore</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Restart_" data-uid="LastFleet.AI.Director.DirectorSystem.Restart*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Restart_LastFleet_Ecs_GameWorld_" data-uid="LastFleet.AI.Director.DirectorSystem.Restart(LastFleet.Ecs.GameWorld)">
+  Restart(GameWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the Director for a restarted fight: calm, with nothing sent yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Restart(GameWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Spawn_" data-uid="LastFleet.AI.Director.DirectorSystem.Spawn*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Spawn_LastFleet_Ecs_GameWorld_" data-uid="LastFleet.AI.Director.DirectorSystem.Spawn(LastFleet.Ecs.GameWorld)">
+  Spawn(GameWorld)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a Director to <code class="paramref">world</code> (for a mission level).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Spawn(GameWorld world)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>world</code> <a class="xref" href="LastFleet.Ecs.GameWorld.html">GameWorld</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Director_DirectorSystem_Update_" data-uid="LastFleet.AI.Director.DirectorSystem.Update*"></a>
+
+  <h3 id="LastFleet_AI_Director_DirectorSystem_Update_LastFleet_Ecs_TickContext__" data-uid="LastFleet.AI.Director.DirectorSystem.Update(LastFleet.Ecs.TickContext@)">
+  Update(in TickContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Director/DirectorSystem.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the system for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(in TickContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="LastFleet.Ecs.TickContext.html">TickContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

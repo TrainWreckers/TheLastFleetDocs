@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HordeTuning | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HordeTuning | The Last Fleet ">
+      
+      <meta name="description" content="How the horde moves, attacks and spawns (design doc, &amp;quot;Horde simulation&amp;quot;). Times are in seconds, lengths in meters.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_AI_Horde_HordeTuning.md&amp;value=---%0Auid%3A%20LastFleet.AI.Horde.HordeTuning%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Horde.HordeTuning">
+
+
+
+  <h1 id="LastFleet_AI_Horde_HordeTuning" data-uid="LastFleet.AI.Horde.HordeTuning" class="text-break">
+Class HordeTuning  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.AI.html">AI</a>.<a class="xref" href="LastFleet.AI.Horde.html">Horde</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.AI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>How the horde moves, attacks and spawns (design doc, &quot;Horde simulation&quot;). Times are in seconds, lengths in meters.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record HordeTuning : IEquatable&lt;HordeTuning&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">HordeTuning</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.AI.Horde.HordeTuning.html">HordeTuning</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_Acceleration_" data-uid="LastFleet.AI.Horde.HordeTuning.Acceleration*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_Acceleration" data-uid="LastFleet.AI.Horde.HordeTuning.Acceleration">
+  Acceleration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How fast a body gets up to speed, in meters per second per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Acceleration { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_AttackCooldown_" data-uid="LastFleet.AI.Horde.HordeTuning.AttackCooldown*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_AttackCooldown" data-uid="LastFleet.AI.Horde.HordeTuning.AttackCooldown">
+  AttackCooldown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time between lunges for a single body.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AttackCooldown { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_AttackRange_" data-uid="LastFleet.AI.Horde.HordeTuning.AttackRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_AttackRange" data-uid="LastFleet.AI.Horde.HordeTuning.AttackRange">
+  AttackRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A lunge starts within this distance of the target's feet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AttackRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BiteBleed_" data-uid="LastFleet.AI.Horde.HordeTuning.BiteBleed*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BiteBleed" data-uid="LastFleet.AI.Horde.HordeTuning.BiteBleed">
+  BiteBleed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds a bite takes off a downed player's bleed-out timer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BiteBleed { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BiteDamage_" data-uid="LastFleet.AI.Horde.HordeTuning.BiteDamage*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BiteDamage" data-uid="LastFleet.AI.Horde.HordeTuning.BiteDamage">
+  BiteDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Damage per bite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BiteDamage { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BiteReach_" data-uid="LastFleet.AI.Horde.HordeTuning.BiteReach*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BiteReach" data-uid="LastFleet.AI.Horde.HordeTuning.BiteReach">
+  BiteReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The bite lands if the target is still within this distance at the end of the wind-up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BiteReach { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachChance_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachChance*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachChance" data-uid="LastFleet.AI.Horde.HordeTuning.BreachChance">
+  BreachChance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chance that an infiltration horde blows open a hull breach (if one is in reach). Hack wave and extraction hordes
+always do. At most one every <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_BreachCooldown">BreachCooldown</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachChance { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachClear_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachClear*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachClear" data-uid="LastFleet.AI.Horde.HordeTuning.BreachClear">
+  BreachClear
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Nobody can be this close to where a breach's horde lands, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachClear { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachCooldown_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachCooldown*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachCooldown" data-uid="LastFleet.AI.Horde.HordeTuning.BreachCooldown">
+  BreachCooldown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachCooldown { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachDelay_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachDelay*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachDelay" data-uid="LastFleet.AI.Horde.HordeTuning.BreachDelay">
+  BreachDelay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds from the blast to the first body coming out of the hole (<code>BreachDelay</code>), and between each body after
+that (<code>BreachInterval</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachDelay { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachInterval_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachInterval*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachInterval" data-uid="LastFleet.AI.Horde.HordeTuning.BreachInterval">
+  BreachInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachInterval { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachMin_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachMin*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachMin" data-uid="LastFleet.AI.Horde.HordeTuning.BreachMin">
+  BreachMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A breach is only used if it's at least this far from the players along the walking path (and at most
+<a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_SpawnMax">SpawnMax</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BreachMin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_BreachPerPlace_" data-uid="LastFleet.AI.Horde.HordeTuning.BreachPerPlace*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_BreachPerPlace" data-uid="LastFleet.AI.Horde.HordeTuning.BreachPerPlace">
+  BreachPerPlace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many bodies come through one breach before the next spot is picked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BreachPerPlace { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_CeilingMax_" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingMax*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_CeilingMax" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingMax">
+  CeilingMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CeilingMax { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_CeilingMin_" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingMin*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_CeilingMin" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingMin">
+  CeilingMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A ceiling it can hang from is at least <code>CeilingMin</code> and at most <code>CeilingMax</code> above the floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CeilingMin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_CeilingSpeedScale_" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingSpeedScale*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_CeilingSpeedScale" data-uid="LastFleet.AI.Horde.HordeTuning.CeilingSpeedScale">
+  CeilingSpeedScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CeilingSpeedScale { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ClimbMinRange_" data-uid="LastFleet.AI.Horde.HordeTuning.ClimbMinRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ClimbMinRange" data-uid="LastFleet.AI.Horde.HordeTuning.ClimbMinRange">
+  ClimbMinRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Climbers only go up a wall if their target is at least this far away, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ClimbMinRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ClimbSpeed_" data-uid="LastFleet.AI.Horde.HordeTuning.ClimbSpeed*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ClimbSpeed" data-uid="LastFleet.AI.Horde.HordeTuning.ClimbSpeed">
+  ClimbSpeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Climbing speed up a wall, in meters per second. <code>CeilingSpeedScale</code> is the speed on the ceiling as a
+fraction of running speed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ClimbSpeed { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ClimberShare_" data-uid="LastFleet.AI.Horde.HordeTuning.ClimberShare*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ClimberShare" data-uid="LastFleet.AI.Horde.HordeTuning.ClimberShare">
+  ClimberShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fraction of the horde that climbs. When a climber is far from its target and next to a wall that reaches the
+ceiling, it goes up the wall and along the ceiling, then drops a few meters short of whoever it's chasing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ClimberShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_CorpseSeconds_" data-uid="LastFleet.AI.Horde.HordeTuning.CorpseSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_CorpseSeconds" data-uid="LastFleet.AI.Horde.HordeTuning.CorpseSeconds">
+  CorpseSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a dead body stays before it's removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CorpseSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_Default_" data-uid="LastFleet.AI.Horde.HordeTuning.Default*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_Default" data-uid="LastFleet.AI.Horde.HordeTuning.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default values the game uses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HordeTuning Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.AI.Horde.HordeTuning.html">HordeTuning</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_DirectRange_" data-uid="LastFleet.AI.Horde.HordeTuning.DirectRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_DirectRange" data-uid="LastFleet.AI.Horde.HordeTuning.DirectRange">
+  DirectRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Within this distance and in the open, a body runs straight at its target instead of following the flow field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DirectRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_DropMax_" data-uid="LastFleet.AI.Horde.HordeTuning.DropMax*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_DropMax" data-uid="LastFleet.AI.Horde.HordeTuning.DropMax">
+  DropMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DropMax { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_DropMin_" data-uid="LastFleet.AI.Horde.HordeTuning.DropMin*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_DropMin" data-uid="LastFleet.AI.Horde.HordeTuning.DropMin">
+  DropMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A climber drops from the ceiling within <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_DropMax">DropMax</a> of its target (measured over the floor), but never
+closer than <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_DropMin">DropMin</a>. If it's right above them, it drops off to the side. It can't bite from the
+ceiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DropMin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ExtractBase_" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractBase*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ExtractBase" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractBase">
+  ExtractBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extraction horde size: <code>ExtractBase</code>, plus <code>ExtractPerPlayer</code> for each player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ExtractBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ExtractPerPlayer_" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractPerPlayer*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ExtractPerPlayer" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractPerPlayer">
+  ExtractPerPlayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ExtractPerPlayer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_FieldTicks_" data-uid="LastFleet.AI.Horde.HordeTuning.FieldTicks*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_FieldTicks" data-uid="LastFleet.AI.Horde.HordeTuning.FieldTicks">
+  FieldTicks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How often the flow field is rebuilt, in ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FieldTicks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_FirstHorde_" data-uid="LastFleet.AI.Horde.HordeTuning.FirstHorde*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_FirstHorde" data-uid="LastFleet.AI.Horde.HordeTuning.FirstHorde">
+  FirstHorde
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>During infiltration, while the Director is building up, the first horde comes <code>FirstHorde</code> seconds after
+the start and then every <code>HordeInterval</code> seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FirstHorde { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_Health_" data-uid="LastFleet.AI.Horde.HordeTuning.Health*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_Health" data-uid="LastFleet.AI.Horde.HordeTuning.Health">
+  Health
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Health. Two body hits from an auto rifle, or one headshot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Health { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_HearRange_" data-uid="LastFleet.AI.Horde.HordeTuning.HearRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_HearRange" data-uid="LastFleet.AI.Horde.HordeTuning.HearRange">
+  HearRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming body hears gunfire (or a fight) within this distance, through walls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HearRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_HordeBase_" data-uid="LastFleet.AI.Horde.HordeTuning.HordeBase*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_HordeBase" data-uid="LastFleet.AI.Horde.HordeTuning.HordeBase">
+  HordeBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Infiltration horde size: <code>HordeBase</code>, plus <code>HordePerPlayer</code> for each player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HordeBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_HordeInterval_" data-uid="LastFleet.AI.Horde.HordeTuning.HordeInterval*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_HordeInterval" data-uid="LastFleet.AI.Horde.HordeTuning.HordeInterval">
+  HordeInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float HordeInterval { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_HordePerPlayer_" data-uid="LastFleet.AI.Horde.HordeTuning.HordePerPlayer*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_HordePerPlayer" data-uid="LastFleet.AI.Horde.HordeTuning.HordePerPlayer">
+  HordePerPlayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HordePerPlayer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_LancerBase_" data-uid="LastFleet.AI.Horde.HordeTuning.LancerBase*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_LancerBase" data-uid="LastFleet.AI.Horde.HordeTuning.LancerBase">
+  LancerBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lancer squad size: this many, plus one for every two players.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LancerBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_LancersFromWave_" data-uid="LastFleet.AI.Horde.HordeTuning.LancersFromWave*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_LancersFromWave" data-uid="LastFleet.AI.Horde.HordeTuning.LancersFromWave">
+  LancersFromWave
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Choir Lancers come with every hack wave from this one on, and at extraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LancersFromWave { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_LoudSeconds_" data-uid="LastFleet.AI.Horde.HordeTuning.LoudSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_LoudSeconds" data-uid="LastFleet.AI.Horde.HordeTuning.LoudSeconds">
+  LoudSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A player stays loud (heard by roaming packs) for this long after a shot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float LoudSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_MaxAlive_" data-uid="LastFleet.AI.Horde.HordeTuning.MaxAlive*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_MaxAlive" data-uid="LastFleet.AI.Horde.HordeTuning.MaxAlive">
+  MaxAlive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum bodies alive at once. The design calls for 300.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxAlive { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_MaxSpitters_" data-uid="LastFleet.AI.Horde.HordeTuning.MaxSpitters*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_MaxSpitters" data-uid="LastFleet.AI.Horde.HordeTuning.MaxSpitters">
+  MaxSpitters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxSpitters { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_MaxStrippers_" data-uid="LastFleet.AI.Horde.HordeTuning.MaxStrippers*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_MaxStrippers" data-uid="LastFleet.AI.Horde.HordeTuning.MaxStrippers">
+  MaxStrippers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum Strippers (<code>MaxStrippers</code>) and Spitters (<code>MaxSpitters</code>) alive at once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxStrippers { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_OpenBreachShare_" data-uid="LastFleet.AI.Horde.HordeTuning.OpenBreachShare*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_OpenBreachShare" data-uid="LastFleet.AI.Horde.HordeTuning.OpenBreachShare">
+  OpenBreachShare
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When a horde has no breach to blow open, the chance it comes through one that's already open, if one is in reach.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OpenBreachShare { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_RoamGoalSeconds_" data-uid="LastFleet.AI.Horde.HordeTuning.RoamGoalSeconds*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_RoamGoalSeconds" data-uid="LastFleet.AI.Horde.HordeTuning.RoamGoalSeconds">
+  RoamGoalSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming pack gives up on a spot it hasn't reached in this long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RoamGoalSeconds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_RoamMax_" data-uid="LastFleet.AI.Horde.HordeTuning.RoamMax*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_RoamMax" data-uid="LastFleet.AI.Horde.HordeTuning.RoamMax">
+  RoamMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RoamMax { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_RoamMin_" data-uid="LastFleet.AI.Horde.HordeTuning.RoamMin*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_RoamMin" data-uid="LastFleet.AI.Horde.HordeTuning.RoamMin">
+  RoamMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum (<code>RoamMin</code>) and maximum (<code>RoamMax</code>) distance a roaming pack wanders to its next spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RoamMin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_RoamSpeedScale_" data-uid="LastFleet.AI.Horde.HordeTuning.RoamSpeedScale*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_RoamSpeedScale" data-uid="LastFleet.AI.Horde.HordeTuning.RoamSpeedScale">
+  RoamSpeedScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming pack walks at this fraction of <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_Speed">Speed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RoamSpeedScale { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SeparationStrength_" data-uid="LastFleet.AI.Horde.HordeTuning.SeparationStrength*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SeparationStrength" data-uid="LastFleet.AI.Horde.HordeTuning.SeparationStrength">
+  SeparationStrength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How hard bodies push apart when closer than <a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_Spacing">Spacing</a>, in meters per second per meter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SeparationStrength { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SightRange_" data-uid="LastFleet.AI.Horde.HordeTuning.SightRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SightRange" data-uid="LastFleet.AI.Horde.HordeTuning.SightRange">
+  SightRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming body sees someone in the open within this distance, ahead of it or to the side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SightRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SoldierCost_" data-uid="LastFleet.AI.Horde.HordeTuning.SoldierCost*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SoldierCost" data-uid="LastFleet.AI.Horde.HordeTuning.SoldierCost">
+  SoldierCost
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much less the horde prefers a soldier in a fight than a downed player, in meters. The horde goes for the
+players first, and for the noise of a fight if it's closer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SoldierCost { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_Spacing_" data-uid="LastFleet.AI.Horde.HordeTuning.Spacing*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_Spacing" data-uid="LastFleet.AI.Horde.HordeTuning.Spacing">
+  Spacing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bodies keep this far apart.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Spacing { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpawnMax_" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnMax*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpawnMax" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnMax">
+  SpawnMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpawnMax { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpawnMin_" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnMin*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpawnMin" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnMin">
+  SpawnMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hordes come up out of the floor between <code>SpawnMin</code> and <code>SpawnMax</code> from the players, measured along
+the walking path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpawnMin { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpawnPerPlace_" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnPerPlace*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpawnPerPlace" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnPerPlace">
+  SpawnPerPlace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SpawnPerPlace { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpawnPerTick_" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnPerTick*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpawnPerTick" data-uid="LastFleet.AI.Horde.HordeTuning.SpawnPerTick">
+  SpawnPerTick
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bodies spawn <code>SpawnPerTick</code> per tick, and <code>SpawnPerPlace</code> come out of one spot before the next spot
+is picked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SpawnPerTick { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_Speed_" data-uid="LastFleet.AI.Horde.HordeTuning.Speed*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_Speed" data-uid="LastFleet.AI.Horde.HordeTuning.Speed">
+  Speed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Running speed. A little faster than a player's run, so they catch anyone who doesn't turn and fight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Speed { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpeedSpread_" data-uid="LastFleet.AI.Horde.HordeTuning.SpeedSpread*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpeedSpread" data-uid="LastFleet.AI.Horde.HordeTuning.SpeedSpread">
+  SpeedSpread
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much speed varies from one body to the next, as a fraction either way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpeedSpread { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SpitterEvery_" data-uid="LastFleet.AI.Horde.HordeTuning.SpitterEvery*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SpitterEvery" data-uid="LastFleet.AI.Horde.HordeTuning.SpitterEvery">
+  SpitterEvery
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SpitterEvery { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_StandingCost_" data-uid="LastFleet.AI.Horde.HordeTuning.StandingCost*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_StandingCost" data-uid="LastFleet.AI.Horde.HordeTuning.StandingCost">
+  StandingCost
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much less the horde prefers a standing player than a downed one, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float StandingCost { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_StripperEvery_" data-uid="LastFleet.AI.Horde.HordeTuning.StripperEvery*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_StripperEvery" data-uid="LastFleet.AI.Horde.HordeTuning.StripperEvery">
+  StripperEvery
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A horde brings one Stripper for every this many bodies called, and one Spitter for every
+<a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_SpitterEvery">SpitterEvery</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StripperEvery { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_SuppressedHearRange_" data-uid="LastFleet.AI.Horde.HordeTuning.SuppressedHearRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_SuppressedHearRange" data-uid="LastFleet.AI.Horde.HordeTuning.SuppressedHearRange">
+  SuppressedHearRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming body only hears a suppressed gun within this distance (about a room's width).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SuppressedHearRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_TouchRange_" data-uid="LastFleet.AI.Horde.HordeTuning.TouchRange*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_TouchRange" data-uid="LastFleet.AI.Horde.HordeTuning.TouchRange">
+  TouchRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A roaming body notices anyone within this distance, whether it can see them or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TouchRange { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_TrickleBase_" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleBase*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_TrickleBase" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleBase">
+  TrickleBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>During the hack and extraction, a trickle of this many (plus one per player) comes every
+<a class="xref" href="LastFleet.AI.Horde.HordeTuning.html#LastFleet_AI_Horde_HordeTuning_TrickleInterval">TrickleInterval</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TrickleBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_TrickleInterval_" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleInterval*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_TrickleInterval" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleInterval">
+  TrickleInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TrickleInterval { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_WaveBase_" data-uid="LastFleet.AI.Horde.HordeTuning.WaveBase*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_WaveBase" data-uid="LastFleet.AI.Horde.HordeTuning.WaveBase">
+  WaveBase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hack wave horde size: <code>WaveBase</code>, plus <code>WavePerPlayer</code> for each player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WaveBase { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_WavePerPlayer_" data-uid="LastFleet.AI.Horde.HordeTuning.WavePerPlayer*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_WavePerPlayer" data-uid="LastFleet.AI.Horde.HordeTuning.WavePerPlayer">
+  WavePerPlayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WavePerPlayer { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_WindUp_" data-uid="LastFleet.AI.Horde.HordeTuning.WindUp*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_WindUp" data-uid="LastFleet.AI.Horde.HordeTuning.WindUp">
+  WindUp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wind-up before the bite. This is the telegraph a player can react to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float WindUp { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_ExtractHordeSize_" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractHordeSize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_ExtractHordeSize_System_Int32_" data-uid="LastFleet.AI.Horde.HordeTuning.ExtractHordeSize(System.Int32)">
+  ExtractHordeSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ExtractHordeSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_HordeSize_" data-uid="LastFleet.AI.Horde.HordeTuning.HordeSize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_HordeSize_System_Int32_" data-uid="LastFleet.AI.Horde.HordeTuning.HordeSize(System.Int32)">
+  HordeSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HordeSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_LancerSquadSize_" data-uid="LastFleet.AI.Horde.HordeTuning.LancerSquadSize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_LancerSquadSize_System_Int32_" data-uid="LastFleet.AI.Horde.HordeTuning.LancerSquadSize(System.Int32)">
+  LancerSquadSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LancerSquadSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_TrickleSize_" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleSize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_TrickleSize_System_Int32_" data-uid="LastFleet.AI.Horde.HordeTuning.TrickleSize(System.Int32)">
+  TrickleSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TrickleSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_AI_Horde_HordeTuning_WaveHordeSize_" data-uid="LastFleet.AI.Horde.HordeTuning.WaveHordeSize*"></a>
+
+  <h3 id="LastFleet_AI_Horde_HordeTuning_WaveHordeSize_System_Int32_" data-uid="LastFleet.AI.Horde.HordeTuning.WaveHordeSize(System.Int32)">
+  WaveHordeSize(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.AI/Horde/HordeTuning.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WaveHordeSize(int players)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>players</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

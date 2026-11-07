@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StationSupplies | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StationSupplies | The Last Fleet ">
+      
+      <meta name="description" content="The supplies a station&#39;s cargo can hold, as defined in the game&#39;s data (the loot data&#39;s fleet supplies, put into use with ; with no data, ). Lists every supply a station can be chosen for (a ), each with its color, used for a tank&#39;s band and glow when it holds that supply. Which ones are kept in tanks is up to the mission template (). Every co-op peer generates its levels from the same set.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Missions_StationSupplies.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Missions.StationSupplies%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Missions.StationSupplies">
+
+
+
+  <h1 id="LastFleet_ProcGen_Missions_StationSupplies" data-uid="LastFleet.ProcGen.Missions.StationSupplies" class="text-break">
+Class StationSupplies  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Missions.html">Missions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The supplies a station's cargo can hold, as defined in the game's data (the loot data's fleet supplies, put into use
+with <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Use_LastFleet_ProcGen_Missions_StationSupplies_">Use(StationSupplies?)</a>; with no data, <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Shipped">Shipped</a>). Lists every supply a station can be chosen for (a
+<a class="xref" href="LastFleet.ProcGen.Missions.GenerationSettings.html#LastFleet_ProcGen_Missions_GenerationSettings_CargoFocus">CargoFocus</a>), each with its color, used for a tank's band and glow when it holds
+that supply. Which ones are kept in tanks is up to the mission template (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_TankSupplies">TankSupplies</a>).
+Every co-op peer generates its levels from the same set.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record StationSupplies : IEquatable&lt;StationSupplies&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StationSupplies</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html">StationSupplies</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies__ctor_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies__ctor_System_Collections_Generic_IReadOnlyList_System_ValueTuple_System_String_System_Numerics_Vector3___" data-uid="LastFleet.ProcGen.Missions.StationSupplies.#ctor(System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.Numerics.Vector3}})">
+  StationSupplies(IReadOnlyList&lt;(string Supply, Vector3 Color)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The supplies a station's cargo can hold, as defined in the game's data (the loot data's fleet supplies, put into use
+with <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Use_LastFleet_ProcGen_Missions_StationSupplies_">Use(StationSupplies?)</a>; with no data, <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html#LastFleet_ProcGen_Missions_StationSupplies_Shipped">Shipped</a>). Lists every supply a station can be chosen for (a
+<a class="xref" href="LastFleet.ProcGen.Missions.GenerationSettings.html#LastFleet_ProcGen_Missions_GenerationSettings_CargoFocus">CargoFocus</a>), each with its color, used for a tank's band and glow when it holds
+that supply. Which ones are kept in tanks is up to the mission template (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_TankSupplies">TankSupplies</a>).
+Every co-op peer generates its levels from the same set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StationSupplies(IReadOnlyList&lt;(string Supply, Vector3 Color)&gt; Supplies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Supplies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.numerics.vector3-.supply">Supply</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.numerics.vector3-.color">Color</a>)&gt;</dt>
+    <dd><p>Every supply a station can mostly hold, by item id, in fleet order, with its color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Cargo_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Cargo*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Cargo" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Cargo">
+  Cargo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The supply ids, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Cargo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Current_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Current*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Current" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The supplies levels are currently generated with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StationSupplies Current { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html">StationSupplies</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Shipped_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Shipped*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Shipped" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Shipped">
+  Shipped
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The supplies as defined in the repository's data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StationSupplies Shipped { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html">StationSupplies</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Supplies_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Supplies*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Supplies" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Supplies">
+  Supplies
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every supply a station can mostly hold, by item id, in fleet order, with its color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;(string Supply, Vector3 Color)&gt; Supplies { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.numerics.vector3-.supply">Supply</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.numerics.vector3-.color">Color</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Color_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Color*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Color_System_String_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Color(System.String)">
+  Color(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color of <code class="paramref">supply</code>, or grey if it isn't in the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Color(string supply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>supply</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Missions_StationSupplies_Use_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Use*"></a>
+
+  <h3 id="LastFleet_ProcGen_Missions_StationSupplies_Use_LastFleet_ProcGen_Missions_StationSupplies_" data-uid="LastFleet.ProcGen.Missions.StationSupplies.Use(LastFleet.ProcGen.Missions.StationSupplies)">
+  Use(StationSupplies?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Missions/StationSupplies.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates levels with <code class="paramref">supplies</code> from now on. Passing null restores the shipped ones.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Use(StationSupplies? supplies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>supplies</code> <a class="xref" href="LastFleet.ProcGen.Missions.StationSupplies.html">StationSupplies</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

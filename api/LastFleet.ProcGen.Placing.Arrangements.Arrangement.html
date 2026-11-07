@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Arrangement | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Arrangement | The Last Fleet ">
+      
+      <meta name="description" content="How a rule lays out its props as a group (the arrange field in rules.json): a row of pieces, or several rows, treated as a single spot for the rule&#39;s anchor. For example a galley&#39;s tables, a lab&#39;s benches back to back, or a dormitory&#39;s bunks.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Placing_Arrangements_Arrangement.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Placing.Arrangements.Arrangement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement">
+
+
+
+  <h1 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement" class="text-break">
+Class Arrangement  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Placing.html">Placing</a>.<a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.html">Arrangements</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>How a rule lays out its props as a group (the <code>arrange</code> field in <code>rules.json</code>): a row of pieces, or
+several rows, treated as a single spot for the rule's anchor. For example a galley's tables, a lab's benches back
+to back, or a dormitory's bunks.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record Arrangement : IEquatable&lt;Arrangement&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Arrangement</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.Arrangement.html">Arrangement</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Each placed arrangement counts once toward the rule's count. It's placed whole or not at all, it has to leave every
+path through the room open, and its aisles stay reserved as open floor afterward.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement__ctor_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.#ctor*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement__ctor_LastFleet_ProcGen_Placing_Arrangements_ArrangementKind_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Single_System_Single_LastFleet_ProcGen_Placing_Arrangements_ArrangementAxis_System_Boolean_System_Boolean_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.#ctor(LastFleet.ProcGen.Placing.Arrangements.ArrangementKind,System.ValueTuple{System.Int32,System.Int32},System.ValueTuple{System.Int32,System.Int32},System.Single,System.Single,LastFleet.ProcGen.Placing.Arrangements.ArrangementAxis,System.Boolean,System.Boolean)">
+  Arrangement(ArrangementKind, (int Min, int Max), (int Min, int Max), float, float, ArrangementAxis, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How a rule lays out its props as a group (the <code>arrange</code> field in <code>rules.json</code>): a row of pieces, or
+several rows, treated as a single spot for the rule's anchor. For example a galley's tables, a lab's benches back
+to back, or a dormitory's bunks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Arrangement(ArrangementKind Kind, (int Min, int Max) Columns, (int Min, int Max) Rows, float Gap, float Aisle, ArrangementAxis Along, bool BackToBack, bool Fill)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Kind</code> <a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.ArrangementKind.html">ArrangementKind</a></dt>
+    <dd><p>A single row, or a grid of rows.</p>
+</dd>
+    <dt><code>Columns</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>The min and max pieces per row.</p>
+</dd>
+    <dt><code>Rows</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd><p>The min and max number of rows (a single row has one).</p>
+</dd>
+    <dt><code>Gap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The space between pieces in a row, in meters (0 means touching).</p>
+</dd>
+    <dt><code>Aisle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The space between rows (or between back-to-back pairs of rows), in meters. Has to be wide enough to walk through.</p>
+</dd>
+    <dt><code>Along</code> <a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.ArrangementAxis.html">ArrangementAxis</a></dt>
+    <dd><p>The direction the rows run in.</p>
+</dd>
+    <dt><code>BackToBack</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, rows come in back-to-back pairs facing outward, with the aisle between pairs.</p>
+</dd>
+    <dt><code>Fill</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, it uses as many pieces as fit, starting from the max and working down. Otherwise it uses a random count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LastFleet_ProcGen_Placing_Arrangements_Arrangement__ctor_LastFleet_ProcGen_Placing_Arrangements_ArrangementKind_System_ValueTuple_System_Int32_System_Int32__System_ValueTuple_System_Int32_System_Int32__System_Single_System_Single_LastFleet_ProcGen_Placing_Arrangements_ArrangementAxis_System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each placed arrangement counts once toward the rule's count. It's placed whole or not at all, it has to leave every
+path through the room open, and its aisles stay reserved as open floor afterward.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_LeastAisle" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.LeastAisle">
+  LeastAisle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The narrowest aisle people walk down, in meters. It's twice the soldier clearance (the AI's 0.4 m radius) plus
+one navigation cell (0.25 m), which is 1.05, rounded up to the next tenth on the half-meter placement grid (1.1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float LeastAisle = 1.1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_MostPieces" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.MostPieces">
+  MostPieces
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of pieces per row, and of rows, an arrangement can have.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostPieces = 12</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_MostSpace" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.MostSpace">
+  MostSpace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum gap or aisle, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float MostSpace = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Aisle_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Aisle*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Aisle" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Aisle">
+  Aisle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The space between rows (or between back-to-back pairs of rows), in meters. Has to be wide enough to walk through.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Aisle { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Along_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Along*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Along" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Along">
+  Along
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The direction the rows run in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArrangementAxis Along { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.ArrangementAxis.html">ArrangementAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_BackToBack_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.BackToBack*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_BackToBack" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.BackToBack">
+  BackToBack
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, rows come in back-to-back pairs facing outward, with the aisle between pairs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BackToBack { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Columns_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Columns*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Columns" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Columns">
+  Columns
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max pieces per row.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Columns { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Fill_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Fill*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Fill" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Fill">
+  Fill
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, it uses as many pieces as fit, starting from the max and working down. Otherwise it uses a random count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Fill { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Gap_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Gap*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Gap" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Gap">
+  Gap
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The space between pieces in a row, in meters (0 means touching).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Gap { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Kind_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Kind*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Kind" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Kind">
+  Kind
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A single row, or a grid of rows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArrangementKind Kind { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Arrangements.ArrangementKind.html">ArrangementKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Rows_" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Rows*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Arrangements_Arrangement_Rows" data-uid="LastFleet.ProcGen.Placing.Arrangements.Arrangement.Rows">
+  Rows
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Arrangements/Arrangement.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The min and max number of rows (a single row has one).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Min, int Max) Rows { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.min">Min</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.max">Max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

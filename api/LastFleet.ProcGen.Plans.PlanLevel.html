@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PlanLevel | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PlanLevel | The Last Fleet ">
+      
+      <meta name="description" content="A plan&#39;s level for a seed, built from the outside in: its structure (), then the space its halls leave cut into rooms from each section&#39;s district program, then every room&#39;s doors, then every piece built as a room module and placed on the grid.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Plans_PlanLevel.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Plans.PlanLevel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans.PlanLevel">
+
+
+
+  <h1 id="LastFleet_ProcGen_Plans_PlanLevel" data-uid="LastFleet.ProcGen.Plans.PlanLevel" class="text-break">
+Class PlanLevel  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Plans.html">Plans</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A plan's level for a seed, built from the outside in: its structure (<a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a>), then the space its
+halls leave cut into rooms from each section's district program, then every room's doors, then every piece built as a
+room module and placed on the grid.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PlanLevel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PlanLevel</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Plans_PlanLevel_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Plots are the cells between halls, in one section. Each is cut across its length into strips, so the rooms' walls line
+up along the hall, each strip a room picked by weight from its district (<a class="xref" href="LastFleet.ProcGen.Plans.DistrictProgram.html">DistrictProgram</a>), and the
+section's biggest plot holds its anchor. A strip deeper than <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html#LastFleet_ProcGen_Plans_PlanLevel_MostDepth">MostDepth</a> becomes a room in front and one
+behind; anything smaller than <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html#LastFleet_ProcGen_Plans_PlanLevel_LeastRoom">LeastRoom</a> cells is left as void inside the hull.
+</p>
+<p>
+Each room's door faces the hall it has the most frontage on. A room between two halls usually gets a second door onto
+the other if it's shared (a mess, a lab), rarely if it's private (a cabin, a store). A room with no hall of its own gets
+a suite door through the room in front of it. Halls are built in stretches at most 8 cells each way, joined by openings
+as wide as the hall; pressure doors and hatches come from the structure.
+</p>
+<p>
+Every piece's doors are known before it's built, so no room has a doorway nothing uses. Identical pieces (a row of
+cabins, a stretch of corridor) are built once: a piece's seed comes from its archetype, shape and doors, and built
+pieces are kept for each set of procgen data.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_CoreLength" data-uid="LastFleet.ProcGen.Plans.PlanLevel.CoreLength">
+  CoreLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many cells long a stair core is, from its foot to its landing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int CoreLength = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_CoreReach" data-uid="LastFleet.ProcGen.Plans.PlanLevel.CoreReach">
+  CoreReach
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far from its frame a stair core may stand, in cells, either way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int CoreReach = 8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_CoreWidth" data-uid="LastFleet.ProcGen.Plans.PlanLevel.CoreWidth">
+  CoreWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many cells wide a stair core is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int CoreWidth = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_LeastRoom" data-uid="LastFleet.ProcGen.Plans.PlanLevel.LeastRoom">
+  LeastRoom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fewest cells a room has; less is left as void.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int LeastRoom = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_MostAnchor" data-uid="LastFleet.ProcGen.Plans.PlanLevel.MostAnchor">
+  MostAnchor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most cells a section's anchor spans either way (<a class="xref" href="LastFleet.ProcGen.Modules.ParametricRoom.html#LastFleet_ProcGen_Modules_ParametricRoom_MostCells">MostCells</a>): a hangar can fill a
+band from the hull to a passageway.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostAnchor = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_MostCorePassage" data-uid="LastFleet.ProcGen.Plans.PlanLevel.MostCorePassage">
+  MostCorePassage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most cells of passage between a stair core's foot or landing and a hall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostCorePassage = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_MostDepth" data-uid="LastFleet.ProcGen.Plans.PlanLevel.MostDepth">
+  MostDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deepest a strip is before it's split into a room in front and one behind.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostDepth = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_MostSpan" data-uid="LastFleet.ProcGen.Plans.PlanLevel.MostSpan">
+  MostSpan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most cells a piece spans either way, but for a section's anchor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MostSpan = 8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_OpenWidth" data-uid="LastFleet.ProcGen.Plans.PlanLevel.OpenWidth">
+  OpenWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How wide the opening between two stretches of a hall is, in meters: the whole cell, so the stretches meet with no
+wall, lintel or trim between them and read as one hall (<a class="xref" href="LastFleet.ProcGen.Levels.Dressing.StationDressing.html">StationDressing</a> leaves a seam's lintel out).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float OpenWidth = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_PrivateSecondDoor" data-uid="LastFleet.ProcGen.Plans.PlanLevel.PrivateSecondDoor">
+  PrivateSecondDoor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How likely a private room between two halls is to get a door onto the second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float PrivateSecondDoor = 0.15</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_SharedSecondDoor" data-uid="LastFleet.ProcGen.Plans.PlanLevel.SharedSecondDoor">
+  SharedSecondDoor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How likely a shared room between two halls is to get a door onto the second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SharedSecondDoor = 0.8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_WideDoorMargin" data-uid="LastFleet.ProcGen.Plans.PlanLevel.WideDoorMargin">
+  WideDoorMargin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L1551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What a door across a wide hall stops short of its walls by, all told, in meters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float WideDoorMargin = 0.4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Boarding_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Boarding*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Boarding" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Boarding">
+  Boarding
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where the squad boards if a pin says so: the cell and deck of the plan's first boarding pin; null if none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int X, int Z, int Deck)? Boarding { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.level">Level</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32,system.int32-.z">Z</a>)?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_DeckCount_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.DeckCount*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_DeckCount" data-uid="LastFleet.ProcGen.Plans.PlanLevel.DeckCount">
+  DeckCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many decks it has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DeckCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Doorways_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Doorways*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Doorways" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Doorways">
+  Doorways
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The doorways between its pieces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PlanDoorway&gt; Doorways { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanDoorway.html">PlanDoorway</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Mission_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Mission*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Mission" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Mission">
+  Mission
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mission read into it, if it was built with a recipe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanMission? Mission { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanMission.html">PlanMission</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_OriginX_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.OriginX*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_OriginX" data-uid="LastFleet.ProcGen.Plans.PlanLevel.OriginX">
+  OriginX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The plan cell at the grid's origin, along X: placements and doorways count from it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OriginX { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_OriginZ_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.OriginZ*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_OriginZ" data-uid="LastFleet.ProcGen.Plans.PlanLevel.OriginZ">
+  OriginZ
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The plan cell at the grid's origin, along Z.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OriginZ { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Pieces_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Pieces*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Pieces" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Pieces">
+  Pieces
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its pieces: rooms, stretches of corridor and of service way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PlanPiece&gt; Pieces { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanPiece.html">PlanPiece</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Pins_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Pins*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Pins" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Pins">
+  Pins
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its plan's pins, each with the cell it's pinned to on its deck this seed; null where its part isn't there. A room
+pin's room is cut round the plot cell nearest it; the boarding pin picks the airlock nearest it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;(PlanPin Pin, (int X, int Z)? Cell)&gt; Pins { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html">PlanPin</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.procgen.plans.planpin,system.nullable-system.valuetuple-system.int32,system.int32---.pin">Pin</a>, (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.x">X</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.z">Z</a>)? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-lastfleet.procgen.plans.planpin,system.nullable-system.valuetuple-system.int32,system.int32---.cell">Cell</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Placements_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Placements*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Placements" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Placements">
+  Placements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each piece's built module on the grid, by piece index; the grid's origin is (<a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html#LastFleet_ProcGen_Plans_PlanLevel_OriginX">OriginX</a>, <a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html#LastFleet_ProcGen_Plans_PlanLevel_OriginZ">OriginZ</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Placement&gt; Placements { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Layouts.Placement.html">Placement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Problems_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Problems*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Problems" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Problems">
+  Problems
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What's wrong with it (the structure's problems, then its own), in words a designer can act on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Problems { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Structure_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Structure*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Structure" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Structure">
+  Structure
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The structure of its bottom deck (<a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html#LastFleet_ProcGen_Plans_PlanLevel_Structures">Structures</a> has every deck's).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanStructure Structure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Structures_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Structures*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Structures" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Structures">
+  Structures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each deck's structure, bottom to top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PlanStructure&gt; Structures { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Timings_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Timings*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Timings" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Timings">
+  Timings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long each stage took to build.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;(string Stage, TimeSpan Time)&gt; Timings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.timespan-.stage">Stage</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.timespan-.time">Time</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_VoidCells_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.VoidCells*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_VoidCells" data-uid="LastFleet.ProcGen.Plans.PlanLevel.VoidCells">
+  VoidCells
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many cells inside the hull are left as void: too small for a room, or out of reach of any hall.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VoidCells { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Build_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Build*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Build_LastFleet_ProcGen_Plans_LevelPlan_System_UInt64_LastFleet_ProcGen_Data_ProcGenData_LastFleet_ProcGen_Missions_MissionTemplate_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Build(LastFleet.ProcGen.Plans.LevelPlan,System.UInt64,LastFleet.ProcGen.Data.ProcGenData,LastFleet.ProcGen.Missions.MissionTemplate)">
+  Build(LevelPlan, ulong, ProcGenData, MissionTemplate?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds <code class="paramref">plan</code>'s level for <code class="paramref">seed</code> from <code class="paramref">data</code>'s districts and
+archetypes. Given a <code class="paramref">mission</code> laid out by a plan (<a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html#LastFleet_ProcGen_Missions_MissionTemplate_Plan">Plan</a>), it's read
+into the level before its rooms are built (<a class="xref" href="LastFleet.ProcGen.Plans.MissionEmbedder.html">MissionEmbedder</a>), so the rooms it picks are built for what
+they hold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlanLevel Build(LevelPlan plan, ulong seed, ProcGenData data, MissionTemplate? mission = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plan</code> <a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+    <dd></dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="LastFleet.ProcGen.Data.ProcGenData.html">ProcGenData</a></dt>
+    <dd></dd>
+    <dt><code>mission</code> <a class="xref" href="LastFleet.ProcGen.Missions.MissionTemplate.html">MissionTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The envelope spans too much (<a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html#LastFleet_ProcGen_Plans_Envelope_MostSpan">MostSpan</a>).</p>
+</dd>
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanMissionException.html">PlanMissionException</a></dt>
+    <dd><p>The mission can't be read into this level (no room for an airlock, one section).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Layout_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Layout*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Layout" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Layout">
+  Layout()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the level as a layout: its pieces placed and its doorways. With a mission, each piece's node is its own
+index, its role and region (zone) the mission's, and the gates locked. Without one, a room's role is Explore, a
+hall's Corridor, its region its section and every node −1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LevelLayout Layout()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Layouts.LevelLayout.html">LevelLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_Mesh_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Mesh*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_Mesh" data-uid="LastFleet.ProcGen.Plans.PlanLevel.Mesh">
+  Mesh()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the level's mesh: every piece's module where it's placed, with doorways narrower than their opening walled up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeshData Mesh()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Plans_PlanLevel_PieceAt_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.PieceAt*"></a>
+
+  <h3 id="LastFleet_ProcGen_Plans_PlanLevel_PieceAt_System_Int32_System_Int32_System_Int32_" data-uid="LastFleet.ProcGen.Plans.PlanLevel.PieceAt(System.Int32,System.Int32,System.Int32)">
+  PieceAt(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Plans/PlanLevel.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the piece at cell (<code class="paramref">x</code>, <code class="paramref">z</code>) on <code class="paramref">deck</code>, or null for
+void or outside.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlanPiece? PieceAt(int x, int z, int deck = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>deck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPiece.html">PlanPiece</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

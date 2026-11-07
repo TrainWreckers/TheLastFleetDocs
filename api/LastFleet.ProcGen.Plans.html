@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.ProcGen.Plans | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.ProcGen.Plans | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Plans">
+
+  <h1 id="LastFleet_ProcGen_Plans" data-uid="LastFleet.ProcGen.Plans" class="text-break">Namespace LastFleet.ProcGen.Plans</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.ArmPart.html">ArmPart</a></dt>
+      <dd><p>A straight run of cells out from a point: a station's arm, a ring station's bridge, a docking boom. It grows from its
+<a class="xref" href="LastFleet.ProcGen.Plans.ArmPart.html#LastFleet_ProcGen_Plans_ArmPart_At">At</a> in its direction for a length picked from its range, as wide as its width either side of its line,
+so it stays on its line however long it's drawn.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.BoxModule.html">BoxModule</a></dt>
+      <dd><p>A rectangle of cells: a station's hub or arm, a ship's sponson, a module bolted on. Its size is picked from its
+ranges; it can be mirrored across the centerline (a pair of sponsons from one part).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.BridgePart.html">BridgePart</a></dt>
+      <dd><p>A straight run out from a center at any angle: a ring station's bridge from its core to its ring, on a slant as often
+as not (docs/plans/structure-first.md, Phase 7). It covers every cell its band (<a class="xref" href="LastFleet.ProcGen.Plans.BridgePart.html#LastFleet_ProcGen_Plans_BridgePart_Width">Width</a> cells across)
+touches, from <a class="xref" href="LastFleet.ProcGen.Plans.BridgePart.html#LastFleet_ProcGen_Plans_BridgePart_Span">Span</a>'s first count of cells out from the center's middle to its second, so a hall laid on it
+runs smooth along its line (<a class="xref" href="LastFleet.ProcGen.Modules.HallLine.html">HallLine</a>) rather than stepped on the grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.CrossHall.html">CrossHall</a></dt>
+      <dd><p>A hall straight across a part, at a share of its length: a cross passage joining a ship's passageways, a hub's
+corridor across it. It reaches <a class="xref" href="LastFleet.ProcGen.Plans.CrossHall.html#LastFleet_ProcGen_Plans_CrossHall_Reach">Reach</a> cells either side of the part's line, or as far as the envelope
+allows with <a class="xref" href="LastFleet.ProcGen.Plans.CrossHall.html#LastFleet_ProcGen_Plans_CrossHall_Inset">Inset</a> cells to spare.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.DistrictPaint.html">DistrictPaint</a></dt>
+      <dd><p>Cells a designer painted with one of a plan's districts (<a class="xref" href="LastFleet.ProcGen.Plans.SectionPlan.html#LastFleet_ProcGen_Plans_SectionPlan_Paint">Paint</a>), as rows of text the way a
+mask is (<a class="xref" href="LastFleet.ProcGen.Plans.PaintedMask.html">PaintedMask</a>): <code>#</code> for a painted cell, anything else for none. The first row is the one
+with the least Z, and each row's first character the cell with the least X.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.DistrictProgram.html">DistrictProgram</a></dt>
+      <dd><p>What a district is made of (districts.json): its anchor, the set piece its section is built round (a mess, a cargo
+hold, the bridge), and the rooms that fill the rest of its plots.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.DistrictRoom.html">DistrictRoom</a></dt>
+      <dd><p>A kind of room a district is made of (<a class="xref" href="LastFleet.ProcGen.Plans.DistrictProgram.html">DistrictProgram</a>): the archetype it's built from (its style,
+furnishing and tags; its shape comes from the plot it's cut from), how many cells along its hall it takes, how often
+it's picked, whether it comes in a row of the same, and whether it's somewhere you go into rather than through.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html">Envelope</a></dt>
+      <dd><p>The outline of a level on one deck: the grid cells inside its hull, built from a plan's parts for a seed. Everything
+later in the structure-first pipeline (halls, sections, rooms) happens inside it, and its hull edges are where the
+level meets space.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.ExitPlanner.html">ExitPlanner</a></dt>
+      <dd><p>Finds a plan level's ways on and off (docs/plans/structure-first.md, Phase 4): airlock vestibules, small rooms on
+the hull that open only onto a corridor, so the squad boards into a hallway rather than a store; and rooms on the
+hull for the squad to be taken off from.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.FillHall.html">FillHall</a></dt>
+      <dd><p>A hall that is the whole of the part it's laid on: every cell of it inside the envelope, whatever its shape. A mask
+painted as a hallway, a box made a concourse, an arm that is all corridor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.HallPart.html">HallPart</a></dt>
+      <dd><p>One of a plan's halls, carved after the envelope and before any room. A hall is laid on one of the plan's parts
+(<a class="xref" href="LastFleet.ProcGen.Plans.HallPart.html#LastFleet_ProcGen_Plans_HallPart_On">On</a>) and follows the shape that part was drawn at (<a class="xref" href="LastFleet.ProcGen.Plans.PartShape.html">PartShape</a>), so it fits however long or
+wide the part came out. Halls are carved in order; corridors first, then service ways round them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.HullProfile.html">HullProfile</a></dt>
+      <dd><p>A ship's hull: a length and a beam picked from their ranges, and a profile saying how wide it is along its length.
+It's mirrored across its centerline, with the bow at its <a class="xref" href="LastFleet.ProcGen.Plans.HullProfile.html#LastFleet_ProcGen_Plans_HullProfile_At">At</a> and the stern toward +X.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a></dt>
+      <dd><p>A kind of level, as a designer composed it in Studio from parts: a frigate, a carrier, a station of hub and spokes, a
+ring station. Its envelope is built from its parts in order (<a class="xref" href="LastFleet.ProcGen.Plans.Envelope.html#LastFleet_ProcGen_Plans_Envelope_Build_LastFleet_ProcGen_Plans_LevelPlan_System_UInt64_System_Int32_">Build(LevelPlan, ulong, int)</a>), each adding cells or cutting
+them out. Its halls are carved into the envelope next, then it's cut into sections (<a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html#LastFleet_ProcGen_Plans_PlanStructure_Build_LastFleet_ProcGen_Plans_LevelPlan_System_UInt64_System_Int32_">Build(LevelPlan, ulong, int)</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.MissionEmbedder.html">MissionEmbedder</a></dt>
+      <dd><p>Reads a mission into a plan's level before its rooms are built (docs/plans/structure-first.md, Phase 4), by the
+template's recipe (<a class="xref" href="LastFleet.ProcGen.Missions.PlanRecipe.html">PlanRecipe</a>). The structure is already there, so nothing is grown: the embedder picks
+among the rooms the level has.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PaintedMask.html">PaintedMask</a></dt>
+      <dd><p>Cells a designer painted, as rows of text: <code>#</code> for a cell, anything else for none. The first row is the one with
+the least Z, and each row's first character the cell with the least X.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanCore.html">PlanCore</a></dt>
+      <dd><p>A plan's stair core: stairs from one deck up to the one above, at a fixed frame of the ship, so it's in the same
+place on every seed. It stands as near the frame as a stairwell fits, clear of the halls on both decks, its foot
+joined to a corridor on the lower deck and its landing to one on the upper by short passages where they don't touch.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDeck.html">PlanDeck</a></dt>
+      <dd><p>One deck of a plan (<a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html#LastFleet_ProcGen_Plans_LevelPlan_Decks">Decks</a>): its name, and its sections' districts if not the plan's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanLevel.html">PlanLevel</a></dt>
+      <dd><p>A plan's level for a seed, built from the outside in: its structure (<a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a>), then the space its
+halls leave cut into rooms from each section's district program, then every room's doors, then every piece built as a
+room module and placed on the grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanMission.html">PlanMission</a></dt>
+      <dd><p>The mission read into a plan's level (<a class="xref" href="LastFleet.ProcGen.Plans.MissionEmbedder.html">MissionEmbedder</a>): each piece's zone and role, each doorway's
+lock, the way through, and the mission graph the rest of generation reads, in which each piece is the node of its
+own index.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanMissionException.html">PlanMissionException</a></dt>
+      <dd><p>A mission recipe can't be read into a plan's level for a seed: no room on the hull for an airlock, or too few
+sections for two zones. The generator tries a seed made from this one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPart.html">PlanPart</a></dt>
+      <dd><p>One part of a level's plan (<a class="xref" href="LastFleet.ProcGen.Plans.LevelPlan.html">LevelPlan</a>). Each part covers some grid cells, picked from its own random
+stream within the ranges a designer gave, and adds them to the envelope or cuts them out of it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPicture.html">PlanPicture</a></dt>
+      <dd><p>Draws a plan's structure from above as a picture, for checking a plan by eye outside Studio (Studio's
+<code>--plan-png</code>): its sections tinted, its halls (main corridors palest, service ways brown), its bulkheads in red,
+its pressure doors in yellow and hatches in orange, the hull's edges, the centerline, and a mark every five cells
+(20 m). The bow is to the left.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPiece.html">PlanPiece</a></dt>
+      <dd><p>One piece of a plan's level, built as one room module: a room cut from a plot, or a stretch of hall. Long halls are
+built in stretches at most 8 cells each way, joined by openings as wide as the hall.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html">PlanPin</a></dt>
+      <dd><p>A set piece a designer pinned to a plan (docs/plans/structure-first.md, Phase 11): a room of an archetype that goes
+here, or where the squad boards. Like a stair core (<a class="xref" href="LastFleet.ProcGen.Plans.PlanCore.html">PlanCore</a>), it's placed on a part, so it follows the
+part however long or wide a seed draws it: along a line (a hull, a box, an arm), as a share of its length and cells off
+its middle line; round a ring, as cells from its center at its fewest radius, grown with it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanStructure.html">PlanStructure</a></dt>
+      <dd><p>A plan's structure for a seed, before any room: its envelope, the halls carved into it, the sections bulkheads cut
+it into (each with its district), the pressure doors and hatches where halls cross bulkheads, and service stubs so
+every section a service way passes has a hatch onto a corridor. Also what's wrong with it, for Studio and the tests.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.RingHall.html">RingHall</a></dt>
+      <dd><p>A hall round a ring part: a ring station's ring corridor, the corridor round its core. It runs
+<a class="xref" href="LastFleet.ProcGen.Plans.RingHall.html#LastFleet_ProcGen_Plans_RingHall_FromOutside">FromOutside</a> cells in from the ring's outside, <a class="xref" href="LastFleet.ProcGen.Plans.RingHall.html#LastFleet_ProcGen_Plans_RingHall_Across">Across</a> meters wide, walkable all the way
+round, built smooth round its bend (<a class="xref" href="LastFleet.ProcGen.Modules.AngledHall.html">AngledHall</a>) on every cell it touches.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.RingPart.html">RingPart</a></dt>
+      <dd><p>A ring of cells round a center: a ring station's outer ring, or a disc when it's as wide as its radius (a hub). A cell
+is in it when its middle is within the outer radius and beyond the inner one, worked out in whole numbers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.RingSplit.html">RingSplit</a></dt>
+      <dd><p>A ring part cut into sections by angle, when each part is its own section (<a class="xref" href="LastFleet.ProcGen.Plans.SectionPlan.html#LastFleet_ProcGen_Plans_SectionPlan_ByParts">ByParts</a>): a
+bulkhead out from its center at each of <a class="xref" href="LastFleet.ProcGen.Plans.RingSplit.html#LastFleet_ProcGen_Plans_RingSplit_Quarters">Quarters</a>, so a ring station's ring is several sections, each its
+own zone, rather than one. The first piece round from the first quarter keeps the part's own section; the others get
+sections of their own after every part's, with the part's district.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.SectionCuts.html">SectionCuts</a></dt>
+      <dd><p>Bulkheads across one of a plan's parts, at shares of its length: a ship cut bow to stern into sections. Every cell of
+the envelope takes the section of where it falls along that part's line.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.SectionPlan.html">SectionPlan</a></dt>
+      <dd><p>How a plan's envelope is cut into sections (the parts between bulkheads, which become zones), and what each one is:
+bulkheads across one part (<a class="xref" href="LastFleet.ProcGen.Plans.SectionPlan.html#LastFleet_ProcGen_Plans_SectionPlan_Cuts">Cuts</a>), each part its own section (a station's hub, each arm, each bridge), or
+districts painted on the plan's cells (<a class="xref" href="LastFleet.ProcGen.Plans.SectionPlan.html#LastFleet_ProcGen_Plans_SectionPlan_Paint">Paint</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.SpineHall.html">SpineHall</a></dt>
+      <dd><p>A hall along a part's line: a ship's spine, a passageway either side of it, a station arm's corridor, a bridge. It
+runs from <a class="xref" href="LastFleet.ProcGen.Plans.SpineHall.html#LastFleet_ProcGen_Plans_SpineHall_From">From</a> to <a class="xref" href="LastFleet.ProcGen.Plans.SpineHall.html#LastFleet_ProcGen_Plans_SpineHall_To">To</a> of the part's length (shares that may go past 0 and 1 to reach into
+the parts beside it), at <a class="xref" href="LastFleet.ProcGen.Plans.SpineHall.html#LastFleet_ProcGen_Plans_SpineHall_Offset">Offset</a> cells across, and stops where the envelope ends or leaves fewer than
+<a class="xref" href="LastFleet.ProcGen.Plans.SpineHall.html#LastFleet_ProcGen_Plans_SpineHall_Inset">Inset</a> cells either side of it for rooms. Only its longest stretch is kept, so it never breaks in two.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.ExitPoint.html">ExitPoint</a></dt>
+      <dd><p>A way on or off a plan's level: a room against the hull and the side of it the hull is on, or a hangar the dropship
+lands in.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PartShape.html">PartShape</a></dt>
+      <dd><p>The shape a part was drawn at for a seed, so halls and sections can follow it however long or wide it came out: a
+line it runs along (from its origin, in its direction, for its length, with cells either side of it), or a ring's
+center, radius and width.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDock.html">PlanDock</a></dt>
+      <dd><p>Where the dropship docks to take the squad off: one side of a cell of the extraction room, on the hull with no
+doorway in it, where the airlock's outer hatch goes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDoor.html">PlanDoor</a></dt>
+      <dd><p>A door in a plan's structure, on one side of a cell.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDoorway.html">PlanDoorway</a></dt>
+      <dd><p>A doorway between two pieces of a plan's level, on one side of a cell of the first.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.ProfilePoint.html">ProfilePoint</a></dt>
+      <dd><p>A point on a hull's profile (<a class="xref" href="LastFleet.ProcGen.Plans.HullProfile.html">HullProfile</a>): how wide the hull is at a place along it.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.HallTier.html">HallTier</a></dt>
+      <dd><p>What a hall is for, which says how wide it reads and what it joins.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PartMode.html">PartMode</a></dt>
+      <dd><p>What a plan's part does to the envelope built so far.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDoorKind.html">PlanDoorKind</a></dt>
+      <dd><p>The doors a plan's structure puts in before any room: where halls cross bulkheads.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanDoorwayKind.html">PlanDoorwayKind</a></dt>
+      <dd><p>What joins two pieces of a plan's level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPieceKind.html">PlanPieceKind</a></dt>
+      <dd><p>What a piece of a plan's level is: a room, a stretch of corridor or of service way, a spawn closet or stairs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.ProcGen.Plans.PlanPinKind.html">PlanPinKind</a></dt>
+      <dd><p>What a plan's pin holds in place (<a class="xref" href="LastFleet.ProcGen.Plans.PlanPin.html">PlanPin</a>).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

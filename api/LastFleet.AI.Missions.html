@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace LastFleet.AI.Missions | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace LastFleet.AI.Missions | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.AI.Missions">
+
+  <h1 id="LastFleet_AI_Missions" data-uid="LastFleet.AI.Missions" class="text-break">Namespace LastFleet.AI.Missions</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.BattleStations.html">BattleStations</a></dt>
+      <dd><p>A boarded warship's crew at battle stations (design doc, &quot;Boarding action: a ship in the fight&quot;;
+<code>boarding.crew</code> in campaign.json): the ship knows it's been boarded the moment the pod clamps on, so it never
+drops below high alert, every soldier is on the move between rooms rather than standing at a post, hunters are sent
+sooner and given no breathers, and they push the squad harder once they find it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.BoardingPlan.html">BoardingPlan</a></dt>
+      <dd><p>A boarding action's warship (design doc, &quot;Boarding action: a ship in the fight&quot;): where its gun batteries, its
+reactor and its fire suppression controls are, how the fight outside goes (how often the fleet's guns hit it, what a
+hit does, how fires spread and are put out, how hard its batteries hit the fleet), and how its crew fights.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.BreachPlan.html">BreachPlan</a></dt>
+      <dd><p>A hull breach (<code>HullBreaches</code>): the plate that covers it, the plate's bounds, and which direction points into
+the room.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.BreachTuning.html">BreachTuning</a></dt>
+      <dd><p>How windows onto space break and what a breach does (content/defs/breaches.json, docs/plans/structure-first.md,
+Phase 10), the same for every mission: how much a window takes before it's blown out and when its cracks show, how
+hard and how far the air rushing out pulls, what it does to anyone beside it and what it drags out, and how long the
+compartment's doors take to seal, the shutter to close and the compartment to repressurize; and how it looks (the
+shutter's drop, the mist streaming out, the lamps over sealed doors). Whether a breach is for good is the mission
+recipe's (its <code>breaches</code> block).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html">CargoPodSystem</a></dt>
+      <dd><p>Runs cargo pod defenses (<a class="xref" href="LastFleet.Simulation.Components.Cargo.CargoPod.html">CargoPod</a>). Once the drone is called, it takes longer to arrive the deeper
+into the station the squad is (<a class="xref" href="LastFleet.AI.Missions.CargoPodSystem.html#LastFleet_AI_Missions_CargoPodSystem_DefenseSeconds_LastFleet_Simulation_Components_Missions_MissionState__">DefenseSeconds(in MissionState)</a>), and the station comes for the pod.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.ClosetPlan.html">ClosetPlan</a></dt>
+      <dd><p>A spawn closet: its door part and bounds, the spots where soldiers spawn inside, and the closet's interior bounds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionPlan.html">MissionPlan</a></dt>
+      <dd><p>A level's mission layout: keycards and locks, the terminal, the extraction point, spawn closets, fallback points
+where reinforcements can enter when no closet works, hull breaches the horde can come through, and fuel and water
+tanks to pump into the docked dropship.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionSystem.html">MissionSystem</a></dt>
+      <dd><p>A boarding action (design doc, &quot;Boarding action: a ship in the fight&quot;): the warship the squad is on is in a fight
+with the fleet. The fleet's guns hit it on a cadence (each hit counted in <a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_HitCount">HitCount</a>, so
+everyone aboard feels it); a hit hurts those near it, and sometimes starts a fire or blows a window. Fires spread
+room to room and burn out, unless the ship's fire suppression is running: its sprinklers put them out, until a hit
+knocks it out (repaired at its controls in damage control) or its power goes (cutting the reactor kills it). While its
+batteries fire, the fleet takes damage. The squad silences the batteries and cuts the reactor by holding Interact at
+each, then takes the bridge; a battery or the reactor lost with its room to a breach is out for good.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionTuning.html">MissionTuning</a></dt>
+      <dd><p>Mission tuning values. Distances are in meters, times in seconds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionWalk.html">MissionWalk</a></dt>
+      <dd><p>Whether the mission can still be finished with some compartments, or rooms, lost (docs/plans/structure-first.md,
+decision 8):
+from the insertion, through doorways whose rooms are both kept, each gate passable once its keycard's room has been
+reached and the way out once the objective has, can the objective and then an extraction be reached? A breach seals
+its compartment for good only when this holds without it and every compartment already lost, so two losses can never
+together lock the squad out, and keycards stay reachable whatever is sealed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.ObjectivePlan.html">ObjectivePlan</a></dt>
+      <dd><p>What a mission's squad comes for and how long it takes (docs/plans/structure-first.md, &quot;Objective kinds&quot;): the hack,
+a download whose drive is carried out, or a self-destruct counted down while the squad gets off.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.PatrolRoomPlan.html">PatrolRoomPlan</a></dt>
+      <dd><p>A room the Director's patrols can come out of when no spawn closet will do (a security office, crew quarters): only
+while nobody is in it, near its spots or can see one, its zone open and its compartment unsealed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.RoomDoorTuning.html">RoomDoorTuning</a></dt>
+      <dd><p>How rooms' own doors behave (content/defs/doors.json, docs/plans/structure-first.md, Phase 10), the same for every
+mission: how near someone comes for a sliding door to open and how long it waits to shut behind them; how near a
+player reaches a door opened by hand, and how long a soldier takes to open one on his way; and how much battering a
+door opened by hand takes from the swarm before it's broken open for good.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.TankPlan.html">TankPlan</a></dt>
+      <dd><p>A fuel or water tank in the mission (<a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a>), with its starting state.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.TankPumpSystem.html">TankPumpSystem</a></dt>
+      <dd><p>Pumps supply tanks (<a class="xref" href="LastFleet.Simulation.Components.Cargo.SupplyTank.html">SupplyTank</a>) into the docked dropship. Whatever gets pumped belongs to the fleet
+immediately (<a class="xref" href="LastFleet.Simulation.Components.Missions.MissionState.html#LastFleet_Simulation_Components_Missions_MissionState_Delivered">Delivered</a>), even if the mission fails afterward.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.ThreatPlan.html">ThreatPlan</a></dt>
+      <dd><p>How hard a level's places are defended (docs/plans/structure-first.md, &quot;Threat drives the fight&quot;), and the patrols
+that sets. While the squad is in a room, its threat sets how often the Director sends a patrol and how big, the
+station's alert speeding both on top.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.BulkheadPlan.html">BulkheadPlan</a></dt>
+      <dd><p>A door through a bulkhead that seals (docs/plans/structure-first.md, Phase 8): the level part that fills its doorway,
+its bounds, and the compartments either side of it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.EscapePodPlan.html">EscapePodPlan</a></dt>
+      <dd><p>An escape pod: the level part (surface) of its hatch and the hatch's bounds, the middle of the pod inside, and how
+many it seats.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.FirePanel.html">FirePanel</a></dt>
+      <dd><p>A boarded warship's fire suppression panel (design doc, &quot;Boarding action: a ship in the fight&quot;): holding Interact at
+it floods its room while it burns, putting the fire out.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionKeyPlan.html">MissionKeyPlan</a></dt>
+      <dd><p>A keycard placed in the level. It opens the lock with the same id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.MissionLockPlan.html">MissionLockPlan</a></dt>
+      <dd><p>A locked door: the level part (surface) that fills its doorway, plus its bounds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.ReinforcementPoint.html">ReinforcementPoint</a></dt>
+      <dd><p>A spawn point for reinforcements, with a yaw that faces into the level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.RoomDoorPlan.html">RoomDoorPlan</a></dt>
+      <dd><p>A room's own door in a plan's level, as the mission runs it (docs/plans/structure-first.md, Phase 10): its part, the
+rooms either side, and whether it's opened by hand or slides open for whoever comes near.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.SuppressionControls.html">SuppressionControls</a></dt>
+      <dd><p>A boarded warship's fire suppression controls (design doc, &quot;Boarding action: a ship in the fight&quot;), in its damage
+control: while the system runs, the ship's sprinklers put its fires out; a hit can knock it out, and holding Interact
+here repairs it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="LastFleet.AI.Missions.WindowPlan.html">WindowPlan</a></dt>
+      <dd><p>A window onto space, as the mission's breaches need it (docs/plans/structure-first.md, Phase 10): its parts by
+surface, where its pane is, the compartment it lets space into, and whether that may ever be lost.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

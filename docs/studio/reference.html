@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LastFleet Studio | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LastFleet Studio | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="lastfleet-studio">LastFleet Studio</h1>
+
+<p>LastFleet Studio is the designers' tool. It's its own program, separate from the game, and it edits the game's data
+files right there in the repository.</p>
+<p>Why not just edit the JSON by hand? You could, but you'd be guessing. Studio runs the game's own code alongside the
+data, so a change shows up right away: across thousands of rolls, in a weapon's numbers in play, and in your hands on
+the range! And nothing gets written to the files until you save.</p>
+<p>What you can add as data, and what still needs a programmer, is covered in <a href="../adding-content.html">adding-content.md</a>.</p>
+<p>This page is the reference. Want to learn it by doing? The <a href="README.html">Studio guides</a> walk you through real
+tasks in every mode, step by step, with screenshots.</p>
+<p>There are ten modes, on the bar at the top:</p>
+<ul>
+<li><strong>Loot</strong>: what drops and how rare it is. Rarities (their odds, how they scale with item level, their bonuses), loot
+tables (what each source drops, with weights, and how it favors makers and rarities) and relics.</li>
+<li><strong>Armory</strong>: the guns. Frames (archetypes: the models file each one is built from, how it fires, rate of fire,
+magazine, damage and the rest of its numbers, base stats and clamps, whether it's in the stock kit, and how an enemy
+soldier fights with it), makers (their paint, bias, model names and signature traits), parts (and the model each one
+shows as), affixes, the trait rules, and impact (what a round's push does to what it hits, <code>impact.json</code>). A 3D panel
+shows the gun, and every part model, as exported from Blender.</li>
+<li><strong>Items</strong>: everything else that lies around. The items themselves (medkits, ammo packs, armor plates, stims, shield
+cells, breaching charges, the cargo pod beacon, weapon parts, raw materials for the refinery, and the fleet's
+supplies: fuel, food, water, medical supplies, munitions, alloy, electronics), and the item tables that a level's
+supply piles, footlockers, cases and cargo crates roll from (<code>content/defs/loot/items.json</code>). Plus what the items do
+(<code>effects.json</code>), how the fleet uses its supplies (<code>supplies.json</code>), and crafting: the grades, refinery tiers, recipes
+and fabrication (<code>crafting.json</code>).</li>
+<li><strong>Flow</strong>: the loot data as one big picture, read left to right: where things are found, the items, what the refinery
+and the fleet make from them, the grades, what the armory fabricates and what that rolls. Click a box to edit it
+right next to the chart.</li>
+<li><strong>Missions</strong>: the mission templates (<code>content/defs/missions</code>). Every setting for the procedural levels, with a level
+generated from the template and drawn from above so you can click through it, plus many seeds generated and counted.
+Below the templates is what's the same for every mission: how windows break (<code>breaches.json</code>), how rooms' doors
+behave (<code>doors.json</code>) and what the fleet finds to raid on the star map (<code>campaign.json</code>).</li>
+<li><strong>Levels</strong>: what levels are generated from (<code>content/defs/procgen</code>). Its tags (the words rules use to say where
+things go), its surface styles (how rooms and halls are built and how they look, drawn as they build), its room
+archetypes (the kinds of room built in generated shapes, or a hand-drawn one, each built on a turntable), its
+placement rules and the props they place, its networks, where a level's loot goes, how rooms are typed, the plans
+that structure-first levels are laid out by, and the districts their rooms come from.</li>
+<li><strong>Bodies</strong>: a body type's model playing its animation graph (<code>content/anim</code>), driven by the graph's parameters as
+sliders. You can check blends, pops, foot sliding and the IK without ever starting the game. It also has the editors
+for the graph (its nodes on a canvas), the rig (<code>content/rigs</code>) and the reloads' steps (<code>content/defs/reloads.json</code>).</li>
+<li><strong>Behavior</strong>: how enemies fight. Their behavior trees (<code>content/defs/ai/soldier.json</code> and any you add), the scoring
+that picks an intent in a fight, the squad personalities, the soldiers' difficulty (<code>tuning.json</code>), and the enemy
+variants (<code>enemies.json</code>) that the levels, the mission and the director spawn. You try all of it out while watching
+soldiers fight in a sandbox.</li>
+<li><strong>Look</strong>: the surface materials every model is drawn with (<code>content/defs/materials.json</code>): painted metal, bare
+metal, glass and the rest. You tune them on test shapes in a test room, under a station's lights, a flashlight in the
+dark, an alarm's red, a sodium hall's orange or the sun. See <a href="../blender/materials.html">materials.md</a>. It also tunes the skies
+that windows show (<code>content/defs/skies.json</code>).</li>
+<li><strong>Models</strong>: what each prop model is collided with wherever it's placed (<code>content/props/colliders.json</code>): its drawn
+mesh, its authored boxes, one box or cylinder around it, or nothing. You see the collider's outline over the model
+as it turns, along with what's worth fixing.</li>
+</ul>
+<h2 id="running-it">Running it</h2>
+<p>From the repository:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio
+</code></pre>
+<p>Studio edits <code>content/defs/loot</code>, <code>content/defs/ai</code>, <code>content/defs/missions</code> and the rest of <code>content</code> it has editors
+for (<code>content/defs/procgen</code>, <code>content/anim</code>, <code>content/rigs</code>, <code>materials.json</code>...) in whichever repository it's run from.
+How does it find the repository? It looks for <code>LastFleet.slnx</code> above the program, or above the folder you run it in.</p>
+<p>A few handy flags:</p>
+<ul>
+<li><strong>A different copy</strong>: to edit a different copy of the first three, pass <code>--loot &lt;folder&gt;</code>, <code>--ai &lt;folder&gt;</code> and
+<code>--missions &lt;folder&gt;</code>.</li>
+<li><strong>Open in a mode</strong>: <code>--mode armory</code> (or <code>items</code>, <code>flow</code>, <code>missions</code>, <code>levels</code>, <code>bodies</code>, <code>behavior</code>, <code>look</code>,
+<code>models</code>) opens in that mode.</li>
+<li><strong>Open on something</strong>: <code>--select &lt;id&gt;</code> opens with that definition selected (a part, a rarity, a loot table...; use
+<code>supplies:water</code> to select it in its own list). <code>--pick model</code> then opens the model picker on its <code>model</code>.</li>
+<li><strong>Everything else</strong>: <code>--help</code> lists the rest.</li>
+</ul>
+<h2 id="editing">Editing</h2>
+<p><strong>F11</strong> (or <strong>View &gt; Full screen</strong>) goes full screen. Press it again to go back to a window.</p>
+<p><strong>Every pane can be resized.</strong> Drag the bar between two panes to change how the space is split between them. A faint
+grip marks the middle of the bar, and the cursor changes when you're over it. This works in every mode: lists against
+their editors, previews against what's next to or under them, the Bodies timeline against the turntable.</p>
+<ul>
+<li>The panels pinned to an edge (Look's, Behavior's and the selected soldier's) get wider and narrower by dragging that
+edge.</li>
+<li>The model picker's and a prop's preview get taller by dragging the bar under them.</li>
+<li>Double-click a bar to reset it.</li>
+</ul>
+<p>Sizes are stored as fractions of the window, so they still fit when the window changes size. They're saved next to the
+game's settings (<code>studio-layout.json</code>), so Studio opens just the way you left it. A smoke run ignores them.</p>
+<p><strong>Ctrl+Z</strong> undoes the last change, in any mode and any file (<strong>Edit &gt; Undo</strong> shows which file). <strong>Ctrl+Y</strong> or
+<strong>Ctrl+Shift+Z</strong> redoes it. What counts as &quot;one change&quot;? A drag (a node, a curve's key, a slider) or typing in a field,
+from when you grab it to when you let go. A few more details:</p>
+<ul>
+<li>While you're typing in a field, Ctrl+Z undoes your typing in that field.</li>
+<li>Undoing all the way back to what's on disk counts as saved.</li>
+<li>The last 200 changes are kept.</li>
+<li>Revert, or a file being reloaded from disk, clears the changes for that file.</li>
+<li>An undo or redo clears the selection in a graph.</li>
+</ul>
+<p>The left column lists every definition by its id. Pick one and you edit it in the middle. Above its fields it tells you
+what the list is for and how to add to it. <strong>Hover over a field</strong> to see what it does.</p>
+<p><strong>About these fields</strong> shows the comment at the top of the file (right after its opening brace), line for line: <code>//</code>
+lines, or a <code>/* ... */</code> block (with the leading <code>*</code> on each line dropped), keeping blank lines and indentation. Studio
+writes it back unchanged. Heads up though: comments anywhere else in a file are lost when Studio saves it.</p>
+<p>Here's how each kind of field works:</p>
+<ul>
+<li><strong>Numbers</strong>: drag left and right, or double-click to type. Counts (a magazine, a stat's points) stay whole numbers.</li>
+<li><strong>Text</strong> is typed, except where it refers to something defined elsewhere. A rarity, a maker, a frame, a part, an
+affix, a relic, a table, a trait, a stat, a slot or a part's model is picked from a list of what exists. A list of
+those names (a maker's signature traits, a relic's parts, a tank's supplies, a hall style's accents) has a picker for
+each one and <strong>+ add</strong> for another. A name the data doesn't recognize is marked in red. A color (<code>#rrggbb</code>, or three
+numbers where Studio knows the field is a color) gets a color picker. A pair <code>[min, max]</code> is two fields side by side.
+A list of names that don't refer to anything (a maker's weapon names) has a field for each one, <strong>x</strong> to remove one
+and <strong>+ add</strong> for another. It's never one text box you split with commas!</li>
+<li><strong>Fields left out</strong> use a default. Studio shows them greyed out, with <strong>set</strong> to write a value in (a maker's <code>color</code>,
+a part's <code>model</code>, a frame's <code>frameStats</code>).</li>
+<li><strong>Lists of things</strong> (a table's entries, a part's mods) open as a tree. <strong>x</strong> removes a row, and <strong>+ add</strong> adds one
+like the last.</li>
+<li><strong>Maps</strong> (a table's maker and rarity bias, a maker's model names) take new keys: type the key and press <strong>+ add</strong>.</li>
+<li><strong>About these fields</strong> shows the file's own notes on what each field means.</li>
+</ul>
+<p><strong>+ New</strong> under each list's title adds an entry at the end of the list. It starts as a copy of the selected one (or
+the first one), with the id <code>new</code>. Give it an id and a name, then change whatever makes it different. <strong>Duplicate</strong>
+copies the selected entry right after itself with its own id (<code>..._2</code>). <strong>Delete</strong> removes it, and anything that refers
+to it will stop loading.</p>
+<p>After every change, Studio rebuilds the game's loot data. What if it doesn't build anymore (a table naming a frame that
+doesn't exist, a part with no slot, a missing field)? The bottom of the window tells you what's wrong, using the game's
+own error messages. Until you fix it, the previews show the last version that built. The game would refuse the data in
+that state, so fix it before saving.</p>
+<p><strong>File &gt; Save all</strong> (Ctrl+S) writes the changed files. <strong>File &gt; Revert to saved</strong> throws your changes away. The bottom
+line shows which files have changes, and if you close Studio with unsaved changes, it asks first.</p>
+<p>Studio writes the files in the same layout they're already in, comments included, so a save only changes the lines you
+edited and the diff is easy to review. Edited a file by hand? Run <code>LastFleetStudio --format</code> (or
+<code>dotnet run --project src/LastFleet.Studio -- --format</code>) to put it back in that layout. The tests check that every file
+is in it.</p>
+<h2 id="seeing-a-change">Seeing a change</h2>
+<p>Editing numbers blind isn't much fun, so Studio gives you a bunch of ways to see what a change actually does:</p>
+<ul>
+<li><strong>Loot Lab</strong> (Loot mode, on the right): pick a loot table and an item level and roll 1,000 or 10,000. It shows
+rarity, maker and frame shares, each stat's spread and the power curve. After every change it re-rolls the same
+batch automatically, so you can watch the odds move as you drag a weight. <strong>Roll one</strong> shows a single weapon in full.</li>
+<li><strong>Preview</strong> (Armory mode, on the right): a weapon rolled from the current data. Pick its frame, maker and rarity, or
+leave them on Any. When you're editing a frame or a maker, it previews that one. The card shows its name, stats,
+traits, parts and affixes. Below that are its numbers in play: damage per shot, precision, rate of fire, damage per
+second (with and without reloads), magazine, reload, falloff, zoom, spread, kick, aim and swap times. Next to each
+number is what the same roll gave with the saved data, in green where it got better and red where it got worse.
+<strong>Next seed</strong> rolls another one.</li>
+<li><strong>Damage over distance</strong> (Armory, above a frame's fields): the frame's falloff drawn as a curve of damage (as a
+fraction of full) over meters. It's full out to where the falloff starts, drops in a straight line to its lowest, and
+stays flat after that. It's drawn for a gun with range stat 0 and with 100 (the start point moves with range), and
+for the previewed gun if it uses this frame. You can drag its keys: where it starts at range 0 or 100
+(<code>falloffStart</code>), or where it ends, sideways for <code>falloffSpan</code> and up or down for <code>falloffMinimumMultiplier</code>. Hover
+over the curve to read how much damage a hit does at that distance.</li>
+<li><strong>The 3D panel</strong> (Armory, top right):
+<ul>
+<li><strong>The rolled gun</strong> spins the previewed weapon on a turntable, put together from its part models the way the game
+does it.</li>
+<li><strong>Hand points</strong> marks where hands go on it (the pistol grip, the fore grip, the magazine's grab and well, the
+charging handle) and its muzzle.</li>
+<li>A gun with an optic also shows <strong>Through the sight</strong>: the reticle as it looks aimed (the part's <code>reticle</code>), and its
+second zoom beside it if it has one (<code>secondZoom</code>).</li>
+<li><strong>Part models</strong> lists every model for the previewed frame's slot (Receiver, Barrel, Magazine...) and shows the
+selected one, along with the data parts that use it. Drag to rotate it, and use the mouse wheel to bring it closer.
+The models come from the repository's <code>content/weapons</code>, so when you export from Blender, Studio reloads the file
+right away.</li>
+<li><strong>Recipe</strong> shows the part's recipe under it (content/weapons/forge.json), one shape per line, in millimeters. You
+edit it the same way as furniture recipes (Levels &gt; Props, <strong>Its recipe</strong>, with the gizmo on the stage; see below).</li>
+</ul>
+</li>
+<li><strong>Picking a model</strong>: a field that refers to a model (a part's <code>model</code>) shows the model's icon and name. Click it to
+open the list of models it can use, below it. They're grouped by file, each with its icon, and there's a filter to
+narrow them down. Next to the list, the model spins in 3D (the one under the mouse, or else the selected one; drag
+to rotate it, and use the mouse wheel to bring it closer).
+<ul>
+<li>Under it are the model's <strong>paint slots</strong> (materials named <code>Paint_&lt;Slot&gt;</code> in Blender, see
+<a href="../blender/props.html">props.md</a>). If the thing picks its own colors, each slot gets a swatch, saved by slot
+name in a <code>paint</code> map next to the field (<strong>as in Blender</strong> sets a slot back to its color in the file). Otherwise the
+slots are shown the way Blender colored them.</li>
+<li>Every top-level object in every file in <code>content/props</code> and <code>content/weapons</code> is listed, named <code>file/Object</code>
+(<code>items/Medkit</code>), and a new file shows up without any code. Too easy!</li>
+<li>A part's <code>model</code> names just the object (the game finds its frame's file), and the picker offers that slot's models.</li>
+<li>Icons are drawn from the models (<a href="../architecture.html">architecture.md</a>), never by hand.</li>
+</ul>
+</li>
+<li><strong>Files changed outside Studio</strong> (an exported model, a data file edited by hand or pulled from Git) are reloaded as
+soon as they're written. The status line says what was reloaded. If a data file has unsaved changes in Studio, your
+version is kept. Save to keep yours, or Revert to take the version on disk.</li>
+<li><strong>Try it on the range</strong>: puts you on the game's range with that weapon in your hands, playing just like the game,
+with targets to shoot (no soldiers). A card shows its numbers, your shots and your target hits. Esc takes you back to
+Studio.</li>
+</ul>
+<h2 id="items-what-lies-about">Items: what lies about</h2>
+<p>Items mode edits <code>content/defs/loot/items.json</code>, <code>effects.json</code>, <code>supplies.json</code> and <code>crafting.json</code>:</p>
+<ul>
+<li><p><strong>Items</strong>: every item, including the fleet's supplies and raw materials. Each one has:</p>
+<ul>
+<li>an <code>id</code>;</li>
+<li>a name (as the HUD shows it);</li>
+<li>a <code>model</code> (picked from <code>content/props</code>, with its paint);</li>
+<li>a <code>color</code> (its swatch and the band on its crates; <strong>color (pick)</strong> above the fields picks it);</li>
+<li>a <code>stack</code> (how many fit in a slot);</li>
+<li>flags for what it's for: <code>consumable</code> (with <code>useSeconds</code> and the <code>effect</code> it runs, picked from the effects), an
+optional <code>passive</code> (an effect you get while it's held: <strong>set</strong> it under the fields, then pick one), <code>fleetSupply</code>,
+<code>refinable</code> (a raw material for the refinery), <code>weaponPart</code> (with <code>fitSeconds</code>) and <code>carried</code> (held in both arms,
+like a crate).</li>
+</ul>
+<p>Each flag is a checkbox, and the editor only shows the fields that the item's flags turn on. Tick <code>consumable</code> and its
+use time and effect appear with their defaults; untick it and they're removed from the data. The list and <strong>The items
+in play</strong> show each item's icon, drawn from its model in its paint.</p>
+<p>Wondering where an item ends up? Above it, <strong>Used by</strong> says what uses it: the item tables it's found in (and how
+often), the recipes that refine it, the refinery upgrades it pays for (each one a button that takes you there), and
+what the game's own rules do with it (the starting kit, a soldier's drop, the stations' tanks, the fleet's needs).</p>
+</li>
+<li><p><strong>Links</strong>: a field that refers to another entry (an item table's <code>item</code>, a recipe's or a fabrication's <code>grade</code>, a
+refinery tier's <code>grades</code>, the items in a recipe's <code>inputs</code> or a tier's <code>cost</code>) has an <strong>open</strong> button next to it
+that takes you to that entry.</p>
+</li>
+<li><p><strong>Effects</strong> (<code>effects.json</code>): what an item does, and when. Each effect has a <code>trigger</code> (<code>use</code>: when its item is used
+from a quick slot; <code>passive</code>: for as long as its item is held) and its <code>actions</code>, in order. Each action does one
+thing, picked in <code>do</code>:</p>
+<ul>
+<li><code>heal</code> (by its <code>amount</code>);</li>
+<li><code>giveArmor</code> (<code>amount</code>, up to <code>max</code>);</li>
+<li><code>shield</code> (<code>amount</code>, regenerating at <code>perSecond</code> after <code>delaySeconds</code> without taking damage);</li>
+<li><code>changeStat</code> (<code>stat</code>: moveSpeed, damageTaken or reloadSpeed, changed <code>by</code> a fraction, for <code>seconds</code>);</li>
+<li><code>refillAmmo</code> (<code>magazines</code>, added to every weapon's reserve);</li>
+<li><code>callPod</code> (sets a cargo pod down in front of you, if the mission is still going);</li>
+<li><code>placeDevice</code> (a charge placed on whatever the player is looking at, which goes off after <code>fuseSeconds</code> like a
+grenade: <code>blastDamage</code> over <code>blastRadius</code>, breaking anything breakable);</li>
+<li><code>sound</code> (a <code>cue</code>, picked from content/defs/sounds.json);</li>
+<li><code>flash</code> (a burst of light: <code>color</code>, <code>brightness</code>, <code>radius</code>, <code>seconds</code>).</li>
+</ul>
+<p>A passive effect can only shield and change stats. Picking a different kind of action swaps its fields for the new
+kind's, at their defaults. An effect is only used when one of its actions would actually do something (healing only
+when hurt, and so on). <strong>Used by</strong> lists the items that have it, and
+<strong>The items in play</strong> says what each one gives (a held item's passive shows as &quot;held: ...&quot;).</p>
+</li>
+<li><p><strong>Supplies</strong> (<code>supplies.json</code>): how the fleet uses each fleet supply. Every item with <code>fleetSupply</code> has rules here:</p>
+<ul>
+<li><code>use</code>: what a jump costs, in parts that add up (each a <code>per</code>: <code>jump</code>, <code>ship</code>, <code>damagedShip</code>, <code>people</code>,
+<code>shipAlive</code>, <code>contact</code>, with its <code>amount</code>);</li>
+<li><code>short</code>: what happens when you run short, in order (<code>peopleLost</code>, <code>morale</code>, <code>shipWorn</code>, <code>message</code>);</li>
+<li><code>stocked</code>: what having enough does (<code>morale</code>, <code>repairShips</code>, <code>produce</code>);</li>
+<li><code>jumps</code> (used up by the jump itself), <code>boarders</code>, <code>startJumps</code> and <code>stations</code> (the star map's stations that mostly
+hold this supply; which ones a station keeps in tanks is set by its mission's <code>tankKinds</code>).</li>
+</ul>
+<p>Picking a different kind swaps its fields, the same as an effect's actions. <strong>For a new fleet</strong> shows what a jump
+currently costs of it and what a fleet starts with. An item with rules links to them under <strong>Used by</strong>.</p>
+</li>
+<li><p><strong>Item tables</strong>: what a supply pile, a footlocker, a case or a cargo crate holds. Each roll picks one entry, by
+<code>weight</code>, with a <code>count</code> ([fewest, most]) and <code>perDeck</code> extra for each deck deeper. A mission names the tables its
+level uses (<code>pileTable</code>, <code>footlockerTable</code>, <code>caseTable</code>, <code>cargoTable</code> in its <code>loot</code>). Each table's shares are drawn
+above its fields.</p>
+</li>
+<li><p><strong>Crafting</strong> (<code>crafting.json</code>): what the fleet makes of raw materials, and what the armory makes of that.</p>
+<ul>
+<li><strong>Grades</strong> of refined material, lowest first, each with the <code>itemLevel</code> of what's fabricated from it.</li>
+<li><strong>Refinery tiers</strong> (a fleet starts at the first), each with its <code>cost</code> in the fleet's supplies, the <code>grades</code> it can
+make and its <code>batches</code> a jump.</li>
+<li><strong>Recipes</strong>, a batch taking its <code>inputs</code> (raw materials) and giving so many of a <code>grade</code>.</li>
+<li><strong>Fabrication</strong>, what the armory bench <code>makes</code> (a weapon rolled from a loot <code>table</code>, or a part of a <code>slot</code>) for
+<code>cost</code> of its <code>grade</code>.</li>
+</ul>
+<p>Flow mode draws all of it.</p>
+</li>
+<li><p><strong>What a table gives</strong> (on the right): a table rolled 10,000 times at the deck you pick, and rolled again after
+every change. It shows how often each item comes up, and how many. Selecting a table on the left shows it here.
+<strong>The items in play</strong> lists every item as the game currently has it.</p>
+</li>
+</ul>
+<p>Each time a fight starts, every pile, container and crate is rolled fresh from its table (a weapon part at the deck's
+item level), the same as the weapons.</p>
+<h2 id="flow-how-it-all-connects">Flow: how it all connects</h2>
+<p>The loot data is spread across a handful of files, and it's hard to keep the whole chain in your head. So how does a
+raw material you pick up turn into a gun? Flow mode draws it for you, as boxes and arrows in columns from left to right:</p>
+<ol>
+<li><strong>Where it is found</strong>: the item tables, each with the missions that roll their piles, footlockers, cases and cargo
+crates from it.</li>
+<li><strong>Items</strong>, each with what it's for (used in the field, a weapon part, a fleet supply, raw material...).</li>
+<li><strong>What they become</strong>: the refinery's recipes, and below them the fleet's supplies, each with what the fleet uses of
+it (per ship, per people, the jump itself).</li>
+<li><strong>Grades</strong> of material, and below them the <strong>refinery tiers</strong>.</li>
+<li><strong>What the armory makes</strong>: the fabrications.</li>
+<li><strong>What that rolls</strong>: the loot table a fabricated weapon is rolled from (and the tables missions roll weapons from),
+or the kind of part.</li>
+</ol>
+<p>Arrows go from what's found, paid or used to what it gives, buys or makes. The colors mean:</p>
+<ul>
+<li><strong>white</strong>: gives (a table gives its items, with their share; a recipe gives its grade);</li>
+<li><strong>amber</strong>: costs (a recipe's inputs, a fabrication's grade, a refinery tier's supplies, each with how many);</li>
+<li><strong>blue</strong>: unlocks (a refinery tier unlocks the grades it's the first to refine);</li>
+<li><strong>green</strong>: the fleet's (an item to its supply's needs; water growing food).</li>
+</ul>
+<p>Hover over a box to highlight its arrows with their amounts, and everything else dims. Click it to edit it in the
+panel on the right, where every change shows up on the chart right away.</p>
+<p>A name that doesn't exist (a recipe naming an item nobody defined, a fabrication with a misspelled grade) shows as a
+red box with red arrows, and the bar above the chart counts them. The chart is read straight from the files, so it
+still shows even when the data doesn't build. Find the red, fix the name, and the rest of Studio builds again!</p>
+<p>Drag the chart to move it, use the mouse wheel to zoom, and double-click an empty spot (or <strong>See it all</strong>) to fit it on
+screen. Amounts show on every arrow once you zoom in close.</p>
+<h2 id="missions-the-procedural-levels">Missions: the procedural levels</h2>
+<p>Missions mode edits the mission templates, one file each in <code>content/defs/missions</code>. A level is generated from the
+current template, using the current procgen data from Levels mode, and drawn on the right. It's regenerated after
+every change to either, so you're never looking at a stale level.</p>
+<p>A deck theme (<code>hallThemes</code>) says how big and open its halls are, and names the surface style they're built in
+(<code>style</code>). How they look is edited in Levels mode's Styles.</p>
+<ul>
+<li><p><strong>The template</strong> (in the middle): every setting the generator reads, in plain words (hover over one to see what it
+does). Decks (<code>zones</code>), rooms along the way, side rooms and loot rooms per deck, loops, soldiers, stories, the rooms
+built from the seed, and the <code>loot</code>: the weapon tables and how many, and the item tables for supply piles,
+footlockers, cases and cargo. <strong>+ New mission (a copy)</strong> starts a new template from the selected one.</p>
+<p>The station's fixtures are props picked in 3D, the same way as an item's model: each of the <code>tankKinds</code> (its <code>model</code>,
+the <code>supplies</code> it can hold, its <code>radius</code> and <code>height</code>, a <code>weight</code>), the <code>reservoir</code>'s <code>model</code>, <code>outlet</code> and <code>valve</code>,
+and the <code>airlock</code>'s <code>intake</code> and <code>chute</code> (docs/blender/props.md, <code>station.gltf</code>). If a model is missing or doesn't
+have its empties, the level can't be generated, and Studio tells you why.</p>
+</li>
+<li><p><strong>The level</strong>: its <strong>seed</strong> (<strong>Next</strong>, <strong>Random</strong>), and the <strong>lobby settings</strong> a lobby applies to the template
+(decks, soldiers %, weapons %, stories, built rooms, what the cargo is mostly made of, cargo %). They aren't saved;
+they just show what a lobby would get. <code>--mode missions --seed &lt;n&gt;</code> opens Studio on that seed. Above the map:</p>
+<ul>
+<li>If the level had to be regenerated because its template requires reservoirs it couldn't place, it says so, along
+with how many it has (red if it's still short).</li>
+<li>A line on how linear it is: the share of its rooms on a loop and the share of dead ends (compared against the
+template's <code>loopRules</code>, red when it falls short), the longest chain of dead ends, its one-way shortcuts, and how
+long the mission's route is and how much of it you walk twice.</li>
+</ul>
+</li>
+<li><p><strong>The map</strong> (on the right): the level from above, one <strong>story</strong> at a time (rooms on other stories are drawn as
+outlines). Rooms are colored by what they're for and labeled with their deck (<code>L d2</code> is a loot room on deck 2).
+Doorways are white, gates red, and one-way shortcuts blue, with a dot on the side they open from.</p>
+<p>The marks are:</p>
+<ul>
+<li>insertion (I), objective (O), extraction (X);</li>
+<li>keycards (yellow diamonds), soldiers (red), weapons (orange triangles);</li>
+<li>supply piles (dots in the color of what they hold), footlockers and cases (brown), cargo crates (in the color of
+their supply);</li>
+<li>hull breaches (purple rings), a deep reservoir's valves (red squares) and the reservoir (a ring);</li>
+<li>and networks. Each network route is orange (faint when it's off the story shown, with a dot where it goes up or
+down), the cheapest route it didn't take is grey beside it, and there's an orange diamond at its middle.</li>
+</ul>
+<p><strong>Show...</strong> hides any kind of mark. Drag to move, use the mouse wheel to zoom, and <strong>Fit</strong> to see it all. <strong>Map</strong>,
+<strong>Types</strong> and <strong>Recipe</strong> pick what's shown.</p>
+<p><strong>Recipe</strong> shows the mission's recipe as nodes, left to right. First its steps (<strong>Main path</strong>, <strong>Keycards</strong>, <strong>Side
+rooms</strong>, <strong>Loot rooms</strong>, each saying what it adds and on which decks), then <strong>Loops</strong>, <strong>Type rooms</strong> and <strong>The
+level</strong>. Click a node to edit it below (a step's fields: rooms, the last deck's share, the detour chance, how many,
+how often two deep, which decks) and to see the level as it is after that node: the mission's graph after a step,
+the map after the loops, the room types after typing, and the finished map at the end. It's a great way to see
+exactly where something went sideways! Under the nodes, <strong>+ side rooms</strong> and <strong>+ loot rooms</strong> add a step after the
+selected one, <strong>&lt; Earlier</strong> and <strong>Later &gt;</strong> move it, and <strong>Remove the step</strong> deletes it (the main path and the
+keycard stay). A template that grows from its room counts shows the recipe those counts produce, and <strong>Write the
+recipe</strong> writes it into the template so you can change it.</p>
+<p><strong>Types</strong> instead shows the mission's rooms as they're connected (the insertion first, each room to the right of
+the one you reach it from, gates in red), each colored by the type it was given (the kit's own rooms grey, each
+archetype its own color, with a legend on the left). Hover over one to see why, and click it to see it below.</p>
+</li>
+<li><p><strong>Click a mark</strong> (or a room) to see it below the map: what it is, its deck and the deck's theme (a hall built in the
+theme is marked as such), and what the fight rolls for it (on <strong>Run</strong> 0, the first run; each restart rolls fresh),
+for example a footlocker's piles or a crate's supply and amount.</p>
+<ul>
+<li>A room says why it got its type (drawn by weight, or the only one the rules left), what else it could have been
+and how likely, and what ruled out each other type, with a <strong>Rule</strong> button that opens a typing rule in Levels mode.</li>
+<li>A room also lists how each placement rule did there: how many it placed out of how many it wanted, and if it fell
+short, why the spots it tried didn't work (too tall, something already there, it would block the path, it can't be
+reached...). A <strong>Rule</strong> button opens the rule in Levels mode. Hovering over the <strong>Rule</strong> button shows the sub-seed
+it drew from: the level's seed, the placement stage, the room and the rule.</li>
+<li>A network says how long its pipe is, what it cost and what it runs along, and what the route it didn't take would
+have cost, with a <strong>Network</strong> button that opens it in Levels mode.</li>
+<li>For a pile, a container, a crate or a weapon, you can pick the table that everything of its kind in this mission
+rolls from (this changes the template's <code>loot</code>; a loot assignment that names its own table wins, see Levels &gt;
+Loot), or <strong>Edit</strong> the table, which opens it in Items mode (or Loot mode for a weapon's table).</li>
+</ul>
+</li>
+<li><p><strong>Play it</strong> (above the map): plays the level shown just like the game, with the loot, items and AI as they currently
+are in Studio, saved or not. Esc brings you back.</p>
+</li>
+<li><p><strong>Checks</strong> (under the template): whether every table named by the template and the loot assignments exists, and
+<strong>Make 12, 100 or 1000 levels and count</strong>. One level looking good doesn't tell you much, so this generates that many
+seeds starting from the one shown, with the lobby settings (a bar shows progress, and <strong>Stop</strong> keeps what's been made
+so far).</p>
+<ul>
+<li>Each level is counted (rooms, soldiers, weapons, piles, containers, crates, keycards, the percent of rooms on a loop
+and of dead ends, one-way shortcuts), with the fewest, average and most.</li>
+<li>It also shows whether every level meets the loop rules, and any that can't be generated (the first 100 seeds are
+listed; click one to show it).</li>
+<li>A <strong>heat map</strong> under it shows where placement rules fell short: rules down the side, kinds of room (an archetype,
+or what a room is for) across the top, and each cell showing how often, hotter meaning more.</li>
+</ul>
+</li>
+<li><p>A template <strong>laid out by a plan</strong> (<code>plan</code>, as <code>ship_raid.json</code> is) works a bit differently:</p>
+<ul>
+<li>It has its plans and their weights, how many zones, how long the way through should be, where keycards go (room
+tags, doors off the way through, the chance of a long detour), the objective (its kind, the room tags it can be in,
+and the archetype a room is made into when none has them; or <code>objectives</code>, the kinds a level picks among by weight,
+each with how long it takes and, for a self-destruct, its countdown and how often a compartment seals, added filled
+in with the three kinds' defaults), the exits extraction tries in order, and spawn closets per zone.</li>
+<li>The map then draws the plan's level with the mission read into it: the airlock's vestibule (I), each zone's rooms
+labeled with their deck, the gates through the bulkheads in red, the keycards, the objective (O), the arena,
+extraction (X) and escape pods (orange squares). The recipe, room counts, loops and stories above aren't used by
+such a template.</li>
+<li>Its <code>threat</code> says how hard its places are defended: the first and last zones' threat, scales by district and by
+room tag, and the patrols it sets (seconds between them and soldiers in one, at threat 0 and at 1), with the room
+tags patrols would rather come from beside. The map's <strong>Threat</strong> box shades each room by its threat, cool to red,
+and picking a room names its threat and whether patrols would rather come from it.</li>
+<li>Its <code>breaches</code> say how a window blown out goes: the chance (<code>permanentChance</code>) it seals its compartment for good,
+when the mission can still be finished without it and every compartment already lost (else the shutter closes and
+the doors unseal), and the districts (<code>never</code>) whose compartments are never lost.</li>
+<li>Its <code>fleet</code> is the rest of the fleet seen from the windows: how many ships, how far off and how long.</li>
+</ul>
+</li>
+<li><p><strong>Breaches</strong> (under <strong>Every mission</strong>, at the bottom of the list): how windows onto space break and what a breach
+does, the same for every mission (<code>content/defs/breaches.json</code>).</p>
+<ul>
+<li>A window's toughness, and the shares of it taken when its cracks show and spread.</li>
+<li>The pull: how fast it drags someone at the breach, how far it reaches, how near someone is caught in it and what
+that does to them a second, and how near a dropped weapon or item is pulled out.</li>
+<li>The timers (the doors sealing, the shutter closing, the air coming back).</li>
+<li>Its <code>look</code>: how long the shutter takes to slide down, how much mist streams out, and how fast the lamps over sealed
+doors flash.</li>
+</ul>
+<p>A line under it sums it up: how many hits of a grenade a window takes, and how long a breach lasts. Want to see it
+for real? In play, the developer overlay's <strong>Blow out window</strong> breaks the window nearest you.</p>
+</li>
+<li><p><strong>Doors</strong> (under <strong>Every mission</strong>, after Breaches): how rooms' own doors behave in a ship's level
+(<code>content/defs/doors.json</code>).</p>
+<ul>
+<li>A sliding door's reach (how near anyone comes for it to open), how long it waits to shut, and how near its middle
+anyone keeps it open.</li>
+<li>A door opened by hand: its reach for a player, and how near and how long a soldier stands at it to open it.</li>
+<li>How much battering the swarm does to one, and how much it takes before it's broken open for good (and can no
+longer seal).</li>
+</ul>
+<p>Which rooms' doors open by hand is each archetype's <code>roomDoor</code> (Levels &gt; Archetypes).</p>
+</li>
+<li><p><strong>Campaign</strong> (under <strong>Every mission</strong>, after Doors): what the fleet finds to raid in each system of the star map
+(<code>content/defs/campaign.json</code>). Each target has its id (one must be <code>station</code>), the name the map gives a ship of it,
+the mission it's raided with (<code>station_raid</code>, or <code>ship_raid</code> with the plan it's laid out by, picked from Levels &gt;
+Plans), its weight and the first sector it turns up in. Below, each target's share of a sector's systems in sectors
+1, 2, 3 and 5. A sector's first system and its gate are always stations.</p>
+</li>
+<li><p>The template's <strong>loops and dead ends</strong> (<code>loopRules</code>): how far apart a loop's ends are, the longest corridor that can
+be routed around corners for one, the share of rooms that should be on a loop and the most that should be dead ends
+(loops are added until both are met, or no more fit), and how many one-way shortcuts cross each gate.</p>
+</li>
+</ul>
+<h2 id="levels-what-levels-are-made-from">Levels: what levels are made from</h2>
+<p>Levels mode edits the designers' procgen data in <code>content/defs/procgen</code>. It grows along with the procgen revamp
+(../plans/procgen-revamp.md). Each of these is a tab on the left:</p>
+<ul>
+<li>the <strong>tags</strong> (<code>tags.json</code>);</li>
+<li>the <strong>surface styles</strong> (<code>styles.json</code>);</li>
+<li>the room <strong>archetypes</strong> (<code>archetypes.json</code>);</li>
+<li>the placement <strong>rules</strong> and the <strong>props</strong> they place (<code>rules.json</code>, <code>props.json</code>);</li>
+<li>the <strong>networks</strong> (<code>networks.json</code>);</li>
+<li>the <strong>loot</strong> assignments (<code>loot.json</code>);</li>
+<li>the room <strong>typing</strong> (<code>typing.json</code>);</li>
+<li>the level <strong>plans</strong> (<code>plans.json</code>);</li>
+<li>and the <strong>districts</strong> their rooms come from (<code>districts.json</code>).</li>
+</ul>
+<h3 id="tags">Tags</h3>
+<p>Tags are how rules say where things go. A tag is a dotted name made of lowercase letters, digits and underscores, such
+as <code>room.storage.cold</code>. Tags nest: a rule asking for <code>room.storage</code> also matches a room tagged <code>room.storage.cold</code>.
+Every parent a name implies (<code>room</code>, <code>room.storage</code>) counts as a tag even if it isn't listed.</p>
+<ul>
+<li><strong>The list</strong> (on the left): every tag as a tree, filtered by what you type. Built-in tags are marked and dimmed,
+because the generator sets them itself (<code>role.*</code>, what a room is for in the mission; <code>layout.main_path</code>,
+<code>layout.dead_end</code>, <code>layout.on_loop</code>). Implied tags are dimmed too. A tag with a problem (a bad name, defined twice,
+using a built-in's name) is red. Hover over it to see why.</li>
+<li><strong>+ New tag</strong> adds one to <code>tags.json</code> as <code>new_tag</code>. Rename it and describe what it means on the right.</li>
+<li><strong>The tag picked</strong> (on the right): where it comes from, its name and description (editable only for your own tags),
+<strong>Remove the tag</strong>, and what it's nested under and what's nested under it (click one to go to it). An implied tag
+has <strong>Describe it</strong>, which adds it to <code>tags.json</code> so it can have a description.</li>
+</ul>
+<h3 id="styles">Styles</h3>
+<p>A surface style is how the generator builds a room and how the room looks: its walls, floor and ceiling, the bands
+around its walls, the duct and pipes under its ceiling, its light panels, and, for a hall built in the style, what
+stands along the hall and the lights in its floor.</p>
+<p>So who models the walls? Nobody! The generator works out a room's walls from its shape and builds them in the room's
+style. A style only lists what's different from its <strong>base</strong>, which is another style, and ultimately <code>station</code>.</p>
+<ul>
+<li><p><strong>The list</strong>: every style. The ones <code>styles.json</code> doesn't list are built in (<code>station</code>, plus <code>service</code>, <code>public</code>,
+<code>industrial</code> and <code>research</code> for the default deck themes' halls), and they're dimmed, shown the way the game builds
+them. A style based on another one shows <code>&lt; base</code>. A style with a problem is red. Hover over it to see why.</p>
+</li>
+<li><p><strong>+ New style</strong> adds one to <code>styles.json</code> as <code>new_style</code>, based on the selected style.</p>
+</li>
+<li><p><strong>Graph</strong> shows the styles as a graph instead. Each style sits to the right of its base, with the room parts it sets
+itself, wired to what's built in it on the right (the archetypes, and each mission's deck themes). Click a style to
+edit it.</p>
+</li>
+<li><p><strong>The style picked</strong>: drawn as it builds, and redrawn with every change. It shows a stretch of a room's wall (a
+doorway and its lintel, the baseboard and stripe, the duct, pipes and panels) and a hall built in the style, seen
+down its length. Pick the <strong>deck</strong> and <strong>room</strong> to see the trims in that deck's color or that room role's color.</p>
+<p>Below that are its base, id, description and every part it changes, all editable. Colors have a picker; materials and
+a hall's structure and floor are picked from what exists; a trim's color is either fixed or follows the deck or the
+role; a hall's accents are picked, any of them. <strong>Say how it differs...</strong> adds a part it currently inherits from its
+base, copied as the base has it, so you can change it. <strong>Take from its base...</strong> removes one again. <strong>Remove the
+style</strong> deletes it.</p>
+</li>
+<li><p>A built-in style has <strong>List it in styles.json</strong>, which writes it out in full, as built in, so you can change it.</p>
+</li>
+</ul>
+<p>One thing a style doesn't touch: sizes the game depends on (where walls stand, how thick and tall they are, a doorway's
+height, a panel's size). A style decides how a room looks, not where people and shots can go.</p>
+<h3 id="archetypes">Archetypes</h3>
+<p>A room archetype is a kind of room the generator builds from the level's seed. It sets:</p>
+<ul>
+<li>the shape the room is built in;</li>
+<li>its tags, and which parts of a mission it can play;</li>
+<li>the style it's built in, and its furniture;</li>
+<li>whether its corners are cut, and whether pillars hold up its ceiling;</li>
+<li>how many stories tall it is, with a floor (or none) on each;</li>
+<li>and (<code>roomDoor</code>) the door its doorways onto halls get in a ship's level: <code>auto</code>, sliding open for whoever comes near,
+or <code>interact</code>, opened and shut by hand (quarters, offices, storage, security and server rooms ship as <code>interact</code>).</li>
+</ul>
+<p><strong>bay</strong> makes it a hangar ships come and go from (<code>flight_hangar</code> ships so). In a ship's level each of its walls wholly
+on the hull is a ship entrance, open the room's full height behind a faint field you see space through but can't walk
+through, with the lane from it to the dropship's pad kept clear of furniture, props, loot and crates. Two walls across
+from each other make a hangar a dropship flies straight through (the strike carrier's).</p>
+<p>A mission template names the archetypes its built rooms are drawn from (Missions mode, <code>archetypes</code>, picked from the
+list).</p>
+<p>Every room is an archetype. The station's kit (the insertion bay, the corridors and stairwell, the
+spawn closet, the keycard, objective and extraction rooms, and the rest that every level has) is the set of archetypes
+whose <code>kit</code> is <code>station</code>, each built once from its id. A kit's archetypes aren't offered to templates.</p>
+<ul>
+<li><p><strong>The list</strong>: every archetype in <code>archetypes.json</code>, with its shape. <strong>+ New archetype</strong> adds a plain room with two to
+four cells per side. <strong>Copy</strong> adds a new one like the selected one.</p>
+</li>
+<li><p><strong>The archetype picked</strong>: six footprints its recipe makes from seeds in turn (<strong>Reroll</strong> for different ones). Click
+one to build it below the way the generator does: seen from above, with its doorways in yellow and its cut corners,
+and on a turntable next to it (drag to rotate it, and use the mouse wheel to get closer). A tall room has a story
+slider under the plan. Each story shows its floor, its railings, the doorways onto it, and the stairs climbing from
+it or through it (with a bridge where they cross open space to the floor).</p>
+</li>
+<li><p><strong>Its form</strong>:</p>
+<ul>
+<li>its shape's kind and ranges (cells across and deep, how much a cut takes, a blob's lumps, the corner cut);</li>
+<li>its tags (the content's own, picked), roles, style and furniture (picked);</li>
+<li>its <strong>stories</strong> (a slider from 1 to 4: raising it adds open stories at the top, lowering it removes the top ones);</li>
+<li>each story's floor above the ground (<code>vertical.floors</code>: its kind, <code>none</code> for an open story, its depth and the
+stairs' kind; a stairwell's <code>landing</code>);</li>
+<li>its weight;</li>
+<li>for a kit room, its <code>kit</code> and, for a rectangle of a fixed size, its <code>doors</code> (each a side, a cell and a level).</li>
+</ul>
+<p>Fields it can leave out are offered with their defaults. A <strong>stamp</strong> is drawn by hand: a grid of the largest size a
+room can be appears above the form, and clicking a cell adds or removes it. The cells have to touch side by side,
+with two or more each way. <strong>Remove the archetype</strong> deletes it.</p>
+</li>
+</ul>
+<h3 id="rules">Rules</h3>
+<p>What goes in rooms lives in <code>rules.json</code>. It's split in two:</p>
+<ul>
+<li>First, each <strong>furnishing</strong>'s rules: how a built room with that furnishing gets furnished as it's built. Archetypes
+name a furnishing.</li>
+<li>Then <strong>the level's</strong> rules, in the order they place (highest priority first).</li>
+</ul>
+<p><strong>+ New rule</strong> adds one to the level's rules (a footlocker against a wall now and then). <strong>+ New furnishing</strong> adds a
+furnishing with one rule. <strong>+ rule</strong> under a furnishing adds one of its rules. <strong>Copy</strong> adds one like the selected one.</p>
+<ul>
+<li><p><strong>The rule picked</strong>: a card that says in plain words what it does: what it places (each prop's share), in which
+rooms, where in them, how many, the clear space around each one and the spacing between them, whether it blocks the
+way (if so it leaves every path through open), the floor space it keeps clear in front for using it, and whether it's
+required. Next to it is its first prop's footprint, the same as on the Props tab.</p>
+</li>
+<li><p><strong>Its form</strong>: what (props picked from props.json, each with a weight), where (tags picked: any, all, none, including
+the generator's <code>role.*</code> and <code>layout.*</code>), its anchor and fallback (picked), count, clear, spacing, priority, blocks,
+interaction and required. Fields it can leave out are offered with their defaults. <strong>Remove the rule</strong> deletes it (a
+furnishing left with no rules is deleted too).</p>
+</li>
+<li><p><strong>arrange</strong>: places a furniture rule's props as a group, rather than one at a time.</p>
+<ul>
+<li>It can be a <code>row</code> (<code>columns</code>: a range for how many pieces) or a <code>grid</code> (<code>columns</code> and <code>rows</code>).</li>
+<li><code>gap</code> is the meters between pieces in a row (0 for a run of server racks).</li>
+<li><code>aisle</code> is the meters between rows (at least 1.1 m, so a player and a soldier can pass).</li>
+<li><code>along</code> sets the room's length, across it, or its wall.</li>
+<li><code>backToBack</code> pairs rows facing away from each other (lab benches).</li>
+<li><code>fill</code> places as many as fit instead of a drawn number.</li>
+</ul>
+<p>A galley, for example, is a grid of mess tables with chairs attached. The group is placed whole or not at all: if any
+piece would block off a doorway, none of them are placed. Each group counts once toward the rule's count. The card
+says what it makes (a grid of 2–3 by 1–4, 0.4 m apart, 2 m aisles, along the room).</p>
+</li>
+</ul>
+<h3 id="props">Props</h3>
+<p>What rules place lives in <code>props.json</code>, each with its kind. The selected prop is drawn to scale from above (its front,
+the side facing into the room, in yellow; on the Rules tab, its rule's clear space shaded around it; plus the
+half-meter grid props are placed on) and from the side (against a room's 3.6 m walls and the highest a prop can reach,
+0.6 m below the ceiling to leave room for ducts and lights).</p>
+<p>Next to that are the rules that place it, and its form: kind (picked), size, and for furniture its color, what it
+breaks into (picked) and its piece's name. A tank's size comes from its kind in the mission template.</p>
+<p>A <strong>window</strong> (onto space, on a plan level's hull walls) has a color (its frame's), its size (its top over the floor as
+its height) and a <strong>sill</strong>, how high its glass starts; a rule places windows alone, at anchor <strong>hull</strong>. <strong>+ New
+prop</strong>, <strong>Copy</strong> and <strong>Remove the prop</strong> work as elsewhere.</p>
+<p>Furniture can use a <strong>model</strong> (picked from the models in every prop file, <code>furniture/Mess_Table</code>). Its size then
+comes from the model, and the model spins on the stage with its loot sockets and attach points marked, each group in
+its own color. A model with paint slots takes a color for each one (<code>paint</code>). A furniture model's problems (a solid
+part that isn't a box, a breakable piece with more than one box, a base that's off its origin) show as the prop's
+problem in the list.</p>
+<ul>
+<li><strong>sockets</strong>: loot for a group of the model's sockets (<code>Top</code>, <code>Shelf2</code>). You set the chance it holds anything, the
+fewest and most sockets that get loot, the item table, the weapon table and the share of weapons, and item levels on
+top of the level's own. Setting a table to <code>room</code> uses the room's own table (a stash room's weapons, a deck's piles),
+as loot.json assigns them. The line under it says what one piece yields on average. A group with no loot is a
+surface other rules place things on (a case on a desk). Loot on furniture that breaks falls to the floor.</li>
+<li><strong>attach</strong>: a prop that stands at a group of the model's attach points (a chair at each <code>Chair</code>). You set its
+chance, the share that get pulled out, how far (up to 1.5 m), and a turn of up to 45° either way. A piece that would
+block a path, poke through a wall or stand in the aisle is left out.</li>
+<li><strong>Its recipe</strong>: a forged model (furniture.gltf) can be edited here the same way a gun is in Armory mode: its parts,
+their shapes and materials, and its <code>solid</code> boxes. <strong>Write files</strong> re-forges the file, and the stage shows the change.
+<ul>
+<li><strong>On the stage</strong>: pick a line (with the button on its left, or by clicking into it), a marker or a solid box (the
+buttons under the lines). It's outlined in yellow, with a gizmo. <strong>Move</strong> (W) shows arrows along x (red), y (green)
+and z (blue); drag one to move it that way. <strong>Scale</strong> (E) shows a handle at the end of each axis it can grow along.
+Drag one out to make it longer in that direction, with both ends moving equally (a rotated box scales along its own
+axes; a prism, tube or rail scales its length and, across, its radius). Drag the white box in the middle to scale
+it as a whole. Markers can only move. Vents and bolts can only move too (a bolt's head scales as a whole). The line
+updates as you drag, and so does the model.</li>
+<li>Drags snap to 5 mm (1 mm for a gun part). Hold <strong>Shift</strong> for finer steps or <strong>Ctrl</strong> for coarser ones. <strong>Escape</strong>
+or the right mouse button cancels a drag. <strong>Undo</strong> reverts the last drag, or the last line added or removed. While
+something is selected, the stage stays still and keeps its view as the model changes. Drag on the stage, away from
+the gizmo, to rotate it.</li>
+<li>Nothing is saved until you press <strong>Write files</strong>. <strong>Read again</strong> throws away every change.</li>
+</ul>
+</li>
+</ul>
+<h3 id="networks">Networks</h3>
+<p>Networks are what connect parts of a level, in <code>networks.json</code>, each with its kind. <code>reservoir_feed</code> is the one the
+generator lays, from a deep reservoir to its outlet, and it can't be removed.</p>
+<p>So how do you tell a pipe where to go? You don't, exactly: you tell it what each way costs. The selected network shows
+<strong>what its route pays</strong>: a slider for each way the route can run (along a wall's band, over a doorway, under the
+ceiling, standing off a wall, across an open ceiling, up a wall, through a wall, through a lintel, through a service
+cell) and one for each bend. The cheapest route wins, so raising a cost keeps the pipe from running that way
+(ctrl-click to type a value above the slider's 200).</p>
+<p>Below that is its form: its kind, its limits (the longest open span, the most service cells), its pipe (size, color,
+material, bracket spacing) and how far apart bundled pipes run. A level's route, and the route it didn't take, are shown
+on the Missions mode map. <strong>+ New network</strong>, <strong>Copy</strong> and <strong>Remove the network</strong> work as elsewhere.</p>
+<h3 id="loot">Loot</h3>
+<p>Where a level's loot goes, in <code>loot.json</code>. On the left are the <strong>assignments in the order they apply</strong> (each showing
+what it gives: cache, stash, tables, levels), <strong>Each deck's stashes</strong>, and every <strong>table</strong> a level's loot is rolled
+from.</p>
+<p>The selected assignment shows a card (the rooms it applies to, and in words what they get), then its form:</p>
+<ul>
+<li><strong>where</strong>: tags picked (any, all, none; <code>deck.1</code> to <code>deck.6</code> for a deck);</li>
+<li><strong>cache</strong>: its weapons table and count (if left out, the mission's);</li>
+<li><strong>stash</strong>: its weight against the deck's other rooms, with more per room deeper off the main path and per soldier
+holding it, and its table;</li>
+<li><strong>tables</strong>: the item tables its piles, footlockers, cases and cargo roll from;</li>
+<li><strong>levels</strong>: item levels added to its caches, stashes, piles and containers.</li>
+</ul>
+<p>Every assignment that matches a room applies. The first cache and the first of each table win, while weights and
+levels add up, so the order matters (the arrows move the selected one). <strong>Each deck's stashes</strong> gives the first decks
+their own counts (the rest use the mission's <code>stashesPerZone</code>).</p>
+<p>A table shows what's rolled from it, and the assignments (with the rooms they name) and missions that use it. It's red
+if the loot data has no table by that name.</p>
+<p>No <code>loot.json</code>? Then the generator uses its built-in assignments (the same as the shipped file). <strong>Write loot.json</strong> or
+<strong>+ New assignment</strong> writes the file with them. <strong>+ New assignment</strong>, <strong>Copy</strong> and <strong>Remove the assignment</strong> work as
+elsewhere.</p>
+<h3 id="typing">Typing</h3>
+<p>How a level's rooms are given types before they're laid out, in <code>typing.json</code>. Each room in the mission becomes
+either one of the kit's own rooms or one of the mission's archetypes. On the left are:</p>
+<ul>
+<li>the <strong>kit's own</strong> share (of the rooms that could be an archetype, before the rules apply);</li>
+<li><strong>+ count</strong>, <strong>+ adjacent</strong> and <strong>+ distance</strong> to add a rule of that kind (<strong>Copy</strong> copies the selected one);</li>
+<li>the rules;</li>
+<li>and the <strong>Adjacency table</strong>.</li>
+</ul>
+<p>A selected rule shows a card saying what it asks for, then its form:</p>
+<ul>
+<li>a count: <code>where</code> (tags picked), <code>per</code> (deck or level), <code>min</code> and <code>max</code>;</li>
+<li>an adjacency: <code>a</code> and <code>b</code>;</li>
+<li>a distance: <code>a</code>, <code>b</code>, <code>min</code> and <code>max</code> steps along the mission's paths (no limit unless set).</li>
+</ul>
+<p>Here, a room's tags are its role, its deck, <code>layout.main_path</code>, and its type's tags: an archetype's tags or
+<code>type.kit</code>. The <strong>Adjacency table</strong> lists every archetype's tags and <code>type.kit</code> against each other. Tick a cell to
+keep rooms of those two from being connected (it writes a simple adjacency rule; unticking removes it). If a rule set
+can't be satisfied, the level stops, and Missions mode shows why.</p>
+<h3 id="plans">Plans</h3>
+<p>Plans are the shapes of structure-first levels, in <code>plans.json</code> (../plans/structure-first.md):
+a frigate, a carrier, a station of hub and spokes, an accreted station (spokes, bolted-on modules and an arm bending to
+a second hub), a ring station, or one of your own.</p>
+<p>A plan is a list of <strong>parts</strong>, applied in order, each adding cells (4 m) to its envelope or cutting them out. Plan
+coordinates run along a ship from its bow (x) and across it (z), with the centerline at z = 0; north is toward −z, the
+top of the picture.</p>
+<p>A plan can have <strong>decks</strong>, bottom to top a story apart, each with a name and, if not the plan's, its sections'
+districts; every deck is cut into the same sections. With more than one, each part and hall has a tick box per deck
+it's on (all ticked: every deck), the previews have a deck picker, and stairs show in light purple.</p>
+<p>Its <strong>cores</strong> are stair cores between a deck and the one above: a frame along a part (<code>on</code>, <code>at</code>, <code>across</code>) and the
+deck it climbs from. Each is built as near there as two by three cells fit clear of both decks' halls, its foot and
+landing joined to corridors.</p>
+<p>Its <strong>skin</strong> (<strong>+ skin</strong>) is how its outside looks from its windows: the plating's color and trim, how much its panels
+vary, how often a running light shows along its top deck, and the lights' two colors. Left out, it's grey plating with
+green and red lights.</p>
+<p>The kinds of part:</p>
+<ul>
+<li><strong>hull</strong>: a ship's hull from its bow's tip, its length and beam picked from their ranges, and its <strong>profile</strong>: how
+wide it is from the bow (0) to the stern (1). Each point is a row of sliders (along, width); <strong>+ point</strong> adds one in
+the widest gap, and the outline below shows the shape.</li>
+<li><strong>box</strong>: a rectangle from its corner (or its middle, if centered), mirrored across the centerline if ticked (a pair
+of sponsons from one part).</li>
+<li><strong>arm</strong>: a straight run out from a cell, east, south, west or north, staying on its line however long it's drawn: a
+station's arm, a ring station's bridge.</li>
+<li><strong>bridge</strong>: a straight run out from a center at any <strong>angle</strong> (degrees from east toward south), <strong>from, to</strong> cells
+out: a ring station's bridge from its core to its ring. A spine laid on it runs smooth along its line on any slant.</li>
+<li><strong>ring</strong>: a ring round its center; as wide as its radius, it's a disc.</li>
+<li><strong>mask</strong>: cells painted as rows of <code>#</code> (a cell) and <code>.</code> (none), or painted on the preview (see <strong>Paint</strong> below).</li>
+</ul>
+<p>Every part has <strong>adds or cuts</strong> and a <strong>chance</strong>, for parts some ships have and others don't. <strong>up</strong>, <strong>down</strong> and
+<strong>remove</strong> reorder and take out parts, and <strong>Add a part</strong> adds one of each kind.</p>
+<h4 id="its-halls">Its halls</h4>
+<p><strong>Its halls</strong> are carved into the envelope in order, corridors first and then service ways round them. Each is laid
+<strong>on</strong> a part and follows the shape that part was drawn at, so a spine runs the length of whatever hull the seed drew.</p>
+<ul>
+<li>Its <strong>tier</strong> is primary (a main corridor), secondary (a passageway, a cross passage) or service (a service way, its
+own compartment, joined to the corridors by hatches).</li>
+<li>Its <strong>width</strong> is how many cells across it is.</li>
+<li>Its <strong>style</strong> is the surface style it's built in (Levels &gt; Styles; the plan's own if left as it is).</li>
+</ul>
+<p>A hall two or more cells across gets what that style's halls have standing along them, at every cell along it: frames
+across it (posts against both walls and a beam), arches, a colonnade down the middle (two rows from three cells across)
+or pillars against the walls, frames if the style has none, each with a lamp etched up its faces toward the hall in the
+style's hall glow. Nothing stands in a doorway or cuts the way through. The carrier's and strike carrier's main passages
+are two cells wide (frames, and arches in industrial), and so is the spoke station's hub concourse (a colonnade, in
+public).</p>
+<p>The kinds of hall:</p>
+<ul>
+<li><strong>spine</strong>: along the part's line, from <strong>from</strong> to <strong>to</strong> (shares of its length; past 0 or 1 reaches into the parts
+beside it), at an <strong>offset</strong> across it (+ is right of it looking along it), or counted in <strong>from the edge</strong> (1 the
+outermost row).
+<ul>
+<li><strong>mirrored</strong> adds a second at the opposite offset: a pair of passageways.</li>
+<li><strong>inset</strong> keeps that many cells of envelope either side for rooms, so a passageway stops where the hull narrows.</li>
+<li><strong>meets halls</strong> runs on past its ends to meet a hall carved before it: a bridge to the rings either end.</li>
+<li><strong>shortest</strong> leaves it out when it would be shorter than that share of its part, so a passageway that has room only
+beside a sponson isn't left stranded.</li>
+</ul>
+</li>
+<li><strong>cross</strong>: straight across the part <strong>at</strong> a share of its length, out to its <strong>reach</strong> either side, or (unticked) as
+far as the envelope allows less its <strong>inset</strong>.</li>
+<li><strong>ring</strong>: round a ring part, <strong>from outside</strong> cells in from its outside, or (unticked) the middle of its width, and
+<strong>across</strong> meters between its walls. It's built smooth round its bend rather than stepped on the grid, on every cell
+the bend touches, so a wider ring hall takes more cells; rooms beside it open onto it through a short throat.</li>
+</ul>
+<h4 id="its-sections">Its sections</h4>
+<p><strong>Its sections</strong> are where the bulkheads cut it. There are two ways to do it:</p>
+<ul>
+<li><strong>bulkheads across a part</strong>: sliders for where each is along it (a share of its length), <strong>+ bulkhead</strong> halfway along
+the longest section, and how many cells each may <strong>jitter</strong> by seed.</li>
+<li><strong>each part its own section</strong>: a station's hub, each arm, each bridge. With each part its own section, a ring can be
+<strong>cut at</strong> east, south, west or north (tick two or more): bulkheads out from its center where it runs square to the
+grid, each piece after the first a section of its own with the ring's district.</li>
+</ul>
+<p><strong>districts</strong> say what each section is, in order.</p>
+<p>The preview tints each section, and draws the halls (main corridors palest, service ways brown), bulkheads in red,
+pressure doors (where a corridor crosses a bulkhead) in yellow and hatches in orange. Every section a service way passes
+gets a hatch onto one of its corridors, through a short stub if need be.</p>
+<p>Below the size are the plan's problems for that seed: a section with no corridor, halls that don't join the rest, a
+service way with no corridor near enough for a hatch.</p>
+<h4 id="its-envelope">Its envelope</h4>
+<p><strong>Its envelope</strong> shows what the plan makes for four seeds. Click one to see it bigger, with its size, floor area,
+sections, compartments and doors. <strong>Reroll</strong> shows other seeds. Hover over a part to outline its cells (green where it
+adds, red where it cuts), or over a hall to outline it in blue. An envelope in more than one piece, or one more than
+800 m across, shows in red. <strong>+ New plan</strong> starts from a plain hull; <strong>Copy</strong> and <strong>Remove the plan</strong> work as elsewhere.</p>
+<p>Over the bigger one, you pick what a press does:</p>
+<ul>
+<li><strong>Look</strong>: nothing; just look.</li>
+<li><strong>Paint</strong>: draw a hull freehand! Pick the mask to paint into (one on the deck shown, or <strong>a new mask</strong> that adds or
+cuts, made with your first stroke on that deck alone). Drag to paint cells in, right-drag to rub them out; the stroke
+is one change, one undo. A <strong>mirrored</strong> mask paints both sides of the centerline at once. The view widens while
+painting, so you can paint out past the hull; it grows to follow.</li>
+<li><strong>Pins</strong>: drag a pin where it goes. It holds to the part under it, the way a stair core does (along a line part as a
+share of its length and cells across; round a ring as cells from its center, growing with it), so it follows the part
+however a seed draws it.</li>
+</ul>
+<p><strong>show</strong> draws a check over it, on the level built for that seed:</p>
+<ul>
+<li><strong>sections</strong>: as above.</li>
+<li><strong>compartments</strong>: each its own tint: what a breach seals, between pressure doors.</li>
+<li><strong>could be lost</strong>: green for a compartment a breach could seal for good (the mission can still be finished without
+it), red for one it can't (the way through, a keycard, the airlock), grey for one in a district the recipe never
+loses.</li>
+<li><strong>rooms per corridor</strong>: each corridor run (the stretches of one hall) by the rooms opening onto it, the count on it:
+red none, amber one or two, green three or more, so a bare passage stands out.</li>
+<li><strong>the way through</strong>: the mission's route, in at the airlock, each gate's keycard (<strong>key n</strong>), the hack, and out.</li>
+</ul>
+<p>Which mission does it build with? The first mission laid out by plans that names this plan (else the first laid out by
+plans, made to use it), so its airlock, keycards and way through are the game's. If the mission can't be laid out by it
+that seed, the checks that need one say why.</p>
+<h4 id="its-pins-and-rooms">Its pins and rooms</h4>
+<p><strong>Its pins</strong> are set pieces held in place.</p>
+<ul>
+<li>A <strong>room pin</strong> cuts a room of its archetype round the plot cell nearest it: the bridge at the bow, the hangar across
+the stern. One naming its district's anchor's archetype is that section's anchor.</li>
+<li>The <strong>boarding pin</strong> boards the squad at the airlock (or hangar) nearest it, rather than the one nearest an end.</li>
+</ul>
+<p><strong>+ room pin</strong> and <strong>+ boarding pin</strong> add one halfway along part 1 on the deck shown and switch to <strong>Pins</strong> so you can
+drag it. Each lists its kind, part and deck, and a room pin its archetype.</p>
+<p><strong>Its rooms</strong> builds the picked seed's level: the space the halls leave in each section is cut into rooms from its
+district (see Districts), each room's doors facing its hall, and every room and stretch of hall built as a room module.
+It says how many rooms, stretches of hall and doorways it has, how many cells are left as void (too small for a room,
+or with no way in from a hall), and how long each stage took.</p>
+<p>The plan above draws the rooms' walls, doors in white and suite doors (through the room in front) in grey. Below, the
+whole level stands on a stage, looked at from above with the ceilings open. A level with more than a stage can draw at
+once leaves out its smallest pieces (furniture, fittings), and says how many.</p>
+<p>Want to check a plan without opening the window? <code>--mode levels --select &lt;plan&gt; --seed &lt;n&gt; --plan-png &lt;file.png&gt;</code>
+draws its structure as a picture, prints its problems and exits (exit code 1 if it has any, or its envelope is in more
+than one piece).</p>
+<h3 id="districts">Districts</h3>
+<p>What each district of a plan is made of, in <code>districts.json</code>. A plan's section names its district. Its rooms are cut
+from the space its halls leave, across each plot's length so their walls line up along the hall, each picked from the
+district's rooms by weight.</p>
+<ul>
+<li><strong>anchor</strong>: the set piece the section is built round (a mess, a cargo hold, the bridge), put in the section's biggest
+plot where it's deepest. Its width can go up to 16 cells, and it isn't split across either way below that, so a
+hangar can fill a band from the hull to a passageway (a carrier's is <code>[16, 16]</code>: its whole plot). It may be a tall
+archetype (the hangar, two stories open to its ceiling): it stands its full height where no deck is over it, and a
+story tall, with a problem saying so, where one is.</li>
+<li><strong>rooms</strong>: each an <strong>archetype</strong> (picked from those one story high: its style, furnishing and tags; its shape comes
+from the plot), its <strong>width</strong> (the fewest and most cells it takes along its hall), its <strong>weight</strong>, whether it <strong>runs</strong>
+(three to six in a row the same width, like cabins), and whether it's <strong>private</strong> (somewhere you go into rather than
+through, so it rarely gets a second door onto another hall; a shared room usually does).</li>
+</ul>
+<p>Below the form are the plans whose sections use it (click one to go to it). <strong>+ New district</strong>, <strong>Copy</strong> and <strong>Remove
+the district</strong> work as elsewhere.</p>
+<p><code>--mode levels --select &lt;name&gt;</code> opens Studio on the tag with that name. If there's no such tag, it opens the style,
+archetype, rule (a furnishing's rule as <code>furnishing/rule</code>), prop, network, loot assignment, typing rule, plan or
+district with that id.</p>
+<h2 id="bodies-animation-on-a-turntable-the-graph-and-the-rig">Bodies: animation on a turntable, the graph and the rig</h2>
+<p>Want to check a blend, a pop or a foot sliding without starting the game? That's what this mode is for. Bodies mode
+puts a body type (an animation graph, <code>content/anim/&lt;id&gt;.json</code>; see <a href="../animation-graphs.html">animation-graphs.md</a>) on a
+model of its rig (<code>content/characters</code>), playing the rig's clips the way the game blends them.</p>
+<p>It has four tabs:</p>
+<ul>
+<li><strong>Preview</strong> to watch it;</li>
+<li><strong>Graph</strong> to edit its graph;</li>
+<li><strong>Rig</strong> to edit its rig;</li>
+<li><strong>Reloads</strong> to edit the reloads' steps.</li>
+</ul>
+<p>The graph and the rig are data like everything else: saved with Ctrl+S, undone with Ctrl+Z, and reloaded when they
+change on disk (unless you have unsaved changes to them here). The preview's sliders aren't saved; they're just for
+looking.</p>
+<ul>
+<li><p><strong>The bar</strong>: the <strong>body type</strong>, the <strong>model</strong>, an enemy <strong>Variant</strong> of the body type (its model, playing its own
+clips: Behavior &gt; Enemies, <code>clips</code>), a model to <strong>Compare</strong> it with, and the gun it's <strong>holding</strong>. The gun's grips
+come from the receiver's markers (<a href="../blender/weapons.html">weapons.md</a>), and its frame's grip picks the clips (a
+hand cannon uses its <code>Pistol_</code> ones, see <a href="../animation-graphs.html#clips-chosen-by-who-plays-it">animation-graphs.md</a>).
+The view's toggles are on the row below.</p>
+<ul>
+<li><strong>Compare</strong> stands a second model of the rig next to the first, playing the same graph with the same sliders and
+gun. Each one keeps its own build as the clips play (the rig's translation per bone, see
+<a href="../blender/rigs.html#models-of-other-builds-retargeting">rigs.md</a>), so you can see a clip on a soldier and a
+lankier body side by side.</li>
+<li><strong>Turn</strong> spins it (drag to rotate it by hand, and use the mouse wheel to get closer).</li>
+<li><strong>Body</strong> hides the mesh. <strong>Bones</strong> draws the skeleton (bones in an IK chain are orange). <strong>IK targets</strong> draws what
+the IK reaches for in yellow: the gun's fore grip, the floor under each foot. <strong>Hit shapes</strong> draws the shapes shots
+hit on top of the body, so you can select and drag them (see below).</li>
+<li><strong>Pause</strong> and <strong>Time</strong> slow it down so you can look closely. <strong>Step</strong> raises (or lowers) the floor under the left
+foot, so you can see the foot land on it and the hips drop.</li>
+</ul>
+</li>
+<li><p><strong>The parameters</strong> (on the right): every parameter the graph declares, as a slider over its range or a checkbox for
+a flag (hover over one to see what it means). In the game, the client sets them from what the body is doing. Here
+YOU set them, so the left hand only lets go when <strong>leftHandOnGun</strong> is off.</p>
+<p>Below them are the graph's <strong>Actions</strong>. <strong>Play</strong> one to see it once over its length (a reload lasts as long as the
+held gun's reload), drag its slider to hold it at a point, or <strong>Stop</strong> it. While an action plays, the left hand lets
+go of the gun the same way it does in the game (or follows the gun's reload steps). <strong>Defaults</strong> resets them.</p>
+<p>Above the parameters are the clips being played in place of the graph's (<code>Pistol_Idle for Idle</code>), if the gun's grip
+or the variant swaps any. Below, the <strong>events</strong> its clips passed (footsteps), with when they happened and how heavy
+they were.</p>
+</li>
+<li><p><strong>The clip timeline</strong> (under the body): shows one of the graph's clip nodes or actions, picked above it. A clip the
+graph plays in two places counts as two nodes, each with its own events. An action is shown on its clip, with its
+events stored as a fraction of it so they stay in place however long it lasts. The timeline shows the frames (a long
+tick every five), the playhead, and the clip node's <strong>events</strong> (a footstep) as diamonds.</p>
+<ul>
+<li>Click or drag on it to move the playhead. Tick <strong>Clip alone</strong> to pose the body in just that clip at the playhead
+(no blending, no IK, so you can see exactly where an event falls), or <strong>Play</strong> it.</li>
+<li>Drag an event to another frame. It snaps to 30 frames a second, the rate the clips are keyed at, and is written
+when you let go, as one change to undo. Right-click an event to remove it. Click it to rename it or type its time
+in seconds. <strong>+ Event</strong> adds an event with the name next to it at the playhead.</li>
+<li>A selected event also shows what it does: the <strong>Sound</strong> it plays (from the game's cues), its <strong>gain</strong>, the
+<strong>Effect</strong> it shows (dust, sparks) and <strong>At</strong>, where on the body it happens (one of the rig's sockets, or the
+feet). The game plays these as bodies pass the event.</li>
+<li>Events belong to the graph, so a change to one is a change to the graph file, saved with Ctrl+S and undone with
+Ctrl+Z.</li>
+</ul>
+</li>
+<li><p><strong>Read again</strong>: the graph, the rig, the clips and the models are reloaded when they change on disk (exported from
+Blender, or the graph's file edited), and the sliders are kept. If a file doesn't load, Studio says why.</p>
+</li>
+</ul>
+<p>You can open straight onto what you want to look at, too.
+<code>--mode bodies --body humanoid --set speed=4.5 --action reload=0.4</code> opens on a body running and reloading, held at four
+tenths of the way through (<code>--action reload</code> plays it instead). A few more:</p>
+<ul>
+<li><code>--body humanoid:lancer</code> shows it on the lancer's model;</li>
+<li><code>--compare player</code> puts the players' body next to it;</li>
+<li><code>--holding hand_cannon</code> puts a gun in its hands (<code>none</code> for nothing);</li>
+<li><code>--variant lancer</code> shows an enemy variant;</li>
+<li><code>--tab graph</code> (or <code>rig</code>) opens on that tab;</li>
+<li><code>--hit-shapes</code> ticks <strong>Hit shapes</strong>.</li>
+</ul>
+<h3 id="the-graph-editor">The graph editor</h3>
+<p>If you've used Unreal's anim graph, you'll feel right at home: the <strong>Graph</strong> tab lets you wire the graph the same way.
+Poses flow <strong>left to right</strong> into the <strong>Output Pose</strong>, which is the pose the body is drawn in. Each node is a box with
+its output on the right and its inputs down its left side.</p>
+<p>Each input is named for what it takes: a layer's <strong>Base pose</strong> and <strong>Layered pose</strong>, an additive's <strong>Base</strong>,
+<strong>Additive</strong> and <strong>Reference pose</strong>, IK's <strong>Pose</strong>, a select's states <strong>when dead</strong> ... <strong>otherwise</strong>, a blend's points
+<strong>at 1.8</strong>. A select or blend has a <strong>+</strong> to add a new state or point.</p>
+<p>Next to the canvas, the body plays the graph and shows every change right away, with the parameters as sliders beside
+it (<strong>Try it</strong>) and the actions you can play, so you can see what each one does. Below them is the selected node, for
+editing. If the graph can't be read (for example an input left empty, shown in orange), it says why, and the body keeps
+playing the last version that worked.</p>
+<p>So how do you read the humanoid's graph? From the right:</p>
+<ol>
+<li>The Output Pose is fed by the select between dead, downed and alive.</li>
+<li>Alive is the hands on the gun (reach),</li>
+<li>fed by the aim (look),</li>
+<li>fed by the feet planted on the floor (ground),</li>
+<li>fed by the added leans,</li>
+<li>fed by the <strong>slot</strong> where the body's actions play (a reload over the legs),</li>
+<li>fed by blind fire's layer and the arms' hold,</li>
+<li>fed by the legs' walk and run blends.</li>
+</ol>
+<p>Each step works on the pose from the one to its left.</p>
+<ul>
+<li><strong>Placing</strong>: drag a node to put it anywhere. Its position is saved in the file (<code>pos</code>), but the game doesn't read
+it. A node you've never placed sits to the left of the node it feeds and follows it around. Right-click empty canvas
+and pick <strong>Tidy up</strong> to lay them all out again.</li>
+<li><strong>Wiring</strong>: drag from a node's <strong>output</strong> onto another node's <strong>input</strong> to plug it in. Whatever was plugged in there
+before comes out and is left loose where it was, and the spot the moved node came from is left empty. You can also
+drag from an <strong>input</strong> onto a node to plug that node in. A wire turns green where it's allowed and red where it isn't
+(a node can never feed itself). <strong>Alt-click</strong> an input to unplug it.</li>
+<li><strong>New nodes</strong>: right-click empty canvas to add a loose node there. It's faded and marked &quot;not plugged in&quot;, and kept
+in the file (<code>loose</code>) until you plug it in or delete it. To add one already plugged in, drop a wire from an input
+onto empty canvas, or click an empty input or a <strong>+</strong>. Dropping a wire from an output onto empty canvas wraps that
+node inside a new one (a layer over it, IK on it...).</li>
+<li><strong>Right-click a node</strong> to wrap it inside another kind, unwrap it (its first input takes its place), unplug its
+output, delete it (or press <strong>Delete</strong>; whatever fed it is left loose), copy it, or paste over it.</li>
+<li>Drag empty canvas (or use the middle mouse button) to pan, use the wheel to zoom, and double-click empty canvas to
+see everything.</li>
+</ul>
+<p>The selected node, next to the canvas:</p>
+<ul>
+<li><strong>Its fields</strong>: a clip node's clip (from the rig), its time (its clock, the ground covered, its end, a number or a
+parameter) and the rest; a layer's mask; IK's chain, target and socket; and any weight, axis, pitch or yaw, as a
+number or a parameter.</li>
+<li><strong>Its points or states</strong>: each point's position on the axis, and each state's condition (a parameter on or off, or
+<em>otherwise</em> for the last one). You can edit them (<strong>Edit</strong> selects one), move them up or down, or remove them.
+<strong>+ Point</strong> or <strong>+ State</strong> adds one.</li>
+<li><strong>Put inside...</strong>: wraps the node inside a new layer, additive, reach, look, ground, select or blend, with the node
+underneath and the rest at defaults for you to set. <strong>Take out</strong> does the reverse: the first node under it takes its
+place. <strong>Make a clip</strong> replaces it, and everything under it, with a clip.</li>
+<li><strong>The graph: what its body can do, its parameters and targets</strong> (above): the graph's own fields. Its <strong>rig</strong>, its
+<strong>clips</strong> file and its <strong>groundSpeed</strong> are picked from what exists, not typed. Its <strong>capabilities</strong> are what a body
+of this type can visibly do, picked from fire, reload, throw, crouch, lean and blindFire. An enemy variant's behavior
+can only need these, and fire, reload and throw also need an action with that name. Then its parameters (with their
+ranges for the sliders) and the targets its IK reaches for.</li>
+<li><strong>The body's actions (played into the slot)</strong>: its actions, each with a <strong>name</strong> (the game's name: reload, throw,
+fire, use), the rig <strong>clip</strong> it plays and the <strong>mask</strong> it covers (picked, not typed), and its <strong>fadeIn</strong> and
+<strong>fadeOut</strong>. The graph's single <strong>Slot (actions)</strong> node is where they play. If the game asks for an action the graph
+doesn't have, nothing shows. A gun's grip can play its own clip for one (<code>Pistol_Reload</code>).</li>
+</ul>
+<h3 id="the-rig-editor">The rig editor</h3>
+<p>The <strong>Rig</strong> tab edits the body type's rig (<code>content/rigs/&lt;id&gt;.json</code>) next to its skeleton as the file describes it.
+Each bone is drawn from its head to its tail (bones in an IK chain are orange), its sockets and eyes are yellow, its
+size is shown as grey rings, and the shapes shots hit are red (see below). Pick a <strong>mask</strong> to see its bones in green,
+or a <strong>bone</strong> to see it in white.</p>
+<p>Its fields are:</p>
+<ul>
+<li>the bones, each listed after its parent, with a name, parent, head and tail, and its <strong>translation</strong>. The
+translation is where the bone's offset from its parent comes from when a clip plays on a model: <code>skeleton</code> (the
+model's own; the default, shown until you set one), <code>scaled</code> (the clip's, scaled to the model; used for the hips) or
+<code>animation</code> (the clip's, unchanged);</li>
+<li>sockets;</li>
+<li>IK chains (their bones, pole and target);</li>
+<li>masks (from some bones, except others);</li>
+<li>the mask hidden in first person;</li>
+<li>the body's numbers;</li>
+<li>the clips.</li>
+</ul>
+<p>Models made on the rig still have to match it: the same bones under the same parents, each pointing the same way as
+the rig's, and the eye where the rig has it (the bones can be longer or shorter). The Blender add-on builds the
+armature from this file and checks models against it (<a href="../blender/rigs.html">rigs.md</a>).</p>
+<p>Want a second kind of body, like a quadruped? That's a new rig file and a new graph, made here or by copying the
+humanoid's.</p>
+<h3 id="reloads">Reloads</h3>
+<p>The <strong>Reloads</strong> tab edits <code>content/defs/reloads.json</code>: what the left hand and the magazine do over a reload, for every
+gun of the frames it names (the frames' <code>model</code>, typed with a comma between), whatever its parts. Each reload is a
+table of steps:</p>
+<ul>
+<li><strong>to</strong> is where the hand goes (<code>grip</code>, <code>grab</code>, <code>out</code>, <code>drop</code>, <code>pouch</code>, <code>belowWell</code>, <code>well</code>, <code>charge</code>);</li>
+<li><strong>until</strong> is the share of the reload it ends at (0 to 1, so a faster reload speeds all of it);</li>
+<li><strong>magazine</strong> is where the magazine is meanwhile (<code>in</code>, <code>hand</code>, <code>gone</code>);</li>
+<li><strong>from empty</strong> marks a step only done after the last round (the bolt pulled).</li>
+</ul>
+<p><strong>+</strong> adds a step after one, the same, and <strong>-</strong> removes it. Every change plays right away on the Preview tab's body
+(with its reloading and reloadProgress sliders).</p>
+<p>One gotcha: this tab has its own <strong>Save</strong> and <strong>Read again</strong>. It isn't saved with Ctrl+S or undone with Ctrl+Z.</p>
+<h3 id="fitting-the-shapes-shots-hit">Fitting the shapes shots hit</h3>
+<p>Shots hit the simulation's shapes, never the mesh: a <strong>head sphere</strong> around the eye and a <strong>body capsule</strong> under it,
+standing or crouched. They come from the humanoid rig's <code>body</code>, so a designer fits them here. The settings are:</p>
+<ul>
+<li><code>headRadius</code> (the sphere's size);</li>
+<li><code>headAbove</code> and <code>crouchHeadAbove</code> (how far the sphere's center is above the eye, standing and crouched);</li>
+<li><code>hitRadius</code> (the capsule's radius, no wider than <code>radius</code>).</li>
+</ul>
+<p>The Rig tab draws them in red, standing, with the crouched version beside it. The game, Studio's sandbox and Studio's
+level play all use the shapes as you edit them (once saved, the game reads them when it starts).</p>
+<p>On the <strong>Preview</strong> tab, tick <strong>Hit shapes</strong> to see them on the playing body, standing or crouched and leaning
+according to the sliders. They're drawn on top of the body, so they show through it. The head sphere and body capsule
+are red, the eye from the animation is a cyan ring, and the game's eye is an orange diamond (they sit on top of each
+other when the clip is right). Hover over one to highlight it, and click to select it:</p>
+<ul>
+<li><strong>The head sphere</strong>: drag its center (or its outline) up or down to set how far above the eye it sits, standing or
+crouched depending on what's shown. Drag the dot on its edge in or out to resize it.</li>
+<li><strong>The body capsule</strong>: drag the dot on its edge (or its outline) in or out to set its radius.</li>
+<li><strong>The eyes</strong>: when selected, they say what they are. You can't drag either one (the game's eye belongs to the
+simulation, and the drawn one comes from the clip).</li>
+</ul>
+<p>The numbers are also under the parameters (<strong>Hit shapes</strong>), as sliders, with the selected one highlighted. Every
+change goes into the rig (<code>content/rigs/humanoid.json</code>, saved with Ctrl+S and undone with Ctrl+Z), so it applies to
+every humanoid, and Studio starts shooting at the new shape right away. Selecting a shape stops the turntable; tick
+<strong>Turn</strong> to start it again.</p>
+<p>Under the parameters, <strong>Eye drawn ... cm up, ... cm across</strong> shows how far apart the two eyes are. It turns orange past
+5 cm up or 10 cm across. Why does that matter? A clip marked <code>&quot;eye&quot;: &quot;standing&quot;</code> or <code>&quot;crouched&quot;</code> in the rig has to keep
+the eye there (the client's tests and the Blender add-on's Check both measure it), because a head drawn away from the
+simulation's eye gets shot where it isn't drawn. So fix the clip (move its hips), not the shapes. The shapes are for
+setting the size of the head and helmet.</p>
+<h2 id="behavior-how-enemies-fight">Behavior: how enemies fight</h2>
+<p>An enemy is a <strong>variant</strong> (Soldier, Lancer...) that thinks using a <strong>behavior</strong>. Both are data in <code>content/defs/ai</code>.
+A variant's <code>body</code> and <code>model</code> are what it's drawn as (Bodies mode shows them).</p>
+<h3 id="the-behavior-tree">The behavior tree</h3>
+<p>A behavior's <strong>tree</strong> decides what a soldier does at each moment. Every tick, the soldier runs it from the <strong>root</strong>.
+Each node either <strong>succeeds</strong> or <strong>fails</strong>:</p>
+<ul>
+<li><p><strong>Flow</strong> nodes run their children <strong>top to bottom</strong>. A <strong>Selector</strong> stops at the first child that succeeds (&quot;the
+first one that works&quot;). A <strong>Sequence</strong> stops at the first child that fails (&quot;all of them, in order&quot;). Put conditions
+first and an action after them, and it reads as <em>if this, then do that</em>. <strong>Do all</strong> runs every child no matter what
+each one returns. <strong>Not</strong> flips its one child's result.</p>
+</li>
+<li><p><strong>Conditions</strong> check things and don't change anything. For example: the soldier's <strong>awareness</strong> (idle, alerted,
+engaging, hunting, searching), whether it <strong>sees an enemy</strong>, its <strong>distance</strong> to the enemy, a <strong>value</strong> it weighs (its
+health, the range...), how many of its <strong>squad</strong> are still standing, whether the level <strong>has cover</strong>, and its current
+<strong>intent</strong>.</p>
+</li>
+<li><p><strong>Actions</strong> do things, using the game's own code: <strong>Roam</strong> (at the start of the level, soldiers wander around their
+post), <strong>Watch the enemy</strong>, <strong>Choose intent</strong>, <strong>Hold cover</strong>, <strong>Bound forward</strong>, <strong>Push the enemy</strong>, <strong>Fall back</strong>,
+<strong>Fight in the open</strong>, <strong>Clear rooms</strong>, <strong>Go to the enemy</strong>, <strong>Search where he went</strong>, <strong>Look around</strong>, <strong>Top up the
+magazine</strong>, <strong>Throw a grenade</strong> and <strong>Dodge grenades</strong>. (<strong>Fight from cover</strong> combines the four cover actions in one
+node, for a short tree.)</p>
+<p>An action can fail: <strong>Clear rooms</strong> when there are no rooms to clear, <strong>Bound forward</strong> when it isn't the soldier's
+turn or there's no cover ahead, <strong>Search where he went</strong> when there's nowhere left to look. When that happens, a
+selector just moves on to its next child.</p>
+</li>
+</ul>
+<p>How a soldier notices the enemy (idle, then alerted, engaging, hunting, searching) is handled by the game's code, and
+the tree reads it with <strong>Awareness is</strong>.</p>
+<h4 id="searching-for-a-lost-enemy">Searching for a lost enemy</h4>
+<p>So the squad has lost track of you. Where do they look? Going straight to where you were last seen is the obvious
+answer, but you're probably not there anymore! <strong>Search where he went</strong> looks for him where he most likely went, not
+just where he was.</p>
+<p>From where he was last seen and the direction he was moving, the squad guesses places:</p>
+<ul>
+<li>just past each doorway around him (more likely the more it lies in his direction, and the closer it is);</li>
+<li>straight ahead along his path;</li>
+<li>and where he was.</li>
+</ul>
+<p>Its setting, <strong>rooms out</strong> (2), is how far from where he was it guesses: 1 for the neighboring rooms, 2 for those plus
+the rooms past them.</p>
+<p>The squad splits up the guesses. Each soldier takes the most likely one near it that no squadmate has taken, goes there
+with its gun up, and looks around before marking it checked. The node fails once every guess has been checked. In the
+shipped tree, the soldier then looks around and stands down after a while. Seeing him ends the search, and hearing a
+shot restarts it from where the shot was.</p>
+<p>A <strong>Check a value</strong> on <code>searchLeads</code> (the places left to check) branches on whether the squad still has somewhere to
+look. How long a soldier looks around once its squad has nothing left to check, and the longest it searches at all, are
+tuning values (the Tuning tab, below: &quot;Look round after search&quot;, &quot;Search at most&quot;).</p>
+<h3 id="tuning-how-hard-each-side-is">Tuning: how hard each side is</h3>
+<p>The <strong>Tuning</strong> tab is the soldiers' difficulty (<code>content/defs/ai/tuning.json</code>). It shows every value, grouped
+(Awareness, Lethality, Tactics, Searching, Indoors, Taking hits, At ease), and hovering over one tells you what it
+does. These are all of the game's F3 overlay AI sliders, as data. Difficulty comes from reactions, aim and
+coordination, never from health. No bullet sponges here!</p>
+<p>Tuning is <strong>per side</strong>. <strong>Shared</strong> holds the values every side's soldiers fight with. Pick <strong>Station</strong> (the garrison:
+enemy variants with faction hostile) or <strong>Choir</strong> (the lancers, who fight alongside the horde) to see that side's
+values.</p>
+<ul>
+<li>Tick a value to change it for that side only (it turns amber), and untick it to go back to the shared value.</li>
+<li>&quot;Only what this side changes&quot; lists just those, and &quot;Share every value&quot; resets them all.</li>
+<li>In the file, <code>soldiers</code> holds the shared values and <code>factions</code> holds what each side changes.</li>
+</ul>
+<p>Every edit is saved and undone like any other, and the Sandbox tab's soldiers use it right away, so spawn an enemy
+from the side you're tuning to try it.</p>
+<p>The game reads the file when it starts. Its F3 overlay (AI) tunes a side live while it fights. <strong>Copy AI values</strong>
+copies what that side changes to the clipboard, in the same format as the file, so you can paste it under <code>factions</code>.</p>
+<h3 id="scoring-choosing-an-intent">Scoring: choosing an intent</h3>
+<p><strong>Choose intent</strong> is the one action that weighs things up. It scores four things a soldier could do from its cover
+and picks the best:</p>
+<ul>
+<li><strong>hold</strong> it;</li>
+<li><strong>advance</strong> to cover closer to the enemy;</li>
+<li><strong>push</strong> the enemy while he's vulnerable;</li>
+<li>or <strong>fall back</strong>.</li>
+</ul>
+<p>It doesn't move the soldier or change the tree's flow. It only records the intent, about every half second, and always
+succeeds. The nodes after it act on the intent. In the shipped tree that's a selector of <strong>Intent is push</strong> then
+<strong>Push the enemy</strong>, <strong>Intent is advance</strong> then <strong>Bound forward</strong>, <strong>Intent is fall back</strong> then <strong>Fall back</strong>, and
+finally <strong>Hold cover</strong>. In Unreal's terms, Choose intent is a service writing to the blackboard, and Intent is is a
+decorator reading it.</p>
+<p>Scoring is utility AI. Its numbers are the behavior's <strong>scoring</strong>, under <strong>Scoring</strong> on the toolbar. Here's how a
+score gets built:</p>
+<ul>
+<li>Each <strong>intent</strong> starts at its <strong>base</strong> (or its <strong>baseByRole</strong>: a rifleman advances more readily than a suppressor).</li>
+<li>It adds its <strong>terms</strong>. These are weighted votes, not if-blocks. A term is a <strong>weight</strong> times a <strong>curve</strong> over one
+input (for example <code>range</code> from 20 to 30 m: nothing at 20, the full weight at 30 and beyond), or a weight by
+<strong>role</strong>. A term only counts when its <strong>when</strong> conditions are true (<code>targetHealth &lt; 0.6</code>).</li>
+<li>It's multiplied by its <strong>factors</strong>. These are curves too (when pinned, a soldier advances at 0.4 of its score), or
+values by role.</li>
+<li>An intent whose <strong>gates</strong> aren't all true scores 0 (nobody pushes an enemy they can't see).</li>
+<li>The highest score wins. The soldier's current intent gets the <strong>stickiness</strong> (0.1) added on top, so it doesn't keep
+flipping between two close scores. The term that added the most is the <strong>reason</strong> shown over its head.</li>
+</ul>
+<p>The inputs a curve or condition can read are:</p>
+<ul>
+<li><code>ownHealth</code> and <code>targetHealth</code>, from 0 to 1 (the target's is -1 when it's out of sight);</li>
+<li><code>range</code>, in meters, and <code>sinceSeen</code>, in seconds;</li>
+<li><code>suppressed</code>, <code>coveringFire</code>, <code>targetReloading</code> and <code>squadPushing</code>, each 0 or 1;</li>
+<li><code>advanceBlocked</code>, which is 1 when the soldier isn't allowed to bound forward right now: either the soldiers further
+back go first, or it recently found no cover ahead. The shipped advance has a gate <code>advanceBlocked &lt; 1</code>, so a
+soldier that can't move up holds instead, and its label says so. It also has a gate <code>range &gt; 12</code>, so a soldier
+that's close enough to fight from where it is holds there (a push at a vulnerable enemy still closes in);</li>
+<li><code>searchLeads</code>, how many of the squad's guesses about where a lost enemy went haven't been checked yet (0 when
+they've all been checked, or none were made);</li>
+<li><code>role</code>;</li>
+<li><code>score</code>, the intent's total so far, for a term that only adds to something already there.</li>
+</ul>
+<h4 id="personalities">Personalities</h4>
+<p>Each squad gets a <strong>personality</strong>, so no two squads have to fight quite the same. It sets:</p>
+<ul>
+<li>a scale on each intent's score;</li>
+<li>how many soldiers in a squad of three or more go around the side (<strong>flankers</strong>);</li>
+<li><strong>cohesion</strong>: how far, in meters toward the enemy, its soldiers can get ahead of or behind the rest of the squad
+when they take cover (10 unless set).</li>
+</ul>
+<p>The game picks one for each squad by <strong>share</strong>, based on the squad's number and the level. The shipped ones are:</p>
+<ul>
+<li><strong>steady</strong>: half the squads; the scores unchanged, cohesion 10;</li>
+<li><strong>aggressive</strong>: cohesion 14;</li>
+<li><strong>cautious</strong>: no flankers, cohesion 7;</li>
+<li><strong>flanking</strong>: two flankers, cohesion 12.</li>
+</ul>
+<h4 id="how-a-squad-moves-up">How a squad moves up</h4>
+<p>So how does <strong>Bound forward</strong> actually work? The squad leapfrogs:</p>
+<ol>
+<li>The soldier furthest back goes first, to cover near or a little ahead of the squad's lead (a dash of up to 16 m, or
+however far it takes to catch up to the lead), while the rest cover it.</li>
+<li>The suppressor stays back as the base of fire and doesn't take a turn, and a soldier that finds no cover ahead
+passes its turn to the next one.</li>
+<li>Then the next soldier furthest back goes, and so on.</li>
+</ol>
+<p>A few rules keep it tidy:</p>
+<ul>
+<li>At most a third of the squad is moving at once.</li>
+<li>Nobody takes cover further ahead of the rest than the cohesion allows, though a bound can always come up level with
+the lead.</li>
+<li>A soldier that doesn't have a turn, or has no cover ahead, holds. One that has just bounded (and so isn't at the back
+anymore) holds where it ended up.</li>
+<li>A soldier on its way to cover gets there before it thinks again. A new role or intent doesn't turn it around
+halfway; only the cover no longer protecting it, getting stuck, or falling back does.</li>
+<li>Within 12 m of the enemy, the squad stops advancing and fights from where it is.</li>
+<li><strong>Push the enemy</strong> is the only thing that deliberately leaves the squad. Afterwards the soldier takes the cover
+closest to the squad that it can.</li>
+</ul>
+<p><strong>Roles</strong> (who suppresses, who flanks) rotate every <strong>roleSeconds</strong> (6), set in the scoring's general settings. A
+flanker that's still on its way around keeps its role until it gets there, and only calls out &quot;Flanking left/right!&quot;
+as it sets off.</p>
+<h4 id="the-scoring-graph">The scoring graph</h4>
+<p>The scoring graph reads left to right, the same way a score is built:</p>
+<ul>
+<li>the <strong>inputs</strong>;</li>
+<li>the conditions, terms and factors, with their curves drawn;</li>
+<li>the four <strong>intents</strong>, each with three pins: <strong>requires all of</strong> (its conditions), <strong>adds</strong> (its terms) and
+<strong>multiplied by</strong> (its factors);</li>
+<li>the <strong>personalities</strong>, and the <strong>choice</strong>.</li>
+</ul>
+<p>A term's or factor's own conditions go on its <strong>only if all of</strong> pin. Hover over a node to read what it does in plain
+words (&quot;adds 0.35 while covering fire is 1&quot;). Double-click a <strong>Choose intent</strong> node in the tree to open its scoring. A
+behavior made from scratch has no scoring until its tree uses Choose intent. <strong>Give it scoring</strong> starts it as a copy of
+the soldier's.</p>
+<p>It's put together the same way as the tree:</p>
+<ul>
+<li><strong>Right-click the canvas</strong> for the palette: a <strong>term</strong>, <strong>factor</strong>, <strong>condition</strong> or <strong>personality</strong>. A new term,
+factor or condition starts <strong>loose</strong>: dimmed, marked &quot;not wired&quot;, and doing nothing in the game.</li>
+<li><strong>Wire it in.</strong> Drag from its right-hand pin onto an intent's or term's pin. Drag from an <strong>input</strong> onto a curve or
+condition to make it read that input. Let go on empty canvas to add a node that reads it.</li>
+<li><strong>Edit a curve by its keys</strong>, like in Unreal's curve editor. Click a term or factor and its curve is drawn large in
+the panel. Drag a key to move it, double-click to add a key at the mouse, right-click a key to remove it (a curve
+always keeps at least two), and click a key to type its exact input and value. The curve runs in a straight line
+between keys and stays flat past the first and last. Two keys at the same input make a step. In the file, a keyed
+curve is <code>keys</code> (<code>[[20, 0], [25, 0.1], [30, 1]]</code>). A curve written as <code>from</code>, <code>to</code>, <code>low</code> and <code>high</code> still works, and
+turns into keys the first time you edit it.</li>
+<li><strong>Take it out (leave it loose)</strong>, on a node's buttons, unwires it without deleting it. <strong>Remove the curve</strong> turns a
+term into just its weight.</li>
+<li><strong>Click a node</strong> to edit it. The panel uses plain names for fields (&quot;how often&quot; for a personality's share, &quot;value at
+end&quot; for a curve's high), and each field's help gives its name in the file. What a node reads is set by its wire, not
+picked from a list.</li>
+<li><strong>Drag a node</strong> to move it. Node positions are saved in the file. Once you change anything, every node stays where it
+is.</li>
+<li><strong>Tidy up</strong> (on the right-click menu) lays everything out again and routes the wires like a circuit diagram. Each
+input's wires leave it horizontally and run down a lane of their own (the top input's lane is furthest right, so no
+wire crosses another input's lane to reach its own), then turn off horizontally at the pin they feed, going around
+any node in the way. The intents' wires into the choice share one lane next to it. The top of each lane is a reroute
+you can branch more wires from, and a wire's corners show up when the mouse is near, so you can drag them. Ctrl+Z
+undoes a Tidy up.</li>
+<li><strong>Double-click a wire</strong> to put a reroute node on it, then drag the node to lead the wire around other nodes. Like in
+Unreal's blueprints, you can drag from a reroute's small pin on its right to wire what it carries into something else
+too, so one input can feed several curves and conditions through one reroute. Right-click a reroute to remove it (the
+wires through it go straight again).</li>
+</ul>
+<p>Node positions, reroutes and loose nodes are stored in the behavior file (<code>x</code>, <code>y</code>, <code>via</code>, <code>inputVia</code>, <code>reroutes</code>,
+<code>layout</code>, <code>loose</code>) only for Studio. The game never reads them, and they cost nothing while the AI runs.</p>
+<h3 id="the-tree-editor">The tree editor</h3>
+<p>The <strong>Behaviors</strong> tab is the editor. It shows the tree on a canvas, and on the right a view of the sandbox that follows
+the selected soldier.</p>
+<ul>
+<li><strong>Right-click the canvas</strong> for the palette of nodes, grouped into Flow, Conditions and Actions. Type to search, and
+<strong>Enter</strong> picks the first match.</li>
+<li><strong>Drag from a flow node's right-hand pin</strong> to another node's left pin to make it a child. If you let go on empty
+canvas, the palette opens so you can add a new child there.</li>
+<li><strong>Children run top to bottom</strong>: drag a node up or down to change its order. The small number next to each wire is
+its position.</li>
+<li><strong>Click a node</strong> to edit it on the right: what it does, and its settings. Settings are picked from lists, never
+typed: an awareness, a value and a comparison, a distance, an action. You can also give it a note, or rename its id.
+The buttons, also on a node's right-click menu, are <strong>Add a child</strong>, <strong>Make it the root</strong>, <strong>Take it from its
+parent</strong>, <strong>Duplicate</strong> and <strong>Delete</strong>. The <strong>Delete</strong> key removes the selected node, and its children stay behind,
+loose. Loose nodes do nothing until they're wired in under the root.</li>
+<li>Drag the background (or use the middle mouse button) to pan, and use the wheel to zoom. <strong>Tidy</strong> lays the tree out
+again, and <strong>Fit</strong> brings all of it into view. Node positions are saved with the nodes.</li>
+</ul>
+<p>Next to the selected behavior, Studio shows what it <strong>needs of a body</strong>: the things its tree's actions make a soldier
+do that a body has to be able to show (<strong>Hold cover</strong>: fire, reload, crouch, lean and fire blind; <strong>Throw grenade</strong>:
+throw). An enemy variant that thinks with it needs a body type that can do those things (Bodies, Graph tab: what its
+body can do). The Enemies tab flags a variant whose body can't, and the game logs it.</p>
+<p><strong>+ New behavior</strong> makes one from scratch. Give it a name, and you get a root with nothing under it yet.
+<strong>Duplicate</strong> copies the one shown. <strong>Delete</strong> removes it at the next save. The soldier's own behavior can't be
+deleted, and Studio warns you if a variant still uses the one you're deleting.</p>
+<p><strong>See it live.</strong> This is the fun part! Select a soldier, either in the Sandbox tab or by clicking it in the view. The
+view follows it, and the editor shows the tree that soldier is running, lit up with what it's doing at each moment:
+green for succeeded, red for failed, grey for not reached. <strong>Think as this behavior</strong> gives the selected soldier the
+behavior shown, so you can try a tree on it right away. In the Sandbox tab, <strong>Thinks as</strong> spawns a whole squad with a
+given behavior. Every edit reaches the soldiers immediately, before you save.</p>
+<h3 id="enemy-variants">Enemy variants</h3>
+<p>The <strong>Enemies</strong> tab lists the variants (<code>enemies.json</code>). Each one has:</p>
+<ul>
+<li>a <strong>behavior</strong> and a <strong>faction</strong>, picked from lists (hostile soldiers, or the choir that fights everyone);</li>
+<li>a body: health, the damage it deals, grenades, run and sprint speeds, and whether it drops loot;</li>
+<li><strong>weapons</strong>: how often it carries each frame (the archetypes in Armory; a new frame shows up as an option as soon as
+it exists);</li>
+<li><strong>spawns</strong>: how often a squad from each source is this variant. The sources are a level's <strong>squads</strong>, the
+mission's <strong>reinforcements</strong>, the director's <strong>patrols</strong>, and the <strong>choir</strong> that comes with the horde;</li>
+<li>its <strong>body</strong> type and <strong>model</strong>, and its own <strong>clips</strong>: each of the body's clips it replaces (picked from the rigs'
+clips) and the clip it plays instead, all from the rig's clips made in Blender. A gun's grip is applied first, so to
+change how the variant holds a pistol, replace <code>Pistol_Idle</code>, not <code>Idle</code>. Bodies mode shows it under <strong>Variant</strong>. The
+tab flags a clip name no rig has, and a behavior that needs something its body can't show (a behavior that throws
+grenades on a body that can't throw).</li>
+</ul>
+<p>A squad is all one variant, picked by those weights.</p>
+<p>So you want to add an enemy? Click <strong>+ New</strong>, give it an id and a name, pick its behavior (make a new one under
+Behaviors first, if you want), then set its guns and where it spawns. That's it! In the Sandbox tab, <strong>Enemy</strong> spawns a
+squad of any variant.</p>
+<h3 id="the-sandbox">The sandbox</h3>
+<p><strong>The sandbox</strong> is the game's grey-box range, seen from a free camera. Hold the right mouse button to look around. W,
+A, S and D fly, Q and E go down and up, and Shift goes faster. On the left, the <strong>Sandbox</strong> tab says what a click in
+the world places:</p>
+<ul>
+<li><p><strong>a squad</strong> with the selected size, enemy variant, behavior and personality (or picked by share, as in the game). It
+hunts the target, or stands at ease like at the start of a level (untick <strong>Hunting</strong>);</p>
+</li>
+<li><p><strong>a horde</strong> of the selected size, coming up out of the floor around the click (it fights everyone);</p>
+</li>
+<li><p><strong>the target</strong>: the player, standing where you click, who can't be hurt. Tick <strong>The target strafes</strong> to give the
+soldiers a moving enemy;</p>
+</li>
+<li><p><strong>cover</strong>: a box, either low (a soldier crouches behind it and rises over it to shoot) or high (he stands and leans
+out), placed with its broad side facing the target. Click a box to select it, and drag to move it. <strong>R</strong> rotates it
+(Shift: the other way) and <strong>Delete</strong> removes it. The panel sets its exact position, size and rotation, switches it
+between low and high, or duplicates it.</p>
+<p>Soldiers treat the boxes like the level's own walls and crates. They're solid, block sight, get walked around, and
+are used as cover as soon as you let go. <strong>Show the cover points</strong> marks every spot a soldier can choose: a yellow
+ring for low cover, blue for high, with a tick pointing toward the cover, brighter where a soldier is using it. The
+test cover isn't saved. It's for trying out the AI, not for making levels.</p>
+</li>
+</ul>
+<p><strong>Paused</strong> and <strong>Speed</strong> slow the fight down so you can watch it. <strong>Clear the soldiers and the horde</strong> removes
+everyone. Over every soldier is what it's doing and why (in the intent's color), along with its squad's personality
+and its role. Click one to &quot;read its mind&quot; on the right: its inputs, each intent's score (and the stickiness), and what
+each personality would choose in its place at that moment.</p>
+<p>Save writes the behavior files, <code>enemies.json</code> and <code>tuning.json</code>, and the game reads them when it starts. Shipped
+copies of the soldier's behavior and the variants are also built into the game, in case a file is missing or broken.</p>
+<h2 id="look-the-surface-materials">Look: the surface materials</h2>
+<p>The library of surface materials, and what each number does, is described in <a href="../blender/materials.html">materials.md</a>. Look mode
+lists the library down the left. Pick a material to see it on the sphere, the crate and the gun barrel, with a row of
+every material behind them to compare it with. Change its numbers and it updates right away, both there and on every
+model Studio draws.</p>
+<ul>
+<li><strong>Light</strong> picks the room's lighting, and <strong>model's color</strong> sets the shapes' color.</li>
+<li>The room's reflections are re-captured whenever the shapes change, so a mirror-smooth metal shows the room right
+away. Under the flashlight, though, the room it reflects is dark, because the beam isn't included in reflections.</li>
+<li>Drag in the room to look around, and use the wheel to get closer.</li>
+<li><code>--mode look --select bare_metal --light flashlight</code> opens on bare metal in the dark (<code>station</code>, <code>flashlight</code>,
+<code>alarm</code>, <code>sodium</code> or <code>outdoors</code>).</li>
+</ul>
+<p>A material ticked <strong>space</strong> is a window onto space: it shows the sky (below) whatever its color. One ticked
+<strong>outside</strong> is out in space, on a ship's or station's outside (<code>hull_plating</code>, the skin seen from a window): it's lit
+by the sector's sun, not a room's fill, and no room's haze lies over it.</p>
+<h3 id="skies">Skies</h3>
+<p>The <strong>Skies</strong> tab tunes the skies windows show (<code>content/defs/skies.json</code>), looked at from inside, drawn by the game's
+own shader. Pick a sky on the left, and these are all sliders and color pickers:</p>
+<ul>
+<li>its <strong>stars</strong> (density, brightness, color);</li>
+<li>its <strong>nebula</strong> (strength, scale, the color of its thick parts and of its thin edges);</li>
+<li>its <strong>band</strong>, the galaxy's disc (strength, width, tilt, color);</li>
+<li>its <strong>sun</strong> (intensity, size, glow, elevation, color).</li>
+</ul>
+<p><strong>Seen from</strong> is the preview's own, not saved: where across and down the sector's map the system is (the sun goes once
+round the sky across the map, and swings up or down 10 degrees down it) and the level seed its clouds and stars come
+from.</p>
+<p><strong>Sectors</strong> is the order the fleet meets them in, one a sector from the first, going round again past the last: move
+one up, remove it, or add the selected sky. <strong>Add</strong>, <strong>Duplicate</strong> and <strong>Remove</strong> work as elsewhere; renaming a sky
+renames it in the sector order. Drag to look round, and use the wheel to narrow the view.
+<code>--mode look --sky violet_shoal</code> opens on the Skies tab looking at Violet Shoal.</p>
+<h2 id="models-what-each-model-is-collided-with">Models: what each model is collided with</h2>
+<p>What a placed model is collided with (by characters, and by shots, sight, cover and the navigation grid alike) is set
+per model in <code>content/props/colliders.json</code>, beside the models; see
+../plans/model-colliders.md.</p>
+<p>Models mode lists the prop models down the left by file, each with its collider (<code>(file's)</code> when it comes from its
+file's default). It also marks a model <code>not placed</code> when it's neither furniture (a prop in <code>props.json</code> names it) nor a
+station fixture (a mission template names it as a tank kind, the reservoir, its outlet or valve, or the airlock's
+intake or chute), so nothing sets it into a level.</p>
+<p>Pick one to set <strong>Every model in</strong> its file (the file's default) and <strong>This model</strong> (its own, or <code>as its file</code>):</p>
+<ul>
+<li><strong>authored</strong>: the boxes in its file (<code>..._CollisionOnly</code>). The default.</li>
+<li><strong>mesh</strong>: what's drawn, exactly: for irregular furniture (a desk's hutch, a terminal's screen).</li>
+<li><strong>box</strong> and <strong>cylinder</strong>: one box, or one upright cylinder, around what's drawn: a cylinder for barrels and drums.</li>
+<li><strong>none</strong>: nothing; walked and shot through.</li>
+</ul>
+<p>The model turns on the stage with its collider's outline over it in cyan, built exactly as the generator sets it into
+the level, as furniture or as a fixture. Orange marks surfaces characters step up onto: walkable, no higher than a step
+(0.4 m), and with room above them for a crouching character.</p>
+<p>Under it, it says what it's made of and what's worth fixing:</p>
+<ul>
+<li>why it won't do (an authored model whose solid isn't a box);</li>
+<li>surfaces to step up onto;</li>
+<li>a mesh that isn't closed (shots and sight only hit a face from the front, so they pass through a hole);</li>
+<li>and a piece that breaks given a mesh, which keeps its box (it breaks through one solid part).</li>
+</ul>
+<p>Every change reaches the furniture Studio builds levels from right away, saved or not, and Save writes
+<code>colliders.json</code>. <code>--mode models --select furniture/Desk</code> opens on the desk.</p>
+<h2 id="what-it-does-not-do-yet">What it does not do yet</h2>
+<p>Studio covers a lot, but not everything. A few things still live outside it:</p>
+<ul>
+<li>What a soldier drops besides its gun (a medkit or an ammo pack, one time in five, and a weapon part, 6% of the time)
+is still code. The full list of what's still code is in
+<a href="../adding-content.html#still-in-code-ask-a-programmer">adding-content.md</a>.</li>
+<li>The running game doesn't pick up a save. Restart the mission (or the game) to play with the new data.</li>
+<li>Behavior mode builds trees from the actions and conditions that already exist. A new kind of action (a new way to
+move or fight) needs code. The horde's behavior is still tuned in code (<code>HordeTuning</code>). The soldiers' (how they
+notice the enemy, their aim, reactions and perception) is data, in the Tuning tab.</li>
+<li>There's no mode for the sound data yet.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

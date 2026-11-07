@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DebrisWorld | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DebrisWorld | The Last Fleet ">
+      
+      <meta name="description" content="Cosmetic debris. When a prop breaks, it bursts into box fragments that tumble and bounce off the level and each other under Jolt rigid-body physics, then disappear.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Physics_DebrisWorld.md&amp;value=---%0Auid%3A%20LastFleet.Physics.DebrisWorld%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Physics.DebrisWorld">
+
+
+
+  <h1 id="LastFleet_Physics_DebrisWorld" data-uid="LastFleet.Physics.DebrisWorld" class="text-break">
+Class DebrisWorld  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Physics.html">Physics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Physics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Cosmetic debris. When a prop breaks, it bursts into box fragments that tumble and bounce off the level and each
+other under Jolt rigid-body physics, then disappear.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DebrisWorld : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DebrisWorld</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_Physics_DebrisWorld_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This is a separate Jolt physics system from the simulation's <a class="xref" href="LastFleet.Physics.JoltWorld.html">JoltWorld</a>, with its own copy of the
+level's boxes. Debris never affects gameplay, so it can run on the client, at frame rate, without determinism.</p>
+<p>
+It's stepped on its own worker thread, with collision spread over Jolt's thread pool. <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Begin_System_Single_">Begin(float)</a> starts a
+step and returns right away, and <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Complete">Complete()</a> waits for it and shows its fragments. Each frame completes
+the step started the frame before, draws it, then begins the next one. So the step runs alongside the rest of the
+frame and the pieces are drawn a frame late, which is fine since they're only for show. Every other method waits
+for any running step first, so it's safe to call at any time from the thread that owns the world.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Physics_DebrisWorld__ctor_" data-uid="LastFleet.Physics.DebrisWorld.#ctor*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld__ctor_System_Int32_" data-uid="LastFleet.Physics.DebrisWorld.#ctor(System.Int32)">
+  DebrisWorld(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the debris world and starts its worker thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebrisWorld(int maxFragments = 160)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxFragments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The most fragments alive at once. When full, the oldest are removed first.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Physics_DebrisWorld_LifetimeSeconds" data-uid="LastFleet.Physics.DebrisWorld.LifetimeSeconds">
+  LifetimeSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long a fragment lasts, in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float LifetimeSeconds = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Fragments_" data-uid="LastFleet.Physics.DebrisWorld.Fragments*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Fragments" data-uid="LastFleet.Physics.DebrisWorld.Fragments">
+  Fragments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fragments as of the last completed step (from <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Complete">Complete()</a>, or any other call after it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;DebrisFragment&gt; Fragments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Physics.DebrisFragment.html">DebrisFragment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_StepMilliseconds_" data-uid="LastFleet.Physics.DebrisWorld.StepMilliseconds*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_StepMilliseconds" data-uid="LastFleet.Physics.DebrisWorld.StepMilliseconds">
+  StepMilliseconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the last completed step took on the debris thread, in milliseconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StepMilliseconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_WaitMilliseconds_" data-uid="LastFleet.Physics.DebrisWorld.WaitMilliseconds*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_WaitMilliseconds" data-uid="LastFleet.Physics.DebrisWorld.WaitMilliseconds">
+  WaitMilliseconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How long the last <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Complete">Complete()</a> spent waiting for the step to finish, in milliseconds. That's what
+debris cost the calling thread, and it's close to zero when the step ran alongside the frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double WaitMilliseconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_WorkerThreads_" data-uid="LastFleet.Physics.DebrisWorld.WorkerThreads*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_WorkerThreads" data-uid="LastFleet.Physics.DebrisWorld.WorkerThreads">
+  WorkerThreads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of Jolt worker threads for debris. It's the machine's core count minus two (the game's own thread and the
+debris thread), clamped between one and four.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int WorkerThreads { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Physics_DebrisWorld_AddStaticMesh_" data-uid="LastFleet.Physics.DebrisWorld.AddStaticMesh*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_AddStaticMesh_LastFleet_Content_Meshes_MeshData_System_Int32_" data-uid="LastFleet.Physics.DebrisWorld.AddStaticMesh(LastFleet.Content.Meshes.MeshData,System.Int32)">
+  AddStaticMesh(MeshData, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the level for debris to land on. Each part with a body gets one in its shape, the same as in
+<a class="xref" href="LastFleet.Physics.JoltWorld.html">JoltWorld</a> (<span class="xref">LastFleet.Physics.StaticBodies</span>); a box piece that isn't a box is left out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddStaticMesh(MeshData mesh, int firstSurface)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd><p>The level.</p>
+</dd>
+    <dt><code>firstSurface</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Surface number of its first part, as returned by the simulation's collision world.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The level has more bodies than the debris world holds.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Begin_" data-uid="LastFleet.Physics.DebrisWorld.Begin*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Begin_System_Single_" data-uid="LastFleet.Physics.DebrisWorld.Begin(System.Single)">
+  Begin(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts advancing the debris by <code class="paramref">seconds</code> on the debris thread and returns right away (after
+waiting for any step still running). <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Fragments">Fragments</a> shows the result after the next
+<a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Complete">Complete()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(float seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Clear_" data-uid="LastFleet.Physics.DebrisWorld.Clear*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Clear" data-uid="LastFleet.Physics.DebrisWorld.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes every fragment and puts every removed level part back.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Complete_" data-uid="LastFleet.Physics.DebrisWorld.Complete*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Complete" data-uid="LastFleet.Physics.DebrisWorld.Complete">
+  Complete()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Waits for the last step started (if any) and shows its fragments in <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Fragments">Fragments</a>. The time spent
+waiting goes in <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_WaitMilliseconds">WaitMilliseconds</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Complete()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Dispose_" data-uid="LastFleet.Physics.DebrisWorld.Dispose*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Dispose" data-uid="LastFleet.Physics.DebrisWorld.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_MaxBodies_" data-uid="LastFleet.Physics.DebrisWorld.MaxBodies*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_MaxBodies_System_Int32_" data-uid="LastFleet.Physics.DebrisWorld.MaxBodies(System.Int32)">
+  MaxBodies(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The most bodies a debris world of <code class="paramref">maxFragments</code> holds: the level's, and its fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int MaxBodies(int maxFragments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxFragments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_SetSurfaceSolid_" data-uid="LastFleet.Physics.DebrisWorld.SetSurfaceSolid*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_SetSurfaceSolid_System_Int32_System_Boolean_" data-uid="LastFleet.Physics.DebrisWorld.SetSurfaceSolid(System.Int32,System.Boolean)">
+  SetSurfaceSolid(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a level part (because it broke) or puts it back, to match the simulation's collision.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSurfaceSolid(int surface, bool solid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surface</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>solid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Shatter_" data-uid="LastFleet.Physics.DebrisWorld.Shatter*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Shatter_System_Numerics_Vector3_System_Numerics_Vector3_LastFleet_Simulation_Components_World_DestructibleMaterial_System_Numerics_Vector3_" data-uid="LastFleet.Physics.DebrisWorld.Shatter(System.Numerics.Vector3,System.Numerics.Vector3,LastFleet.Simulation.Components.World.DestructibleMaterial,System.Numerics.Vector3)">
+  Shatter(Vector3, Vector3, DestructibleMaterial, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Breaks the box at <code class="paramref">center</code> into fragments flying along <code class="paramref">push</code>. Glass makes thin
+shards, everything else makes chunky pieces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Shatter(Vector3 center, Vector3 halfExtents, DestructibleMaterial material, Vector3 push)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>halfExtents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="LastFleet.Simulation.Components.World.DestructibleMaterial.html">DestructibleMaterial</a></dt>
+    <dd></dd>
+    <dt><code>push</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Physics_DebrisWorld_Step_" data-uid="LastFleet.Physics.DebrisWorld.Step*"></a>
+
+  <h3 id="LastFleet_Physics_DebrisWorld_Step_System_Single_" data-uid="LastFleet.Physics.DebrisWorld.Step(System.Single)">
+  Step(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Physics/DebrisWorld.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Advances the debris by <code class="paramref">seconds</code>, waits for it, and refreshes <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Fragments">Fragments</a>. Same as
+calling <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Begin_System_Single_">Begin(float)</a> and then <a class="xref" href="LastFleet.Physics.DebrisWorld.html#LastFleet_Physics_DebrisWorld_Complete">Complete()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Step(float seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

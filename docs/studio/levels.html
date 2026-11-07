@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Levels | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Levels | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-levels">Studio: Levels</h1>
+
+<p>Missions mode says <em>how big</em> a level is and <em>what's in it</em>. Levels mode is where the pieces it's built from live: the
+words rules use to say where things go, how rooms look, the kinds of room, the furniture and what places it, the pipes,
+where the loot goes, how rooms get their types, and the ship plans and districts that the structure-first levels are
+laid out by. It's all in <code>content/defs/procgen</code>, one file per tab.</p>
+<p>It's the biggest mode in Studio, so this guide is a bit longer. The good news? Every tab works the same way: a list on
+the left, the picked entry on the right, and a preview that's redrawn after every change.</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Levels</strong> on the mode bar at the top, or start Studio straight into it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode levels
+</code></pre>
+<p>Add <code>--select &lt;name&gt;</code> to open on something: a tag, or failing that the style, archetype, rule (<code>mess/tables</code> for a
+furnishing's rule), prop, network, loot assignment, typing rule, plan or district with that id.
+<code>--mode levels --select frigate</code> opens on the frigate plan, for example.</p>
+<p><img src="images/levels/01-levels-opens.png" alt="Levels mode as it opens, on the Tags tab"></p>
+<p>The layout:</p>
+<ul>
+<li><strong>The tabs</strong> (top left): <strong>Tags</strong>, <strong>Styles</strong>, <strong>Archetypes</strong>, <strong>Rules</strong>, <strong>Props</strong>, <strong>Networks</strong>, <strong>Loot</strong>,
+<strong>Typing</strong>, <strong>Plans</strong> and <strong>Districts</strong>. There are more tabs than fit, so the bar scrolls along to keep the one you
+pick in view.</li>
+<li><strong>The list</strong> (left): everything in the tab's file, with <strong>+ New ...</strong> and <strong>Copy</strong> above it.</li>
+<li><strong>The editor</strong> (right): the picked entry. A card at the top says in plain words what it does, then its previews,
+then its fields. Fields it can leave out show greyed out with <strong>set</strong> to add them.</li>
+</ul>
+<p>Every change is in memory until you save. The bottom line counts the files not saved, <strong>Ctrl+S</strong> writes them and
+<strong>Ctrl+Z</strong> takes back the last change. <strong>File &gt; Revert to saved</strong> throws all of it away.</p>
+<h2 id="name-a-new-kind-of-room-and-keep-rooms-apart">Name a new kind of room, and keep rooms apart</h2>
+<p>Tags are how everything else in this mode says <em>where</em>. A rule places its props in rooms tagged <code>room.office</code>, an
+assignment hides a stash in rooms tagged <code>role.key</code>, and so on. Tags nest: a rule asking for <code>room.storage</code> also
+matches <code>room.storage.cold</code>. So you want cold stores? Here's the flow:</p>
+<ol>
+<li><p>On the <strong>Tags</strong> tab, press <strong>+ New tag</strong>. A tag called <code>new_tag</code> is added to <code>tags.json</code> and picked.</p>
+</li>
+<li><p>Click its <strong>name</strong>, select it all (Ctrl+A) and type <code>room.storage.cold</code>. Then click <strong>description</strong> and say what it
+means: it's for whoever writes the next rule with it.</p>
+<p>The list puts it under <code>room.storage</code> straight away, and the right side says what it's <strong>Nested under</strong>.</p>
+<p><img src="images/levels/02-new-tag.png" alt="The new room.storage.cold tag, nested under room.storage"></p>
+</li>
+<li><p>Click a dimmed tag in the list, like <code>room.crew</code>. Nobody listed it: it's a tag because others are nested under it
+(an <em>implied</em> tag). It shows what's nested under it, and <strong>Describe it</strong> adds it to <code>tags.json</code> so it can have a
+description too. The ones marked <strong>(built in)</strong> are set by the generator itself (<code>role.*</code>, <code>layout.*</code>, <code>deck.*</code>).</p>
+<p><img src="images/levels/03-implied-tag.png" alt="An implied tag, room.crew: what's nested under it, and Describe it"></p>
+</li>
+</ol>
+<p>Tags are also how rooms get their <em>types</em>. Each room in a mission becomes one of the kit's own rooms or one of the
+mission's archetypes, and the <strong>Typing</strong> tab's rules say what can go where.</p>
+<ol start="4">
+<li><p>Open the <strong>Typing</strong> tab. At the top is the kit's own share (<code>0.70</code>), then <strong>+ count</strong>, <strong>+ adjacent</strong> and <strong>+
+distance</strong> to add a rule of each kind, then the rules themselves.</p>
+</li>
+<li><p>Click <code>offices_not_side_by_side</code>. The card says what it asks for: &quot;No room with any of room.office is joined to one
+with any of room.office.&quot; Below it are its two sides, <code>a</code> and <code>b</code>, each a set of tags.</p>
+<p><img src="images/levels/04-typing-rule.png" alt="The offices_not_side_by_side typing rule"></p>
+</li>
+<li><p>Now click <strong>Adjacency table</strong>. It's every archetype's tags (and <code>type.kit</code>) against each other. Want crew quarters
+kept away from the reactor? Tick the cell where the <code>room.crew.quarters</code> row meets the <code>room.industrial.reactor</code>
+column. That's it! It writes an adjacency rule for you, <code>apart_room_crew_quarters_room_industrial_reactor</code>, and
+unticking takes it out again.</p>
+<p><img src="images/levels/05-adjacency-ticked.png" alt="The adjacency table with quarters and reactor ticked, and the new rule in the list"></p>
+</li>
+</ol>
+<p><strong>Ctrl+Z</strong> takes the tick back, as it did here.</p>
+<h2 id="give-rooms-a-new-look">Give rooms a new look</h2>
+<p>Who models the walls? Nobody! The generator works out a room's walls from its shape and builds them in the room's
+<em>surface style</em>. A style only lists what's different from its <strong>base</strong>, which is another style, and ultimately
+<code>station</code>.</p>
+<ol>
+<li><p>Open the <strong>Styles</strong> tab and pick <code>industrial</code>. On the right is the style as it builds: a stretch of a room's wall
+with a doorway, and a hall built in the style, seen down its length. <strong>deck</strong> and <strong>room</strong> pick which deck's and
+room role's colors the trims are drawn in.</p>
+<p>Below that are its base (<code>station</code>), id, description and every part it changes: here the <code>wall</code>, the <code>floor</code> and
+the <code>hall</code> (its <code>structure</code> is arches, its floor trim, and its <code>glow</code>).</p>
+<p><img src="images/levels/06-style-industrial.png" alt="The industrial style: a wall and a hall built in it, and the parts it sets"></p>
+</li>
+<li><p>Drag the wall's <strong>R</strong> to the right and its <strong>G</strong> to the left. Both previews are redrawn in the new color as you
+go.</p>
+<p><img src="images/levels/07-wall-color.png" alt="The wall color changed, and both previews redrawn"></p>
+</li>
+<li><p>Want a part it currently takes from <code>station</code>? Open <strong>Say how it differs...</strong> and pick <code>stripe</code>. The stripe is added
+just as the base has it (<code>low</code>, <code>high</code>, <code>depth</code>, <code>shade</code>, <code>material</code>, and its color following the room's role), so
+you can change it. <strong>Take from its base...</strong> removes a part again.</p>
+<p><img src="images/levels/08-stripe-added.png" alt="The stripe added to industrial, copied from station"></p>
+</li>
+<li><p>What if you go too far? Drag the stripe's <strong>high</strong> way up. The style goes red, with what's wrong right under its
+name (&quot;stripe.high: 7.35 is outside 0 to 3.6&quot;), and the previews say &quot;As it last built&quot;. The bottom of the window
+says the same, in the game's own words. Press <strong>Ctrl+Z</strong> and it's fine again.</p>
+<p><img src="images/levels/09-style-problem.png" alt="The stripe too high: the problem in red, and the previews as it last built"></p>
+</li>
+<li><p>Tick <strong>Graph</strong> next to <strong>+ New style</strong> to see the styles as a graph instead: each style with the parts it sets,
+wired to everything that's built in it on the right (the archetypes, and each mission's hall themes). Click a style
+to edit it.</p>
+<p><img src="images/levels/10-style-graph.png" alt="The style graph: the styles, and what's built in each"></p>
+</li>
+</ol>
+<p>A style decides how a room <em>looks</em>, never where people and shots can go. Wall positions, thicknesses, doorway heights
+and the like aren't in it.</p>
+<h2 id="build-a-two-story-room">Build a two-story room</h2>
+<p>A room archetype is a kind of room the generator builds: its shape, tags, roles, style, furniture, and how many stories
+tall it is. Let's make the crew commons taller.</p>
+<ol>
+<li><p>Open the <strong>Archetypes</strong> tab and pick <code>crew_commons (plus)</code>. At the top are six footprints its recipe makes from
+seeds (<strong>Reroll</strong> for others). Click one to build it below: from above, with its doorways in yellow, and on a
+turntable next to it. Drag the turntable to turn it and use the wheel to come nearer.</p>
+<p><img src="images/levels/11-archetype.png" alt="crew_commons: six footprints, one built from above and on the turntable, and its form"></p>
+<p>Its form has the shape (<code>plus</code>, 3 to 5 cells across and deep), its tags, its roles, its furniture (<code>plaza</code>) and,
+greyed out, the style it takes by default. Press <strong>set</strong> next to <strong>style</strong> and you can pick another, like
+<code>industrial</code>.</p>
+</li>
+<li><p>Drag the <strong>stories</strong> slider to <code>2</code>. Uh oh! It goes red: &quot;a tall room with a floor up it is 4 cells or more each
+way, for its stairs; this may be 3 by 3.&quot; The previews keep showing the room as it last built.</p>
+<p><img src="images/levels/12-stories-problem.png" alt="Two stories on a room that may be 3 by 3: the problem in red"></p>
+</li>
+<li><p>Fix what it says. Drag the smallest <strong>width</strong> and <strong>depth</strong> from 3 to 4. Now it builds: the plan shows the stairs, a
+<strong>story</strong> slider appears under it (on <code>ground</code> here), and the turntable shows the floor up above.</p>
+<p><img src="images/levels/13-two-stories.png" alt="Width and depth from 4: two stories, with stairs on the plan and the upper floor on the turntable"></p>
+</li>
+</ol>
+<p>Happy with it? <strong>Ctrl+S</strong>. This was just a test, so here it went back with <strong>File &gt; Revert to saved</strong>.</p>
+<h2 id="furnish-a-mess-hall">Furnish a mess hall</h2>
+<p>What goes in rooms is two tabs working together. <strong>Rules</strong> (<code>rules.json</code>) say what's placed where, and <strong>Props</strong>
+(<code>props.json</code>) are the things they place.</p>
+<ol>
+<li><p>Start on the rule: <code>--mode levels --select mess/tables</code>, or open <strong>Rules</strong> and pick <code>tables</code> under <strong>Furnishing:
+mess</strong>. The rules are split into each <em>furnishing</em>'s rules (how a built room with that furnishing is furnished;
+archetypes name a furnishing) and then the level's own rules.</p>
+<p>The card says what it does in plain words: it places <code>mess_table</code> as near the middle as it fits, keeps 1.2 m clear
+round each, stands in the way (so it leaves every way through open), and is laid out together, &quot;1 to 4 rows of 1 to
+3, 0.4 m apart in a row, 2 m aisles between rows&quot;. Next to it is the table's footprint from above and from the side.</p>
+<p><img src="images/levels/14-rule-tables.png" alt="The mess hall's tables rule: its card, its footprint and its arrange fields"></p>
+</li>
+<li><p>Too cramped? Drag <strong>aisle</strong> to the right. The card follows: &quot;3.85 m aisles between rows&quot;.</p>
+<p><img src="images/levels/15-aisle-wider.png" alt="The aisle widened, and the card saying so"></p>
+</li>
+<li><p>Press <strong>Ctrl+Z</strong>, and now open the <strong>Props</strong> tab and pick <code>mess_table</code>. A furniture prop with a model spins on the
+stage, with its loot sockets and attach points marked: here 6 sockets for items on top (<code>Top</code>) and 6 places for
+other pieces (<code>Seat</code>, where the chairs go). Under it is the prop from above and from the side, which rule places it
+(<code>mess/tables</code>), and its form.</p>
+<p><img src="images/levels/16-prop-mess-table.png" alt="The mess_table prop: its model with sockets and seats, its footprint, and what places it"></p>
+</li>
+<li><p>Open <strong>sockets</strong> and its group (<code>Top</code>). That's the loot on the table: how many sockets get it (<code>fill</code>), the
+<code>chance</code> it holds anything, and the table it rolls from (<code>room</code>, the room's own). The line above the footprint sums
+it up: &quot;a piece holds 0.12 piles from room on average&quot;.</p>
+</li>
+<li><p>Drag <strong>chance</strong> up. At 0.53, a table holds 0.53 piles on average. That's a well-stocked galley!</p>
+<p><img src="images/levels/17-socket-chance.png" alt="The socket chance raised: a piece holds 0.53 piles on average"></p>
+</li>
+</ol>
+<h2 id="route-a-pipe-and-hide-the-loot">Route a pipe and hide the loot</h2>
+<p>Two of the smaller tabs, but both change a level a lot.</p>
+<p><strong>Networks</strong> are what connect parts of a level. <code>reservoir_feed</code> is the pipe the generator lays from a deep reservoir
+to its outlet. So how do you tell a pipe where to go? You don't, exactly. You tell it what each way costs, and the
+cheapest route wins.</p>
+<ol>
+<li><p>Open <strong>Networks</strong> and pick <code>reservoir_feed</code>. Under <strong>What its route pays</strong> is a slider for each way the route can
+run (along a wall, over a doorway, the ceiling's edge, standing off, across an open ceiling, a riser, through a
+wall, through a lintel, a service cell) and one for each bend.</p>
+</li>
+<li><p>Don't want pipes strung across open ceilings? Drag <strong>Open ceiling</strong> up, here from 30 to 124. The sliders stop at
+200; Ctrl-click one to type more.</p>
+<p><img src="images/levels/18-network-costs.png" alt="reservoir_feed: what its route pays, with Open ceiling raised"></p>
+<p>Below are its limits and the pipe itself (size, color, material, bracket spacing). A level's route, and the route
+it didn't take, are drawn on the Missions mode map.</p>
+</li>
+</ol>
+<p><strong>Loot</strong> (<code>loot.json</code>) says where a level's loot goes: which rooms hold a cache, which may hide a stash, and the item
+tables piles, footlockers, cases and cargo roll from.</p>
+<ol start="3">
+<li><p>Open <strong>Loot</strong>. On the left are the <strong>Assignments, in order</strong>, <strong>Each deck's stashes</strong> and every <strong>table</strong> a level's
+loot is rolled from. Every assignment that matches a room applies, and the first cache and the first of each table
+win, so the order matters (the arrows next to <strong>Copy</strong> are for moving the picked one).</p>
+</li>
+<li><p>Pick <code>stashes_key_rooms</code>. The card says: &quot;Applies to rooms with any of role.key. May hold a stash, weight 0.6, 0.25
+more each soldier holding it (two at most), from the mission's stash table.&quot;</p>
+</li>
+<li><p>Drag the stash's <strong>weight</strong> up, to 0.86 here, and the card follows. Keycard rooms are now likelier to hide a stash
+than the deck's other rooms.</p>
+<p><img src="images/levels/19-loot-assignment.png" alt="The stashes_key_rooms assignment, its stash weight raised"></p>
+</li>
+<li><p>Pick <code>loot.station.stash</code> under <strong>Tables</strong>. It says what kind of table it is (a weapons table, edited in Loot mode)
+and who rolls from it: the stashes of all three missions.</p>
+<p><img src="images/levels/20-loot-table.png" alt="The loot.station.stash table and the missions that use it"></p>
+</li>
+</ol>
+<h2 id="draw-a-ship">Draw a ship</h2>
+<p>The ship raids aren't grown room by room. They're laid out <em>structure first</em>, from a <strong>plan</strong>: the shape of the ship,
+the halls carved into it, and the bulkheads that cut it into sections, each section a <strong>district</strong> of rooms.</p>
+<ol>
+<li><p>Start on a plan: <code>--mode levels --select frigate</code>, or open <strong>Plans</strong> and pick <code>frigate</code>. At the top are its skin
+(how its outside looks from the windows), its description, its decks and its stair cores.</p>
+<p>Under <strong>Its envelope</strong> are four seeds of it (<strong>Reroll</strong> for others), and one drawn big: seed 1 is 168 × 68 m, with
+4 sections, 12 compartments and 16 pressure doors and hatches. The sections are tinted, the halls white, bulkheads
+red, pressure doors yellow and hatches orange. <strong>deck</strong> switches between the Main deck and the Crew deck.</p>
+<p><img src="images/levels/21-plan-frigate.png" alt="The frigate plan: four seeds, and seed 1 drawn big by section"></p>
+</li>
+<li><p>The <strong>show</strong> list draws a check over it. Pick <strong>the way through</strong>: in at the airlock, each gate's keycard, the hack,
+and out, in yellow. The others are the compartments, what could be lost to a breach, and rooms per corridor.</p>
+<p><img src="images/levels/22-way-through.png" alt="The way through drawn over the main deck"></p>
+</li>
+<li><p>Now let's draw! Pick <strong>Paint</strong> instead of <strong>Look</strong>. The view widens so you can paint out past the hull, and <strong>paint
+into</strong> offers <code>a new mask (adds)</code>. Drag along the top of the hull to paint cells in (right-drag rubs them out).</p>
+<p>Your first stroke makes a new part, <code>part 3, a mask</code>, and the list now says <code>frigate (3 parts)</code>. Each stroke after
+that paints into it. Paint along the edge a few times, and there's a new strip of rooms along the frigate's flank:
+8,672 m² inside now, up from 8,352.</p>
+<p><img src="images/levels/23-painted.png" alt="A strip painted along the frigate's top edge, cut into rooms"></p>
+</li>
+<li><p>Scroll down to <strong>Its rooms</strong>. This is the whole level for that seed: 88 rooms and 45 stretches of hall, its doorways
+and void cells, and how long each stage took. Any problem is in red; here, &quot;2 rooms (12 cells) had no way in from a
+hall and were left empty.&quot; Below, the level stands on a stage. Drag it to turn it and use the wheel to come nearer.</p>
+<p><img src="images/levels/24-rooms-stage.png" alt="Its rooms: the level built on the stage, with its counts and its problem"></p>
+<p>Under the stage are <strong>Its parts</strong> (here the hull, a box and your new mask, each with <strong>up</strong>, <strong>down</strong> and
+<strong>remove</strong>, and <strong>Add a part</strong> for every kind) and <strong>Its halls</strong>.</p>
+</li>
+<li><p>Which rooms go in a section comes from its district. Open <strong>Districts</strong> and pick <code>crew</code>, then open <strong>rooms</strong> and
+<code>crew_quarters</code>. A district has an <strong>anchor</strong>, the set piece its section is built round (a <code>mess_hall</code> 4 to 5 cells
+wide), and its <strong>rooms</strong>, each an archetype with how many cells it takes along its hall, a weight, whether it
+<strong>runs</strong> (several in a row, like cabins) and whether it's <strong>private</strong>.</p>
+<p><img src="images/levels/25-district-crew.png" alt="The crew district: its anchor, its rooms, and the plans that use it"></p>
+<p><strong>Plans that use it</strong> lists the plans whose sections are crew. Click <code>frigate</code> to jump back to the plan.</p>
+</li>
+</ol>
+<p>Done drawing? <strong>Ctrl+S</strong> keeps your ship. Here it went back with <strong>File &gt; Revert to saved</strong>.</p>
+<h3 id="a-plans-picture-without-the-window">A plan's picture, without the window</h3>
+<p>Want to check a plan without opening Studio at all, say on a build machine? Ask for a picture of it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode levels --select frigate --seed 1 --plan-png frigate.png
+</code></pre>
+<p>It builds that seed, prints what it made (&quot;frigate for seed 1: 168 × 68 m, 522 cells in 1 piece(s), 4 sections, 12
+compartments, 88 rooms...&quot;), lists its problems and exits. The picture is the plan's structure, one per deck: the
+first in the file you named and the second next to it with <code>_deck2</code> on the end.</p>
+<p><img src="images/levels/26-plan-picture.png" alt="The frigate's main deck, drawn by --plan-png"></p>
+<p><img src="images/levels/27-plan-picture-deck2.png" alt="The frigate's crew deck, drawn next to it as _deck2"></p>
+<p>It exits with code 1 if the plan has a problem or its envelope is in more than one piece. This frigate does, with the
+same &quot;2 rooms had no way in&quot; as above, so it's a handy check to script.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The reference for this mode is <a href="reference.html#levels-what-levels-are-made-from">Levels: what levels are made from</a>,
+with a section for every tab.</li>
+<li>To see all of this in a generated level (a room's type and why, how each placement rule did, the pipe's route), see
+<a href="missions.html">missions.md</a>.</li>
+<li>The tables loot rolls from are edited in Loot and Items mode; <a href="flow.html">flow.md</a> shows how they connect.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

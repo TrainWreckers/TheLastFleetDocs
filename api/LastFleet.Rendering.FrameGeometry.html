@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct FrameGeometry | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct FrameGeometry | The Last Fleet ">
+      
+      <meta name="description" content="Everything drawn on top of the static world in one frame.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_Rendering_FrameGeometry.md&amp;value=---%0Auid%3A%20LastFleet.Rendering.FrameGeometry%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.Rendering.FrameGeometry">
+
+
+
+  <h1 id="LastFleet_Rendering_FrameGeometry" data-uid="LastFleet.Rendering.FrameGeometry" class="text-break">
+Struct FrameGeometry  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Everything drawn on top of the static world in one frame.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ref struct FrameGeometry</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LastFleet_Rendering_FrameGeometry__ctor_" data-uid="LastFleet.Rendering.FrameGeometry.#ctor*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry__ctor_System_ReadOnlySpan_LastFleet_Rendering_Geometry_OverlayVertex__System_ReadOnlySpan_LastFleet_Rendering_Geometry_EffectVertex__System_ReadOnlySpan_System_Numerics_Vector4__Brutal_ImGuiApi_ImDrawDataPtr_System_ReadOnlySpan_LastFleet_Content_Meshes_MeshVertex__System_ReadOnlySpan_LastFleet_Content_Meshes_MeshVertex__System_ReadOnlySpan_LastFleet_Rendering_Lighting_PointLight__System_ReadOnlySpan_LastFleet_Rendering_Lighting_ShadowView__System_ReadOnlySpan_LastFleet_Rendering_Geometry_IndexRange__System_ReadOnlySpan_LastFleet_Rendering_Geometry_SwarmInstance__System_Int32_System_ReadOnlySpan_LastFleet_Rendering_Geometry_SkinnedDraw__System_ReadOnlySpan_System_Numerics_Matrix4x4__System_Boolean_LastFleet_Rendering_Lighting_RoomLighting_System_ReadOnlySpan_LastFleet_Rendering_Lighting_ReflectionCapture__System_ReadOnlySpan_LastFleet_Rendering_Lighting_PointLight__System_ReadOnlySpan_LastFleet_Rendering_Geometry_IndexRange__System_ReadOnlySpan_LastFleet_Rendering_Lighting_FogVolume__System_ReadOnlySpan_LastFleet_Content_Meshes_MeshVertex__" data-uid="LastFleet.Rendering.FrameGeometry.#ctor(System.ReadOnlySpan{LastFleet.Rendering.Geometry.OverlayVertex},System.ReadOnlySpan{LastFleet.Rendering.Geometry.EffectVertex},System.ReadOnlySpan{System.Numerics.Vector4},Brutal.ImGuiApi.ImDrawDataPtr,System.ReadOnlySpan{LastFleet.Content.Meshes.MeshVertex},System.ReadOnlySpan{LastFleet.Content.Meshes.MeshVertex},System.ReadOnlySpan{LastFleet.Rendering.Lighting.PointLight},System.ReadOnlySpan{LastFleet.Rendering.Lighting.ShadowView},System.ReadOnlySpan{LastFleet.Rendering.Geometry.IndexRange},System.ReadOnlySpan{LastFleet.Rendering.Geometry.SwarmInstance},System.Int32,System.ReadOnlySpan{LastFleet.Rendering.Geometry.SkinnedDraw},System.ReadOnlySpan{System.Numerics.Matrix4x4},System.Boolean,LastFleet.Rendering.Lighting.RoomLighting,System.ReadOnlySpan{LastFleet.Rendering.Lighting.ReflectionCapture},System.ReadOnlySpan{LastFleet.Rendering.Lighting.PointLight},System.ReadOnlySpan{LastFleet.Rendering.Geometry.IndexRange},System.ReadOnlySpan{LastFleet.Rendering.Lighting.FogVolume},System.ReadOnlySpan{LastFleet.Content.Meshes.MeshVertex})">
+  FrameGeometry(ReadOnlySpan&lt;OverlayVertex&gt;, ReadOnlySpan&lt;EffectVertex&gt;, ReadOnlySpan&lt;Vector4&gt;, ImDrawDataPtr, ReadOnlySpan&lt;MeshVertex&gt;, ReadOnlySpan&lt;MeshVertex&gt;, ReadOnlySpan&lt;PointLight&gt;, ReadOnlySpan&lt;ShadowView&gt;, ReadOnlySpan&lt;IndexRange&gt;, ReadOnlySpan&lt;SwarmInstance&gt;, int, ReadOnlySpan&lt;SkinnedDraw&gt;, ReadOnlySpan&lt;Matrix4x4&gt;, bool, RoomLighting?, ReadOnlySpan&lt;ReflectionCapture&gt;, ReadOnlySpan&lt;PointLight&gt;, ReadOnlySpan&lt;IndexRange&gt;, ReadOnlySpan&lt;FogVolume&gt;, ReadOnlySpan&lt;MeshVertex&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Everything drawn on top of the static world in one frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameGeometry(ReadOnlySpan&lt;OverlayVertex&gt; overlay, ReadOnlySpan&lt;EffectVertex&gt; effects, ReadOnlySpan&lt;Vector4&gt; partTints, ImDrawDataPtr ui = default, ReadOnlySpan&lt;MeshVertex&gt; dynamicWorld = default, ReadOnlySpan&lt;MeshVertex&gt; viewModel = default, ReadOnlySpan&lt;PointLight&gt; lights = default, ReadOnlySpan&lt;ShadowView&gt; shadows = default, ReadOnlySpan&lt;IndexRange&gt; shadowRanges = default, ReadOnlySpan&lt;SwarmInstance&gt; swarm = default, int swarmNear = 0, ReadOnlySpan&lt;SkinnedDraw&gt; skinned = default, ReadOnlySpan&lt;Matrix4x4&gt; skinMatrices = default, bool viewModelInWorld = false, RoomLighting? rooms = null, ReadOnlySpan&lt;ReflectionCapture&gt; captures = default, ReadOnlySpan&lt;PointLight&gt; captureLights = default, ReadOnlySpan&lt;IndexRange&gt; captureRanges = default, ReadOnlySpan&lt;FogVolume&gt; fogVolumes = default, ReadOnlySpan&lt;MeshVertex&gt; debris = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>overlay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.OverlayVertex.html">OverlayVertex</a>&gt;</dt>
+    <dd><p>2D triangles drawn over the scene, at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxOverlayVertices">MaxOverlayVertices</a>.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.EffectVertex.html">EffectVertex</a>&gt;</dt>
+    <dd><p>World-space effect triangles, at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxEffectVertices">MaxEffectVertices</a>.</p>
+</dd>
+    <dt><code>partTints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a>&gt;</dt>
+    <dd><p>One tint per world-mesh part (see <a class="xref" href="LastFleet.Content.Meshes.MeshData.html#LastFleet_Content_Meshes_MeshData_Parts">Parts</a>). rgb is blended over the part by
+alpha. A negative alpha hides the part: <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Gone">Gone</a> for a part that no longer exists (a broken prop, an
+opened door), which rays also pass through, and <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Unseen">Unseen</a> for a part that's just not drawn this frame (a
+room out of sight), which rays still hit. If the span is empty or shorter than the part list, the remaining parts
+aren't tinted.</p>
+</dd>
+    <dt><code>ui</code> <a class="xref" href="https://github.com/ahwootech/BRUTAL/blob/main/Brutal.ImGui/Generated/Structs/ImDrawData.gen.cs">ImDrawDataPtr</a></dt>
+    <dd><p>Dear ImGui's draw data for this frame (<code>ImGui.GetDrawData()</code> after <code>ImGui.Render()</code>), or default for none.</p>
+</dd>
+    <dt><code>dynamicWorld</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd><p>World-space, flat-shaded triangles rebuilt every frame (characters, loot, props, hoses), lit like the level. At most
+<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxDynamicVertices">MaxDynamicVertices</a> vertices, three per triangle.</p>
+</dd>
+    <dt><code>viewModel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd><p>The weapon in your hands: world-space, flat-shaded triangles lit like the level, but drawn with their own
+projection (<a class="xref" href="LastFleet.Rendering.CameraMath.html#LastFleet_Rendering_CameraMath_ViewModelFieldOfView">ViewModelFieldOfView</a>) and always in front of the world. That way the gun
+doesn't stretch with the field of view or clip through a wall you're standing against. At most
+<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxViewModelVertices">MaxViewModelVertices</a> vertices.</p>
+</dd>
+    <dt><code>lights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.PointLight.html">PointLight</a>&gt;</dt>
+    <dd><p>Point lights for the level and characters (not the view model).</p>
+</dd>
+    <dt><code>shadows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html">ShadowView</a>&gt;</dt>
+    <dd><p>Shadow maps to draw for some of the lights.</p>
+</dd>
+    <dt><code>shadowRanges</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.IndexRange.html">IndexRange</a>&gt;</dt>
+    <dd><p>The level index ranges the shadow maps draw.</p>
+</dd>
+    <dt><code>swarm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.SwarmInstance.html">SwarmInstance</a>&gt;</dt>
+    <dd><p>The horde: one animated body (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_SetSwarmModel_LastFleet_Content_Creatures_AnimatedModel_System_ReadOnlySpan_System_Numerics_Vector3__">SetSwarmModel(AnimatedModel, ReadOnlySpan&lt;Vector3&gt;)</a>) drawn at each instance. The first
+<code class="paramref">swarmNear</code> use the full body and the rest use the far one. At most
+<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxSwarmInstances">MaxSwarmInstances</a>.</p>
+</dd>
+    <dt><code>swarmNear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many of <code class="paramref">swarm</code>, from the start, are drawn with the full body.</p>
+</dd>
+    <dt><code>skinned</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.SkinnedDraw.html">SkinnedDraw</a>&gt;</dt>
+    <dd><p>Skinned bodies (soldiers and players on a rig). Each one is a mesh (<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_AddSkinnedMesh_System_ReadOnlySpan_LastFleet_Content_Skeletal_SkinnedVertex__">AddSkinnedMesh(ReadOnlySpan&lt;SkinnedVertex&gt;)</a>)
+skinned by its range of <code class="paramref">skinMatrices</code>, lit like the level and casting shadows.</p>
+</dd>
+    <dt><code>skinMatrices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a>&gt;</dt>
+    <dd><p>Every skinned body's joint matrices this frame (each combines the joint's inverse bind, its pose and the body's
+world placement: <a class="xref" href="LastFleet.Content.Skeletal.Pose.html#LastFleet_Content_Skeletal_Pose_Skin_System_Numerics_Matrix4x4__System_Span_System_Numerics_Matrix4x4__">Skin(in Matrix4x4, Span&lt;Matrix4x4&gt;)</a>), at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxSkinMatrices">MaxSkinMatrices</a>.</p>
+</dd>
+    <dt><code>viewModelInWorld</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether <code class="paramref">viewModel</code> is drawn with the world's projection instead of its own. This is used when the
+viewer's own body holds it (a <a class="xref" href="LastFleet.Rendering.Geometry.SkinnedDraw.html#LastFleet_Rendering_Geometry_SkinnedDraw_Near">Near</a> draw), so the hands and the gun line up.</p>
+</dd>
+    <dt><code>rooms</code> <a class="xref" href="LastFleet.Rendering.Lighting.RoomLighting.html">RoomLighting</a></dt>
+    <dd><p>The level's rooms and their bounce light this frame (<a class="xref" href="LastFleet.Rendering.Lighting.RoomLighting.html">RoomLighting</a>). Null for a level with no rooms,
+where the fill light comes from the sky only.</p>
+</dd>
+    <dt><code>captures</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.ReflectionCapture.html">ReflectionCapture</a>&gt;</dt>
+    <dd><p>Rooms in <code class="paramref">rooms</code> whose reflections need recapturing (<a class="xref" href="LastFleet.Rendering.Lighting.ReflectionCapture.html">ReflectionCapture</a>). That's every
+room when a level starts, then only rooms whose lights have changed.</p>
+</dd>
+    <dt><code>captureLights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.PointLight.html">PointLight</a>&gt;</dt>
+    <dd><p>The lights for <code class="paramref">captures</code>, a range per capture.</p>
+</dd>
+    <dt><code>captureRanges</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.IndexRange.html">IndexRange</a>&gt;</dt>
+    <dd><p>The level index ranges <code class="paramref">captures</code> draw, a range per capture.</p>
+</dd>
+    <dt><code>fogVolumes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.FogVolume.html">FogVolume</a>&gt;</dt>
+    <dd><p>Smoke in the air this frame (blasts, breaches), at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxFogVolumes">MaxFogVolumes</a>. The atmosphere's
+froxel grid adds it to the level's haze.</p>
+</dd>
+    <dt><code>debris</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd><p>Tumbling pieces of broken props: world-space, flat-shaded triangles like <code class="paramref">dynamicWorld</code>, drawn and
+casting shadow map shadows the same way. They're kept out of the ray tracing scene, so a burst of them doesn't mean
+rebuilding a ray structure every frame. They have a budget of their own
+(<a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxDebrisVertices">MaxDebrisVertices</a>), so a full <code class="paramref">dynamicWorld</code> never leaves them out.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Gone" data-uid="LastFleet.Rendering.FrameGeometry.Gone">
+  Gone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Part tint alpha for a part that no longer exists (a broken prop, an opened door). It's neither drawn nor hit by
+rays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Gone = -1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Unseen" data-uid="LastFleet.Rendering.FrameGeometry.Unseen">
+  Unseen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Part tint alpha for a part that's just not drawn this frame (out of sight). Rays still hit it, because things
+out of sight still cast shadows into what you can see.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float Unseen = -2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_CaptureLights_" data-uid="LastFleet.Rendering.FrameGeometry.CaptureLights*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_CaptureLights" data-uid="LastFleet.Rendering.FrameGeometry.CaptureLights">
+  CaptureLights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lights used for the <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Captures">Captures</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;PointLight&gt; CaptureLights { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.PointLight.html">PointLight</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_CaptureRanges_" data-uid="LastFleet.Rendering.FrameGeometry.CaptureRanges*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_CaptureRanges" data-uid="LastFleet.Rendering.FrameGeometry.CaptureRanges">
+  CaptureRanges
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level index ranges the <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Captures">Captures</a> draw.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;IndexRange&gt; CaptureRanges { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.IndexRange.html">IndexRange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Captures_" data-uid="LastFleet.Rendering.FrameGeometry.Captures*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Captures" data-uid="LastFleet.Rendering.FrameGeometry.Captures">
+  Captures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rooms whose reflections should be recaptured this frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;ReflectionCapture&gt; Captures { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.ReflectionCapture.html">ReflectionCapture</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Debris_" data-uid="LastFleet.Rendering.FrameGeometry.Debris*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Debris" data-uid="LastFleet.Rendering.FrameGeometry.Debris">
+  Debris
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pieces of broken props. Drawn like <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_DynamicWorld">DynamicWorld</a>, but never ray traced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;MeshVertex&gt; Debris { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_DynamicWorld_" data-uid="LastFleet.Rendering.FrameGeometry.DynamicWorld*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_DynamicWorld" data-uid="LastFleet.Rendering.FrameGeometry.DynamicWorld">
+  DynamicWorld
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moving world geometry, drawn with the level's lighting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;MeshVertex&gt; DynamicWorld { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Effects_" data-uid="LastFleet.Rendering.FrameGeometry.Effects*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Effects" data-uid="LastFleet.Rendering.FrameGeometry.Effects">
+  Effects
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>World-space effect triangles, drawn after the world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;EffectVertex&gt; Effects { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.EffectVertex.html">EffectVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_FogVolumes_" data-uid="LastFleet.Rendering.FrameGeometry.FogVolumes*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_FogVolumes" data-uid="LastFleet.Rendering.FrameGeometry.FogVolumes">
+  FogVolumes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Smoke in the air this frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;FogVolume&gt; FogVolumes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.FogVolume.html">FogVolume</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Lights_" data-uid="LastFleet.Rendering.FrameGeometry.Lights*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Lights" data-uid="LastFleet.Rendering.FrameGeometry.Lights">
+  Lights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lights for the level and characters this frame, at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxLights">MaxLights</a>. Put the nearest
+first, because any past the limit are dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;PointLight&gt; Lights { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.PointLight.html">PointLight</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Overlay_" data-uid="LastFleet.Rendering.FrameGeometry.Overlay*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Overlay" data-uid="LastFleet.Rendering.FrameGeometry.Overlay">
+  Overlay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>2D triangles drawn last, over everything.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;OverlayVertex&gt; Overlay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.OverlayVertex.html">OverlayVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_PartTints_" data-uid="LastFleet.Rendering.FrameGeometry.PartTints*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_PartTints" data-uid="LastFleet.Rendering.FrameGeometry.PartTints">
+  PartTints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>One tint per world-mesh part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;Vector4&gt; PartTints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_PreviousSkinMatrices_" data-uid="LastFleet.Rendering.FrameGeometry.PreviousSkinMatrices*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_PreviousSkinMatrices" data-uid="LastFleet.Rendering.FrameGeometry.PreviousSkinMatrices">
+  PreviousSkinMatrices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same bodies' joint matrices last frame, index for index with <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_SkinMatrices">SkinMatrices</a>, for the path
+tracer's motion vectors (a moving body's own motion, not only the camera's). Empty, or shorter, where a body has
+none (it just appeared): its matrices this frame stand in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;Matrix4x4&gt; PreviousSkinMatrices { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Rooms_" data-uid="LastFleet.Rendering.FrameGeometry.Rooms*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Rooms" data-uid="LastFleet.Rendering.FrameGeometry.Rooms">
+  Rooms
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level's rooms and their bounce light, or null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoomLighting? Rooms { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Rendering.Lighting.RoomLighting.html">RoomLighting</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_ShadowRanges_" data-uid="LastFleet.Rendering.FrameGeometry.ShadowRanges*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_ShadowRanges" data-uid="LastFleet.Rendering.FrameGeometry.ShadowRanges">
+  ShadowRanges
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level index ranges the <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Shadows">Shadows</a> draw.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;IndexRange&gt; ShadowRanges { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.IndexRange.html">IndexRange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Shadows_" data-uid="LastFleet.Rendering.FrameGeometry.Shadows*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Shadows" data-uid="LastFleet.Rendering.FrameGeometry.Shadows">
+  Shadows
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shadow maps to draw this frame, at most <a class="xref" href="LastFleet.Rendering.VulkanRenderer.html#LastFleet_Rendering_VulkanRenderer_MaxShadows">MaxShadows</a>. A light uses map k when its
+<a class="xref" href="LastFleet.Rendering.Lighting.PointLight.html#LastFleet_Rendering_Lighting_PointLight_Shadow">Shadow</a> is k.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;ShadowView&gt; Shadows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Lighting.ShadowView.html">ShadowView</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_SkinMatrices_" data-uid="LastFleet.Rendering.FrameGeometry.SkinMatrices*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_SkinMatrices" data-uid="LastFleet.Rendering.FrameGeometry.SkinMatrices">
+  SkinMatrices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The joint matrices for <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Skinned">Skinned</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;Matrix4x4&gt; SkinMatrices { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Skinned_" data-uid="LastFleet.Rendering.FrameGeometry.Skinned*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Skinned" data-uid="LastFleet.Rendering.FrameGeometry.Skinned">
+  Skinned
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The skinned bodies this frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;SkinnedDraw&gt; Skinned { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.SkinnedDraw.html">SkinnedDraw</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Swarm_" data-uid="LastFleet.Rendering.FrameGeometry.Swarm*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Swarm" data-uid="LastFleet.Rendering.FrameGeometry.Swarm">
+  Swarm
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The horde's bodies this frame, near ones first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;SwarmInstance&gt; Swarm { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Rendering.Geometry.SwarmInstance.html">SwarmInstance</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_SwarmNear_" data-uid="LastFleet.Rendering.FrameGeometry.SwarmNear*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_SwarmNear" data-uid="LastFleet.Rendering.FrameGeometry.SwarmNear">
+  SwarmNear
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many of <a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Swarm">Swarm</a> are near (drawn with the full body).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SwarmNear { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_Ui_" data-uid="LastFleet.Rendering.FrameGeometry.Ui*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_Ui" data-uid="LastFleet.Rendering.FrameGeometry.Ui">
+  Ui
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Textured UI drawn over everything, including the overlay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImDrawDataPtr Ui { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/ahwootech/BRUTAL/blob/main/Brutal.ImGui/Generated/Structs/ImDrawData.gen.cs">ImDrawDataPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_ViewModel_" data-uid="LastFleet.Rendering.FrameGeometry.ViewModel*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_ViewModel" data-uid="LastFleet.Rendering.FrameGeometry.ViewModel">
+  ViewModel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weapon in your hands, drawn over the world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;MeshVertex&gt; ViewModel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="LastFleet.Content.Meshes.MeshVertex.html">MeshVertex</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_ViewModelInWorld_" data-uid="LastFleet.Rendering.FrameGeometry.ViewModelInWorld*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_ViewModelInWorld" data-uid="LastFleet.Rendering.FrameGeometry.ViewModelInWorld">
+  ViewModelInWorld
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the view model is drawn with the world's projection (because the viewer's body is holding it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ViewModelInWorld { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_ViewModelWindow_" data-uid="LastFleet.Rendering.FrameGeometry.ViewModelWindow*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_ViewModelWindow" data-uid="LastFleet.Rendering.FrameGeometry.ViewModelWindow">
+  ViewModelWindow
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A scope's eyepiece window looked through this frame: xyz its middle in the world, w the cosine of the angle from
+the eye between its middle and its rim (0 for none). The gun behind it isn't drawn, so the world, and the effects
+in it, show through (world_shading.slang's cutBehindEyepiece; docs/plans/combat.md).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 ViewModelWindow { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_Rendering_FrameGeometry_IsGone_" data-uid="LastFleet.Rendering.FrameGeometry.IsGone*"></a>
+
+  <h3 id="LastFleet_Rendering_FrameGeometry_IsGone_System_Numerics_Vector4_" data-uid="LastFleet.Rendering.FrameGeometry.IsGone(System.Numerics.Vector4)">
+  IsGone(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.Rendering/FrameGeometry.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if a part with <code class="paramref">tint</code> is gone (<a class="xref" href="LastFleet.Rendering.FrameGeometry.html#LastFleet_Rendering_FrameGeometry_Gone">Gone</a>), not just out of sight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsGone(Vector4 tint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AngledHall | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AngledHall | The Last Fleet ">
+      
+      <meta name="description" content="Builds a stretch of ring hall smooth (docs/plans/structure-first.md, Phase 7): its cells are still the grid&#39;s, but its walls follow its band (: round a ring&#39;s bend, or straight on a slant) as straight sides, each a box turned to its side, so the hall reads as a curve instead of steps. The rooms either side keep their walls on the grid.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Modules_AngledHall.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Modules.AngledHall%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Modules.AngledHall">
+
+
+
+  <h1 id="LastFleet_ProcGen_Modules_AngledHall" data-uid="LastFleet.ProcGen.Modules.AngledHall" class="text-break">
+Class AngledHall  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/AngledHall.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Modules.html">Modules</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builds a stretch of ring hall smooth (docs/plans/structure-first.md, Phase 7): its cells are still the grid's, but its
+walls follow its band (<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a>: round a ring's bend, or straight on a slant) as straight sides, each a box turned to its side, so the hall reads as a
+curve instead of steps. The rooms either side keep their walls on the grid.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AngledHall</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AngledHall</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Modules_AngledHall_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The floor covers every cell. The walls stand on the band's two edges, clipped to the stretch's own cells. Where a
+doorway's edge crosses the band (the next stretch, or a door through a bulkhead), the hall runs on through it, and a
+doorway narrower than the edge gets jambs along the edge either side of it so a shut door seals. Where a doorway is off
+the band (a room's door), a throat runs from it to the wall: two jambs along the way in, the wall cut between them.
+</p>
+<p>
+The space between the band and the cells' edges is shut in by the walls either side, so nobody sees or reaches it.
+Every wall is a box (<a class="xref" href="LastFleet.Content.Meshes.BoxFit.html">BoxFit</a>), so it collides as one; nothing is left to the dressing but
+its ceiling and lights (<a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html#LastFleet_ProcGen_Modules_RoomModule_Band">Band</a>).
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Modules_AngledHall_Generate_" data-uid="LastFleet.ProcGen.Modules.AngledHall.Generate*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_AngledHall_Generate_System_String_LastFleet_ProcGen_Rooms_Footprint_System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Modules_ModuleConnector__System_Collections_Generic_IReadOnlySet_System_Int32__System_Collections_Generic_IReadOnlyList_LastFleet_ProcGen_Modules_HallBand__LastFleet_ProcGen_Modules_HallBand_LastFleet_ProcGen_Styles_SurfaceStyle_System_Collections_Generic_IReadOnlyList_System_String__" data-uid="LastFleet.ProcGen.Modules.AngledHall.Generate(System.String,LastFleet.ProcGen.Rooms.Footprint,System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Modules.ModuleConnector},System.Collections.Generic.IReadOnlySet{System.Int32},System.Collections.Generic.IReadOnlyList{LastFleet.ProcGen.Modules.HallBand},LastFleet.ProcGen.Modules.HallBand,LastFleet.ProcGen.Styles.SurfaceStyle,System.Collections.Generic.IReadOnlyList{System.String})">
+  Generate(string, Footprint, IReadOnlyList&lt;ModuleConnector&gt;, IReadOnlySet&lt;int&gt;, IReadOnlyList&lt;HallBand&gt;, HallBand, SurfaceStyle, IReadOnlyList&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/AngledHall.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the stretch of hall standing on <code class="paramref">footprint</code>'s cells round <code class="paramref">band</code> (in
+module coordinates), with <code class="paramref">doors</code>, in <code class="paramref">style</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RoomModule Generate(string id, Footprint footprint, IReadOnlyList&lt;ModuleConnector&gt; doors, IReadOnlySet&lt;int&gt; onward, IReadOnlyList&lt;HallBand&gt; meeting, HallBand band, SurfaceStyle style, IReadOnlyList&lt;string&gt; tags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The module's id, unique within its library.</p>
+</dd>
+    <dt><code>footprint</code> <a class="xref" href="LastFleet.ProcGen.Rooms.Footprint.html">Footprint</a></dt>
+    <dd><p>Its cells, on one story.</p>
+</dd>
+    <dt><code>doors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.ModuleConnector.html">ModuleConnector</a>&gt;</dt>
+    <dd><p>Its doorways, each as wide as given.</p>
+</dd>
+    <dt><code>onward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlyset-1">IReadOnlySet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Which of <code class="paramref">doors</code> (by index) open onto the next stretch of the same ring hall: its walls carry on
+through them. Any other doorway the band doesn't cross gets a throat, however wide (where a straight hall meets the
+ring).</p>
+</dd>
+    <dt><code>meeting</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a>&gt;</dt>
+    <dd><p>The bands of the other smooth halls it meets (a bridge's at a ring), in module coordinates: its walls stop where
+their floors are, so the two open into each other.</p>
+</dd>
+    <dt><code>band</code> <a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+    <dd><p>The band it follows, in module coordinates.</p>
+</dd>
+    <dt><code>style</code> <a class="xref" href="LastFleet.ProcGen.Styles.SurfaceStyle.html">SurfaceStyle</a></dt>
+    <dd><p>Its floor's and walls' look.</p>
+</dd>
+    <dt><code>tags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The roles it fills (a corridor's, or a room's at a dead end).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Modules.RoomModule.html">RoomModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The footprint stands more than one story.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LastFleet_ProcGen_Modules_AngledHall_Reaches_" data-uid="LastFleet.ProcGen.Modules.AngledHall.Reaches*"></a>
+
+  <h3 id="LastFleet_ProcGen_Modules_AngledHall_Reaches_LastFleet_ProcGen_Modules_HallBand_System_Numerics_Vector2_System_Numerics_Vector2_" data-uid="LastFleet.ProcGen.Modules.AngledHall.Reaches(LastFleet.ProcGen.Modules.HallBand,System.Numerics.Vector2,System.Numerics.Vector2)">
+  Reaches(HallBand, Vector2, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Modules/AngledHall.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a doorway in the middle of a cell's edge at <code class="paramref">middle</code> (X and Z, in the arc's frame), looking
+<code class="paramref">inward</code> into the hall, has the hall's band inside the cell it opens into, both sides of it: near
+enough for a throat whose wall is that stretch's own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Reaches(HallBand band, Vector2 middle, Vector2 inward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>band</code> <a class="xref" href="LastFleet.ProcGen.Modules.HallBand.html">HallBand</a></dt>
+    <dd></dd>
+    <dt><code>middle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>inward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

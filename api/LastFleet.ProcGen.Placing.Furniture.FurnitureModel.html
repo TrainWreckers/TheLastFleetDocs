@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FurnitureModel | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FurnitureModel | The Last Fleet ">
+      
+      <meta name="description" content="A furniture model (a top-level object in a file under content/props, named by its prop&#39;s model), as the generator builds it into a room: its footprint, its solid boxes, its visible shape, and the spots on it where items go () and where other furniture attaches (). Its origin is the center of its base, and it faces into the room along its forward axis (glTF -Z, Blender +Y), the same as a station fixture.">
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TrainWreckers/TheLastFleet/new/main/apiSpec/new?filename=LastFleet_ProcGen_Placing_Furniture_FurnitureModel.md&amp;value=---%0Auid%3A%20LastFleet.ProcGen.Placing.Furniture.FurnitureModel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel">
+
+
+
+  <h1 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel" class="text-break">
+Class FurnitureModel  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LastFleet.html">LastFleet</a>.<a class="xref" href="LastFleet.ProcGen.html">ProcGen</a>.<a class="xref" href="LastFleet.ProcGen.Placing.html">Placing</a>.<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.html">Furniture</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LastFleet.ProcGen.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A furniture model (a top-level object in a file under content/props, named by its prop's <code>model</code>), as the
+generator builds it into a room: its footprint, its solid boxes, its visible shape, and the spots on it where items
+go (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Sockets">Sockets</a>) and where other furniture attaches (<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Attachments">Attachments</a>). Its origin is the center of
+its base, and it faces into the room along its forward axis (glTF -Z, Blender +Y), the same as a station fixture.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FurnitureModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FurnitureModel</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each mesh object under it is visible, solid, or both, based on its name, the same as a station fixture
+(docs/blender/props.md). One named <code>..._NoCollision</code> is visible only, one named <code>..._CollisionOnly</code> is solid
+only, and anything else is both.
+</p>
+<p>
+What it's collided with is its <a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Collider">Collider</a> (content/props/colliders.json). Placed, the part named after the
+piece is what's solid (and what damage goes through, for a breakable piece), and anything visible apart from it is
+one more part, <code>name/Shape</code>, which belongs to it (<a class="xref" href="LastFleet.Content.Encounters.BreakableLayout.html">BreakableLayout</a>):
+</p>
+<ul><li><a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_Authored">Authored</a>: each solid box (which has to be a box) is its own part, the first named
+after the piece and the rest <code>name/Solid2</code> and up.</li><li><a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_Mesh">Mesh</a>: what's drawn is solid as it is, one part named after the piece. The file's
+solid boxes are left out.</li><li><a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_Box">Box</a> and <a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_Cylinder">Cylinder</a>: one solid part around what's drawn,
+named after the piece.</li><li><a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_None">None</a>: only what's drawn.</li></ul>
+<p>
+A piece that breaks takes damage through one solid part, which a mesh isn't (shots hit what's drawn, not the part
+named after it): it keeps its authored box instead.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_AttachPrefix" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.AttachPrefix">
+  AttachPrefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name prefix for an empty marking where attached furniture goes, before its group: <code>Attach_Seat_1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AttachPrefix = &quot;Attach_&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_CylinderSides" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.CylinderSides">
+  CylinderSides
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of sides of the prism rays hit for a <a class="xref" href="LastFleet.Content.Models.ColliderKind.html#LastFleet_Content_Models_ColliderKind_Cylinder">Cylinder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int CylinderSides = 24</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_ShapePart" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.ShapePart">
+  ShapePart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The suffix added to a placed piece's name for its visible part: <code>Desk12/Shape</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ShapePart = &quot;/Shape&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SocketPrefix" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SocketPrefix">
+  SocketPrefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name prefix for an empty marking an item spot, before its group: <code>Socket_Top_1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SocketPrefix = &quot;Socket_&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SocketSpacing" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SocketSpacing">
+  SocketSpacing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum distance between sockets, so the things placed on them (a pile, a keycard, a gun) never touch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SocketSpacing = 0.55</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_AttachmentGroups_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.AttachmentGroups*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_AttachmentGroups" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.AttachmentGroups">
+  AttachmentGroups
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The names of its attachment groups, in order of first appearance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; AttachmentGroups { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Attachments_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Attachments*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Attachments" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Attachments">
+  Attachments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spots where other furniture attaches (a chair at a table), in file order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;FurnitureSocket&gt; Attachments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureSocket.html">FurnitureSocket</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Collider_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Collider*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Collider" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Collider">
+  Collider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What it's collided with once placed: as colliders.json says, except that a piece that breaks keeps its authored
+box rather than a mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColliderKind Collider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Models.ColliderKind.html">ColliderKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Id_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Id*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Id" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Which model it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelId Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Models.ModelId.html">ModelId</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Offset_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Offset*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Offset" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The center of its footprint relative to its origin, at base height. When it's placed, the footprint is centered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Offset { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Size_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Size*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Size" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its footprint size in meters: width (X), height (Y, from base to top) and depth (Z). This is the bounds of
+everything visible and everything solid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Slots_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Slots*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Slots" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Slots">
+  Slots
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Its paint slots, with their colors from the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PaintSlot&gt; Slots { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.Content.Models.PaintSlot.html">PaintSlot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SocketGroups_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SocketGroups*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SocketGroups" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SocketGroups">
+  SocketGroups
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The names of its socket groups, in order of first appearance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; SocketGroups { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Sockets_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Sockets*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Sockets" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Sockets">
+  Sockets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spots where items go on it, in file order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;FurnitureSocket&gt; Sockets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureSocket.html">FurnitureSocket</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SolidCount_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SolidCount*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_SolidCount" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.SolidCount">
+  SolidCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of solid boxes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SolidCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Triangles_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Triangles*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Triangles" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Triangles">
+  Triangles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of visible triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Triangles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Build_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Build*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Build_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Numerics_Vector3__" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Build(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Numerics.Vector3})">
+  Build(IReadOnlyDictionary&lt;string, Vector3&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds a mesh of just this model, the same way it's added to a room (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Stamp(MeshBuilder, string, Vector3, Vector3, IReadOnlyDictionary&lt;string, Vector3&gt;)</a>), at the origin facing
+-Z, with its paint slots colored from <code class="paramref">paint</code>. This is for previewing it (the Studio Props tab);
+its sockets line up with where <a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html#LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Place_System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_">Place(Vector3, Vector3, Vector3)</a> puts them for the same position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeshData Build(IReadOnlyDictionary&lt;string, Vector3&gt;? paint = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>paint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.Content.Meshes.MeshData.html">MeshData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_From_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.From*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_From_LastFleet_Content_Models_LibraryModel_System_Boolean_System_Collections_Generic_List_System_String__LastFleet_Content_Models_ColliderKind_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.From(LastFleet.Content.Models.LibraryModel,System.Boolean,System.Collections.Generic.List{System.String},LastFleet.Content.Models.ColliderKind)">
+  From(LibraryModel, bool, List&lt;string&gt;, ColliderKind)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code class="paramref">model</code> as furniture collided with as <code class="paramref">collider</code> if it's valid: it stands
+on its origin, its sockets and attachments are named correctly, and, collided with its authored boxes, it has
+something solid and every solid part is a box (exactly one if it <code class="paramref">breaks</code>). Otherwise returns null
+and adds what's wrong to <code class="paramref">problems</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FurnitureModel? From(LibraryModel model, bool breaks, List&lt;string&gt; problems, ColliderKind collider = ColliderKind.Authored)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="LastFleet.Content.Models.LibraryModel.html">LibraryModel</a></dt>
+    <dd></dd>
+    <dt><code>breaks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>problems</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>collider</code> <a class="xref" href="LastFleet.Content.Models.ColliderKind.html">ColliderKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.html">FurnitureModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Place_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Place*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Place_System_Numerics_Vector3_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Place(System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3)">
+  Place(Vector3, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns where <code class="paramref">point</code> (in model space) ends up when the model is placed at
+<code class="paramref">position</code> facing <code class="paramref">forward</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Place(Vector3 point, Vector3 position, Vector3 forward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Placement_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Placement*"></a>
+
+  <h3 id="LastFleet_ProcGen_Placing_Furniture_FurnitureModel_Placement_System_Numerics_Vector3_System_Numerics_Vector3_" data-uid="LastFleet.ProcGen.Placing.Furniture.FurnitureModel.Placement(System.Numerics.Vector3,System.Numerics.Vector3)">
+  Placement(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TrainWreckers/TheLastFleet/blob/main/src/LastFleet.ProcGen/Placing/Furniture/FurnitureModel.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the transform that places it at <code class="paramref">position</code> (the center of its footprint's base, in
+level axes), facing <code class="paramref">forward</code> (flattened to the floor plane).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 Placement(Vector3 position, Vector3 forward)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

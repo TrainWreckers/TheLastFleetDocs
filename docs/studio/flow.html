@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Studio: Flow | The Last Fleet </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Studio: Flow | The Last Fleet ">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="The Last Fleet">
+            The Last Fleet
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="studio-flow">Studio: Flow</h1>
+
+<p>The loot data lives in a handful of files: the item tables, the items, the refinery's recipes, the fleet's supplies,
+the grades, the refinery tiers, the fabrications and the loot tables. Each one makes sense on its own, but the
+interesting question crosses all of them. How does a lump of scrap you pick up on deck 2 end up as a gun on the armory
+bench?</p>
+<p>That's what Flow mode is for. It draws the whole chain as boxes and arrows, read left to right, and it's live: click a
+box and edit it right next to the chart, and the chart redraws as you go. It's the place to sanity check the economy
+before you go digging through the other modes.</p>
+<h2 id="how-to-open-it">How to open it</h2>
+<p>Click <strong>Flow</strong> on the mode bar at the top, or start Studio straight into it:</p>
+<pre><code>dotnet run --project src/LastFleet.Studio -- --mode flow
+</code></pre>
+<p><img src="images/flow/01-flow-opens.png" alt="Flow mode as it opens: the chart on the left, the edit panel on the right"></p>
+<p>There are two panels:</p>
+<ul>
+<li><strong>The chart</strong> (left): six columns, each with its title along the top. <em>Where it is found</em> (the item tables, with the
+missions that roll from them), <strong>Items</strong>, <em>What they become</em> (the refinery's recipes, and the fleet's supplies
+below them), <em>Grades and the refinery</em>, <em>What the armory makes</em> and <em>What that rolls</em>. The bar above it says what
+the arrow colors mean: white gives, amber costs, blue unlocks and green is the fleet's.</li>
+<li><strong>The edit panel</strong> (right): empty until you click a box. Then it's the same editor you'd get in Items or Loot mode,
+for whatever that box is.</li>
+</ul>
+<p>Drag the chart to move it, turn the wheel to zoom, and press <strong>See it all</strong> (or double-click an empty spot) to fit the
+whole thing back on screen.</p>
+<h2 id="follow-a-material-to-a-gun">Follow a material to a gun</h2>
+<p>So you want to know where scrap comes from and what it turns into? Here's the flow:</p>
+<ol>
+<li>Turn the mouse wheel over the left side of the chart to zoom in. Once you're close enough, every arrow shows its
+amount.</li>
+<li>Drag an empty spot of the chart to move it, until the first two columns are on screen.</li>
+<li>Rest the mouse on <strong>Scrap metal</strong>. Its arrows light up, with their amounts, and everything else dims.</li>
+</ol>
+<p><img src="images/flow/02-hover-scrap.png" alt="Scrap metal hovered: 11% of station piles, 9% of footlockers, and 10 into each of two recipes"></p>
+<p>Read it left to right. The white arrows coming in are the item tables that give scrap, with the share of their rolls
+(11% of a station pile, 9% of a footlocker). The amber arrows going out are what it costs: <code>x10</code> scrap into each of
+the two recipes that take it.</p>
+<p>Want to keep going? Rest the mouse on the recipe, then on the grade it gives, and you'll walk the whole way to the
+armory's fabrications and the loot table they roll from. That's it!</p>
+<h2 id="change-what-a-recipe-makes">Change what a recipe makes</h2>
+<p>Say the <em>Scrap into Mk I</em> recipe feels too generous, and you want it to make Mk II instead. You don't need to go find
+it in Items mode. Just do it from the chart:</p>
+<ol>
+<li><p>Click the <strong>Scrap into Mk I</strong> box. It gets a white outline, and the edit panel shows the recipe: its <code>id</code>, <code>name</code>,
+<code>inputs</code>, <code>grade</code> and <code>gives</code>.</p>
+<p><img src="images/flow/03-recipe-picked.png" alt="The Scrap into Mk I recipe picked, and its fields in the panel"></p>
+</li>
+<li><p>Open the <strong>grade</strong> list and pick <code>mk2</code>. The chart redraws right away: the recipe's white arrow now runs to <strong>Mk II</strong>,
+and Mk I drops down the column, since nothing refines into it anymore.</p>
+<p><img src="images/flow/04-grade-changed.png" alt="The recipe's grade set to mk2, its arrow now going to Mk II"></p>
+</li>
+<li><p>Now let's make it cost something rarer too. Open <strong>+ add inputs...</strong> under the inputs. It only offers the raw
+materials the recipe doesn't take yet (<code>ore</code>, <code>circuitry</code>, <code>crystal</code>). Pick <code>crystal</code>.</p>
+<p>A new amber arrow runs from <strong>Choir crystal</strong> into the recipe, <code>x10</code>, and the panel has a row for it with an
+<strong>open</strong> button (jump to that item) and an <strong>x</strong> (take it out again).</p>
+<p><img src="images/flow/05-input-added.png" alt="Crystal added as a second input: a new amber arrow from Choir crystal"></p>
+</li>
+</ol>
+<p>The panel's title now says <strong>(not saved)</strong>, and the bottom line says &quot;1 file not saved (Ctrl+S): crafting.json&quot;. Happy
+with it? <strong>Ctrl+S</strong> writes it. Not so sure? <strong>Ctrl+Z</strong> takes back one change at a time.</p>
+<h2 id="find-and-fix-a-broken-name">Find and fix a broken name</h2>
+<p>Everything in the loot data refers to everything else by id. So what happens when an id changes and something still
+uses the old one? Flow makes it really obvious.</p>
+<ol>
+<li>Click the <strong>Choir crystal</strong> box. The panel shows the item, with its <code>id</code> (<code>crystal</code>) at the top.</li>
+<li>Click the <strong>id</strong> field, select it all (Ctrl+A), type <code>crystl</code> and press Enter. Typo on purpose!</li>
+</ol>
+<p>The chart goes red where things broke. The recipe that takes crystal now points at a red box, <strong>crystal</strong>, &quot;no such
+item&quot;, with red arrows. The bar above the chart counts them (&quot;2 broken links, in red: each names something that is
+not there&quot;), and the bottom of the window lists the game's own errors: the <code>station.case</code> table and the <code>mk4_crystal</code>
+recipe both name a <code>crystal</code> that's gone.</p>
+<p><img src="images/flow/06-broken-link.png" alt="Crystal renamed to crystl: a red &quot;no such item&quot; box, 2 broken links counted, and the errors at the bottom"></p>
+<p>The chart is read straight from the files, so it still shows when the data doesn't build. The rest of Studio shows
+the last version that built until you fix it, and the game would refuse the data as it stands, so don't save it like
+this.</p>
+<ol start="3">
+<li>Fix the name: here, <strong>Ctrl+Z</strong> puts the id back. In real life, the red box tells you which name to fix, and where.</li>
+</ol>
+<p>The red is gone, the broken links are gone, and the bottom line says &quot;Saved.&quot; again.</p>
+<p><img src="images/flow/07-fixed.png" alt="The id put back: no red boxes, and the status says Saved"></p>
+<h2 id="point-a-fabrication-at-a-different-loot-table">Point a fabrication at a different loot table</h2>
+<p>The armory bench fabricates weapons and parts, and each fabrication says which loot table its weapon rolls from. Want
+the Mk I weapon to come out of a different table? Here's how:</p>
+<ol>
+<li><p>Drag the chart left until the last two columns, <em>What the armory makes</em> and <em>What that rolls</em>, are on screen.</p>
+</li>
+<li><p>Click <strong>Weapon (Mk I)</strong>. The panel shows what it <code>makes</code>, the <code>table</code> it rolls from, its <code>grade</code> and its <code>cost</code>.</p>
+</li>
+<li><p>Open <strong>table</strong> and pick another one, e.g. <code>loot.station.soldier.shotgun</code>. The fabrication's <em>rolls</em> arrow now runs
+to a new box for that table on the right.</p>
+<p><img src="images/flow/08-fabrication-table.png" alt="Weapon (Mk I) now rolls from loot.station.soldier.shotgun"></p>
+</li>
+<li><p>Every reference in the panel has an <strong>open</strong> button next to it. Click the one beside <strong>grade</strong> and the panel
+jumps to the <code>mk1</code> grade: its <code>itemLevel</code>, and on the chart, every fabrication it pays for, with how many.</p>
+<p><img src="images/flow/09-open-grade.png" alt="The mk1 grade opened from the fabrication: its arrows lit, x3 for a weapon and x1 for each part"></p>
+</li>
+</ol>
+<p>As always, <strong>Ctrl+S</strong> keeps the change and <strong>Ctrl+Z</strong> takes it back.</p>
+<h2 id="where-to-next">Where to next</h2>
+<ul>
+<li>The reference for this mode is <a href="reference.html#flow-how-it-all-connects">Flow: how it all connects</a>.</li>
+<li>The fields you edit here are the same ones as in Items mode (items, item tables, supplies, crafting) and Loot mode
+(loot tables). Flow is just a different way in.</li>
+<li>What a mission rolls its piles, footlockers and crates from is set in the mission template. See
+<a href="missions.html">missions.md</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          The Last Fleet: guides for artists and designers, and the code's API reference.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
